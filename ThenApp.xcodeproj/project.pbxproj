@@ -1,0 +1,1341 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 100;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		209AC6E1302BC5F8FB2E8325 /* ThenAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF4B41BCB10051585A9C2A /* ThenAppUITests.swift */; };
+		00239FDC13BF73693DBB6D3E /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = 02BEE0611CFB50A96F5A0656 /* OpenAPIURLSession */; };
+		0143F9BE8DA64003DA2FDB52 /* LedgerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD50517FC8E2FEB8CD3416 /* LedgerView.swift */; };
+		0397A74B68F2F8B123120A06 /* LedgerPresentationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1C928A3FDDF58B4912D653 /* LedgerPresentationModelTests.swift */; };
+		064E8E52785073B2B4053799 /* LedgerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26FD2FBE7DF8DEDBF7812F /* LedgerViewModel.swift */; };
+		077376359B120F439528CDFD /* ConfirmBaseCurrencyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A50CF596AA4D2CEA7A340 /* ConfirmBaseCurrencyUseCase.swift */; };
+		09253E9D150197C8F8C2255D /* LedgerAmountTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C342E43F7AFE6318C01D7E3 /* LedgerAmountTextTests.swift */; };
+		12AE0E62B7D70058AE72D256 /* AccountManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BED6E25F082EEED18A7B94 /* AccountManagementView.swift */; };
+		163E85A7208892AD9AF6CBD6 /* LedgerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85CECC3BD3DF5F9E8ACDFE7 /* LedgerModels.swift */; };
+		174AEB1DB0DDA53BFB4773DE /* TestDatabaseSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98D21599F96D9590608098 /* TestDatabaseSupport.swift */; };
+		1AAA557D82222F220D8D24B1 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CFE93B2196136E9BF4834B /* TodayView.swift */; };
+		1B50D372B1A1FAF1377752DC /* GRDBLedgerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8864B9F03E9C021312A59C37 /* GRDBLedgerRepository.swift */; };
+		29FA88769EFAF8ECD8DB7211 /* LocalLedgerBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FB51BEF91D14E86E5D16F /* LocalLedgerBootstrap.swift */; };
+		2EDEBB8D877F9DB0BCE0D125 /* ThenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F449F280C9D45D8C2C0CC5E /* ThenApp.swift */; };
+		5465E154EB49214079E6D287 /* CurrencyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44F6E284ECA6721B3475ADB /* CurrencyCode.swift */; };
+		68F17E141F984B3357BF4B1A /* QuickTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E0E58BCE12A676EC325CB /* QuickTransactionView.swift */; };
+		7C3B46D48C67C82F19A9A435 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A6DDECCD9B80EB9D5FF65 /* RootView.swift */; };
+		7D3837F41240B331D60B65FD /* AppLaunchModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B747053D3571C66B13E8BC0 /* AppLaunchModeTests.swift */; };
+		7D6150C5641A55DAF201E579 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411E9CE7458F9D0EDF1ECF0 /* AppEnvironment.swift */; };
+		7DED63A3419E87FC110DC429 /* DatabaseMigrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FF037801A0FF78605CA60B /* DatabaseMigrations.swift */; };
+		7F88010901451B14FAF73C01 /* GRDBLedgerRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CB9EFA5F49E75B1BBAA673 /* GRDBLedgerRepositoryTests.swift */; };
+		89F4A0E6E51C0667EE53E949 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51A8C849DCB0DA780726FAE /* TodayViewModel.swift */; };
+		8F21AF17AA63A1CCCCB33FC7 /* AppDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D1A0630B6864CCD0A0664 /* AppDatabaseTests.swift */; };
+		93A8690C229A34EA1BA9900D /* LedgerAmountText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8C98246A734F4C4DEE43FE /* LedgerAmountText.swift */; };
+		94A000000000000000000001 /* RefundTransactionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B000000000000000000001 /* RefundTransactionUseCase.swift */; };
+		94A000000000000000000002 /* ReverseTransactionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B000000000000000000002 /* ReverseTransactionUseCase.swift */; };
+		94A000000000000000000003 /* CorrectTransactionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B000000000000000000003 /* CorrectTransactionUseCase.swift */; };
+		95A000000000000000000001 /* LedgerTransactionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B000000000000000000001 /* LedgerTransactionDetailViewModel.swift */; };
+		95A000000000000000000002 /* LedgerTransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B000000000000000000002 /* LedgerTransactionDetailView.swift */; };
+		96A000000000000000000001 /* ReceiptOCRModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B000000000000000000001 /* ReceiptOCRModels.swift */; };
+		96A000000000000000000002 /* VisionReceiptOCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B000000000000000000002 /* VisionReceiptOCRService.swift */; };
+		96A000000000000000000003 /* ReceiptCameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B000000000000000000003 /* ReceiptCameraPicker.swift */; };
+		96A000000000000000000004 /* ReceiptOCRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B000000000000000000004 /* ReceiptOCRTests.swift */; };
+		97A000000000000000000001 /* CalendarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000001 /* CalendarModels.swift */; };
+		97A000000000000000000002 /* EventKitCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000002 /* EventKitCalendarService.swift */; };
+		97A000000000000000000003 /* GRDBCalendarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000003 /* GRDBCalendarRepository.swift */; };
+		97A000000000000000000004 /* CalendarImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000004 /* CalendarImportService.swift */; };
+		97A000000000000000000005 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000005 /* CalendarViewModel.swift */; };
+		97A000000000000000000006 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000006 /* CalendarView.swift */; };
+		97A000000000000000000007 /* CalendarImportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000007 /* CalendarImportTests.swift */; };
+		97A000000000000000000008 /* CalendarRevisionReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000008 /* CalendarRevisionReviewViewModel.swift */; };
+		97A000000000000000000009 /* CalendarRevisionReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000009 /* CalendarRevisionReviewView.swift */; };
+		98A000000000000000000001 /* TripPlanningModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000001 /* TripPlanningModels.swift */; };
+		98A000000000000000000002 /* GRDBTripPlanRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000002 /* GRDBTripPlanRepository.swift */; };
+		98A000000000000000000003 /* TripPlanningService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000003 /* TripPlanningService.swift */; };
+		98A000000000000000000004 /* MapKitTravelServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000004 /* MapKitTravelServices.swift */; };
+		98A000000000000000000005 /* LocalNotificationReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000005 /* LocalNotificationReminderService.swift */; };
+		98A000000000000000000006 /* TripPlanningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000006 /* TripPlanningTests.swift */; };
+		98A000000000000000000007 /* TripPlanEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000007 /* TripPlanEditorViewModel.swift */; };
+		98A000000000000000000008 /* TripPlanEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000008 /* TripPlanEditorView.swift */; };
+		98A000000000000000000009 /* TripPlanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000009 /* TripPlanListView.swift */; };
+		99A000000000000000000001 /* JourneyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B000000000000000000001 /* JourneyModels.swift */; };
+		99A000000000000000000002 /* GRDBJourneyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B000000000000000000002 /* GRDBJourneyRepository.swift */; };
+		99A000000000000000000003 /* JourneyRecordingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B000000000000000000003 /* JourneyRecordingService.swift */; };
+		99A000000000000000000004 /* CoreLocationJourneyDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B000000000000000000004 /* CoreLocationJourneyDriver.swift */; };
+		99A000000000000000000005 /* JourneyRecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B000000000000000000005 /* JourneyRecordingViewModel.swift */; };
+		99A000000000000000000006 /* JourneyRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B000000000000000000006 /* JourneyRecordingView.swift */; };
+		99A000000000000000000007 /* JourneyRecordingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B000000000000000000007 /* JourneyRecordingTests.swift */; };
+		9AA000000000000000000001 /* LifeLinkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB000000000000000000001 /* LifeLinkModels.swift */; };
+		9AA000000000000000000002 /* LifeLinkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB000000000000000000002 /* LifeLinkService.swift */; };
+		9AA000000000000000000003 /* GRDBLifeLinkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB000000000000000000003 /* GRDBLifeLinkRepository.swift */; };
+		9AA000000000000000000004 /* LifeLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB000000000000000000004 /* LifeLinkTests.swift */; };
+		9DA000000000000000000001 /* TodaySnapshotService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB000000000000000000001 /* TodaySnapshotService.swift */; };
+		9DA000000000000000000002 /* TodaySnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB000000000000000000002 /* TodaySnapshotTests.swift */; };
+		9EA000000000000000000001 /* PermissionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB000000000000000000001 /* PermissionModels.swift */; };
+		9EA000000000000000000002 /* SystemPermissionStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB000000000000000000002 /* SystemPermissionStatusService.swift */; };
+		9EA000000000000000000003 /* MyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB000000000000000000003 /* MyViewModel.swift */; };
+		9EA000000000000000000004 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB000000000000000000004 /* MyView.swift */; };
+		9FA000000000000000000001 /* JourneyExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB000000000000000000001 /* JourneyExpenseView.swift */; };
+		9GA000000000000000000001 /* NavigationAndProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9GB000000000000000000001 /* NavigationAndProfileTests.swift */; };
+		9HA000000000000000000001 /* LocalDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9HB000000000000000000001 /* LocalDataModels.swift */; };
+		9HA000000000000000000002 /* GRDBLocalDataManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9HB000000000000000000002 /* GRDBLocalDataManagementService.swift */; };
+		9HA000000000000000000003 /* LocalDataShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9HB000000000000000000003 /* LocalDataShareSheet.swift */; };
+		9HA000000000000000000004 /* LocalDataManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9HB000000000000000000004 /* LocalDataManagementTests.swift */; };
+		9IA000000000000000000001 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 9IB000000000000000000001 /* PrivacyInfo.xcprivacy */; };
+		9JA000000000000000000001 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9JB000000000000000000001 /* Localizable.xcstrings */; };
+		9JA000000000000000000002 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9JB000000000000000000002 /* InfoPlist.xcstrings */; };
+		95117A03A4C12A97D864C7E4 /* SetLedgerAccountStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36B38BE0717B66F01A684CE /* SetLedgerAccountStatusUseCase.swift */; };
+		9A6DCBCFEF7712E01252E426 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D780F50C49585A9D54FCDBB3 /* AppDatabase.swift */; };
+		9C3DB5089E57B70446820CF8 /* openapi-generator-config.yaml in Sources */ = {isa = PBXBuildFile; fileRef = 9845780BA6924D26C20502F6 /* openapi-generator-config.yaml */; };
+		A37940111E10E0388E866AFE /* CreateTransactionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4510CDC89BF6F26AC389B76 /* CreateTransactionUseCase.swift */; };
+		A905881605770330E8FA0F2D /* LedgerQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE53B175DBB45C895DF11C8 /* LedgerQueryService.swift */; };
+		B677C7A5B09A56DF93A3920F /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = C6172DF9179DD456FAE1F314 /* GRDB */; };
+		C0696E709F18AF2DEF320134 /* LedgerPostingPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE97AB4513784FE534432E /* LedgerPostingPlan.swift */; };
+		CDC82685CE886F607339DFFF /* LedgerPostingPlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676C00C974F213E1969EBD09 /* LedgerPostingPlanTests.swift */; };
+		D03BA55BB508833EB3A1E41B /* PositiveMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5547E5C1A307AF2859776F0 /* PositiveMoney.swift */; };
+		DBD0ED71F8D9B7CD79C34225 /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 1238C53EC6F4C5D1AF5C7CD8 /* OpenAPIRuntime */; };
+		E79C27E09D228B561149576A /* QuickTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F76730B77FC8CC84AE3EB75 /* QuickTransactionViewModel.swift */; };
+		E7F186EC19AEDBD04C515BFC /* openapi.yaml in Sources */ = {isa = PBXBuildFile; fileRef = E021A163CE3869AFBF3CC678 /* openapi.yaml */; };
+		E84A60BFEE7B95C509E10DA1 /* LedgerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C025F91C7D18EAB8C16D0 /* LedgerRepository.swift */; };
+		F491B2AF6450381B4356A9D2 /* AccountManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48D495118BDEE16C37DC1E /* AccountManagementViewModel.swift */; };
+		F6920BD5E4E4E619E9E47552 /* CreateLedgerAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38364529257694C89AB6815 /* CreateLedgerAccountUseCase.swift */; };
+		FFE3CA269B18AF540DD060C8 /* AppLaunchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233AF95F0AEB00CEF84C7A93 /* AppLaunchMode.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		591071597D79E28F5711CDFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 120BA4F31277F8B7E2864012 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC07D24FB6036D0E8E6A5B6B;
+			remoteInfo = ThenApp;
+		};
+		82D3933384F7E18C17183B3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 120BA4F31277F8B7E2864012 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC07D24FB6036D0E8E6A5B6B;
+			remoteInfo = ThenApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3EDF4B41BCB10051585A9C2A /* ThenAppUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThenAppUITests.swift; sourceTree = "<group>"; };
+		1B98D21599F96D9590608098 /* TestDatabaseSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestDatabaseSupport.swift; sourceTree = "<group>"; };
+		21BED6E25F082EEED18A7B94 /* AccountManagementView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccountManagementView.swift; sourceTree = "<group>"; };
+		233AF95F0AEB00CEF84C7A93 /* AppLaunchMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppLaunchMode.swift; sourceTree = "<group>"; };
+		2C3D1A0630B6864CCD0A0664 /* AppDatabaseTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDatabaseTests.swift; sourceTree = "<group>"; };
+		3B747053D3571C66B13E8BC0 /* AppLaunchModeTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppLaunchModeTests.swift; sourceTree = "<group>"; };
+		3E48D495118BDEE16C37DC1E /* AccountManagementViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccountManagementViewModel.swift; sourceTree = "<group>"; };
+		437A50CF596AA4D2CEA7A340 /* ConfirmBaseCurrencyUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfirmBaseCurrencyUseCase.swift; sourceTree = "<group>"; };
+		463A6DDECCD9B80EB9D5FF65 /* RootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		5F449F280C9D45D8C2C0CC5E /* ThenApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThenApp.swift; sourceTree = "<group>"; };
+		614FB51BEF91D14E86E5D16F /* LocalLedgerBootstrap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalLedgerBootstrap.swift; sourceTree = "<group>"; };
+		676C00C974F213E1969EBD09 /* LedgerPostingPlanTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerPostingPlanTests.swift; sourceTree = "<group>"; };
+		68CB9EFA5F49E75B1BBAA673 /* GRDBLedgerRepositoryTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GRDBLedgerRepositoryTests.swift; sourceTree = "<group>"; };
+		6C1C928A3FDDF58B4912D653 /* LedgerPresentationModelTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerPresentationModelTests.swift; sourceTree = "<group>"; };
+		6F76730B77FC8CC84AE3EB75 /* QuickTransactionViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QuickTransactionViewModel.swift; sourceTree = "<group>"; };
+		8864B9F03E9C021312A59C37 /* GRDBLedgerRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GRDBLedgerRepository.swift; sourceTree = "<group>"; };
+		8A26FD2FBE7DF8DEDBF7812F /* LedgerViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerViewModel.swift; sourceTree = "<group>"; };
+		8C342E43F7AFE6318C01D7E3 /* LedgerAmountTextTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerAmountTextTests.swift; sourceTree = "<group>"; };
+		94B000000000000000000001 /* RefundTransactionUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RefundTransactionUseCase.swift; sourceTree = "<group>"; };
+		94B000000000000000000002 /* ReverseTransactionUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReverseTransactionUseCase.swift; sourceTree = "<group>"; };
+		94B000000000000000000003 /* CorrectTransactionUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CorrectTransactionUseCase.swift; sourceTree = "<group>"; };
+		95B000000000000000000001 /* LedgerTransactionDetailViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerTransactionDetailViewModel.swift; sourceTree = "<group>"; };
+		95B000000000000000000002 /* LedgerTransactionDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerTransactionDetailView.swift; sourceTree = "<group>"; };
+		96B000000000000000000001 /* ReceiptOCRModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReceiptOCRModels.swift; sourceTree = "<group>"; };
+		96B000000000000000000002 /* VisionReceiptOCRService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VisionReceiptOCRService.swift; sourceTree = "<group>"; };
+		96B000000000000000000003 /* ReceiptCameraPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReceiptCameraPicker.swift; sourceTree = "<group>"; };
+		96B000000000000000000004 /* ReceiptOCRTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReceiptOCRTests.swift; sourceTree = "<group>"; };
+		97B000000000000000000001 /* CalendarModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarModels.swift; sourceTree = "<group>"; };
+		97B000000000000000000002 /* EventKitCalendarService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventKitCalendarService.swift; sourceTree = "<group>"; };
+		97B000000000000000000003 /* GRDBCalendarRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GRDBCalendarRepository.swift; sourceTree = "<group>"; };
+		97B000000000000000000004 /* CalendarImportService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarImportService.swift; sourceTree = "<group>"; };
+		97B000000000000000000005 /* CalendarViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		97B000000000000000000006 /* CalendarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		97B000000000000000000007 /* CalendarImportTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarImportTests.swift; sourceTree = "<group>"; };
+		97B000000000000000000008 /* CalendarRevisionReviewViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarRevisionReviewViewModel.swift; sourceTree = "<group>"; };
+		97B000000000000000000009 /* CalendarRevisionReviewView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarRevisionReviewView.swift; sourceTree = "<group>"; };
+		98B000000000000000000001 /* TripPlanningModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TripPlanningModels.swift; sourceTree = "<group>"; };
+		98B000000000000000000002 /* GRDBTripPlanRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GRDBTripPlanRepository.swift; sourceTree = "<group>"; };
+		98B000000000000000000003 /* TripPlanningService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TripPlanningService.swift; sourceTree = "<group>"; };
+		98B000000000000000000004 /* MapKitTravelServices.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MapKitTravelServices.swift; sourceTree = "<group>"; };
+		98B000000000000000000005 /* LocalNotificationReminderService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalNotificationReminderService.swift; sourceTree = "<group>"; };
+		98B000000000000000000006 /* TripPlanningTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TripPlanningTests.swift; sourceTree = "<group>"; };
+		98B000000000000000000007 /* TripPlanEditorViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TripPlanEditorViewModel.swift; sourceTree = "<group>"; };
+		98B000000000000000000008 /* TripPlanEditorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TripPlanEditorView.swift; sourceTree = "<group>"; };
+		98B000000000000000000009 /* TripPlanListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TripPlanListView.swift; sourceTree = "<group>"; };
+		99B000000000000000000001 /* JourneyModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JourneyModels.swift; sourceTree = "<group>"; };
+		99B000000000000000000002 /* GRDBJourneyRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GRDBJourneyRepository.swift; sourceTree = "<group>"; };
+		99B000000000000000000003 /* JourneyRecordingService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JourneyRecordingService.swift; sourceTree = "<group>"; };
+		99B000000000000000000004 /* CoreLocationJourneyDriver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreLocationJourneyDriver.swift; sourceTree = "<group>"; };
+		99B000000000000000000005 /* JourneyRecordingViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JourneyRecordingViewModel.swift; sourceTree = "<group>"; };
+		99B000000000000000000006 /* JourneyRecordingView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JourneyRecordingView.swift; sourceTree = "<group>"; };
+		99B000000000000000000007 /* JourneyRecordingTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JourneyRecordingTests.swift; sourceTree = "<group>"; };
+		9AB000000000000000000001 /* LifeLinkModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LifeLinkModels.swift; sourceTree = "<group>"; };
+		9AB000000000000000000002 /* LifeLinkService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LifeLinkService.swift; sourceTree = "<group>"; };
+		9AB000000000000000000003 /* GRDBLifeLinkRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GRDBLifeLinkRepository.swift; sourceTree = "<group>"; };
+		9AB000000000000000000004 /* LifeLinkTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LifeLinkTests.swift; sourceTree = "<group>"; };
+		9DB000000000000000000001 /* TodaySnapshotService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TodaySnapshotService.swift; sourceTree = "<group>"; };
+		9DB000000000000000000002 /* TodaySnapshotTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TodaySnapshotTests.swift; sourceTree = "<group>"; };
+		9EB000000000000000000001 /* PermissionModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PermissionModels.swift; sourceTree = "<group>"; };
+		9EB000000000000000000002 /* SystemPermissionStatusService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SystemPermissionStatusService.swift; sourceTree = "<group>"; };
+		9EB000000000000000000003 /* MyViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MyViewModel.swift; sourceTree = "<group>"; };
+		9EB000000000000000000004 /* MyView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
+		9FB000000000000000000001 /* JourneyExpenseView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JourneyExpenseView.swift; sourceTree = "<group>"; };
+		9GB000000000000000000001 /* NavigationAndProfileTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationAndProfileTests.swift; sourceTree = "<group>"; };
+		9HB000000000000000000001 /* LocalDataModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalDataModels.swift; sourceTree = "<group>"; };
+		9HB000000000000000000002 /* GRDBLocalDataManagementService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GRDBLocalDataManagementService.swift; sourceTree = "<group>"; };
+		9HB000000000000000000003 /* LocalDataShareSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalDataShareSheet.swift; sourceTree = "<group>"; };
+		9HB000000000000000000004 /* LocalDataManagementTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalDataManagementTests.swift; sourceTree = "<group>"; };
+		9IB000000000000000000001 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		9JB000000000000000000001 /* Localizable.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		9JB000000000000000000002 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		9845780BA6924D26C20502F6 /* openapi-generator-config.yaml */ = {isa = PBXFileReference; includeInIndex = 1; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
+		A37906A90D0BBE69D4EE243D /* ThenAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThenAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10DFA76DE5D4B252855E96B /* ThenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B44F6E284ECA6721B3475ADB /* CurrencyCode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CurrencyCode.swift; sourceTree = "<group>"; };
+		B5547E5C1A307AF2859776F0 /* PositiveMoney.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PositiveMoney.swift; sourceTree = "<group>"; };
+		C34E0E58BCE12A676EC325CB /* QuickTransactionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QuickTransactionView.swift; sourceTree = "<group>"; };
+		C46C025F91C7D18EAB8C16D0 /* LedgerRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerRepository.swift; sourceTree = "<group>"; };
+		C85CECC3BD3DF5F9E8ACDFE7 /* LedgerModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerModels.swift; sourceTree = "<group>"; };
+		C8FF037801A0FF78605CA60B /* DatabaseMigrations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DatabaseMigrations.swift; sourceTree = "<group>"; };
+		D36B38BE0717B66F01A684CE /* SetLedgerAccountStatusUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SetLedgerAccountStatusUseCase.swift; sourceTree = "<group>"; };
+		D780F50C49585A9D54FCDBB3 /* AppDatabase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
+		DBEE97AB4513784FE534432E /* LedgerPostingPlan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerPostingPlan.swift; sourceTree = "<group>"; };
+		DDFD50517FC8E2FEB8CD3416 /* LedgerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerView.swift; sourceTree = "<group>"; };
+		E021A163CE3869AFBF3CC678 /* openapi.yaml */ = {isa = PBXFileReference; includeInIndex = 1; path = openapi.yaml; sourceTree = "<group>"; };
+		E411E9CE7458F9D0EDF1ECF0 /* AppEnvironment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		E4CFE93B2196136E9BF4834B /* TodayView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		E51A8C849DCB0DA780726FAE /* TodayViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
+		EB8C98246A734F4C4DEE43FE /* LedgerAmountText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerAmountText.swift; sourceTree = "<group>"; };
+		EFE53B175DBB45C895DF11C8 /* LedgerQueryService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerQueryService.swift; sourceTree = "<group>"; };
+		F38364529257694C89AB6815 /* CreateLedgerAccountUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateLedgerAccountUseCase.swift; sourceTree = "<group>"; };
+		F4510CDC89BF6F26AC389B76 /* CreateTransactionUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateTransactionUseCase.swift; sourceTree = "<group>"; };
+		FEEA46C5758CE02775D5B87F /* ThenAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThenAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		79A611AA0F19F9DE7EF68753 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B677C7A5B09A56DF93A3920F /* GRDB in Frameworks */,
+				DBD0ED71F8D9B7CD79C34225 /* OpenAPIRuntime in Frameworks */,
+				00239FDC13BF73693DBB6D3E /* OpenAPIURLSession in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D51F57B3DBE1C2AAFA887115 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2333F4B028CEC64258305739 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				EB8C98246A734F4C4DEE43FE /* LedgerAmountText.swift */,
+				95B000000000000000000001 /* LedgerTransactionDetailViewModel.swift */,
+				95B000000000000000000002 /* LedgerTransactionDetailView.swift */,
+				96B000000000000000000003 /* ReceiptCameraPicker.swift */,
+				6F76730B77FC8CC84AE3EB75 /* QuickTransactionViewModel.swift */,
+				C34E0E58BCE12A676EC325CB /* QuickTransactionView.swift */,
+				DDFD50517FC8E2FEB8CD3416 /* LedgerView.swift */,
+				8A26FD2FBE7DF8DEDBF7812F /* LedgerViewModel.swift */,
+				21BED6E25F082EEED18A7B94 /* AccountManagementView.swift */,
+				3E48D495118BDEE16C37DC1E /* AccountManagementViewModel.swift */,
+			);
+			name = Presentation;
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		311139C11C8BE2C7130C3A43 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				C5C0CEC54BD4C43E14BBCC62 /* Today */,
+				F804447CDB14C8D8E04FB096 /* Ledger */,
+				97C000000000000000000001 /* Calendar */,
+				98C000000000000000000001 /* Travel */,
+				9AC000000000000000000001 /* Life */,
+				9EC000000000000000000001 /* Profile */,
+			);
+			name = Features;
+			path = Features;
+			sourceTree = "<group>";
+		};
+		4AABFCDA4185A52D1E4E8752 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				C85CECC3BD3DF5F9E8ACDFE7 /* LedgerModels.swift */,
+				DBEE97AB4513784FE534432E /* LedgerPostingPlan.swift */,
+				C46C025F91C7D18EAB8C16D0 /* LedgerRepository.swift */,
+				96B000000000000000000001 /* ReceiptOCRModels.swift */,
+			);
+			name = Domain;
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		4CB76DA76EF7F93758EF46C5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B10DFA76DE5D4B252855E96B /* ThenApp.app */,
+				FEEA46C5758CE02775D5B87F /* ThenAppTests.xctest */,
+				A37906A90D0BBE69D4EE243D /* ThenAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		71BACB85C2DE6BE426FF19A1 /* ThenAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				3B747053D3571C66B13E8BC0 /* AppLaunchModeTests.swift */,
+				2C3D1A0630B6864CCD0A0664 /* AppDatabaseTests.swift */,
+				1B98D21599F96D9590608098 /* TestDatabaseSupport.swift */,
+				676C00C974F213E1969EBD09 /* LedgerPostingPlanTests.swift */,
+				68CB9EFA5F49E75B1BBAA673 /* GRDBLedgerRepositoryTests.swift */,
+				8C342E43F7AFE6318C01D7E3 /* LedgerAmountTextTests.swift */,
+				6C1C928A3FDDF58B4912D653 /* LedgerPresentationModelTests.swift */,
+				96B000000000000000000004 /* ReceiptOCRTests.swift */,
+				97B000000000000000000007 /* CalendarImportTests.swift */,
+				98B000000000000000000006 /* TripPlanningTests.swift */,
+				99B000000000000000000007 /* JourneyRecordingTests.swift */,
+				9AB000000000000000000004 /* LifeLinkTests.swift */,
+				9DB000000000000000000002 /* TodaySnapshotTests.swift */,
+				9GB000000000000000000001 /* NavigationAndProfileTests.swift */,
+				9HB000000000000000000004 /* LocalDataManagementTests.swift */,
+			);
+			name = ThenAppTests;
+			path = ThenAppTests;
+			sourceTree = "<group>";
+		};
+		4382DDBBEE6E9A5723D21425 /* ThenAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3EDF4B41BCB10051585A9C2A /* ThenAppUITests.swift */,
+			);
+			name = ThenAppUITests;
+			path = ThenAppUITests;
+			sourceTree = "<group>";
+		};
+		8DC01A30587BD097C9A986C8 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				D780F50C49585A9D54FCDBB3 /* AppDatabase.swift */,
+				C8FF037801A0FF78605CA60B /* DatabaseMigrations.swift */,
+			);
+			name = Database;
+			path = Database;
+			sourceTree = "<group>";
+		};
+		A400578503CDE7569E12637E /* Bootstrap */ = {
+			isa = PBXGroup;
+			children = (
+				614FB51BEF91D14E86E5D16F /* LocalLedgerBootstrap.swift */,
+			);
+			name = Bootstrap;
+			path = Bootstrap;
+			sourceTree = "<group>";
+		};
+		C111A927586426E81C180A07 /* ThenApp */ = {
+			isa = PBXGroup;
+			children = (
+				9JB000000000000000000001 /* Localizable.xcstrings */,
+				9JB000000000000000000002 /* InfoPlist.xcstrings */,
+				E6848F95EA0992986D343278 /* App */,
+				E2B74D4D60757D4DA23C166C /* Core */,
+				311139C11C8BE2C7130C3A43 /* Features */,
+				96C000000000000000000001 /* Services */,
+				E021A163CE3869AFBF3CC678 /* openapi.yaml */,
+				9845780BA6924D26C20502F6 /* openapi-generator-config.yaml */,
+				EDF4BED0A1636766AEE9C3CF /* Data */,
+			);
+			name = ThenApp;
+			path = ThenApp;
+			sourceTree = "<group>";
+		};
+		C5C0CEC54BD4C43E14BBCC62 /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				E4CFE93B2196136E9BF4834B /* TodayView.swift */,
+				E51A8C849DCB0DA780726FAE /* TodayViewModel.swift */,
+				9DB000000000000000000001 /* TodaySnapshotService.swift */,
+			);
+			name = Today;
+			path = Today;
+			sourceTree = "<group>";
+		};
+		96C000000000000000000001 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				96C000000000000000000002 /* OCR */,
+				97C000000000000000000006 /* Calendar */,
+				98C000000000000000000006 /* Travel */,
+				9EC000000000000000000004 /* Privacy */,
+			);
+			name = Services;
+			path = Services;
+			sourceTree = "<group>";
+		};
+		96C000000000000000000002 /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				96B000000000000000000002 /* VisionReceiptOCRService.swift */,
+			);
+			name = OCR;
+			path = OCR;
+			sourceTree = "<group>";
+		};
+		DB1662EB5A51CC6F789B83F7 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				233AF95F0AEB00CEF84C7A93 /* AppLaunchMode.swift */,
+				B44F6E284ECA6721B3475ADB /* CurrencyCode.swift */,
+				B5547E5C1A307AF2859776F0 /* PositiveMoney.swift */,
+			);
+			name = Domain;
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		E2B74D4D60757D4DA23C166C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DB1662EB5A51CC6F789B83F7 /* Domain */,
+			);
+			name = Core;
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E6848F95EA0992986D343278 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5F449F280C9D45D8C2C0CC5E /* ThenApp.swift */,
+				463A6DDECCD9B80EB9D5FF65 /* RootView.swift */,
+				E411E9CE7458F9D0EDF1ECF0 /* AppEnvironment.swift */,
+				9IB000000000000000000001 /* PrivacyInfo.xcprivacy */,
+			);
+			name = App;
+			path = App;
+			sourceTree = "<group>";
+		};
+		EDF4BED0A1636766AEE9C3CF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8DC01A30587BD097C9A986C8 /* Database */,
+				A400578503CDE7569E12637E /* Bootstrap */,
+				FA452D8BD81F2DCCDDFC1FCC /* Ledger */,
+				97C000000000000000000005 /* Calendar */,
+				98C000000000000000000005 /* Travel */,
+				9AC000000000000000000004 /* Life */,
+			);
+			name = Data;
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EEFBA87D2DBA16EBF99A4645 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				437A50CF596AA4D2CEA7A340 /* ConfirmBaseCurrencyUseCase.swift */,
+				F4510CDC89BF6F26AC389B76 /* CreateTransactionUseCase.swift */,
+				94B000000000000000000001 /* RefundTransactionUseCase.swift */,
+				94B000000000000000000002 /* ReverseTransactionUseCase.swift */,
+				94B000000000000000000003 /* CorrectTransactionUseCase.swift */,
+				EFE53B175DBB45C895DF11C8 /* LedgerQueryService.swift */,
+				F38364529257694C89AB6815 /* CreateLedgerAccountUseCase.swift */,
+				D36B38BE0717B66F01A684CE /* SetLedgerAccountStatusUseCase.swift */,
+			);
+			name = UseCases;
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		F0B64A2D346FFBBC58616FE8 = {
+			isa = PBXGroup;
+			children = (
+				4CB76DA76EF7F93758EF46C5 /* Products */,
+				C111A927586426E81C180A07 /* ThenApp */,
+				71BACB85C2DE6BE426FF19A1 /* ThenAppTests */,
+				4382DDBBEE6E9A5723D21425 /* ThenAppUITests */,
+			);
+			sourceTree = "<group>";
+		};
+		F804447CDB14C8D8E04FB096 /* Ledger */ = {
+			isa = PBXGroup;
+			children = (
+				4AABFCDA4185A52D1E4E8752 /* Domain */,
+				EEFBA87D2DBA16EBF99A4645 /* UseCases */,
+				2333F4B028CEC64258305739 /* Presentation */,
+			);
+			name = Ledger;
+			path = Ledger;
+			sourceTree = "<group>";
+		};
+		FA452D8BD81F2DCCDDFC1FCC /* Ledger */ = {
+			isa = PBXGroup;
+			children = (
+				8864B9F03E9C021312A59C37 /* GRDBLedgerRepository.swift */,
+			);
+			name = Ledger;
+			path = Ledger;
+			sourceTree = "<group>";
+		};
+		97C000000000000000000001 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				97C000000000000000000002 /* Domain */,
+				97C000000000000000000003 /* UseCases */,
+				97C000000000000000000004 /* Presentation */,
+			);
+			name = Calendar;
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		97C000000000000000000002 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				97B000000000000000000001 /* CalendarModels.swift */,
+			);
+			name = Domain;
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		97C000000000000000000003 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				97B000000000000000000004 /* CalendarImportService.swift */,
+			);
+			name = UseCases;
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		97C000000000000000000004 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				97B000000000000000000005 /* CalendarViewModel.swift */,
+				97B000000000000000000006 /* CalendarView.swift */,
+				97B000000000000000000008 /* CalendarRevisionReviewViewModel.swift */,
+				97B000000000000000000009 /* CalendarRevisionReviewView.swift */,
+			);
+			name = Presentation;
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		97C000000000000000000005 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				97B000000000000000000003 /* GRDBCalendarRepository.swift */,
+			);
+			name = Calendar;
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		97C000000000000000000006 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				97B000000000000000000002 /* EventKitCalendarService.swift */,
+			);
+			name = Calendar;
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		98C000000000000000000001 /* Travel */ = {
+			isa = PBXGroup;
+			children = (
+				98C000000000000000000002 /* Domain */,
+				98C000000000000000000003 /* UseCases */,
+				98C000000000000000000004 /* Presentation */,
+			);
+			name = Travel;
+			path = Travel;
+			sourceTree = "<group>";
+		};
+		98C000000000000000000002 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				98B000000000000000000001 /* TripPlanningModels.swift */,
+				99B000000000000000000001 /* JourneyModels.swift */,
+			);
+			name = Domain;
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		98C000000000000000000003 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				98B000000000000000000003 /* TripPlanningService.swift */,
+				99B000000000000000000003 /* JourneyRecordingService.swift */,
+			);
+			name = UseCases;
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		98C000000000000000000004 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				98B000000000000000000007 /* TripPlanEditorViewModel.swift */,
+				98B000000000000000000008 /* TripPlanEditorView.swift */,
+				98B000000000000000000009 /* TripPlanListView.swift */,
+				99B000000000000000000005 /* JourneyRecordingViewModel.swift */,
+				99B000000000000000000006 /* JourneyRecordingView.swift */,
+			);
+			name = Presentation;
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		98C000000000000000000005 /* Travel */ = {
+			isa = PBXGroup;
+			children = (
+				98B000000000000000000002 /* GRDBTripPlanRepository.swift */,
+				99B000000000000000000002 /* GRDBJourneyRepository.swift */,
+			);
+			name = Travel;
+			path = Travel;
+			sourceTree = "<group>";
+		};
+		98C000000000000000000006 /* Travel */ = {
+			isa = PBXGroup;
+			children = (
+				98B000000000000000000004 /* MapKitTravelServices.swift */,
+				98B000000000000000000005 /* LocalNotificationReminderService.swift */,
+				99B000000000000000000004 /* CoreLocationJourneyDriver.swift */,
+			);
+			name = Travel;
+			path = Travel;
+			sourceTree = "<group>";
+		};
+		9AC000000000000000000001 /* Life */ = {
+			isa = PBXGroup;
+			children = (
+				9AC000000000000000000002 /* Domain */,
+				9AC000000000000000000003 /* UseCases */,
+				9FC000000000000000000001 /* Presentation */,
+			);
+			name = Life;
+			path = Life;
+			sourceTree = "<group>";
+		};
+		9AC000000000000000000002 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				9AB000000000000000000001 /* LifeLinkModels.swift */,
+			);
+			name = Domain;
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		9AC000000000000000000003 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				9AB000000000000000000002 /* LifeLinkService.swift */,
+			);
+			name = UseCases;
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		9AC000000000000000000004 /* Life */ = {
+			isa = PBXGroup;
+			children = (
+				9AB000000000000000000003 /* GRDBLifeLinkRepository.swift */,
+			);
+			name = Life;
+			path = Life;
+			sourceTree = "<group>";
+		};
+		9FC000000000000000000001 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				9FB000000000000000000001 /* JourneyExpenseView.swift */,
+			);
+			name = Presentation;
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		9EC000000000000000000001 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9EC000000000000000000002 /* Domain */,
+				9EC000000000000000000003 /* Presentation */,
+			);
+			name = Profile;
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		9EC000000000000000000002 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				9EB000000000000000000001 /* PermissionModels.swift */,
+				9HB000000000000000000001 /* LocalDataModels.swift */,
+			);
+			name = Domain;
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		9EC000000000000000000003 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				9EB000000000000000000003 /* MyViewModel.swift */,
+				9EB000000000000000000004 /* MyView.swift */,
+				9HB000000000000000000003 /* LocalDataShareSheet.swift */,
+			);
+			name = Presentation;
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		9EC000000000000000000004 /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				9EB000000000000000000002 /* SystemPermissionStatusService.swift */,
+				9HB000000000000000000002 /* GRDBLocalDataManagementService.swift */,
+			);
+			name = Privacy;
+			path = Privacy;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B462285BD7F77618EDDF0035 /* ThenAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3458B434622E93CC5B02447 /* Build configuration list for PBXNativeTarget "ThenAppUITests" */;
+			buildPhases = (
+				22E26125257CD5DFCA7A9EC9 /* Sources */,
+				FA26923236055A42B52DA8CC /* Frameworks */,
+				77675B2FFC5E0ED06923E2A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A8E4EE7FA2AE7B0F6E2C42F /* PBXTargetDependency */,
+			);
+			name = ThenAppUITests;
+			productName = ThenAppUITests;
+			productReference = A37906A90D0BBE69D4EE243D /* ThenAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		86B4D92DF57EB0602F8DFF60 /* ThenAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FE77A648D415DC0F5DE676B /* Build configuration list for PBXNativeTarget "ThenAppTests" */;
+			buildPhases = (
+				2126A56871C30A01FAE91766 /* Sources */,
+				D51F57B3DBE1C2AAFA887115 /* Frameworks */,
+				4D87F133E9741E1CFDDD4679 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F0EA7AC8BB05A7367AACBA99 /* PBXTargetDependency */,
+			);
+			name = ThenAppTests;
+			productName = ThenAppTests;
+			productReference = FEEA46C5758CE02775D5B87F /* ThenAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BC07D24FB6036D0E8E6A5B6B /* ThenApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F68AB42AFD4C7D8A6FFFFA2D /* Build configuration list for PBXNativeTarget "ThenApp" */;
+			buildPhases = (
+				84747EE744FA1A9D63792F15 /* Sources */,
+				79A611AA0F19F9DE7EF68753 /* Frameworks */,
+				114E1ACF8324F392D52D121F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E27C367D0BDD6FDB8481EC2 /* PBXTargetDependency */,
+			);
+			name = ThenApp;
+			packageProductDependencies = (
+				C6172DF9179DD456FAE1F314 /* GRDB */,
+				1238C53EC6F4C5D1AF5C7CD8 /* OpenAPIRuntime */,
+				02BEE0611CFB50A96F5A0656 /* OpenAPIURLSession */,
+			);
+			productName = ThenApp;
+			productReference = B10DFA76DE5D4B252855E96B /* ThenApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		120BA4F31277F8B7E2864012 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 2660;
+				LastUpgradeCheck = 2660;
+			};
+			buildConfigurationList = ADEEA670045E1DB41BCA8DA6 /* Build configuration list for PBXProject "ThenApp" */;
+			compatibilityVersion = "Xcode 26.3";
+			developmentRegion = "zh-Hans";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				"zh-Hans",
+				en,
+				Base,
+			);
+			mainGroup = F0B64A2D346FFBBC58616FE8;
+			minimizedProjectReferenceProxies = 0;
+			packageReferences = (
+				746F45F03F1551F1365317AD /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				87C10ECDCE67CD58083C1857 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */,
+				3CB0B95931458ABC3B333BD3 /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */,
+				4BE1BC09118F9302053E42EA /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */,
+			);
+			preferredProjectObjectVersion = 100;
+			productRefGroup = 4CB76DA76EF7F93758EF46C5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BC07D24FB6036D0E8E6A5B6B /* ThenApp */,
+				86B4D92DF57EB0602F8DFF60 /* ThenAppTests */,
+				B462285BD7F77618EDDF0035 /* ThenAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		114E1ACF8324F392D52D121F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9JA000000000000000000001 /* Localizable.xcstrings in Resources */,
+				9JA000000000000000000002 /* InfoPlist.xcstrings in Resources */,
+				9IA000000000000000000001 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D87F133E9741E1CFDDD4679 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77675B2FFC5E0ED06923E2A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22E26125257CD5DFCA7A9EC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				209AC6E1302BC5F8FB2E8325 /* ThenAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2126A56871C30A01FAE91766 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D3837F41240B331D60B65FD /* AppLaunchModeTests.swift in Sources */,
+				8F21AF17AA63A1CCCCB33FC7 /* AppDatabaseTests.swift in Sources */,
+				174AEB1DB0DDA53BFB4773DE /* TestDatabaseSupport.swift in Sources */,
+				CDC82685CE886F607339DFFF /* LedgerPostingPlanTests.swift in Sources */,
+				7F88010901451B14FAF73C01 /* GRDBLedgerRepositoryTests.swift in Sources */,
+				09253E9D150197C8F8C2255D /* LedgerAmountTextTests.swift in Sources */,
+				0397A74B68F2F8B123120A06 /* LedgerPresentationModelTests.swift in Sources */,
+				96A000000000000000000004 /* ReceiptOCRTests.swift in Sources */,
+				97A000000000000000000007 /* CalendarImportTests.swift in Sources */,
+				98A000000000000000000006 /* TripPlanningTests.swift in Sources */,
+				99A000000000000000000007 /* JourneyRecordingTests.swift in Sources */,
+				9AA000000000000000000004 /* LifeLinkTests.swift in Sources */,
+				9DA000000000000000000002 /* TodaySnapshotTests.swift in Sources */,
+				9GA000000000000000000001 /* NavigationAndProfileTests.swift in Sources */,
+				9HA000000000000000000004 /* LocalDataManagementTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84747EE744FA1A9D63792F15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EDEBB8D877F9DB0BCE0D125 /* ThenApp.swift in Sources */,
+				7C3B46D48C67C82F19A9A435 /* RootView.swift in Sources */,
+				FFE3CA269B18AF540DD060C8 /* AppLaunchMode.swift in Sources */,
+				1AAA557D82222F220D8D24B1 /* TodayView.swift in Sources */,
+				E7F186EC19AEDBD04C515BFC /* openapi.yaml in Sources */,
+				9C3DB5089E57B70446820CF8 /* openapi-generator-config.yaml in Sources */,
+				5465E154EB49214079E6D287 /* CurrencyCode.swift in Sources */,
+				9A6DCBCFEF7712E01252E426 /* AppDatabase.swift in Sources */,
+				7DED63A3419E87FC110DC429 /* DatabaseMigrations.swift in Sources */,
+				29FA88769EFAF8ECD8DB7211 /* LocalLedgerBootstrap.swift in Sources */,
+				7D6150C5641A55DAF201E579 /* AppEnvironment.swift in Sources */,
+				D03BA55BB508833EB3A1E41B /* PositiveMoney.swift in Sources */,
+				163E85A7208892AD9AF6CBD6 /* LedgerModels.swift in Sources */,
+				96A000000000000000000001 /* ReceiptOCRModels.swift in Sources */,
+				C0696E709F18AF2DEF320134 /* LedgerPostingPlan.swift in Sources */,
+				E84A60BFEE7B95C509E10DA1 /* LedgerRepository.swift in Sources */,
+				077376359B120F439528CDFD /* ConfirmBaseCurrencyUseCase.swift in Sources */,
+				A37940111E10E0388E866AFE /* CreateTransactionUseCase.swift in Sources */,
+				94A000000000000000000001 /* RefundTransactionUseCase.swift in Sources */,
+				94A000000000000000000002 /* ReverseTransactionUseCase.swift in Sources */,
+				94A000000000000000000003 /* CorrectTransactionUseCase.swift in Sources */,
+				1B50D372B1A1FAF1377752DC /* GRDBLedgerRepository.swift in Sources */,
+				A905881605770330E8FA0F2D /* LedgerQueryService.swift in Sources */,
+				93A8690C229A34EA1BA9900D /* LedgerAmountText.swift in Sources */,
+				95A000000000000000000001 /* LedgerTransactionDetailViewModel.swift in Sources */,
+				95A000000000000000000002 /* LedgerTransactionDetailView.swift in Sources */,
+				96A000000000000000000003 /* ReceiptCameraPicker.swift in Sources */,
+				E79C27E09D228B561149576A /* QuickTransactionViewModel.swift in Sources */,
+				68F17E141F984B3357BF4B1A /* QuickTransactionView.swift in Sources */,
+				89F4A0E6E51C0667EE53E949 /* TodayViewModel.swift in Sources */,
+				F6920BD5E4E4E619E9E47552 /* CreateLedgerAccountUseCase.swift in Sources */,
+				95117A03A4C12A97D864C7E4 /* SetLedgerAccountStatusUseCase.swift in Sources */,
+				0143F9BE8DA64003DA2FDB52 /* LedgerView.swift in Sources */,
+				064E8E52785073B2B4053799 /* LedgerViewModel.swift in Sources */,
+				12AE0E62B7D70058AE72D256 /* AccountManagementView.swift in Sources */,
+				F491B2AF6450381B4356A9D2 /* AccountManagementViewModel.swift in Sources */,
+				96A000000000000000000002 /* VisionReceiptOCRService.swift in Sources */,
+				97A000000000000000000001 /* CalendarModels.swift in Sources */,
+				97A000000000000000000002 /* EventKitCalendarService.swift in Sources */,
+				97A000000000000000000003 /* GRDBCalendarRepository.swift in Sources */,
+				97A000000000000000000004 /* CalendarImportService.swift in Sources */,
+				97A000000000000000000005 /* CalendarViewModel.swift in Sources */,
+				97A000000000000000000006 /* CalendarView.swift in Sources */,
+				97A000000000000000000008 /* CalendarRevisionReviewViewModel.swift in Sources */,
+				97A000000000000000000009 /* CalendarRevisionReviewView.swift in Sources */,
+				98A000000000000000000001 /* TripPlanningModels.swift in Sources */,
+				98A000000000000000000002 /* GRDBTripPlanRepository.swift in Sources */,
+				98A000000000000000000003 /* TripPlanningService.swift in Sources */,
+				98A000000000000000000004 /* MapKitTravelServices.swift in Sources */,
+				98A000000000000000000005 /* LocalNotificationReminderService.swift in Sources */,
+				98A000000000000000000007 /* TripPlanEditorViewModel.swift in Sources */,
+				98A000000000000000000008 /* TripPlanEditorView.swift in Sources */,
+				98A000000000000000000009 /* TripPlanListView.swift in Sources */,
+				99A000000000000000000001 /* JourneyModels.swift in Sources */,
+				99A000000000000000000002 /* GRDBJourneyRepository.swift in Sources */,
+				99A000000000000000000003 /* JourneyRecordingService.swift in Sources */,
+				99A000000000000000000004 /* CoreLocationJourneyDriver.swift in Sources */,
+				99A000000000000000000005 /* JourneyRecordingViewModel.swift in Sources */,
+				99A000000000000000000006 /* JourneyRecordingView.swift in Sources */,
+				9AA000000000000000000001 /* LifeLinkModels.swift in Sources */,
+				9AA000000000000000000002 /* LifeLinkService.swift in Sources */,
+				9AA000000000000000000003 /* GRDBLifeLinkRepository.swift in Sources */,
+				9DA000000000000000000001 /* TodaySnapshotService.swift in Sources */,
+				9EA000000000000000000001 /* PermissionModels.swift in Sources */,
+				9HA000000000000000000001 /* LocalDataModels.swift in Sources */,
+				9EA000000000000000000002 /* SystemPermissionStatusService.swift in Sources */,
+				9HA000000000000000000002 /* GRDBLocalDataManagementService.swift in Sources */,
+				9EA000000000000000000003 /* MyViewModel.swift in Sources */,
+				9EA000000000000000000004 /* MyView.swift in Sources */,
+				9HA000000000000000000003 /* LocalDataShareSheet.swift in Sources */,
+				9FA000000000000000000001 /* JourneyExpenseView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A8E4EE7FA2AE7B0F6E2C42F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ThenApp;
+			target = BC07D24FB6036D0E8E6A5B6B /* ThenApp */;
+			targetProxy = 591071597D79E28F5711CDFB /* PBXContainerItemProxy */;
+		};
+		8E27C367D0BDD6FDB8481EC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = D128F56BCB39030E41D8FD5B /* plugin:OpenAPIGenerator */;
+		};
+		F0EA7AC8BB05A7367AACBA99 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ThenApp;
+			target = BC07D24FB6036D0E8E6A5B6B /* ThenApp */;
+			targetProxy = 82D3933384F7E18C17183B3D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		853F6E1B3BA08849E7324B13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stephenqiu.then.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = ThenApp;
+			};
+			name = Debug;
+		};
+		84C78DE3A1DDBE8047EFFADE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stephenqiu.then.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = ThenApp;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2491FB4132291008F6F9C922 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		273DFAA815B86504E79D903C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stephenqiu.then.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ThenApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ThenApp";
+			};
+			name = Debug;
+		};
+		53DB5D399FA49DDB15262046 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ThenApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "于是";
+				INFOPLIST_KEY_CLRequireExplicitServiceSession = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSCameraUsageDescription = "用于拍摄票据并在设备内识别记账候选，不保存票据原图。";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "用于读取你明确选择的系统日历，将时间和地点转为本地出行计划；于是不会修改系统事件。";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "只在你主动开始行程后记录本次位置，用于生成距离和完整性摘要；确认摘要后删除原始轨迹。";
+				INFOPLIST_KEY_UIBackgroundModes = location;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stephenqiu.then;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		6F8DFE083DDC7089D4C272C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		A8D3A5F7297FE4285C580B57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ThenApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "于是";
+				INFOPLIST_KEY_CLRequireExplicitServiceSession = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSCameraUsageDescription = "用于拍摄票据并在设备内识别记账候选，不保存票据原图。";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "用于读取你明确选择的系统日历，将时间和地点转为本地出行计划；于是不会修改系统事件。";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "只在你主动开始行程后记录本次位置，用于生成距离和完整性摘要；确认摘要后删除原始轨迹。";
+				INFOPLIST_KEY_UIBackgroundModes = location;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stephenqiu.then;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E9C9A6D7B3B4461D608A13E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stephenqiu.then.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ThenApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ThenApp";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1FE77A648D415DC0F5DE676B /* Build configuration list for PBXNativeTarget "ThenAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9C9A6D7B3B4461D608A13E7 /* Release */,
+				273DFAA815B86504E79D903C /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADEEA670045E1DB41BCA8DA6 /* Build configuration list for PBXProject "ThenApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F8DFE083DDC7089D4C272C2 /* Debug */,
+				2491FB4132291008F6F9C922 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F68AB42AFD4C7D8A6FFFFA2D /* Build configuration list for PBXNativeTarget "ThenApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8D3A5F7297FE4285C580B57 /* Release */,
+				53DB5D399FA49DDB15262046 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3458B434622E93CC5B02447 /* Build configuration list for PBXNativeTarget "ThenAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C78DE3A1DDBE8047EFFADE /* Release */,
+				853F6E1B3BA08849E7324B13 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3CB0B95931458ABC3B333BD3 /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-openapi-runtime.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.12.0;
+			};
+		};
+		4BE1BC09118F9302053E42EA /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-openapi-urlsession.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.3.1;
+			};
+		};
+		746F45F03F1551F1365317AD /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.11.1;
+			};
+		};
+		87C10ECDCE67CD58083C1857 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-openapi-generator.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.13.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		02BEE0611CFB50A96F5A0656 /* OpenAPIURLSession */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BE1BC09118F9302053E42EA /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */;
+			productName = OpenAPIURLSession;
+		};
+		1238C53EC6F4C5D1AF5C7CD8 /* OpenAPIRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3CB0B95931458ABC3B333BD3 /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */;
+			productName = OpenAPIRuntime;
+		};
+		C6172DF9179DD456FAE1F314 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 746F45F03F1551F1365317AD /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+		D128F56BCB39030E41D8FD5B /* plugin:OpenAPIGenerator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87C10ECDCE67CD58083C1857 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */;
+			productName = "plugin:OpenAPIGenerator";
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 120BA4F31277F8B7E2864012 /* Project object */;
+}

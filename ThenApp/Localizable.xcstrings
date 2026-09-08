@@ -1,0 +1,4576 @@
+{
+  "sourceLanguage" : "zh-Hans",
+  "strings" : {
+    "·" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "·"
+          }
+        }
+      }
+    },
+    "· %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· %@"
+          }
+        }
+      }
+    },
+    "%@ · %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · %2$@"
+          }
+        }
+      }
+    },
+    "%@ %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%@%@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@%2$@"
+          }
+        }
+      }
+    },
+    "%lld 年 %lld 月" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld 年 %2$lld 月"
+          }
+        }
+      }
+    },
+    "App" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App"
+          }
+        }
+      }
+    },
+    "Apple 地图未能打开，你可以复制目的地后继续。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple 地图未能打开，你可以复制目的地后继续。"
+          }
+        }
+      }
+    },
+    "iOS 只授予了写入权限；于是不会写系统事件，也无法读取日程。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iOS 只授予了写入权限；于是不会写系统事件，也无法读取日程。"
+          }
+        }
+      }
+    },
+    "MapKit 路线" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MapKit 路线"
+          }
+        }
+      }
+    },
+    "MapKit 路线快照" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MapKit 路线快照"
+          }
+        }
+      }
+    },
+    "P0 不生成或导出日志、崩溃报告、分析事件或诊断包。反馈问题时只需说明版本号，不要附带账务、日历或位置正文。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "P0 不生成或导出日志、崩溃报告、分析事件或诊断包。反馈问题时只需说明版本号，不要附带账务、日历或位置正文。"
+          }
+        }
+      }
+    },
+    "上一个月" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上一个月"
+          }
+        }
+      }
+    },
+    "下一个月" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下一个月"
+          }
+        }
+      }
+    },
+    "下一次出发" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下一次出发"
+          }
+        }
+      }
+    },
+    "丢弃行程并删除原始轨迹" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "丢弃行程并删除原始轨迹"
+          }
+        }
+      }
+    },
+    "之后仍可新建或关联真实消费。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "之后仍可新建或关联真实消费。"
+          }
+        }
+      }
+    },
+    "于是" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "于是"
+          }
+        }
+      }
+    },
+    "于是，内容已隐藏" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "于是，内容已隐藏"
+          }
+        }
+      }
+    },
+    "于是会请求 iOS 的日历完整访问，但只读取你随后明确选择的日历、时间、标题和地点。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "于是会请求 iOS 的日历完整访问，但只读取你随后明确选择的日历、时间、标题和地点。"
+          }
+        }
+      }
+    },
+    "于是没有重建或删除现有数据。请重新启动 App 后再试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "于是没有重建或删除现有数据。请重新启动 App 后再试。"
+          }
+        }
+      }
+    },
+    "交易已发生变化，输入已保留。请检查最新详情后再次确认。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "交易已发生变化，输入已保留。请检查最新详情后再次确认。"
+          }
+        }
+      }
+    },
+    "交易已撤销。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "交易已撤销。"
+          }
+        }
+      }
+    },
+    "交易已更正，历史记录已保留。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "交易已更正，历史记录已保留。"
+          }
+        }
+      }
+    },
+    "交易流水" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "交易流水"
+          }
+        }
+      }
+    },
+    "交易详情" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "交易详情"
+          }
+        }
+      }
+    },
+    "交通" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "交通"
+          }
+        }
+      }
+    },
+    "交通方式" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "交通方式"
+          }
+        }
+      }
+    },
+    "今天" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今天"
+          }
+        }
+      }
+    },
+    "今天没有已缓存的日程" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今天没有已缓存的日程"
+          }
+        }
+      }
+    },
+    "今日安排" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今日安排"
+          }
+        }
+      }
+    },
+    "仍可退款" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仍可退款"
+          }
+        }
+      }
+    },
+    "仍可退款 %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仍可退款 %@"
+          }
+        }
+      }
+    },
+    "付款账户" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "付款账户"
+          }
+        }
+      }
+    },
+    "位置" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "位置"
+          }
+        }
+      }
+    },
+    "余额 %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "余额 %@"
+          }
+        }
+      }
+    },
+    "你拒绝了日历完整访问。已有缓存不会被误判为删除，记账仍可正常使用。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你拒绝了日历完整访问。已有缓存不会被误判为删除，记账仍可正常使用。"
+          }
+        }
+      }
+    },
+    "使用 MapKit 计算路线" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用 MapKit 计算路线"
+          }
+        }
+      }
+    },
+    "使用“使用 App 期间”，不请求“始终”定位" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用“使用 App 期间”，不请求“始终”定位"
+          }
+        }
+      }
+    },
+    "保存" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
+          }
+        }
+      }
+    },
+    "保存失败，输入内容仍然保留，请稍后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存失败，输入内容仍然保留，请稍后重试。"
+          }
+        }
+      }
+    },
+    "保存更正" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存更正"
+          }
+        }
+      }
+    },
+    "保存首笔账目并确认本位币后，才可以添加自定义账户和分类。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存首笔账目并确认本位币后，才可以添加自定义账户和分类。"
+          }
+        }
+      }
+    },
+    "保留当前计划" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保留当前计划"
+          }
+        }
+      }
+    },
+    "信用卡" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "信用卡"
+          }
+        }
+      }
+    },
+    "信用卡账户" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "信用卡账户"
+          }
+        }
+      }
+    },
+    "候选已填入表单，请逐项核对并点击保存。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "候选已填入表单，请逐项核对并点击保存。"
+          }
+        }
+      }
+    },
+    "停车" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "停车"
+          }
+        }
+      }
+    },
+    "全天事件没有具体时刻。请调整上方时间，或明确确认当前显示的时间。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全天事件没有具体时刻。请调整上方时间，或明确确认当前显示的时间。"
+          }
+        }
+      }
+    },
+    "全部" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部"
+          }
+        }
+      }
+    },
+    "全部分类" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部分类"
+          }
+        }
+      }
+    },
+    "全部账户" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部账户"
+          }
+        }
+      }
+    },
+    "公交" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "公交"
+          }
+        }
+      }
+    },
+    "关联已有支出" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关联已有支出"
+          }
+        }
+      }
+    },
+    "关联行程" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关联行程"
+          }
+        }
+      }
+    },
+    "关联计划已经完成或取消，不能再采用来源变化。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关联计划已经完成或取消，不能再采用来源变化。"
+          }
+        }
+      }
+    },
+    "关闭" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭"
+          }
+        }
+      }
+    },
+    "其他" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "其他"
+          }
+        }
+      }
+    },
+    "内容已隐藏" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "内容已隐藏"
+          }
+        }
+      }
+    },
+    "最近六个月支出趋势" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最近六个月支出趋势"
+          }
+        }
+      }
+    },
+    "最近记账" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最近记账"
+          }
+        }
+      }
+    },
+    "冲销" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "冲销"
+          }
+        }
+      }
+    },
+    "净变化" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "净变化"
+          }
+        }
+      }
+    },
+    "净变化 %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "净变化 %@"
+          }
+        }
+      }
+    },
+    "净支出合计" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "净支出合计"
+          }
+        }
+      }
+    },
+    "准备缓冲：%lld 分钟" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "准备缓冲：%lld 分钟"
+          }
+        }
+      }
+    },
+    "出发" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出发"
+          }
+        }
+      }
+    },
+    "出行计划" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出行计划"
+          }
+        }
+      }
+    },
+    "出行计划暂时无法读取。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出行计划暂时无法读取。"
+          }
+        }
+      }
+    },
+    "分享已结束，但临时导出文件清理失败，请重试导出后再关闭。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分享已结束，但临时导出文件清理失败，请重试导出后再关闭。"
+          }
+        }
+      }
+    },
+    "分类" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分类"
+          }
+        }
+      }
+    },
+    "分类最多支持一层父子关系。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分类最多支持一层父子关系。"
+          }
+        }
+      }
+    },
+    "创建出行计划" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "创建出行计划"
+          }
+        }
+      }
+    },
+    "创建失败，输入内容仍然保留，请稍后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "创建失败，输入内容仍然保留，请稍后重试。"
+          }
+        }
+      }
+    },
+    "删除本机全部数据" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除本机全部数据"
+          }
+        }
+      }
+    },
+    "删除本机全部数据？" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除本机全部数据？"
+          }
+        }
+      }
+    },
+    "删除此行程" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除此行程"
+          }
+        }
+      }
+    },
+    "删除此行程？" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除此行程？"
+          }
+        }
+      }
+    },
+    "删除行程" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除行程"
+          }
+        }
+      }
+    },
+    "到账时间" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "到账时间"
+          }
+        }
+      }
+    },
+    "到账账户" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "到账账户"
+          }
+        }
+      }
+    },
+    "到达" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "到达"
+          }
+        }
+      }
+    },
+    "历史记录用于审计和重建余额，不能单独删除。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "历史记录用于审计和重建余额，不能单独删除。"
+          }
+        }
+      }
+    },
+    "原值：%@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "原值：%@"
+          }
+        }
+      }
+    },
+    "发现多个历史关联计划，已停止修改以避免覆盖错误计划。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发现多个历史关联计划，已停止修改以避免覆盖错误计划。"
+          }
+        }
+      }
+    },
+    "发现时间" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发现时间"
+          }
+        }
+      }
+    },
+    "发生日期" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发生日期"
+          }
+        }
+      }
+    },
+    "发生时间" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发生时间"
+          }
+        }
+      }
+    },
+    "取消" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
+          }
+        }
+      }
+    },
+    "只删除行程摘要和消费关系；已确认交易、分录和出行计划继续保留。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只删除行程摘要和消费关系；已确认交易、分录和出行计划继续保留。"
+          }
+        }
+      }
+    },
+    "只在你主动开始后记录位置" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只在你主动开始后记录位置"
+          }
+        }
+      }
+    },
+    "只有支出可以计入行程消费。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只有支出可以计入行程消费。"
+          }
+        }
+      }
+    },
+    "只能删除已完成的行程；正式交易和分录不会被删除。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只能删除已完成的行程；正式交易和分录不会被删除。"
+          }
+        }
+      }
+    },
+    "可以手动创建计划，或直接开始记录实际行程。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可以手动创建计划，或直接开始记录实际行程。"
+          }
+        }
+      }
+    },
+    "可能与 %lld 笔现有账目重复" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可能与 %lld 笔现有账目重复"
+          }
+        }
+      }
+    },
+    "名称" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名称"
+          }
+        }
+      }
+    },
+    "名称需要包含 1 至 40 个字符。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名称需要包含 1 至 40 个字符。"
+          }
+        }
+      }
+    },
+    "含退款" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "含退款"
+          }
+        }
+      }
+    },
+    "商户" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "商户"
+          }
+        }
+      }
+    },
+    "商户（可选）" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "商户（可选）"
+          }
+        }
+      }
+    },
+    "基本信息" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "基本信息"
+          }
+        }
+      }
+    },
+    "备注" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "备注"
+          }
+        }
+      }
+    },
+    "备注（可选）" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "备注（可选）"
+          }
+        }
+      }
+    },
+    "复制目的地" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "复制目的地"
+          }
+        }
+      }
+    },
+    "存储空间不足，请清理后重试；源数据没有改变。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "存储空间不足，请清理后重试；源数据没有改变。"
+          }
+        }
+      }
+    },
+    "安排普通本地提醒" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安排普通本地提醒"
+          }
+        }
+      }
+    },
+    "完成" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
+          }
+        }
+      }
+    },
+    "完整历史" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完整历史"
+          }
+        }
+      }
+    },
+    "完整性" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完整性"
+          }
+        }
+      }
+    },
+    "定位只在主动记录行程后开始。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "定位只在主动记录行程后开始。"
+          }
+        }
+      }
+    },
+    "实际行程" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "实际行程"
+          }
+        }
+      }
+    },
+    "实际行程已保存，但 Apple 地图未能打开。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "实际行程已保存，但 Apple 地图未能打开。"
+          }
+        }
+      }
+    },
+    "导出不含票据图片、系统日历身份或原始轨迹。删除全部数据后会创建新的空本地资料。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出不含票据图片、系统日历身份或原始轨迹。删除全部数据后会创建新的空本地资料。"
+          }
+        }
+      }
+    },
+    "导出结构化数据" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出结构化数据"
+          }
+        }
+      }
+    },
+    "导航未打开" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导航未打开"
+          }
+        }
+      }
+    },
+    "将删除本地日历来源和事件快照，但保留已确认的计划、提醒、行程和账务；系统日历原始事件不会改变。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将删除本地日历来源和事件快照，但保留已确认的计划、提醒、行程和账务；系统日历原始事件不会改变。"
+          }
+        }
+      }
+    },
+    "尚未完成本次消费复盘。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尚未完成本次消费复盘。"
+          }
+        }
+      }
+    },
+    "已保存 %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已保存 %@"
+          }
+        }
+      }
+    },
+    "已保留当前计划；后续新变化仍会再次提醒。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已保留当前计划；后续新变化仍会再次提醒。"
+          }
+        }
+      }
+    },
+    "已关联" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已关联"
+          }
+        }
+      }
+    },
+    "已关联出行计划" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已关联出行计划"
+          }
+        }
+      }
+    },
+    "已完成或取消的计划不能采用来源变化。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已完成或取消的计划不能采用来源变化。"
+          }
+        }
+      }
+    },
+    "已归档" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已归档"
+          }
+        }
+      }
+    },
+    "已撤销" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已撤销"
+          }
+        }
+      }
+    },
+    "已更新 %lld 个窗口内事件。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已更新 %lld 个窗口内事件。"
+          }
+        }
+      }
+    },
+    "已有支出" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已有支出"
+          }
+        }
+      }
+    },
+    "已有未结束行程，请先恢复、完成或丢弃。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已有未结束行程，请先恢复、完成或丢弃。"
+          }
+        }
+      }
+    },
+    "已清理日历缓存；出行计划、行程和账务仍然保留。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已清理日历缓存；出行计划、行程和账务仍然保留。"
+          }
+        }
+      }
+    },
+    "已确认本次无消费" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已确认本次无消费"
+          }
+        }
+      }
+    },
+    "已采用可用候选，请补充金额并点击保存。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已采用可用候选，请补充金额并点击保存。"
+          }
+        }
+      }
+    },
+    "已采用所见来源变化。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已采用所见来源变化。"
+          }
+        }
+      }
+    },
+    "币种" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "币种"
+          }
+        }
+      }
+    },
+    "应用" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应用"
+          }
+        }
+      }
+    },
+    "开始" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始"
+          }
+        }
+      }
+    },
+    "开始前" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始前"
+          }
+        }
+      }
+    },
+    "开始记录" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始记录"
+          }
+        }
+      }
+    },
+    "归档" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "归档"
+          }
+        }
+      }
+    },
+    "归档账户和分类仍可用于筛选历史；搜索框会与这里的条件共同生效。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "归档账户和分类仍可用于筛选历史；搜索框会与这里的条件共同生效。"
+          }
+        }
+      }
+    },
+    "当前只有写入权限，无法读取日程；需要完整访问才能同步选定日历。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前只有写入权限，无法读取日程；需要完整访问才能同步选定日历。"
+          }
+        }
+      }
+    },
+    "当前可退" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前可退"
+          }
+        }
+      }
+    },
+    "当前可退 %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前可退 %@"
+          }
+        }
+      }
+    },
+    "当前有效版本" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前有效版本"
+          }
+        }
+      }
+    },
+    "当前没有唯一且可编辑的关联计划。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前没有唯一且可编辑的关联计划。"
+          }
+        }
+      }
+    },
+    "当前版本，已撤销" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前版本，已撤销"
+          }
+        }
+      }
+    },
+    "当前筛选" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前筛选"
+          }
+        }
+      }
+    },
+    "当前计划" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前计划"
+          }
+        }
+      }
+    },
+    "当前设备无法使用相机，可以选择照片或继续手动记账。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前设备无法使用相机，可以选择照片或继续手动记账。"
+          }
+        }
+      }
+    },
+    "当前设备限制了日历访问，记账仍可使用。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前设备限制了日历访问，记账仍可使用。"
+          }
+        }
+      }
+    },
+    "待处理" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "待处理"
+          }
+        }
+      }
+    },
+    "待确认行程摘要" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "待确认行程摘要"
+          }
+        }
+      }
+    },
+    "忽略候选" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "忽略候选"
+          }
+        }
+      }
+    },
+    "恢复" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "恢复"
+          }
+        }
+      }
+    },
+    "恢复处理" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "恢复处理"
+          }
+        }
+      }
+    },
+    "我的" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的"
+          }
+        }
+      }
+    },
+    "所见来源变化已不再待处理，请重新加载。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所见来源变化已不再待处理，请重新加载。"
+          }
+        }
+      }
+    },
+    "所见来源变化已经处理；请返回刷新日程。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所见来源变化已经处理；请返回刷新日程。"
+          }
+        }
+      }
+    },
+    "所选账户或分类已不可用，请重新选择。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所选账户或分类已不可用，请重新选择。"
+          }
+        }
+      }
+    },
+    "所选账户或分类已经不可用，请重新选择。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所选账户或分类已经不可用，请重新选择。"
+          }
+        }
+      }
+    },
+    "手动时间" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "手动时间"
+          }
+        }
+      }
+    },
+    "手动确认时间" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "手动确认时间"
+          }
+        }
+      }
+    },
+    "手动记账" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "手动记账"
+          }
+        }
+      }
+    },
+    "打开交易详情" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开交易详情"
+          }
+        }
+      }
+    },
+    "打开第一项待处理来源变化" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开第一项待处理来源变化"
+          }
+        }
+      }
+    },
+    "拍摄票据" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拍摄票据"
+          }
+        }
+      }
+    },
+    "搜索不到，使用当前文字地址" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索不到，使用当前文字地址"
+          }
+        }
+      }
+    },
+    "搜索目的地" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索目的地"
+          }
+        }
+      }
+    },
+    "搜索结果" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索结果"
+          }
+        }
+      }
+    },
+    "搜索账目" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索账目"
+          }
+        }
+      }
+    },
+    "搜索起点" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索起点"
+          }
+        }
+      }
+    },
+    "摘要已保存，原始轨迹已删除。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "摘要已保存，原始轨迹已删除。"
+          }
+        }
+      }
+    },
+    "撤销交易" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "撤销交易"
+          }
+        }
+      }
+    },
+    "撤销会创建完全相反的正式分录。原交易和撤销记录都会保留。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "撤销会创建完全相反的正式分录。原交易和撤销记录都会保留。"
+          }
+        }
+      }
+    },
+    "撤销原因" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "撤销原因"
+          }
+        }
+      }
+    },
+    "撤销时间" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "撤销时间"
+          }
+        }
+      }
+    },
+    "操作" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "操作"
+          }
+        }
+      }
+    },
+    "操作失败，输入内容仍然保留，请稍后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "操作失败，输入内容仍然保留，请稍后重试。"
+          }
+        }
+      }
+    },
+    "操作已提交，但刷新行程消费失败。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "操作已提交，但刷新行程消费失败。"
+          }
+        }
+      }
+    },
+    "操作未完成" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "操作未完成"
+          }
+        }
+      }
+    },
+    "支出" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支出"
+          }
+        }
+      }
+    },
+    "支出 %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支出 %@"
+          }
+        }
+      }
+    },
+    "支出净额" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支出净额"
+          }
+        }
+      }
+    },
+    "支出分类" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支出分类"
+          }
+        }
+      }
+    },
+    "支出分类排行" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支出分类排行"
+          }
+        }
+      }
+    },
+    "收入" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "收入"
+          }
+        }
+      }
+    },
+    "收入 %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "收入 %@"
+          }
+        }
+      }
+    },
+    "收入分类" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "收入分类"
+          }
+        }
+      }
+    },
+    "收入或支出分类" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "收入或支出分类"
+          }
+        }
+      }
+    },
+    "收款账户" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "收款账户"
+          }
+        }
+      }
+    },
+    "数据控制" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据控制"
+          }
+        }
+      }
+    },
+    "数据模式" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据模式"
+          }
+        }
+      }
+    },
+    "新值：%@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新值：%@"
+          }
+        }
+      }
+    },
+    "新建支出并关联" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新建支出并关联"
+          }
+        }
+      }
+    },
+    "新建计划" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新建计划"
+          }
+        }
+      }
+    },
+    "新来源默认关闭。取消选择只停止跟踪，不会把已有事件标记为删除。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新来源默认关闭。取消选择只停止跟踪，不会把已有事件标记为删除。"
+          }
+        }
+      }
+    },
+    "新鲜至" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新鲜至"
+          }
+        }
+      }
+    },
+    "无" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无"
+          }
+        }
+      }
+    },
+    "无法保存出行计划，请检查输入后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法保存出行计划，请检查输入后重试。"
+          }
+        }
+      }
+    },
+    "无法关联交易，请确认交易和行程都已正式保存。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法关联交易，请确认交易和行程都已正式保存。"
+          }
+        }
+      }
+    },
+    "无法删除全部本地数据；数据库变更已回滚。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法删除全部本地数据；数据库变更已回滚。"
+          }
+        }
+      }
+    },
+    "无法安全建立本地日历身份，未读取或缓存事件。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法安全建立本地日历身份，未读取或缓存事件。"
+          }
+        }
+      }
+    },
+    "无法开始记录，未创建新的行程。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法开始记录，未创建新的行程。"
+          }
+        }
+      }
+    },
+    "无法打开本地数据" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法打开本地数据"
+          }
+        }
+      }
+    },
+    "无法搜索本地账目，请稍后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法搜索本地账目，请稍后重试。"
+          }
+        }
+      }
+    },
+    "无法显示交易" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法显示交易"
+          }
+        }
+      }
+    },
+    "无法清理日历缓存；没有宣称删除完成。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法清理日历缓存；没有宣称删除完成。"
+          }
+        }
+      }
+    },
+    "无法生成导出文件；源数据没有改变。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法生成导出文件；源数据没有改变。"
+          }
+        }
+      }
+    },
+    "无法确认本次无消费，请稍后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法确认本次无消费，请稍后重试。"
+          }
+        }
+      }
+    },
+    "无法解除关联，请稍后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法解除关联，请稍后重试。"
+          }
+        }
+      }
+    },
+    "无法读取交易详情，请稍后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取交易详情，请稍后重试。"
+          }
+        }
+      }
+    },
+    "无法读取所选图片，现有手动输入未改变。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取所选图片，现有手动输入未改变。"
+          }
+        }
+      }
+    },
+    "无法读取所选月份的本地报表，请稍后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取所选月份的本地报表，请稍后重试。"
+          }
+        }
+      }
+    },
+    "无法读取本位币状态，请稍后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取本位币状态，请稍后重试。"
+          }
+        }
+      }
+    },
+    "无法读取本地筛选结果，请稍后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取本地筛选结果，请稍后重试。"
+          }
+        }
+      }
+    },
+    "无法读取来源变化，已有计划保持不变。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取来源变化，已有计划保持不变。"
+          }
+        }
+      }
+    },
+    "无法读取行程消费，请稍后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取行程消费，请稍后重试。"
+          }
+        }
+      }
+    },
+    "无法读取账户和分类，请稍后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取账户和分类，请稍后重试。"
+          }
+        }
+      }
+    },
+    "无需账号；P0 不上传账务、日历或位置数据，也不显示不可用的云功能。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无需账号；P0 不上传账务、日历或位置数据，也不显示不可用的云功能。"
+          }
+        }
+      }
+    },
+    "日历" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日历"
+          }
+        }
+      }
+    },
+    "日历只缓存已选择来源的最小事件字段。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日历只缓存已选择来源的最小事件字段。"
+          }
+        }
+      }
+    },
+    "日历来源" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日历来源"
+          }
+        }
+      }
+    },
+    "日历来源变化" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日历来源变化"
+          }
+        }
+      }
+    },
+    "日历访问未开启" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日历访问未开启"
+          }
+        }
+      }
+    },
+    "日期" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日期"
+          }
+        }
+      }
+    },
+    "日程" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日程"
+          }
+        }
+      }
+    },
+    "日程暂时无法读取，其他本地内容仍可使用。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日程暂时无法读取，其他本地内容仍可使用。"
+          }
+        }
+      }
+    },
+    "日程更新失败，已有缓存保持不变，请稍后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日程更新失败，已有缓存保持不变，请稍后重试。"
+          }
+        }
+      }
+    },
+    "时长" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "时长"
+          }
+        }
+      }
+    },
+    "显示过去 30 天至未来 90 天；下拉或点击更新可重新扫描。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示过去 30 天至未来 90 天；下拉或点击更新可重新扫描。"
+          }
+        }
+      }
+    },
+    "暂停" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂停"
+          }
+        }
+      }
+    },
+    "暂时没有可用路线，可使用手动出发时间。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时没有可用路线，可使用手动出发时间。"
+          }
+        }
+      }
+    },
+    "暂时没有可用路线，请确认手动出发时间后保存。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时没有可用路线，请确认手动出发时间后保存。"
+          }
+        }
+      }
+    },
+    "更新日程" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新日程"
+          }
+        }
+      }
+    },
+    "更正交易" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更正交易"
+          }
+        }
+      }
+    },
+    "更正内容" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更正内容"
+          }
+        }
+      }
+    },
+    "更正冲销" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更正冲销"
+          }
+        }
+      }
+    },
+    "更正后的支出金额不能低于有效退款合计。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更正后的支出金额不能低于有效退款合计。"
+          }
+        }
+      }
+    },
+    "更正后的支出金额不能小于已记录的有效退款。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更正后的支出金额不能小于已记录的有效退款。"
+          }
+        }
+      }
+    },
+    "更正后的版本" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更正后的版本"
+          }
+        }
+      }
+    },
+    "月份" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "月份"
+          }
+        }
+      }
+    },
+    "月度概览" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "月度概览"
+          }
+        }
+      }
+    },
+    "有效退款" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有效退款"
+          }
+        }
+      }
+    },
+    "有效退款 %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有效退款 %@"
+          }
+        }
+      }
+    },
+    "有效退款下限" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有效退款下限"
+          }
+        }
+      }
+    },
+    "有效退款下限 %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有效退款下限 %@"
+          }
+        }
+      }
+    },
+    "期初余额" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "期初余额"
+          }
+        }
+      }
+    },
+    "期间 %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "期间 %@"
+          }
+        }
+      }
+    },
+    "未关联" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未关联"
+          }
+        }
+      }
+    },
+    "未填写商户" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未填写商户"
+          }
+        }
+      }
+    },
+    "未收口行程" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未收口行程"
+          }
+        }
+      }
+    },
+    "未获得日历完整访问，记账仍可使用；可稍后在系统设置中开启。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未获得日历完整访问，记账仍可使用；可稍后在系统设置中开启。"
+          }
+        }
+      }
+    },
+    "本位币" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本位币"
+          }
+        }
+      }
+    },
+    "本位币 %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本位币 %@"
+          }
+        }
+      }
+    },
+    "本位币已确认。后续变更需要独立的数据迁移流程。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本位币已确认。后续变更需要独立的数据迁移流程。"
+          }
+        }
+      }
+    },
+    "本位币已经确认，不能在记账时直接修改。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本位币已经确认，不能在记账时直接修改。"
+          }
+        }
+      }
+    },
+    "本地保留规则" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本地保留规则"
+          }
+        }
+      }
+    },
+    "本地模式，无需登录或网络。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本地模式，无需登录或网络。"
+          }
+        }
+      }
+    },
+    "本月收支" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本月收支"
+          }
+        }
+      }
+    },
+    "本次无消费" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本次无消费"
+          }
+        }
+      }
+    },
+    "来源" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来源"
+          }
+        }
+      }
+    },
+    "来源（可选）" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来源（可选）"
+          }
+        }
+      }
+    },
+    "来源变化" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来源变化"
+          }
+        }
+      }
+    },
+    "来源已变化" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来源已变化"
+          }
+        }
+      }
+    },
+    "来源或计划已再次变化，请关闭后重新加载。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来源或计划已再次变化，请关闭后重新加载。"
+          }
+        }
+      }
+    },
+    "来源版本 %lld → %lld" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来源版本 %1$lld → %2$lld"
+          }
+        }
+      }
+    },
+    "查看来源变化" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看来源变化"
+          }
+        }
+      }
+    },
+    "查看行程消费" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看行程消费"
+          }
+        }
+      }
+    },
+    "标记字段需要重点核对" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "标记字段需要重点核对"
+          }
+        }
+      }
+    },
+    "检测到多个历史关联计划。为避免修改错误计划，采用入口已关闭；保留当前计划仍可安全解决所见变化。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检测到多个历史关联计划。为避免修改错误计划，采用入口已关闭；保留当前计划仍可安全解决所见变化。"
+          }
+        }
+      }
+    },
+    "正在保存" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在保存"
+          }
+        }
+      }
+    },
+    "正在搜索本地账目" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在搜索本地账目"
+          }
+        }
+      }
+    },
+    "正在更新选中日历" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在更新选中日历"
+          }
+        }
+      }
+    },
+    "正在计算路线" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在计算路线"
+          }
+        }
+      }
+    },
+    "正在设备内识别" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在设备内识别"
+          }
+        }
+      }
+    },
+    "正在读取交易" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在读取交易"
+          }
+        }
+      }
+    },
+    "正在读取日历状态" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在读取日历状态"
+          }
+        }
+      }
+    },
+    "正在读取月度概览" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在读取月度概览"
+          }
+        }
+      }
+    },
+    "正在读取权限状态" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在读取权限状态"
+          }
+        }
+      }
+    },
+    "正在读取来源变化" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在读取来源变化"
+          }
+        }
+      }
+    },
+    "正在读取筛选结果" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在读取筛选结果"
+          }
+        }
+      }
+    },
+    "正在读取账户" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在读取账户"
+          }
+        }
+      }
+    },
+    "正在读取账本" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在读取账本"
+          }
+        }
+      }
+    },
+    "步行" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "步行"
+          }
+        }
+      }
+    },
+    "永久删除" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "永久删除"
+          }
+        }
+      }
+    },
+    "没有可用信用卡" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有可用信用卡"
+          }
+        }
+      }
+    },
+    "没有可用日历" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有可用日历"
+          }
+        }
+      }
+    },
+    "没有尚未关联的正式支出。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有尚未关联的正式支出。"
+          }
+        }
+      }
+    },
+    "没有待出发计划，可在“行程”中创建。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有待出发计划，可在“行程”中创建。"
+          }
+        }
+      }
+    },
+    "没有找到地点，可保留输入并使用手动地址。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有找到地点，可保留输入并使用手动地址。"
+          }
+        }
+      }
+    },
+    "没有相机权限，现有手动输入未改变；可以选择照片或继续手动记账。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有相机权限，现有手动输入未改变；可以选择照片或继续手动记账。"
+          }
+        }
+      }
+    },
+    "没有符合条件的账目" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有符合条件的账目"
+          }
+        }
+      }
+    },
+    "没有识别出可用字段，现有手动输入未改变。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有识别出可用字段，现有手动输入未改变。"
+          }
+        }
+      }
+    },
+    "没有足够的可用账户或分类，请先到账本中管理账户。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有足够的可用账户或分类，请先到账本中管理账户。"
+          }
+        }
+      }
+    },
+    "没有路线也可以保存；请直接确认下面的手动出发时间。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有路线也可以保存；请直接确认下面的手动出发时间。"
+          }
+        }
+      }
+    },
+    "消费复盘" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "消费复盘"
+          }
+        }
+      }
+    },
+    "添加" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加"
+          }
+        }
+      }
+    },
+    "添加消费" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加消费"
+          }
+        }
+      }
+    },
+    "添加账户或分类" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加账户或分类"
+          }
+        }
+      }
+    },
+    "清理日历缓存" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清理日历缓存"
+          }
+        }
+      }
+    },
+    "清理日历缓存？" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清理日历缓存？"
+          }
+        }
+      }
+    },
+    "清理缓存" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清理缓存"
+          }
+        }
+      }
+    },
+    "清除全部筛选" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清除全部筛选"
+          }
+        }
+      }
+    },
+    "父分类：%@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "父分类：%@"
+          }
+        }
+      }
+    },
+    "父分类（可选）" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "父分类（可选）"
+          }
+        }
+      }
+    },
+    "父分类必须与新分类属于同一类型。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "父分类必须与新分类属于同一类型。"
+          }
+        }
+      }
+    },
+    "版本" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本"
+          }
+        }
+      }
+    },
+    "状态" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "状态"
+          }
+        }
+      }
+    },
+    "状态修改失败，原有数据没有改变。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "状态修改失败，原有数据没有改变。"
+          }
+        }
+      }
+    },
+    "现金" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "现金"
+          }
+        }
+      }
+    },
+    "用途" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用途"
+          }
+        }
+      }
+    },
+    "电子钱包" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电子钱包"
+          }
+        }
+      }
+    },
+    "目标到达" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目标到达"
+          }
+        }
+      }
+    },
+    "目标到达时间必须晚于当前时间。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目标到达时间必须晚于当前时间。"
+          }
+        }
+      }
+    },
+    "目的地" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目的地"
+          }
+        }
+      }
+    },
+    "目的地已复制" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目的地已复制"
+          }
+        }
+      }
+    },
+    "相机" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "相机"
+          }
+        }
+      }
+    },
+    "确认具体到达时间" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认具体到达时间"
+          }
+        }
+      }
+    },
+    "确认后只保留时间、距离和完整性摘要，并立即删除全部原始轨迹点。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认后只保留时间、距离和完整性摘要，并立即删除全部原始轨迹点。"
+          }
+        }
+      }
+    },
+    "确认摘要后立即删除原始轨迹" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认摘要后立即删除原始轨迹"
+          }
+        }
+      }
+    },
+    "确认摘要并删除原始轨迹" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认摘要并删除原始轨迹"
+          }
+        }
+      }
+    },
+    "确认摘要或丢弃后删除原始轨迹。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认摘要或丢弃后删除原始轨迹。"
+          }
+        }
+      }
+    },
+    "确认撤销" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认撤销"
+          }
+        }
+      }
+    },
+    "确认本位币" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认本位币"
+          }
+        }
+      }
+    },
+    "确认来源变化" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认来源变化"
+          }
+        }
+      }
+    },
+    "票据图片仅用于本机本次识别，不保存或上传。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "票据图片仅用于本机本次识别，不保存或上传。"
+          }
+        }
+      }
+    },
+    "票据图片只在当前识别会话使用，不保存原图。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "票据图片只在当前识别会话使用，不保存原图。"
+          }
+        }
+      }
+    },
+    "票据币种与当前账本本位币不同，金额未自动填入，请手动核对。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "票据币种与当前账本本位币不同，金额未自动填入，请手动核对。"
+          }
+        }
+      }
+    },
+    "票据识别" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "票据识别"
+          }
+        }
+      }
+    },
+    "票据识别失败，现有手动输入未改变，可以重试或继续手动记账。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "票据识别失败，现有手动输入未改变，可以重试或继续手动记账。"
+          }
+        }
+      }
+    },
+    "窗口内事件" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "窗口内事件"
+          }
+        }
+      }
+    },
+    "窗口内没有事件" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "窗口内没有事件"
+          }
+        }
+      }
+    },
+    "筛选" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "筛选"
+          }
+        }
+      }
+    },
+    "筛选已启用" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "筛选已启用"
+          }
+        }
+      }
+    },
+    "筛选结果" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "筛选结果"
+          }
+        }
+      }
+    },
+    "筛选账目" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "筛选账目"
+          }
+        }
+      }
+    },
+    "管理账户" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "管理账户"
+          }
+        }
+      }
+    },
+    "类型" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "类型"
+          }
+        }
+      }
+    },
+    "系统内部账户受保护，不能归档。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "系统内部账户受保护，不能归档。"
+          }
+        }
+      }
+    },
+    "系统地区只提供建议。保存首笔账目前，请确认用于账户和报表的本位币。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "系统地区只提供建议。保存首笔账目前，请确认用于账户和报表的本位币。"
+          }
+        }
+      }
+    },
+    "系统建议" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "系统建议"
+          }
+        }
+      }
+    },
+    "系统日历中暂时没有可供选择的事件日历。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "系统日历中暂时没有可供选择的事件日历。"
+          }
+        }
+      }
+    },
+    "系统权限" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "系统权限"
+          }
+        }
+      }
+    },
+    "系统限制了日历访问。已有缓存保持原状态，记账仍可正常使用。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "系统限制了日历访问。已有缓存保持原状态，记账仍可正常使用。"
+          }
+        }
+      }
+    },
+    "结束" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "结束"
+          }
+        }
+      }
+    },
+    "结束并生成摘要" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "结束并生成摘要"
+          }
+        }
+      }
+    },
+    "继续并请求访问" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续并请求访问"
+          }
+        }
+      }
+    },
+    "继续记录（新片段）" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续记录（新片段）"
+          }
+        }
+      }
+    },
+    "缺少可用账户或分类" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "缺少可用账户或分类"
+          }
+        }
+      }
+    },
+    "行程" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "行程"
+          }
+        }
+      }
+    },
+    "行程关联" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "行程关联"
+          }
+        }
+      }
+    },
+    "行程已丢弃，原始轨迹已删除。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "行程已丢弃，原始轨迹已删除。"
+          }
+        }
+      }
+    },
+    "行程已安全保存，但定位未能开始。可以检查权限后继续，或保存无轨迹摘要。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "行程已安全保存，但定位未能开始。可以检查权限后继续，或保存无轨迹摘要。"
+          }
+        }
+      }
+    },
+    "行程操作失败，已有数据没有被静默删除。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "行程操作失败，已有数据没有被静默删除。"
+          }
+        }
+      }
+    },
+    "行程暂时无法读取。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "行程暂时无法读取。"
+          }
+        }
+      }
+    },
+    "行程消费" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "行程消费"
+          }
+        }
+      }
+    },
+    "行程消费关系会解除，但正式交易、分录和出行计划不会被删除。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "行程消费关系会解除，但正式交易、分录和出行计划不会被删除。"
+          }
+        }
+      }
+    },
+    "补充信息" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "补充信息"
+          }
+        }
+      }
+    },
+    "解除关联" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解除关联"
+          }
+        }
+      }
+    },
+    "计划" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "计划"
+          }
+        }
+      }
+    },
+    "计划出发" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "计划出发"
+          }
+        }
+      }
+    },
+    "计划出发时间必须早于目标到达时间。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "计划出发时间必须早于目标到达时间。"
+          }
+        }
+      }
+    },
+    "计划名称（可选）" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "计划名称（可选）"
+          }
+        }
+      }
+    },
+    "计算时间" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "计算时间"
+          }
+        }
+      }
+    },
+    "订单号" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "订单号"
+          }
+        }
+      }
+    },
+    "记一笔" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记一笔"
+          }
+        }
+      }
+    },
+    "记下首笔正式账目并确认本位币后显示月度摘要。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记下首笔正式账目并确认本位币后显示月度摘要。"
+          }
+        }
+      }
+    },
+    "记下首笔正式账目并确认本位币后显示月度概览。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记下首笔正式账目并确认本位币后显示月度概览。"
+          }
+        }
+      }
+    },
+    "记录无计划行程" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录无计划行程"
+          }
+        }
+      }
+    },
+    "记录状态" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录状态"
+          }
+        }
+      }
+    },
+    "记录退款" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录退款"
+          }
+        }
+      }
+    },
+    "记账类型" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记账类型"
+          }
+        }
+      }
+    },
+    "识别候选" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "识别候选"
+          }
+        }
+      }
+    },
+    "诊断与关于" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "诊断与关于"
+          }
+        }
+      }
+    },
+    "诊断收集" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "诊断收集"
+          }
+        }
+      }
+    },
+    "说明" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "说明"
+          }
+        }
+      }
+    },
+    "说明（可选）" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "说明（可选）"
+          }
+        }
+      }
+    },
+    "请先从候选中确认起点和目的地。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先从候选中确认起点和目的地。"
+          }
+        }
+      }
+    },
+    "请先保存首笔账目并确认本位币。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先保存首笔账目并确认本位币。"
+          }
+        }
+      }
+    },
+    "请先归档该分类下仍在使用的子分类。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先归档该分类下仍在使用的子分类。"
+          }
+        }
+      }
+    },
+    "请先恢复该分类的父分类。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先恢复该分类的父分类。"
+          }
+        }
+      }
+    },
+    "请先解除已关联消费，再确认本次无消费。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先解除已关联消费，再确认本次无消费。"
+          }
+        }
+      }
+    },
+    "请先输入目的地。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先输入目的地。"
+          }
+        }
+      }
+    },
+    "请先选择至少一个日历来源。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先选择至少一个日历来源。"
+          }
+        }
+      }
+    },
+    "请关闭当前页面，前往“账本”的账户管理创建或恢复信用卡。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请关闭当前页面，前往“账本”的账户管理创建或恢复信用卡。"
+          }
+        }
+      }
+    },
+    "请关闭当前页面，前往“账本”管理账户和分类。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请关闭当前页面，前往“账本”管理账户和分类。"
+          }
+        }
+      }
+    },
+    "请确认未来的到达时间、较早的出发时间和全天事件的具体时间。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请确认未来的到达时间、较早的出发时间和全天事件的具体时间。"
+          }
+        }
+      }
+    },
+    "请确认目的地；无搜索结果时可使用手动地址。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请确认目的地；无搜索结果时可使用手动地址。"
+          }
+        }
+      }
+    },
+    "请稍后重试读取本地账本。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请稍后重试读取本地账本。"
+          }
+        }
+      }
+    },
+    "请输入 1 至 200 个字符的撤销原因。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请输入 1 至 200 个字符的撤销原因。"
+          }
+        }
+      }
+    },
+    "请输入地点关键词。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请输入地点关键词。"
+          }
+        }
+      }
+    },
+    "请输入大于零的有效金额。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请输入大于零的有效金额。"
+          }
+        }
+      }
+    },
+    "请输入金额。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请输入金额。"
+          }
+        }
+      }
+    },
+    "请返回后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请返回后重试。"
+          }
+        }
+      }
+    },
+    "请选择可用的账户和分类。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请选择可用的账户和分类。"
+          }
+        }
+      }
+    },
+    "请选择退款到账账户。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请选择退款到账账户。"
+          }
+        }
+      }
+    },
+    "请逐项确认采用后的计划。目的地必须重新确认，旧路线不会自动沿用。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请逐项确认采用后的计划。目的地必须重新确认，旧路线不会自动沿用。"
+          }
+        }
+      }
+    },
+    "调整" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调整"
+          }
+        }
+      }
+    },
+    "账务、日历缓存、计划、行程和关系都会被删除；操作成功后会创建新的空本地资料，且无法撤销。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "账务、日历缓存、计划、行程和关系都会被删除；操作成功后会创建新的空本地资料，且无法撤销。"
+          }
+        }
+      }
+    },
+    "账户" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "账户"
+          }
+        }
+      }
+    },
+    "账户与分类" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "账户与分类"
+          }
+        }
+      }
+    },
+    "账户或分类类型" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "账户或分类类型"
+          }
+        }
+      }
+    },
+    "账本" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "账本"
+          }
+        }
+      }
+    },
+    "账本暂时不可用" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "账本暂时不可用"
+          }
+        }
+      }
+    },
+    "账本暂时无法读取。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "账本暂时无法读取。"
+          }
+        }
+      }
+    },
+    "资金账户" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "资金账户"
+          }
+        }
+      }
+    },
+    "起点（路线可选）" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "起点（路线可选）"
+          }
+        }
+      }
+    },
+    "距离" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "距离"
+          }
+        }
+      }
+    },
+    "路线与出发" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "路线与出发"
+          }
+        }
+      }
+    },
+    "转入账户" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "转入账户"
+          }
+        }
+      }
+    },
+    "转出和转入账户不能相同。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "转出和转入账户不能相同。"
+          }
+        }
+      }
+    },
+    "转出账户" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "转出账户"
+          }
+        }
+      }
+    },
+    "转账" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "转账"
+          }
+        }
+      }
+    },
+    "转账不计入收支" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "转账不计入收支"
+          }
+        }
+      }
+    },
+    "输入目的地或地址" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入目的地或地址"
+          }
+        }
+      }
+    },
+    "输入起点" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入起点"
+          }
+        }
+      }
+    },
+    "运行方式" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "运行方式"
+          }
+        }
+      }
+    },
+    "还款" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还款"
+          }
+        }
+      }
+    },
+    "还款说明（可选）" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还款说明（可选）"
+          }
+        }
+      }
+    },
+    "还款账户" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还款账户"
+          }
+        }
+      }
+    },
+    "还没有正式交易。可从“今天”点击“记一笔”开始。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还没有正式交易。可从“今天”点击“记一笔”开始。"
+          }
+        }
+      }
+    },
+    "还没有行程" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还没有行程"
+          }
+        }
+      }
+    },
+    "这不是当前有效版本，请刷新后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这不是当前有效版本，请刷新后重试。"
+          }
+        }
+      }
+    },
+    "这个事件还没有关联出行计划；你可以确认已看到变化，之后再从最新事件创建计划。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个事件还没有关联出行计划；你可以确认已看到变化，之后再从最新事件创建计划。"
+          }
+        }
+      }
+    },
+    "这个日历事件已经有出行计划，请处理已有计划。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个日历事件已经有出行计划，请处理已有计划。"
+          }
+        }
+      }
+    },
+    "这笔交易已经撤销。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这笔交易已经撤销。"
+          }
+        }
+      }
+    },
+    "这笔交易已经用其他用途关联到本行程。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这笔交易已经用其他用途关联到本行程。"
+          }
+        }
+      }
+    },
+    "这笔支出仍有有效退款，请先撤销退款记录后再整笔撤销。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这笔支出仍有有效退款，请先撤销退款记录后再整笔撤销。"
+          }
+        }
+      }
+    },
+    "连接系统日历" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "连接系统日历"
+          }
+        }
+      }
+    },
+    "退款" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退款"
+          }
+        }
+      }
+    },
+    "退款、更正、冲销计入净额" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退款、更正、冲销计入净额"
+          }
+        }
+      }
+    },
+    "退款已抵减支出，转账不计入收支。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退款已抵减支出，转账不计入收支。"
+          }
+        }
+      }
+    },
+    "退款已记录。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退款已记录。"
+          }
+        }
+      }
+    },
+    "退款金额超过当前可退金额。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退款金额超过当前可退金额。"
+          }
+        }
+      }
+    },
+    "选中的日历暂时不可用，已有缓存没有被判定为删除。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选中的日历暂时不可用，已有缓存没有被判定为删除。"
+          }
+        }
+      }
+    },
+    "选择后点击右上角更新；于是不会自动勾选节假日或订阅日历。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择后点击右上角更新；于是不会自动勾选节假日或订阅日历。"
+          }
+        }
+      }
+    },
+    "选择票据照片" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择票据照片"
+          }
+        }
+      }
+    },
+    "选择要读取的日历" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择要读取的日历"
+          }
+        }
+      }
+    },
+    "通知" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通知"
+          }
+        }
+      }
+    },
+    "通行费" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通行费"
+          }
+        }
+      }
+    },
+    "部分账本信息无法读取，请稍后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "部分账本信息无法读取，请稍后重试。"
+          }
+        }
+      }
+    },
+    "采样" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "采样"
+          }
+        }
+      }
+    },
+    "采用" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "采用"
+          }
+        }
+      }
+    },
+    "采用会进入编辑确认页；保留只解决你已看到的变化，不修改计划、路线或提醒。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "采用会进入编辑确认页；保留只解决你已看到的变化，不修改计划、路线或提醒。"
+          }
+        }
+      }
+    },
+    "采用候选" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "采用候选"
+          }
+        }
+      }
+    },
+    "采用到计划" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "采用到计划"
+          }
+        }
+      }
+    },
+    "采用只会填入上方表单；核对并点击保存后才会影响账本。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "采用只会填入上方表单；核对并点击保存后才会影响账本。"
+          }
+        }
+      }
+    },
+    "重新检查" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新检查"
+          }
+        }
+      }
+    },
+    "重置条件" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置条件"
+          }
+        }
+      }
+    },
+    "重试生成摘要" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重试生成摘要"
+          }
+        }
+      }
+    },
+    "金额" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "金额"
+          }
+        }
+      }
+    },
+    "金额的小数位数超过了当前币种允许的范围。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "金额的小数位数超过了当前币种允许的范围。"
+          }
+        }
+      }
+    },
+    "金额的小数位数超过当前币种允许的范围。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "金额的小数位数超过当前币种允许的范围。"
+          }
+        }
+      }
+    },
+    "金额过大，请输入较小的金额。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "金额过大，请输入较小的金额。"
+          }
+        }
+      }
+    },
+    "银行卡" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "银行卡"
+          }
+        }
+      }
+    },
+    "需要核对" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "需要核对"
+          }
+        }
+      }
+    },
+    "预计耗时" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "预计耗时"
+          }
+        }
+      }
+    },
+    "餐饮" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "餐饮"
+          }
+        }
+      }
+    },
+    "驾车" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "驾车"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.2"
+}
