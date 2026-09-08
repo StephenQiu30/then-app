@@ -1,0 +1,8 @@
+generate:
+  - types
+  - client
+accessModifier: internal
+namingStrategy: idiomatic
+additionalFileComments:
+  - swift-format-ignore-file
+  - "swiftlint:disable all"
