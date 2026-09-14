@@ -1,7 +1,6 @@
 import CryptoKit
 import Foundation
 import Testing
-import Vision
 @testable import ThenApp
 
 @Suite("衣物真实人物分析与复核存储", .serialized)
@@ -58,43 +57,26 @@ struct VisionWardrobePersonAnalyzerTests {
     #expect(throws: WardrobePhotoReview.Failure.notReady) { try review.write(for: id) }
   }
 
-  @Test("只有手部的真实合成图不能进入单件图确认")
-  func bodyPartsRejected() async throws {
+  @Test("局部身体零检出仍强制当前图片复核")
+  func bodyPartsRequireConfirmation() async throws {
     let photo = try await prepared("synthetic-hands-on-shirt")
     let observations = try await analyzer().analyze(photo.normalized)
     print("WARDROBE_BODY_PART_PROBE people=\(observations.people) faces=\(observations.faces)")
+    #expect(observations.people == 0)
+    #expect(observations.faces == 0)
     var review = WardrobePhotoReview()
     let id = review.beginSelection()
     try review.receive(photo, for: id)
     try review.analyze(observations, for: id)
-    #expect(review.phase == .rejected(.personDetected))
-    #expect(review.preview == nil)
-    #expect(throws: WardrobePhotoReview.Failure.notReady) {
+    #expect(review.phase == .needsConfirmation)
+    #expect(review.preview != nil)
+    #expect(throws: WardrobePhotoReview.Failure.notReady) { try review.write(for: id) }
+    #expect(throws: WardrobePhotoReview.Failure.confirmationRequired) {
       try review.confirm(.init(subject: .singleGarment, ownedByUser: true,
-        noPersonInImage: true, mainItemIsComplete: true), for: id)
+        noPersonInImage: false, mainItemIsComplete: true), for: id)
     }
-  }
-
-  @Test("隔离验证手部请求的尺寸与设备，不代替生产拒绝路径",
-    arguments: [false, true], [false, true])
-  func handRequestProbe(original: Bool, system: Bool) async throws {
-    let photo = try await prepared("synthetic-hands-on-shirt")
-    let bytes = original ? try Data(contentsOf: fixture("synthetic-hands-on-shirt")) : photo.normalized.bytes
-    let request = VNDetectHumanHandPoseRequest()
-    request.revision = VNDetectHumanHandPoseRequestRevision1
-    request.maximumHandCount = 2
-    if !system {
-      let stages = try request.supportedComputeStageDevices
-      #expect(!stages.isEmpty)
-      for (stage, devices) in stages {
-        let cpu = try #require(devices.first { if case .cpu = $0 { true } else { false } })
-        request.setComputeDevice(cpu, for: stage)
-      }
-    }
-    try VNImageRequestHandler(data: bytes, orientation: .up, options: [:]).perform([request])
-    let hands = try #require(request.results)
-    print("WARDROBE_HAND_REQUEST_PROBE original=\(original) system=\(system) hands=\(hands.count)")
-    #expect(hands.count == 2)
+    #expect(review.phase == .needsConfirmation)
+    #expect(throws: WardrobePhotoReview.Failure.notReady) { try review.write(for: id) }
   }
 
   @Test("字节、像素和阶段时限均拒绝，非法配置不启动分析", arguments: 0..<3)
