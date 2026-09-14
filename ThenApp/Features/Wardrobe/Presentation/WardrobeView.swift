@@ -212,7 +212,7 @@ struct WardrobeEditorView: View {
             .disabled(draft.isWorking)
         }
       }
-      .scrollEdgeEffectStyle(dynamicTypeSize.isAccessibilitySize ? .hard : .automatic, for: .all)
+      .scrollEdgeEffectStyle(.hard, for: .all)
       .navigationTitle(draft.isDeleted ? (draft.canRetryDeletion ? "清理衣物数据" : "衣物已删除") : (draft.revision == nil ? "添加衣物" : "编辑衣物"))
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
