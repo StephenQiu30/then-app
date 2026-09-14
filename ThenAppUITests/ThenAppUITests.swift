@@ -1,4 +1,5 @@
 import CoreGraphics
+import Foundation
 import XCTest
 
 final class ThenAppUITests: XCTestCase {
@@ -144,6 +145,68 @@ final class ThenAppUITests: XCTestCase {
   }
 
   @MainActor
+  func testOutfitPlanAtLargestAccessibilityText() throws {
+    let garment = "辅助字号上装" + UUID().uuidString.prefix(6)
+    let app = launchApp(contentSizeCategory: "UICTContentSizeCategoryAccessibilityXXXL")
+
+    openWardrobe(app)
+    addGarment(app, name: String(garment))
+    XCTAssertTrue(app.staticTexts[String(garment)].waitForExistence(timeout: 5))
+    app.buttons["关闭"].tap()
+
+    openOutfits(app)
+    app.buttons["新建计划"].tap()
+
+    let datePicker = app.datePickers["穿搭日期"].firstMatch
+    XCTAssertTrue(datePicker.waitForExistence(timeout: 5))
+    XCTAssertTrue(app.frame.contains(datePicker.frame), "最大字号日期控件超出页面：\(datePicker.frame)")
+    let tomorrow = try XCTUnwrap(Calendar.current.date(byAdding: .day, value: 1, to: Date()))
+    select(tomorrow, in: datePicker)
+    try app.performAccessibilityAudit(for: [.contrast, .textClipped])
+
+    let choice = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", String(garment))).firstMatch
+    reveal(choice, in: app)
+    choice.tap()
+    app.buttons["保存"].tap()
+
+    let dayHeader = app.staticTexts[isoDay(tomorrow)]
+    XCTAssertTrue(dayHeader.waitForExistence(timeout: 5), "未来日期未出现在穿搭簿")
+    attachScreenshot(named: "outfit-future-date-largest-text")
+    let saved = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", String(garment))).firstMatch
+    XCTAssertTrue(saved.waitForExistence(timeout: 5))
+    saved.tap()
+    XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "原始时区：")).firstMatch.waitForExistence(timeout: 5))
+    try app.performAccessibilityAudit(for: [.contrast, .textClipped])
+
+    let cancel = app.buttons["取消计划"]
+    reveal(cancel, in: app)
+    cancel.tap()
+    XCTAssertTrue(app.buttons["确认取消计划"].waitForExistence(timeout: 3))
+    app.buttons["确认取消计划"].tap()
+    XCTAssertTrue(app.staticTexts["已取消"].waitForExistence(timeout: 5))
+    try app.performAccessibilityAudit(for: [.contrast, .textClipped])
+    attachScreenshot(named: "outfit-cancelled-detail-largest-text")
+
+    let delete = app.buttons["删除计划"]
+    reveal(delete, in: app)
+    delete.tap()
+    XCTAssertTrue(app.buttons["确认删除计划"].waitForExistence(timeout: 3))
+    app.buttons["确认删除计划"].tap()
+    XCTAssertTrue(saved.waitForNonExistence(timeout: 5))
+
+    app.buttons["关闭"].tap()
+    openWardrobe(app)
+    let garmentRow = app.staticTexts[String(garment)]
+    reveal(garmentRow, in: app)
+    garmentRow.tap()
+    let deleteGarment = app.buttons["删除衣物"]
+    reveal(deleteGarment, in: app)
+    deleteGarment.tap()
+    XCTAssertTrue(app.buttons["确认删除"].waitForExistence(timeout: 3))
+    app.buttons["确认删除"].tap()
+  }
+
+  @MainActor
   func testBackgroundHidesSensitiveContentAndRestoresStudio() throws {
     let app = launchApp()
     let bottom = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.99))
@@ -169,11 +232,57 @@ final class ThenAppUITests: XCTestCase {
 
   @MainActor
   private func launchApp() -> XCUIApplication {
+    launchApp(contentSizeCategory: "UICTContentSizeCategoryL")
+  }
+
+  @MainActor
+  private func launchApp(contentSizeCategory: String) -> XCUIApplication {
     let app = XCUIApplication()
-    app.launchArguments = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryL"]
+    app.launchArguments = ["-UIPreferredContentSizeCategoryName", contentSizeCategory]
     app.launch()
     XCTAssertTrue(app.buttons["形象"].waitForExistence(timeout: 8))
     return app
+  }
+
+  @MainActor
+  private func reveal(_ element: XCUIElement, in app: XCUIApplication) {
+    for _ in 0..<10 where !element.isHittable {
+      app.swipeUp()
+    }
+    XCTAssertTrue(element.isHittable, "无法滚动到元素：\(element)")
+  }
+
+  @MainActor
+  private func select(_ date: Date, in datePicker: XCUIElement) {
+    let calendar = Calendar.current
+    if !calendar.isDate(date, equalTo: Date(), toGranularity: .month) {
+      datePicker.buttons["DatePicker.NextMonth"].tap()
+    }
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "zh_CN")
+    formatter.calendar = calendar
+    formatter.timeZone = calendar.timeZone
+    formatter.dateFormat = "M月d日 EEEE"
+    let day = datePicker.buttons[formatter.string(from: date)]
+    XCTAssertTrue(day.waitForExistence(timeout: 3), "日期选择器中找不到明天：\(formatter.string(from: date))")
+    day.tap()
+    XCTAssertTrue(day.isSelected, "日期选择器未选中明天")
+  }
+
+  private func isoDay(_ date: Date) -> String {
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "en_US_POSIX")
+    formatter.calendar = Calendar(identifier: .gregorian)
+    formatter.timeZone = Calendar.current.timeZone
+    formatter.dateFormat = "yyyy-MM-dd"
+    return formatter.string(from: date)
+  }
+
+  private func attachScreenshot(named name: String) {
+    let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    attachment.name = name + ".png"
+    attachment.lifetime = .keepAlways
+    add(attachment)
   }
 
   @MainActor
