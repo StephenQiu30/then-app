@@ -1,0 +1,15 @@
+{
+  "renderer": "Three.js WebGL 2",
+  "threeVersion": "0.185.1",
+  "registry": "https://registry.npmjs.org/",
+  "packageTarballSHA256": "a2143f5bf978bd3470a51024b2b6bdd581913ba8f36ff1538d433f3a95adf2df",
+  "bundledModule": "three.module.min.js",
+  "bundledModuleSHA256": "86bcee248b64f44bcfc23c331ae74619061957d59cab040171dcb6fb5900beb6",
+  "bundledCoreModule": "three.core.min.js",
+  "bundledCoreModuleSHA256": "05b2609338c76cd65daf74f3ac515bc9a5045e1b3b33edc07d8c9bd55250fa90",
+  "gltfLoader": "GLTFLoader.js",
+  "gltfLoaderSource": "three@0.185.1/examples/jsm/loaders/GLTFLoader.js with the bare three import rewritten to the bundled module",
+  "gltfLoaderSHA256": "178f587f24f4b47dfc5ac573e0dea3d9dfbb29a6dc60e762723d31d70222a733",
+  "assetCatalog": "../Models/asset-manifest.json",
+  "runtimeNetworkDependencies": []
+}

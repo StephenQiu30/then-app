@@ -7,99 +7,78 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		209AC6E1302BC5F8FB2E8325 /* ThenAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF4B41BCB10051585A9C2A /* ThenAppUITests.swift */; };
 		00239FDC13BF73693DBB6D3E /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = 02BEE0611CFB50A96F5A0656 /* OpenAPIURLSession */; };
-		0143F9BE8DA64003DA2FDB52 /* LedgerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD50517FC8E2FEB8CD3416 /* LedgerView.swift */; };
-		0397A74B68F2F8B123120A06 /* LedgerPresentationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1C928A3FDDF58B4912D653 /* LedgerPresentationModelTests.swift */; };
-		064E8E52785073B2B4053799 /* LedgerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26FD2FBE7DF8DEDBF7812F /* LedgerViewModel.swift */; };
-		077376359B120F439528CDFD /* ConfirmBaseCurrencyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A50CF596AA4D2CEA7A340 /* ConfirmBaseCurrencyUseCase.swift */; };
-		09253E9D150197C8F8C2255D /* LedgerAmountTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C342E43F7AFE6318C01D7E3 /* LedgerAmountTextTests.swift */; };
-		12AE0E62B7D70058AE72D256 /* AccountManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BED6E25F082EEED18A7B94 /* AccountManagementView.swift */; };
-		163E85A7208892AD9AF6CBD6 /* LedgerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85CECC3BD3DF5F9E8ACDFE7 /* LedgerModels.swift */; };
-		174AEB1DB0DDA53BFB4773DE /* TestDatabaseSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98D21599F96D9590608098 /* TestDatabaseSupport.swift */; };
-		1AAA557D82222F220D8D24B1 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CFE93B2196136E9BF4834B /* TodayView.swift */; };
-		1B50D372B1A1FAF1377752DC /* GRDBLedgerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8864B9F03E9C021312A59C37 /* GRDBLedgerRepository.swift */; };
-		29FA88769EFAF8ECD8DB7211 /* LocalLedgerBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FB51BEF91D14E86E5D16F /* LocalLedgerBootstrap.swift */; };
+		02FE08D6CC60C654A749267A /* WardrobeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EDF81C8D6699B5F851889F /* WardrobeModels.swift */; };
+		04C33BBB18064E6827CAF05D /* OOTDSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B028927DBEB230FEA1D1E4F5 /* OOTDSchema.swift */; };
+		065ED7D18FA3335B2F6BE91E /* SystemAvatarPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515765F19E4294DC3D285484 /* SystemAvatarPhotoPicker.swift */; };
+		07D303511A494FAD9CCDC98A /* ThenApp/Services/Photos/SystemWardrobePhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84669C1C3A4F018109EF2A /* ThenApp/Services/Photos/SystemWardrobePhotoPicker.swift */; };
+		09A422587FC702D71B101676 /* AvatarPhotoTemporarySessionStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF3005C0C309C6B72821ADB /* AvatarPhotoTemporarySessionStoreTests.swift */; };
+		10B9B15FBAD3410DAA11A3BE /* ThenAppTests/OutfitPlanRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1626DE65641EA884DA582 /* ThenAppTests/OutfitPlanRepositoryTests.swift */; };
+		11A456BD8C0B4829846CDBAB /* ThenAppTests/VisionWardrobePersonAnalyzerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBDE0DA3F2496495A08724 /* ThenAppTests/VisionWardrobePersonAnalyzerTests.swift */; };
+		1343E1D5B15241A7AA93C592 /* ThenApp/Services/Imaging/VisionWardrobePersonAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E6CDC87DCD454F9B99FDA2 /* ThenApp/Services/Imaging/VisionWardrobePersonAnalyzer.swift */; };
+		179A6C099DB68BC875CB2BF0 /* ThenTransportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC7E37D68FD864DF2A06A16 /* ThenTransportTests.swift */; };
+		209AC6E1302BC5F8FB2E8325 /* ThenAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF4B41BCB10051585A9C2A /* ThenAppUITests.swift */; };
+		23F1319622714009B827464C /* ThenApp/Services/Imaging/PixelOnlyPNG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D40EECAF6E4E3AA6C54118 /* ThenApp/Services/Imaging/PixelOnlyPNG.swift */; };
 		2EDEBB8D877F9DB0BCE0D125 /* ThenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F449F280C9D45D8C2C0CC5E /* ThenApp.swift */; };
-		5465E154EB49214079E6D287 /* CurrencyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44F6E284ECA6721B3475ADB /* CurrencyCode.swift */; };
-		68F17E141F984B3357BF4B1A /* QuickTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E0E58BCE12A676EC325CB /* QuickTransactionView.swift */; };
+		301F14B8EFB34D59A8FAB5EB /* ThenApp/Data/Outfits/OutfitPlanPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD6BECEE6A4A02A0E241B7 /* ThenApp/Data/Outfits/OutfitPlanPersistence.swift */; };
+		308E0A4501291AC830DA27C3 /* ThenAppTests/Support/WardrobeMediaLifecycleProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB906D6E48BD71DA3A19FDB9 /* ThenAppTests/Support/WardrobeMediaLifecycleProbe.swift */; };
+		389174FA25DC405B9DC512C9 /* ThenAppTests/WardrobePhotoPreparerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0ABA3682DF4D31BA2EFBE1 /* ThenAppTests/WardrobePhotoPreparerTests.swift */; };
+		4357DE38D080CED18DB1028F /* ThenTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F1B274E154AB3DEA157FF7 /* ThenTransport.framework */; };
+		46B557789E14268D9BBEA4D1 /* AvatarPhotoIntakeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89851E22E84B3C4C3E35F061 /* AvatarPhotoIntakeModels.swift */; };
+		4ACFA7DD876AA66256024EAC /* AvatarPhotoFileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6626203F7EBC1D08E4D692 /* AvatarPhotoFileImporter.swift */; };
+		4BD17317ED8041BDBACD47D6 /* ThenAppTests/WardrobePhotoReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB89371DC7F4799BCB88ECE /* ThenAppTests/WardrobePhotoReviewTests.swift */; };
+		4C7E85093B7C46989E21E438 /* ThenApp/Services/Photos/WardrobePhotoFileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058CA31D516F4C66921F7188 /* ThenApp/Services/Photos/WardrobePhotoFileImporter.swift */; };
+		4FD4F2F5185B698294D7FE07 /* ThenTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F1B274E154AB3DEA157FF7 /* ThenTransport.framework */; };
+		550E1BE242B46537A0A41FE2 /* SystemAvatarPhotoPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2BA90B33F912B681829E76 /* SystemAvatarPhotoPickerTests.swift */; };
+		5A1CAE12DC384175BB653283 /* ThenAppTests/OutfitPlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A623C1F1B74B6FB01AE34D /* ThenAppTests/OutfitPlanTests.swift */; };
+		5B3040D1C6AC8DF11097D4EA /* AvatarPhotoQualityPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387F631F40B95CD8C937D6C /* AvatarPhotoQualityPolicyTests.swift */; };
+		5B4D811D5B3F4D7A8513A351 /* ThenApp/Services/Imaging/ImageIOWardrobePhotoPreparer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8A669FFDFA4553AB2DD248 /* ThenApp/Services/Imaging/ImageIOWardrobePhotoPreparer.swift */; };
+		6160976555DA2CBFA2B18CE3 /* WardrobeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5720D2CBCA51837C55C5F4 /* WardrobeViewModelTests.swift */; };
+		6575EA1CB1A94C50A4F29209 /* ThenApp/Features/Outfits/Presentation/OutfitPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AEB7833456498C876D069C /* ThenApp/Features/Outfits/Presentation/OutfitPlanView.swift */; };
+		6681100884953FA8EBD3F55C /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53CBF02F72DCC4FABDC06BF /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoModels.swift */; };
+		6940954CFBFC53B9F1B87F77 /* WardrobeRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF0EE18A18112BC382B3EB6 /* WardrobeRepositoryTests.swift */; };
+		747433C2D6E752C072EC3B23 /* WardrobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818894B353203CF97AC2316 /* WardrobeView.swift */; };
+		76D588567112E69C9A17A32E /* AvatarPhotoQualityPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275B4F9C290B958FC0B72E5 /* AvatarPhotoQualityPolicy.swift */; };
 		7C3B46D48C67C82F19A9A435 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A6DDECCD9B80EB9D5FF65 /* RootView.swift */; };
-		7D3837F41240B331D60B65FD /* AppLaunchModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B747053D3571C66B13E8BC0 /* AppLaunchModeTests.swift */; };
-		7D6150C5641A55DAF201E579 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411E9CE7458F9D0EDF1ECF0 /* AppEnvironment.swift */; };
-		7DED63A3419E87FC110DC429 /* DatabaseMigrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FF037801A0FF78605CA60B /* DatabaseMigrations.swift */; };
-		7F88010901451B14FAF73C01 /* GRDBLedgerRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CB9EFA5F49E75B1BBAA673 /* GRDBLedgerRepositoryTests.swift */; };
-		89F4A0E6E51C0667EE53E949 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51A8C849DCB0DA780726FAE /* TodayViewModel.swift */; };
-		8F21AF17AA63A1CCCCB33FC7 /* AppDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D1A0630B6864CCD0A0664 /* AppDatabaseTests.swift */; };
-		93A8690C229A34EA1BA9900D /* LedgerAmountText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8C98246A734F4C4DEE43FE /* LedgerAmountText.swift */; };
-		94A000000000000000000001 /* RefundTransactionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B000000000000000000001 /* RefundTransactionUseCase.swift */; };
-		94A000000000000000000002 /* ReverseTransactionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B000000000000000000002 /* ReverseTransactionUseCase.swift */; };
-		94A000000000000000000003 /* CorrectTransactionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B000000000000000000003 /* CorrectTransactionUseCase.swift */; };
-		95A000000000000000000001 /* LedgerTransactionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B000000000000000000001 /* LedgerTransactionDetailViewModel.swift */; };
-		95A000000000000000000002 /* LedgerTransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B000000000000000000002 /* LedgerTransactionDetailView.swift */; };
-		96A000000000000000000001 /* ReceiptOCRModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B000000000000000000001 /* ReceiptOCRModels.swift */; };
-		96A000000000000000000002 /* VisionReceiptOCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B000000000000000000002 /* VisionReceiptOCRService.swift */; };
-		96A000000000000000000003 /* ReceiptCameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B000000000000000000003 /* ReceiptCameraPicker.swift */; };
-		96A000000000000000000004 /* ReceiptOCRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B000000000000000000004 /* ReceiptOCRTests.swift */; };
-		97A000000000000000000001 /* CalendarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000001 /* CalendarModels.swift */; };
-		97A000000000000000000002 /* EventKitCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000002 /* EventKitCalendarService.swift */; };
-		97A000000000000000000003 /* GRDBCalendarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000003 /* GRDBCalendarRepository.swift */; };
-		97A000000000000000000004 /* CalendarImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000004 /* CalendarImportService.swift */; };
-		97A000000000000000000005 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000005 /* CalendarViewModel.swift */; };
-		97A000000000000000000006 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000006 /* CalendarView.swift */; };
-		97A000000000000000000007 /* CalendarImportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000007 /* CalendarImportTests.swift */; };
-		97A000000000000000000008 /* CalendarRevisionReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000008 /* CalendarRevisionReviewViewModel.swift */; };
-		97A000000000000000000009 /* CalendarRevisionReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B000000000000000000009 /* CalendarRevisionReviewView.swift */; };
-		98A000000000000000000001 /* TripPlanningModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000001 /* TripPlanningModels.swift */; };
-		98A000000000000000000002 /* GRDBTripPlanRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000002 /* GRDBTripPlanRepository.swift */; };
-		98A000000000000000000003 /* TripPlanningService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000003 /* TripPlanningService.swift */; };
-		98A000000000000000000004 /* MapKitTravelServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000004 /* MapKitTravelServices.swift */; };
-		98A000000000000000000005 /* LocalNotificationReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000005 /* LocalNotificationReminderService.swift */; };
-		98A000000000000000000006 /* TripPlanningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000006 /* TripPlanningTests.swift */; };
-		98A000000000000000000007 /* TripPlanEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000007 /* TripPlanEditorViewModel.swift */; };
-		98A000000000000000000008 /* TripPlanEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000008 /* TripPlanEditorView.swift */; };
-		98A000000000000000000009 /* TripPlanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B000000000000000000009 /* TripPlanListView.swift */; };
-		99A000000000000000000001 /* JourneyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B000000000000000000001 /* JourneyModels.swift */; };
-		99A000000000000000000002 /* GRDBJourneyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B000000000000000000002 /* GRDBJourneyRepository.swift */; };
-		99A000000000000000000003 /* JourneyRecordingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B000000000000000000003 /* JourneyRecordingService.swift */; };
-		99A000000000000000000004 /* CoreLocationJourneyDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B000000000000000000004 /* CoreLocationJourneyDriver.swift */; };
-		99A000000000000000000005 /* JourneyRecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B000000000000000000005 /* JourneyRecordingViewModel.swift */; };
-		99A000000000000000000006 /* JourneyRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B000000000000000000006 /* JourneyRecordingView.swift */; };
-		99A000000000000000000007 /* JourneyRecordingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B000000000000000000007 /* JourneyRecordingTests.swift */; };
-		9AA000000000000000000001 /* LifeLinkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB000000000000000000001 /* LifeLinkModels.swift */; };
-		9AA000000000000000000002 /* LifeLinkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB000000000000000000002 /* LifeLinkService.swift */; };
-		9AA000000000000000000003 /* GRDBLifeLinkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB000000000000000000003 /* GRDBLifeLinkRepository.swift */; };
-		9AA000000000000000000004 /* LifeLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB000000000000000000004 /* LifeLinkTests.swift */; };
-		9DA000000000000000000001 /* TodaySnapshotService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB000000000000000000001 /* TodaySnapshotService.swift */; };
-		9DA000000000000000000002 /* TodaySnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB000000000000000000002 /* TodaySnapshotTests.swift */; };
-		9EA000000000000000000001 /* PermissionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB000000000000000000001 /* PermissionModels.swift */; };
-		9EA000000000000000000002 /* SystemPermissionStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB000000000000000000002 /* SystemPermissionStatusService.swift */; };
-		9EA000000000000000000003 /* MyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB000000000000000000003 /* MyViewModel.swift */; };
-		9EA000000000000000000004 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB000000000000000000004 /* MyView.swift */; };
-		9FA000000000000000000001 /* JourneyExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB000000000000000000001 /* JourneyExpenseView.swift */; };
-		9GA000000000000000000001 /* NavigationAndProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9GB000000000000000000001 /* NavigationAndProfileTests.swift */; };
-		9HA000000000000000000001 /* LocalDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9HB000000000000000000001 /* LocalDataModels.swift */; };
-		9HA000000000000000000002 /* GRDBLocalDataManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9HB000000000000000000002 /* GRDBLocalDataManagementService.swift */; };
-		9HA000000000000000000003 /* LocalDataShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9HB000000000000000000003 /* LocalDataShareSheet.swift */; };
-		9HA000000000000000000004 /* LocalDataManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9HB000000000000000000004 /* LocalDataManagementTests.swift */; };
+		818151B6764A4ED0A5437FE7 /* ThenAppTests/Support/WardrobeVisionProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1E222DC394BBAA496EC7A /* ThenAppTests/Support/WardrobeVisionProbe.swift */; };
+		82C262B41823785455696DBF /* AvatarPhotoFileImporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3776473CA3F5E9C3174F61 /* AvatarPhotoFileImporterTests.swift */; };
+		86C8576E30014441A7448500 /* ThenAppTests/WardrobePhotoFileImporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D1510EA2045F29D3C373C /* ThenAppTests/WardrobePhotoFileImporterTests.swift */; };
+		88E37753086BFEBA9CDFDB58 /* AvatarPhotoIntake in Resources */ = {isa = PBXBuildFile; fileRef = 56E21C2D103063EBF7F67C88 /* AvatarPhotoIntake */; };
+		8909BC8359BD8343431DB225 /* GRDBWardrobeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15884B1ACCD396A5027BB64F /* GRDBWardrobeRepository.swift */; };
+		96154EDE648F7109D398F989 /* WardrobeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA230F2C5AE1964DA2E5AA59 /* WardrobeViewModel.swift */; };
+		976712A3D614B994AEAD94E5 /* ImageIOAvatarPhotoSanitizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18386DCCB287BD887832A41 /* ImageIOAvatarPhotoSanitizer.swift */; };
+		9C3DB5089E57B70446820CF8 /* openapi-generator-config.yaml in Sources */ = {isa = PBXBuildFile; fileRef = 9845780BA6924D26C20502F6 /* openapi-generator-config.yaml */; };
+		9E8D9D22CD8469DBB561CE58 /* ImageIOAvatarPhotoSanitizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC5E23E25222AA854B8EDD /* ImageIOAvatarPhotoSanitizerTests.swift */; };
 		9IA000000000000000000001 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 9IB000000000000000000001 /* PrivacyInfo.xcprivacy */; };
 		9JA000000000000000000001 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9JB000000000000000000001 /* Localizable.xcstrings */; };
 		9JA000000000000000000002 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9JB000000000000000000002 /* InfoPlist.xcstrings */; };
-		95117A03A4C12A97D864C7E4 /* SetLedgerAccountStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36B38BE0717B66F01A684CE /* SetLedgerAccountStatusUseCase.swift */; };
-		9A6DCBCFEF7712E01252E426 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D780F50C49585A9D54FCDBB3 /* AppDatabase.swift */; };
-		9C3DB5089E57B70446820CF8 /* openapi-generator-config.yaml in Sources */ = {isa = PBXBuildFile; fileRef = 9845780BA6924D26C20502F6 /* openapi-generator-config.yaml */; };
-		A37940111E10E0388E866AFE /* CreateTransactionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4510CDC89BF6F26AC389B76 /* CreateTransactionUseCase.swift */; };
-		A905881605770330E8FA0F2D /* LedgerQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE53B175DBB45C895DF11C8 /* LedgerQueryService.swift */; };
+		A10000000000000000000001 /* AvatarStudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000001 /* AvatarStudioView.swift */; };
+		A10000000000000000000002 /* ThreeAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000002 /* ThreeAvatarView.swift */; };
+		A2F000000000000000000001 /* AvatarAssetCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F000000000000000000001 /* AvatarAssetCatalog.swift */; };
+		A10000000000000000000003 /* Resources/AvatarStudio in Resources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000003 /* Resources/AvatarStudio */; };
+		A10000000000000000000004 /* AvatarStudioModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000004 /* AvatarStudioModelTests.swift */; };
+		A1712B5FC90441409F1071D2 /* ThenApp/Services/Photos/WardrobePhotoPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFF9F7B294F46FBAB7EC309 /* ThenApp/Services/Photos/WardrobePhotoPickerButton.swift */; };
+		A7AB3802B7904279B47C6324 /* ThenAppTests/OutfitPlanViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175B1E7F16840708C7E4369 /* ThenAppTests/OutfitPlanViewModelTests.swift */; };
+		A8C2FA90C7F24FAD9E01754F /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F3E6FDE2403DA058EBA5 /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift */; };
+		ACC848F03B0E491FBA2ED0BE /* ThenApp/Services/Imaging/WardrobePhotoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D595263680534FFF9BF5586A /* ThenApp/Services/Imaging/WardrobePhotoImage.swift */; };
+		B23592FEAA4C48C8BBC71264 /* ThenAppTests/SystemWardrobePhotoPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14668FDC820C427B9E15F726 /* ThenAppTests/SystemWardrobePhotoPickerTests.swift */; };
+		B3092FD15DA7CCD4E7779BFA /* HTTPTypes in Frameworks */ = {isa = PBXBuildFile; productRef = F5EA68A49EF90BC27CD2A37D /* HTTPTypes */; };
+		B417BBCF8FFC467FBD99E139 /* ThenAppTests/WardrobeItemPhotoSaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6459C7D5094985963B65EC /* ThenAppTests/WardrobeItemPhotoSaveTests.swift */; };
 		B677C7A5B09A56DF93A3920F /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = C6172DF9179DD456FAE1F314 /* GRDB */; };
-		C0696E709F18AF2DEF320134 /* LedgerPostingPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE97AB4513784FE534432E /* LedgerPostingPlan.swift */; };
-		CDC82685CE886F607339DFFF /* LedgerPostingPlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676C00C974F213E1969EBD09 /* LedgerPostingPlanTests.swift */; };
-		D03BA55BB508833EB3A1E41B /* PositiveMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5547E5C1A307AF2859776F0 /* PositiveMoney.swift */; };
+		BE71C09A3B622E4DDB264B77 /* AvatarPhotoTemporarySessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B01DB6CC85234E5E691871 /* AvatarPhotoTemporarySessionStore.swift */; };
+		C131B3A8068507E583E73BC7 /* ThenApp/Data/Wardrobe/WardrobePhotoPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F978823F2F58DB7BA73D5B1C /* ThenApp/Data/Wardrobe/WardrobePhotoPersistence.swift */; };
+		D160802E8CE84AFD8EE5047E /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AA9F053C2D4E6F8024F150 /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoReview.swift */; };
+		D8B86D9947893A57EFD07BBA /* OOTDAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F113F6E60A632BA2C347A /* OOTDAppModel.swift */; };
 		DBD0ED71F8D9B7CD79C34225 /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 1238C53EC6F4C5D1AF5C7CD8 /* OpenAPIRuntime */; };
-		E79C27E09D228B561149576A /* QuickTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F76730B77FC8CC84AE3EB75 /* QuickTransactionViewModel.swift */; };
+		DDAA00000000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDBB00000000000000000001 /* Assets.xcassets */; };
+		E1272548C8DED951EED0AA89 /* ThenAppTests/WardrobePhotoRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381931AFA752473E3940574A /* ThenAppTests/WardrobePhotoRepositoryTests.swift */; };
+		E19F3B9E27BAF67012042071 /* ThenAppTests/WardrobeMediaLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDE0E69DDD164665F8936A5 /* ThenAppTests/WardrobeMediaLifecycleTests.swift */; };
+		E583898870F14BA6A01AE7E7 /* WardrobeContentProbe in Resources */ = {isa = PBXBuildFile; fileRef = A7C1C4099358424682BD73B3 /* WardrobeContentProbe */; };
 		E7F186EC19AEDBD04C515BFC /* openapi.yaml in Sources */ = {isa = PBXBuildFile; fileRef = E021A163CE3869AFBF3CC678 /* openapi.yaml */; };
-		E84A60BFEE7B95C509E10DA1 /* LedgerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C025F91C7D18EAB8C16D0 /* LedgerRepository.swift */; };
-		F491B2AF6450381B4356A9D2 /* AccountManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48D495118BDEE16C37DC1E /* AccountManagementViewModel.swift */; };
-		F6920BD5E4E4E619E9E47552 /* CreateLedgerAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38364529257694C89AB6815 /* CreateLedgerAccountUseCase.swift */; };
-		FFE3CA269B18AF540DD060C8 /* AppLaunchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233AF95F0AEB00CEF84C7A93 /* AppLaunchMode.swift */; };
+		F144FF992F3249149A39F7F7 /* ThenAppTests/WardrobeVisionProbeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFD5CD215D74E99A86D9E95 /* ThenAppTests/WardrobeVisionProbeTests.swift */; };
+		F1B02BC8E69042B49A352D4B /* ThenAppTests/WardrobePhotoEditingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F15E91693B041F29AB32A04 /* ThenAppTests/WardrobePhotoEditingTests.swift */; };
+		F2B16D4D5831BCA5C5028409 /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 1238C53EC6F4C5D1AF5C7CD8 /* OpenAPIRuntime */; };
+		F2BAD1D905014955AF3AFA1B /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2F7D914084001B30A7877 /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,200 +96,134 @@
 			remoteGlobalIDString = BC07D24FB6036D0E8E6A5B6B;
 			remoteInfo = ThenApp;
 		};
+		8A045D8B2DFBFC3390DA4E9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 120BA4F31277F8B7E2864012 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBD39ECB0AF261BF23743B73;
+			remoteInfo = ThenTransport;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0175B1E7F16840708C7E4369 /* ThenAppTests/OutfitPlanViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/OutfitPlanViewModelTests.swift; sourceTree = SOURCE_ROOT; };
+		058CA31D516F4C66921F7188 /* ThenApp/Services/Photos/WardrobePhotoFileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Services/Photos/WardrobePhotoFileImporter.swift; sourceTree = SOURCE_ROOT; };
+		0AC7E37D68FD864DF2A06A16 /* ThenTransportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenTransportTests.swift; sourceTree = "<group>"; };
+		0EB89371DC7F4799BCB88ECE /* ThenAppTests/WardrobePhotoReviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobePhotoReviewTests.swift; sourceTree = SOURCE_ROOT; };
+		12E6CDC87DCD454F9B99FDA2 /* ThenApp/Services/Imaging/VisionWardrobePersonAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Services/Imaging/VisionWardrobePersonAnalyzer.swift; sourceTree = SOURCE_ROOT; };
+		14668FDC820C427B9E15F726 /* ThenAppTests/SystemWardrobePhotoPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/SystemWardrobePhotoPickerTests.swift; sourceTree = SOURCE_ROOT; };
+		15884B1ACCD396A5027BB64F /* GRDBWardrobeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRDBWardrobeRepository.swift; sourceTree = "<group>"; };
+		15D40EECAF6E4E3AA6C54118 /* ThenApp/Services/Imaging/PixelOnlyPNG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Services/Imaging/PixelOnlyPNG.swift; sourceTree = SOURCE_ROOT; };
+		1EFD5CD215D74E99A86D9E95 /* ThenAppTests/WardrobeVisionProbeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobeVisionProbeTests.swift; sourceTree = SOURCE_ROOT; };
+		24A623C1F1B74B6FB01AE34D /* ThenAppTests/OutfitPlanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/OutfitPlanTests.swift; sourceTree = SOURCE_ROOT; };
+		25EDF81C8D6699B5F851889F /* WardrobeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeModels.swift; sourceTree = "<group>"; };
+		26AEB7833456498C876D069C /* ThenApp/Features/Outfits/Presentation/OutfitPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Outfits/Presentation/OutfitPlanView.swift; sourceTree = SOURCE_ROOT; };
+		381931AFA752473E3940574A /* ThenAppTests/WardrobePhotoRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobePhotoRepositoryTests.swift; sourceTree = SOURCE_ROOT; };
+		3A5720D2CBCA51837C55C5F4 /* WardrobeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewModelTests.swift; sourceTree = "<group>"; };
+		3B2BA90B33F912B681829E76 /* SystemAvatarPhotoPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAvatarPhotoPickerTests.swift; sourceTree = "<group>"; };
+		3D3776473CA3F5E9C3174F61 /* AvatarPhotoFileImporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoFileImporterTests.swift; sourceTree = "<group>"; };
 		3EDF4B41BCB10051585A9C2A /* ThenAppUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThenAppUITests.swift; sourceTree = "<group>"; };
-		1B98D21599F96D9590608098 /* TestDatabaseSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestDatabaseSupport.swift; sourceTree = "<group>"; };
-		21BED6E25F082EEED18A7B94 /* AccountManagementView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccountManagementView.swift; sourceTree = "<group>"; };
-		233AF95F0AEB00CEF84C7A93 /* AppLaunchMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppLaunchMode.swift; sourceTree = "<group>"; };
-		2C3D1A0630B6864CCD0A0664 /* AppDatabaseTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDatabaseTests.swift; sourceTree = "<group>"; };
-		3B747053D3571C66B13E8BC0 /* AppLaunchModeTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppLaunchModeTests.swift; sourceTree = "<group>"; };
-		3E48D495118BDEE16C37DC1E /* AccountManagementViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccountManagementViewModel.swift; sourceTree = "<group>"; };
-		437A50CF596AA4D2CEA7A340 /* ConfirmBaseCurrencyUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfirmBaseCurrencyUseCase.swift; sourceTree = "<group>"; };
+		432D1510EA2045F29D3C373C /* ThenAppTests/WardrobePhotoFileImporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobePhotoFileImporterTests.swift; sourceTree = SOURCE_ROOT; };
 		463A6DDECCD9B80EB9D5FF65 /* RootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		4FF0EE18A18112BC382B3EB6 /* WardrobeRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeRepositoryTests.swift; sourceTree = "<group>"; };
+		515765F19E4294DC3D285484 /* SystemAvatarPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAvatarPhotoPicker.swift; sourceTree = "<group>"; };
+		56E21C2D103063EBF7F67C88 /* AvatarPhotoIntake */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AvatarPhotoIntake; sourceTree = "<group>"; };
+		5818894B353203CF97AC2316 /* WardrobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeView.swift; sourceTree = "<group>"; };
+		5AF3005C0C309C6B72821ADB /* AvatarPhotoTemporarySessionStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoTemporarySessionStoreTests.swift; sourceTree = "<group>"; };
 		5F449F280C9D45D8C2C0CC5E /* ThenApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThenApp.swift; sourceTree = "<group>"; };
-		614FB51BEF91D14E86E5D16F /* LocalLedgerBootstrap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalLedgerBootstrap.swift; sourceTree = "<group>"; };
-		676C00C974F213E1969EBD09 /* LedgerPostingPlanTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerPostingPlanTests.swift; sourceTree = "<group>"; };
-		68CB9EFA5F49E75B1BBAA673 /* GRDBLedgerRepositoryTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GRDBLedgerRepositoryTests.swift; sourceTree = "<group>"; };
-		6C1C928A3FDDF58B4912D653 /* LedgerPresentationModelTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerPresentationModelTests.swift; sourceTree = "<group>"; };
-		6F76730B77FC8CC84AE3EB75 /* QuickTransactionViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QuickTransactionViewModel.swift; sourceTree = "<group>"; };
-		8864B9F03E9C021312A59C37 /* GRDBLedgerRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GRDBLedgerRepository.swift; sourceTree = "<group>"; };
-		8A26FD2FBE7DF8DEDBF7812F /* LedgerViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerViewModel.swift; sourceTree = "<group>"; };
-		8C342E43F7AFE6318C01D7E3 /* LedgerAmountTextTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerAmountTextTests.swift; sourceTree = "<group>"; };
-		94B000000000000000000001 /* RefundTransactionUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RefundTransactionUseCase.swift; sourceTree = "<group>"; };
-		94B000000000000000000002 /* ReverseTransactionUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReverseTransactionUseCase.swift; sourceTree = "<group>"; };
-		94B000000000000000000003 /* CorrectTransactionUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CorrectTransactionUseCase.swift; sourceTree = "<group>"; };
-		95B000000000000000000001 /* LedgerTransactionDetailViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerTransactionDetailViewModel.swift; sourceTree = "<group>"; };
-		95B000000000000000000002 /* LedgerTransactionDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerTransactionDetailView.swift; sourceTree = "<group>"; };
-		96B000000000000000000001 /* ReceiptOCRModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReceiptOCRModels.swift; sourceTree = "<group>"; };
-		96B000000000000000000002 /* VisionReceiptOCRService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VisionReceiptOCRService.swift; sourceTree = "<group>"; };
-		96B000000000000000000003 /* ReceiptCameraPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReceiptCameraPicker.swift; sourceTree = "<group>"; };
-		96B000000000000000000004 /* ReceiptOCRTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReceiptOCRTests.swift; sourceTree = "<group>"; };
-		97B000000000000000000001 /* CalendarModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarModels.swift; sourceTree = "<group>"; };
-		97B000000000000000000002 /* EventKitCalendarService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventKitCalendarService.swift; sourceTree = "<group>"; };
-		97B000000000000000000003 /* GRDBCalendarRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GRDBCalendarRepository.swift; sourceTree = "<group>"; };
-		97B000000000000000000004 /* CalendarImportService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarImportService.swift; sourceTree = "<group>"; };
-		97B000000000000000000005 /* CalendarViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
-		97B000000000000000000006 /* CalendarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		97B000000000000000000007 /* CalendarImportTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarImportTests.swift; sourceTree = "<group>"; };
-		97B000000000000000000008 /* CalendarRevisionReviewViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarRevisionReviewViewModel.swift; sourceTree = "<group>"; };
-		97B000000000000000000009 /* CalendarRevisionReviewView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarRevisionReviewView.swift; sourceTree = "<group>"; };
-		98B000000000000000000001 /* TripPlanningModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TripPlanningModels.swift; sourceTree = "<group>"; };
-		98B000000000000000000002 /* GRDBTripPlanRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GRDBTripPlanRepository.swift; sourceTree = "<group>"; };
-		98B000000000000000000003 /* TripPlanningService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TripPlanningService.swift; sourceTree = "<group>"; };
-		98B000000000000000000004 /* MapKitTravelServices.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MapKitTravelServices.swift; sourceTree = "<group>"; };
-		98B000000000000000000005 /* LocalNotificationReminderService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalNotificationReminderService.swift; sourceTree = "<group>"; };
-		98B000000000000000000006 /* TripPlanningTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TripPlanningTests.swift; sourceTree = "<group>"; };
-		98B000000000000000000007 /* TripPlanEditorViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TripPlanEditorViewModel.swift; sourceTree = "<group>"; };
-		98B000000000000000000008 /* TripPlanEditorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TripPlanEditorView.swift; sourceTree = "<group>"; };
-		98B000000000000000000009 /* TripPlanListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TripPlanListView.swift; sourceTree = "<group>"; };
-		99B000000000000000000001 /* JourneyModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JourneyModels.swift; sourceTree = "<group>"; };
-		99B000000000000000000002 /* GRDBJourneyRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GRDBJourneyRepository.swift; sourceTree = "<group>"; };
-		99B000000000000000000003 /* JourneyRecordingService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JourneyRecordingService.swift; sourceTree = "<group>"; };
-		99B000000000000000000004 /* CoreLocationJourneyDriver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreLocationJourneyDriver.swift; sourceTree = "<group>"; };
-		99B000000000000000000005 /* JourneyRecordingViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JourneyRecordingViewModel.swift; sourceTree = "<group>"; };
-		99B000000000000000000006 /* JourneyRecordingView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JourneyRecordingView.swift; sourceTree = "<group>"; };
-		99B000000000000000000007 /* JourneyRecordingTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JourneyRecordingTests.swift; sourceTree = "<group>"; };
-		9AB000000000000000000001 /* LifeLinkModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LifeLinkModels.swift; sourceTree = "<group>"; };
-		9AB000000000000000000002 /* LifeLinkService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LifeLinkService.swift; sourceTree = "<group>"; };
-		9AB000000000000000000003 /* GRDBLifeLinkRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GRDBLifeLinkRepository.swift; sourceTree = "<group>"; };
-		9AB000000000000000000004 /* LifeLinkTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LifeLinkTests.swift; sourceTree = "<group>"; };
-		9DB000000000000000000001 /* TodaySnapshotService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TodaySnapshotService.swift; sourceTree = "<group>"; };
-		9DB000000000000000000002 /* TodaySnapshotTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TodaySnapshotTests.swift; sourceTree = "<group>"; };
-		9EB000000000000000000001 /* PermissionModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PermissionModels.swift; sourceTree = "<group>"; };
-		9EB000000000000000000002 /* SystemPermissionStatusService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SystemPermissionStatusService.swift; sourceTree = "<group>"; };
-		9EB000000000000000000003 /* MyViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MyViewModel.swift; sourceTree = "<group>"; };
-		9EB000000000000000000004 /* MyView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
-		9FB000000000000000000001 /* JourneyExpenseView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JourneyExpenseView.swift; sourceTree = "<group>"; };
-		9GB000000000000000000001 /* NavigationAndProfileTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationAndProfileTests.swift; sourceTree = "<group>"; };
-		9HB000000000000000000001 /* LocalDataModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalDataModels.swift; sourceTree = "<group>"; };
-		9HB000000000000000000002 /* GRDBLocalDataManagementService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GRDBLocalDataManagementService.swift; sourceTree = "<group>"; };
-		9HB000000000000000000003 /* LocalDataShareSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalDataShareSheet.swift; sourceTree = "<group>"; };
-		9HB000000000000000000004 /* LocalDataManagementTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalDataManagementTests.swift; sourceTree = "<group>"; };
+		5FBD6BECEE6A4A02A0E241B7 /* ThenApp/Data/Outfits/OutfitPlanPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Data/Outfits/OutfitPlanPersistence.swift; sourceTree = SOURCE_ROOT; };
+		5FFF9F7B294F46FBAB7EC309 /* ThenApp/Services/Photos/WardrobePhotoPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Services/Photos/WardrobePhotoPickerButton.swift; sourceTree = SOURCE_ROOT; };
+		6B6459C7D5094985963B65EC /* ThenAppTests/WardrobeItemPhotoSaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobeItemPhotoSaveTests.swift; sourceTree = SOURCE_ROOT; };
+		6F6626203F7EBC1D08E4D692 /* AvatarPhotoFileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoFileImporter.swift; sourceTree = "<group>"; };
+		72E1626DE65641EA884DA582 /* ThenAppTests/OutfitPlanRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/OutfitPlanRepositoryTests.swift; sourceTree = SOURCE_ROOT; };
+		7EDE0E69DDD164665F8936A5 /* ThenAppTests/WardrobeMediaLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobeMediaLifecycleTests.swift; sourceTree = SOURCE_ROOT; };
+		7F15E91693B041F29AB32A04 /* ThenAppTests/WardrobePhotoEditingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobePhotoEditingTests.swift; sourceTree = SOURCE_ROOT; };
+		89851E22E84B3C4C3E35F061 /* AvatarPhotoIntakeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoIntakeModels.swift; sourceTree = "<group>"; };
+		9845780BA6924D26C20502F6 /* openapi-generator-config.yaml */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
+		9DC1E222DC394BBAA496EC7A /* ThenAppTests/Support/WardrobeVisionProbe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/Support/WardrobeVisionProbe.swift; sourceTree = SOURCE_ROOT; };
 		9IB000000000000000000001 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		9JB000000000000000000001 /* Localizable.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		9JB000000000000000000002 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
-		9845780BA6924D26C20502F6 /* openapi-generator-config.yaml */ = {isa = PBXFileReference; includeInIndex = 1; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
+		A275B4F9C290B958FC0B72E5 /* AvatarPhotoQualityPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoQualityPolicy.swift; sourceTree = "<group>"; };
 		A37906A90D0BBE69D4EE243D /* ThenAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThenAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7C1C4099358424682BD73B3 /* WardrobeContentProbe */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WardrobeContentProbe; sourceTree = "<group>"; };
+		A7F1B274E154AB3DEA157FF7 /* ThenTransport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ThenTransport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEC2F7D914084001B30A7877 /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift; sourceTree = SOURCE_ROOT; };
+		B028927DBEB230FEA1D1E4F5 /* OOTDSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDSchema.swift; sourceTree = "<group>"; };
+		B10000000000000000000001 /* AvatarStudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarStudioView.swift; sourceTree = "<group>"; };
+		B10000000000000000000002 /* ThreeAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeAvatarView.swift; sourceTree = "<group>"; };
+		B2F000000000000000000001 /* AvatarAssetCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarAssetCatalog.swift; sourceTree = "<group>"; };
+		B10000000000000000000003 /* Resources/AvatarStudio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources/AvatarStudio; sourceTree = "<group>"; };
+		B10000000000000000000004 /* AvatarStudioModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarStudioModelTests.swift; sourceTree = "<group>"; };
 		B10DFA76DE5D4B252855E96B /* ThenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B44F6E284ECA6721B3475ADB /* CurrencyCode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CurrencyCode.swift; sourceTree = "<group>"; };
-		B5547E5C1A307AF2859776F0 /* PositiveMoney.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PositiveMoney.swift; sourceTree = "<group>"; };
-		C34E0E58BCE12A676EC325CB /* QuickTransactionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QuickTransactionView.swift; sourceTree = "<group>"; };
-		C46C025F91C7D18EAB8C16D0 /* LedgerRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerRepository.swift; sourceTree = "<group>"; };
-		C85CECC3BD3DF5F9E8ACDFE7 /* LedgerModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerModels.swift; sourceTree = "<group>"; };
-		C8FF037801A0FF78605CA60B /* DatabaseMigrations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DatabaseMigrations.swift; sourceTree = "<group>"; };
-		D36B38BE0717B66F01A684CE /* SetLedgerAccountStatusUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SetLedgerAccountStatusUseCase.swift; sourceTree = "<group>"; };
-		D780F50C49585A9D54FCDBB3 /* AppDatabase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
-		DBEE97AB4513784FE534432E /* LedgerPostingPlan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerPostingPlan.swift; sourceTree = "<group>"; };
-		DDFD50517FC8E2FEB8CD3416 /* LedgerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerView.swift; sourceTree = "<group>"; };
-		E021A163CE3869AFBF3CC678 /* openapi.yaml */ = {isa = PBXFileReference; includeInIndex = 1; path = openapi.yaml; sourceTree = "<group>"; };
-		E411E9CE7458F9D0EDF1ECF0 /* AppEnvironment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
-		E4CFE93B2196136E9BF4834B /* TodayView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
-		E51A8C849DCB0DA780726FAE /* TodayViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
-		EB8C98246A734F4C4DEE43FE /* LedgerAmountText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerAmountText.swift; sourceTree = "<group>"; };
-		EFE53B175DBB45C895DF11C8 /* LedgerQueryService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LedgerQueryService.swift; sourceTree = "<group>"; };
-		F38364529257694C89AB6815 /* CreateLedgerAccountUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateLedgerAccountUseCase.swift; sourceTree = "<group>"; };
-		F4510CDC89BF6F26AC389B76 /* CreateTransactionUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateTransactionUseCase.swift; sourceTree = "<group>"; };
+		B3AA9F053C2D4E6F8024F150 /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Wardrobe/Domain/WardrobePhotoReview.swift; sourceTree = SOURCE_ROOT; };
+		B7BBDE0DA3F2496495A08724 /* ThenAppTests/VisionWardrobePersonAnalyzerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/VisionWardrobePersonAnalyzerTests.swift; sourceTree = SOURCE_ROOT; };
+		BB0ABA3682DF4D31BA2EFBE1 /* ThenAppTests/WardrobePhotoPreparerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobePhotoPreparerTests.swift; sourceTree = SOURCE_ROOT; };
+		BB8A669FFDFA4553AB2DD248 /* ThenApp/Services/Imaging/ImageIOWardrobePhotoPreparer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Services/Imaging/ImageIOWardrobePhotoPreparer.swift; sourceTree = SOURCE_ROOT; };
+		BB906D6E48BD71DA3A19FDB9 /* ThenAppTests/Support/WardrobeMediaLifecycleProbe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/Support/WardrobeMediaLifecycleProbe.swift; sourceTree = SOURCE_ROOT; };
+		BD84669C1C3A4F018109EF2A /* ThenApp/Services/Photos/SystemWardrobePhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Services/Photos/SystemWardrobePhotoPicker.swift; sourceTree = SOURCE_ROOT; };
+		C2FC5E23E25222AA854B8EDD /* ImageIOAvatarPhotoSanitizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageIOAvatarPhotoSanitizerTests.swift; sourceTree = "<group>"; };
+		CE2F113F6E60A632BA2C347A /* OOTDAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDAppModel.swift; sourceTree = "<group>"; };
+		D191F3E6FDE2403DA058EBA5 /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift; sourceTree = SOURCE_ROOT; };
+		D1B01DB6CC85234E5E691871 /* AvatarPhotoTemporarySessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoTemporarySessionStore.swift; sourceTree = "<group>"; };
+		D595263680534FFF9BF5586A /* ThenApp/Services/Imaging/WardrobePhotoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Services/Imaging/WardrobePhotoImage.swift; sourceTree = SOURCE_ROOT; };
+		DDBB00000000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E021A163CE3869AFBF3CC678 /* openapi.yaml */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.yaml; path = openapi.yaml; sourceTree = "<group>"; };
+		E387F631F40B95CD8C937D6C /* AvatarPhotoQualityPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoQualityPolicyTests.swift; sourceTree = "<group>"; };
+		EA230F2C5AE1964DA2E5AA59 /* WardrobeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewModel.swift; sourceTree = "<group>"; };
+		F18386DCCB287BD887832A41 /* ImageIOAvatarPhotoSanitizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageIOAvatarPhotoSanitizer.swift; sourceTree = "<group>"; };
+		F53CBF02F72DCC4FABDC06BF /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Wardrobe/Domain/WardrobePhotoModels.swift; sourceTree = SOURCE_ROOT; };
+		F978823F2F58DB7BA73D5B1C /* ThenApp/Data/Wardrobe/WardrobePhotoPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Data/Wardrobe/WardrobePhotoPersistence.swift; sourceTree = SOURCE_ROOT; };
 		FEEA46C5758CE02775D5B87F /* ThenAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThenAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		53E9A04DBA8819CBA84DC367 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+				DBD0ED71F8D9B7CD79C34225 /* OpenAPIRuntime in Frameworks */,
+			);
+		};
 		79A611AA0F19F9DE7EF68753 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				B677C7A5B09A56DF93A3920F /* GRDB in Frameworks */,
-				DBD0ED71F8D9B7CD79C34225 /* OpenAPIRuntime in Frameworks */,
+				4FD4F2F5185B698294D7FE07 /* ThenTransport.framework in Frameworks */,
 				00239FDC13BF73693DBB6D3E /* OpenAPIURLSession in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D51F57B3DBE1C2AAFA887115 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
+				B3092FD15DA7CCD4E7779BFA /* HTTPTypes in Frameworks */,
+				F2B16D4D5831BCA5C5028409 /* OpenAPIRuntime in Frameworks */,
+				4357DE38D080CED18DB1028F /* ThenTransport.framework in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2333F4B028CEC64258305739 /* Presentation */ = {
+		1B734BADBD74C7CEB6750E37 /* Imaging */ = {
 			isa = PBXGroup;
 			children = (
-				EB8C98246A734F4C4DEE43FE /* LedgerAmountText.swift */,
-				95B000000000000000000001 /* LedgerTransactionDetailViewModel.swift */,
-				95B000000000000000000002 /* LedgerTransactionDetailView.swift */,
-				96B000000000000000000003 /* ReceiptCameraPicker.swift */,
-				6F76730B77FC8CC84AE3EB75 /* QuickTransactionViewModel.swift */,
-				C34E0E58BCE12A676EC325CB /* QuickTransactionView.swift */,
-				DDFD50517FC8E2FEB8CD3416 /* LedgerView.swift */,
-				8A26FD2FBE7DF8DEDBF7812F /* LedgerViewModel.swift */,
-				21BED6E25F082EEED18A7B94 /* AccountManagementView.swift */,
-				3E48D495118BDEE16C37DC1E /* AccountManagementViewModel.swift */,
+				BB8A669FFDFA4553AB2DD248 /* ThenApp/Services/Imaging/ImageIOWardrobePhotoPreparer.swift */,
+				D595263680534FFF9BF5586A /* ThenApp/Services/Imaging/WardrobePhotoImage.swift */,
+				12E6CDC87DCD454F9B99FDA2 /* ThenApp/Services/Imaging/VisionWardrobePersonAnalyzer.swift */,
+				15D40EECAF6E4E3AA6C54118 /* ThenApp/Services/Imaging/PixelOnlyPNG.swift */,
+				F18386DCCB287BD887832A41 /* ImageIOAvatarPhotoSanitizer.swift */,
+				D1B01DB6CC85234E5E691871 /* AvatarPhotoTemporarySessionStore.swift */,
 			);
-			name = Presentation;
-			path = Presentation;
+			path = Imaging;
 			sourceTree = "<group>";
 		};
 		311139C11C8BE2C7130C3A43 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				C5C0CEC54BD4C43E14BBCC62 /* Today */,
-				F804447CDB14C8D8E04FB096 /* Ledger */,
-				97C000000000000000000001 /* Calendar */,
-				98C000000000000000000001 /* Travel */,
-				9AC000000000000000000001 /* Life */,
-				9EC000000000000000000001 /* Profile */,
+				EC7A95F2ED8A48F591E0D8D4 /* Outfits */,
+				57D8B837036E3A12E601E568 /* Wardrobe */,
+				F470B0AF7133A3D8E4BBAB9D /* Avatar */,
 			);
-			name = Features;
 			path = Features;
-			sourceTree = "<group>";
-		};
-		4AABFCDA4185A52D1E4E8752 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				C85CECC3BD3DF5F9E8ACDFE7 /* LedgerModels.swift */,
-				DBEE97AB4513784FE534432E /* LedgerPostingPlan.swift */,
-				C46C025F91C7D18EAB8C16D0 /* LedgerRepository.swift */,
-				96B000000000000000000001 /* ReceiptOCRModels.swift */,
-			);
-			name = Domain;
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		4CB76DA76EF7F93758EF46C5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B10DFA76DE5D4B252855E96B /* ThenApp.app */,
-				FEEA46C5758CE02775D5B87F /* ThenAppTests.xctest */,
-				A37906A90D0BBE69D4EE243D /* ThenAppUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		71BACB85C2DE6BE426FF19A1 /* ThenAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				3B747053D3571C66B13E8BC0 /* AppLaunchModeTests.swift */,
-				2C3D1A0630B6864CCD0A0664 /* AppDatabaseTests.swift */,
-				1B98D21599F96D9590608098 /* TestDatabaseSupport.swift */,
-				676C00C974F213E1969EBD09 /* LedgerPostingPlanTests.swift */,
-				68CB9EFA5F49E75B1BBAA673 /* GRDBLedgerRepositoryTests.swift */,
-				8C342E43F7AFE6318C01D7E3 /* LedgerAmountTextTests.swift */,
-				6C1C928A3FDDF58B4912D653 /* LedgerPresentationModelTests.swift */,
-				96B000000000000000000004 /* ReceiptOCRTests.swift */,
-				97B000000000000000000007 /* CalendarImportTests.swift */,
-				98B000000000000000000006 /* TripPlanningTests.swift */,
-				99B000000000000000000007 /* JourneyRecordingTests.swift */,
-				9AB000000000000000000004 /* LifeLinkTests.swift */,
-				9DB000000000000000000002 /* TodaySnapshotTests.swift */,
-				9GB000000000000000000001 /* NavigationAndProfileTests.swift */,
-				9HB000000000000000000004 /* LocalDataManagementTests.swift */,
-			);
-			name = ThenAppTests;
-			path = ThenAppTests;
 			sourceTree = "<group>";
 		};
 		4382DDBBEE6E9A5723D21425 /* ThenAppUITests */ = {
@@ -318,138 +231,200 @@
 			children = (
 				3EDF4B41BCB10051585A9C2A /* ThenAppUITests.swift */,
 			);
-			name = ThenAppUITests;
 			path = ThenAppUITests;
 			sourceTree = "<group>";
 		};
-		8DC01A30587BD097C9A986C8 /* Database */ = {
+		44BF1D90C4F5E38C4F5607C2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				D780F50C49585A9D54FCDBB3 /* AppDatabase.swift */,
-				C8FF037801A0FF78605CA60B /* DatabaseMigrations.swift */,
+				5818894B353203CF97AC2316 /* WardrobeView.swift */,
+				EA230F2C5AE1964DA2E5AA59 /* WardrobeViewModel.swift */,
 			);
-			name = Database;
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		4583574BB779E79EC26B648B /* Wardrobe */ = {
+			isa = PBXGroup;
+			children = (
+				F978823F2F58DB7BA73D5B1C /* ThenApp/Data/Wardrobe/WardrobePhotoPersistence.swift */,
+				15884B1ACCD396A5027BB64F /* GRDBWardrobeRepository.swift */,
+			);
+			path = Wardrobe;
+			sourceTree = "<group>";
+		};
+		49910A2771AF137EF79AA070 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				B028927DBEB230FEA1D1E4F5 /* OOTDSchema.swift */,
+			);
 			path = Database;
 			sourceTree = "<group>";
 		};
-		A400578503CDE7569E12637E /* Bootstrap */ = {
+		4CB76DA76EF7F93758EF46C5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				614FB51BEF91D14E86E5D16F /* LocalLedgerBootstrap.swift */,
+				A7F1B274E154AB3DEA157FF7 /* ThenTransport.framework */,
+				B10DFA76DE5D4B252855E96B /* ThenApp.app */,
+				FEEA46C5758CE02775D5B87F /* ThenAppTests.xctest */,
+				A37906A90D0BBE69D4EE243D /* ThenAppUITests.xctest */,
 			);
-			name = Bootstrap;
-			path = Bootstrap;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		C111A927586426E81C180A07 /* ThenApp */ = {
+		57D8B837036E3A12E601E568 /* Wardrobe */ = {
 			isa = PBXGroup;
 			children = (
-				9JB000000000000000000001 /* Localizable.xcstrings */,
-				9JB000000000000000000002 /* InfoPlist.xcstrings */,
-				E6848F95EA0992986D343278 /* App */,
-				E2B74D4D60757D4DA23C166C /* Core */,
-				311139C11C8BE2C7130C3A43 /* Features */,
-				96C000000000000000000001 /* Services */,
-				E021A163CE3869AFBF3CC678 /* openapi.yaml */,
-				9845780BA6924D26C20502F6 /* openapi-generator-config.yaml */,
-				EDF4BED0A1636766AEE9C3CF /* Data */,
+				44BF1D90C4F5E38C4F5607C2 /* Presentation */,
+				900A0752A60BD56859BDFED5 /* Domain */,
 			);
-			name = ThenApp;
-			path = ThenApp;
+			path = Wardrobe;
 			sourceTree = "<group>";
 		};
-		C5C0CEC54BD4C43E14BBCC62 /* Today */ = {
+		67D36E3DBB337ABB49928E15 /* Photos */ = {
 			isa = PBXGroup;
 			children = (
-				E4CFE93B2196136E9BF4834B /* TodayView.swift */,
-				E51A8C849DCB0DA780726FAE /* TodayViewModel.swift */,
-				9DB000000000000000000001 /* TodaySnapshotService.swift */,
+				058CA31D516F4C66921F7188 /* ThenApp/Services/Photos/WardrobePhotoFileImporter.swift */,
+				5FFF9F7B294F46FBAB7EC309 /* ThenApp/Services/Photos/WardrobePhotoPickerButton.swift */,
+				BD84669C1C3A4F018109EF2A /* ThenApp/Services/Photos/SystemWardrobePhotoPicker.swift */,
+				6F6626203F7EBC1D08E4D692 /* AvatarPhotoFileImporter.swift */,
+				515765F19E4294DC3D285484 /* SystemAvatarPhotoPicker.swift */,
 			);
-			name = Today;
-			path = Today;
+			path = Photos;
+			sourceTree = "<group>";
+		};
+		71BACB85C2DE6BE426FF19A1 /* ThenAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000004 /* AvatarStudioModelTests.swift */,
+				0175B1E7F16840708C7E4369 /* ThenAppTests/OutfitPlanViewModelTests.swift */,
+				72E1626DE65641EA884DA582 /* ThenAppTests/OutfitPlanRepositoryTests.swift */,
+				24A623C1F1B74B6FB01AE34D /* ThenAppTests/OutfitPlanTests.swift */,
+				1EFD5CD215D74E99A86D9E95 /* ThenAppTests/WardrobeVisionProbeTests.swift */,
+				9DC1E222DC394BBAA496EC7A /* ThenAppTests/Support/WardrobeVisionProbe.swift */,
+				432D1510EA2045F29D3C373C /* ThenAppTests/WardrobePhotoFileImporterTests.swift */,
+				B7BBDE0DA3F2496495A08724 /* ThenAppTests/VisionWardrobePersonAnalyzerTests.swift */,
+				0EB89371DC7F4799BCB88ECE /* ThenAppTests/WardrobePhotoReviewTests.swift */,
+				14668FDC820C427B9E15F726 /* ThenAppTests/SystemWardrobePhotoPickerTests.swift */,
+				BB0ABA3682DF4D31BA2EFBE1 /* ThenAppTests/WardrobePhotoPreparerTests.swift */,
+				BB906D6E48BD71DA3A19FDB9 /* ThenAppTests/Support/WardrobeMediaLifecycleProbe.swift */,
+				7EDE0E69DDD164665F8936A5 /* ThenAppTests/WardrobeMediaLifecycleTests.swift */,
+				381931AFA752473E3940574A /* ThenAppTests/WardrobePhotoRepositoryTests.swift */,
+				7F15E91693B041F29AB32A04 /* ThenAppTests/WardrobePhotoEditingTests.swift */,
+				6B6459C7D5094985963B65EC /* ThenAppTests/WardrobeItemPhotoSaveTests.swift */,
+				3A5720D2CBCA51837C55C5F4 /* WardrobeViewModelTests.swift */,
+				4FF0EE18A18112BC382B3EB6 /* WardrobeRepositoryTests.swift */,
+				0AC7E37D68FD864DF2A06A16 /* ThenTransportTests.swift */,
+				3D3776473CA3F5E9C3174F61 /* AvatarPhotoFileImporterTests.swift */,
+				3B2BA90B33F912B681829E76 /* SystemAvatarPhotoPickerTests.swift */,
+				C7CD280714F7C43081E0AB20 /* Resources */,
+				C2FC5E23E25222AA854B8EDD /* ImageIOAvatarPhotoSanitizerTests.swift */,
+				5AF3005C0C309C6B72821ADB /* AvatarPhotoTemporarySessionStoreTests.swift */,
+				E387F631F40B95CD8C937D6C /* AvatarPhotoQualityPolicyTests.swift */,
+			);
+			path = ThenAppTests;
+			sourceTree = "<group>";
+		};
+		7F250193CD55062194A788AA /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				89851E22E84B3C4C3E35F061 /* AvatarPhotoIntakeModels.swift */,
+				A275B4F9C290B958FC0B72E5 /* AvatarPhotoQualityPolicy.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		900A0752A60BD56859BDFED5 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				F53CBF02F72DCC4FABDC06BF /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoModels.swift */,
+				B3AA9F053C2D4E6F8024F150 /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoReview.swift */,
+				25EDF81C8D6699B5F851889F /* WardrobeModels.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		96C000000000000000000001 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				96C000000000000000000002 /* OCR */,
-				97C000000000000000000006 /* Calendar */,
-				98C000000000000000000006 /* Travel */,
-				9EC000000000000000000004 /* Privacy */,
+				C10000000000000000000002 /* Rendering */,
+				67D36E3DBB337ABB49928E15 /* Photos */,
+				1B734BADBD74C7CEB6750E37 /* Imaging */,
 			);
-			name = Services;
 			path = Services;
 			sourceTree = "<group>";
 		};
-		96C000000000000000000002 /* OCR */ = {
+		97081F5D19C22F767D54F065 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				96B000000000000000000002 /* VisionReceiptOCRService.swift */,
+				5FBD6BECEE6A4A02A0E241B7 /* ThenApp/Data/Outfits/OutfitPlanPersistence.swift */,
+				4583574BB779E79EC26B648B /* Wardrobe */,
+				49910A2771AF137EF79AA070 /* Database */,
 			);
-			name = OCR;
-			path = OCR;
+			path = Data;
 			sourceTree = "<group>";
 		};
-		DB1662EB5A51CC6F789B83F7 /* Domain */ = {
+		C10000000000000000000001 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				233AF95F0AEB00CEF84C7A93 /* AppLaunchMode.swift */,
-				B44F6E284ECA6721B3475ADB /* CurrencyCode.swift */,
-				B5547E5C1A307AF2859776F0 /* PositiveMoney.swift */,
+				B10000000000000000000001 /* AvatarStudioView.swift */,
 			);
-			name = Domain;
-			path = Domain;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
-		E2B74D4D60757D4DA23C166C /* Core */ = {
+		C10000000000000000000002 /* Rendering */ = {
 			isa = PBXGroup;
 			children = (
-				DB1662EB5A51CC6F789B83F7 /* Domain */,
+				B2F000000000000000000001 /* AvatarAssetCatalog.swift */,
+				B10000000000000000000002 /* ThreeAvatarView.swift */,
 			);
-			name = Core;
-			path = Core;
+			path = Rendering;
+			sourceTree = "<group>";
+		};
+		C111A927586426E81C180A07 /* ThenApp */ = {
+			isa = PBXGroup;
+			children = (
+				DDBB00000000000000000001 /* Assets.xcassets */,
+				97081F5D19C22F767D54F065 /* Data */,
+				9JB000000000000000000001 /* Localizable.xcstrings */,
+				9JB000000000000000000002 /* InfoPlist.xcstrings */,
+				E6848F95EA0992986D343278 /* App */,
+				311139C11C8BE2C7130C3A43 /* Features */,
+				96C000000000000000000001 /* Services */,
+				B10000000000000000000003 /* Resources/AvatarStudio */,
+				E021A163CE3869AFBF3CC678 /* openapi.yaml */,
+				9845780BA6924D26C20502F6 /* openapi-generator-config.yaml */,
+			);
+			path = ThenApp;
+			sourceTree = "<group>";
+		};
+		C7CD280714F7C43081E0AB20 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				56E21C2D103063EBF7F67C88 /* AvatarPhotoIntake */,
+				A7C1C4099358424682BD73B3 /* WardrobeContentProbe */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		E6848F95EA0992986D343278 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				CE2F113F6E60A632BA2C347A /* OOTDAppModel.swift */,
 				5F449F280C9D45D8C2C0CC5E /* ThenApp.swift */,
 				463A6DDECCD9B80EB9D5FF65 /* RootView.swift */,
-				E411E9CE7458F9D0EDF1ECF0 /* AppEnvironment.swift */,
 				9IB000000000000000000001 /* PrivacyInfo.xcprivacy */,
 			);
-			name = App;
 			path = App;
 			sourceTree = "<group>";
 		};
-		EDF4BED0A1636766AEE9C3CF /* Data */ = {
+		EC7A95F2ED8A48F591E0D8D4 /* Outfits */ = {
 			isa = PBXGroup;
 			children = (
-				8DC01A30587BD097C9A986C8 /* Database */,
-				A400578503CDE7569E12637E /* Bootstrap */,
-				FA452D8BD81F2DCCDDFC1FCC /* Ledger */,
-				97C000000000000000000005 /* Calendar */,
-				98C000000000000000000005 /* Travel */,
-				9AC000000000000000000004 /* Life */,
+				26AEB7833456498C876D069C /* ThenApp/Features/Outfits/Presentation/OutfitPlanView.swift */,
+				D191F3E6FDE2403DA058EBA5 /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift */,
+				AEC2F7D914084001B30A7877 /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift */,
 			);
-			name = Data;
-			path = Data;
-			sourceTree = "<group>";
-		};
-		EEFBA87D2DBA16EBF99A4645 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				437A50CF596AA4D2CEA7A340 /* ConfirmBaseCurrencyUseCase.swift */,
-				F4510CDC89BF6F26AC389B76 /* CreateTransactionUseCase.swift */,
-				94B000000000000000000001 /* RefundTransactionUseCase.swift */,
-				94B000000000000000000002 /* ReverseTransactionUseCase.swift */,
-				94B000000000000000000003 /* CorrectTransactionUseCase.swift */,
-				EFE53B175DBB45C895DF11C8 /* LedgerQueryService.swift */,
-				F38364529257694C89AB6815 /* CreateLedgerAccountUseCase.swift */,
-				D36B38BE0717B66F01A684CE /* SetLedgerAccountStatusUseCase.swift */,
-			);
-			name = UseCases;
-			path = UseCases;
+			path = Outfits;
 			sourceTree = "<group>";
 		};
 		F0B64A2D346FFBBC58616FE8 = {
@@ -462,259 +437,18 @@
 			);
 			sourceTree = "<group>";
 		};
-		F804447CDB14C8D8E04FB096 /* Ledger */ = {
+		F470B0AF7133A3D8E4BBAB9D /* Avatar */ = {
 			isa = PBXGroup;
 			children = (
-				4AABFCDA4185A52D1E4E8752 /* Domain */,
-				EEFBA87D2DBA16EBF99A4645 /* UseCases */,
-				2333F4B028CEC64258305739 /* Presentation */,
+				C10000000000000000000001 /* Presentation */,
+				7F250193CD55062194A788AA /* Domain */,
 			);
-			name = Ledger;
-			path = Ledger;
-			sourceTree = "<group>";
-		};
-		FA452D8BD81F2DCCDDFC1FCC /* Ledger */ = {
-			isa = PBXGroup;
-			children = (
-				8864B9F03E9C021312A59C37 /* GRDBLedgerRepository.swift */,
-			);
-			name = Ledger;
-			path = Ledger;
-			sourceTree = "<group>";
-		};
-		97C000000000000000000001 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				97C000000000000000000002 /* Domain */,
-				97C000000000000000000003 /* UseCases */,
-				97C000000000000000000004 /* Presentation */,
-			);
-			name = Calendar;
-			path = Calendar;
-			sourceTree = "<group>";
-		};
-		97C000000000000000000002 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				97B000000000000000000001 /* CalendarModels.swift */,
-			);
-			name = Domain;
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		97C000000000000000000003 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				97B000000000000000000004 /* CalendarImportService.swift */,
-			);
-			name = UseCases;
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		97C000000000000000000004 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				97B000000000000000000005 /* CalendarViewModel.swift */,
-				97B000000000000000000006 /* CalendarView.swift */,
-				97B000000000000000000008 /* CalendarRevisionReviewViewModel.swift */,
-				97B000000000000000000009 /* CalendarRevisionReviewView.swift */,
-			);
-			name = Presentation;
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		97C000000000000000000005 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				97B000000000000000000003 /* GRDBCalendarRepository.swift */,
-			);
-			name = Calendar;
-			path = Calendar;
-			sourceTree = "<group>";
-		};
-		97C000000000000000000006 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				97B000000000000000000002 /* EventKitCalendarService.swift */,
-			);
-			name = Calendar;
-			path = Calendar;
-			sourceTree = "<group>";
-		};
-		98C000000000000000000001 /* Travel */ = {
-			isa = PBXGroup;
-			children = (
-				98C000000000000000000002 /* Domain */,
-				98C000000000000000000003 /* UseCases */,
-				98C000000000000000000004 /* Presentation */,
-			);
-			name = Travel;
-			path = Travel;
-			sourceTree = "<group>";
-		};
-		98C000000000000000000002 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				98B000000000000000000001 /* TripPlanningModels.swift */,
-				99B000000000000000000001 /* JourneyModels.swift */,
-			);
-			name = Domain;
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		98C000000000000000000003 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				98B000000000000000000003 /* TripPlanningService.swift */,
-				99B000000000000000000003 /* JourneyRecordingService.swift */,
-			);
-			name = UseCases;
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		98C000000000000000000004 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				98B000000000000000000007 /* TripPlanEditorViewModel.swift */,
-				98B000000000000000000008 /* TripPlanEditorView.swift */,
-				98B000000000000000000009 /* TripPlanListView.swift */,
-				99B000000000000000000005 /* JourneyRecordingViewModel.swift */,
-				99B000000000000000000006 /* JourneyRecordingView.swift */,
-			);
-			name = Presentation;
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		98C000000000000000000005 /* Travel */ = {
-			isa = PBXGroup;
-			children = (
-				98B000000000000000000002 /* GRDBTripPlanRepository.swift */,
-				99B000000000000000000002 /* GRDBJourneyRepository.swift */,
-			);
-			name = Travel;
-			path = Travel;
-			sourceTree = "<group>";
-		};
-		98C000000000000000000006 /* Travel */ = {
-			isa = PBXGroup;
-			children = (
-				98B000000000000000000004 /* MapKitTravelServices.swift */,
-				98B000000000000000000005 /* LocalNotificationReminderService.swift */,
-				99B000000000000000000004 /* CoreLocationJourneyDriver.swift */,
-			);
-			name = Travel;
-			path = Travel;
-			sourceTree = "<group>";
-		};
-		9AC000000000000000000001 /* Life */ = {
-			isa = PBXGroup;
-			children = (
-				9AC000000000000000000002 /* Domain */,
-				9AC000000000000000000003 /* UseCases */,
-				9FC000000000000000000001 /* Presentation */,
-			);
-			name = Life;
-			path = Life;
-			sourceTree = "<group>";
-		};
-		9AC000000000000000000002 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				9AB000000000000000000001 /* LifeLinkModels.swift */,
-			);
-			name = Domain;
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		9AC000000000000000000003 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				9AB000000000000000000002 /* LifeLinkService.swift */,
-			);
-			name = UseCases;
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		9AC000000000000000000004 /* Life */ = {
-			isa = PBXGroup;
-			children = (
-				9AB000000000000000000003 /* GRDBLifeLinkRepository.swift */,
-			);
-			name = Life;
-			path = Life;
-			sourceTree = "<group>";
-		};
-		9FC000000000000000000001 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				9FB000000000000000000001 /* JourneyExpenseView.swift */,
-			);
-			name = Presentation;
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		9EC000000000000000000001 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				9EC000000000000000000002 /* Domain */,
-				9EC000000000000000000003 /* Presentation */,
-			);
-			name = Profile;
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		9EC000000000000000000002 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				9EB000000000000000000001 /* PermissionModels.swift */,
-				9HB000000000000000000001 /* LocalDataModels.swift */,
-			);
-			name = Domain;
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		9EC000000000000000000003 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				9EB000000000000000000003 /* MyViewModel.swift */,
-				9EB000000000000000000004 /* MyView.swift */,
-				9HB000000000000000000003 /* LocalDataShareSheet.swift */,
-			);
-			name = Presentation;
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		9EC000000000000000000004 /* Privacy */ = {
-			isa = PBXGroup;
-			children = (
-				9EB000000000000000000002 /* SystemPermissionStatusService.swift */,
-				9HB000000000000000000002 /* GRDBLocalDataManagementService.swift */,
-			);
-			name = Privacy;
-			path = Privacy;
+			path = Avatar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B462285BD7F77618EDDF0035 /* ThenAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D3458B434622E93CC5B02447 /* Build configuration list for PBXNativeTarget "ThenAppUITests" */;
-			buildPhases = (
-				22E26125257CD5DFCA7A9EC9 /* Sources */,
-				FA26923236055A42B52DA8CC /* Frameworks */,
-				77675B2FFC5E0ED06923E2A8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5A8E4EE7FA2AE7B0F6E2C42F /* PBXTargetDependency */,
-			);
-			name = ThenAppUITests;
-			productName = ThenAppUITests;
-			productReference = A37906A90D0BBE69D4EE243D /* ThenAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		86B4D92DF57EB0602F8DFF60 /* ThenAppTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FE77A648D415DC0F5DE676B /* Build configuration list for PBXNativeTarget "ThenAppTests" */;
@@ -729,9 +463,50 @@
 				F0EA7AC8BB05A7367AACBA99 /* PBXTargetDependency */,
 			);
 			name = ThenAppTests;
+			packageProductDependencies = (
+				F5EA68A49EF90BC27CD2A37D /* HTTPTypes */,
+				1238C53EC6F4C5D1AF5C7CD8 /* OpenAPIRuntime */,
+			);
 			productName = ThenAppTests;
 			productReference = FEEA46C5758CE02775D5B87F /* ThenAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B462285BD7F77618EDDF0035 /* ThenAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3458B434622E93CC5B02447 /* Build configuration list for PBXNativeTarget "ThenAppUITests" */;
+			buildPhases = (
+				22E26125257CD5DFCA7A9EC9 /* Sources */,
+				77675B2FFC5E0ED06923E2A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A8E4EE7FA2AE7B0F6E2C42F /* PBXTargetDependency */,
+			);
+			name = ThenAppUITests;
+			productName = ThenAppUITests;
+			productReference = A37906A90D0BBE69D4EE243D /* ThenAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		BBD39ECB0AF261BF23743B73 /* ThenTransport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E20B3A5C9A04BD04FF8F9DB7 /* Build configuration list for PBXNativeTarget "ThenTransport" */;
+			buildPhases = (
+				7709DAE2FE7BC5A53BE7B196 /* Sources */,
+				53E9A04DBA8819CBA84DC367 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E27C367D0BDD6FDB8481EC2 /* PBXTargetDependency */,
+			);
+			name = ThenTransport;
+			packageProductDependencies = (
+				1238C53EC6F4C5D1AF5C7CD8 /* OpenAPIRuntime */,
+			);
+			productName = ThenTransport;
+			productReference = A7F1B274E154AB3DEA157FF7 /* ThenTransport.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		BC07D24FB6036D0E8E6A5B6B /* ThenApp */ = {
 			isa = PBXNativeTarget;
@@ -744,12 +519,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				8E27C367D0BDD6FDB8481EC2 /* PBXTargetDependency */,
+				6A62ED60EB6EFBA838E458BC /* PBXTargetDependency */,
 			);
 			name = ThenApp;
 			packageProductDependencies = (
 				C6172DF9179DD456FAE1F314 /* GRDB */,
-				1238C53EC6F4C5D1AF5C7CD8 /* OpenAPIRuntime */,
 				02BEE0611CFB50A96F5A0656 /* OpenAPIURLSession */,
 			);
 			productName = ThenApp;
@@ -766,7 +540,6 @@
 				LastUpgradeCheck = 2660;
 			};
 			buildConfigurationList = ADEEA670045E1DB41BCA8DA6 /* Build configuration list for PBXProject "ThenApp" */;
-			compatibilityVersion = "Xcode 26.3";
 			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -775,7 +548,6 @@
 				Base,
 			);
 			mainGroup = F0B64A2D346FFBBC58616FE8;
-			minimizedProjectReferenceProxies = 0;
 			packageReferences = (
 				746F45F03F1551F1365317AD /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 				87C10ECDCE67CD58083C1857 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */,
@@ -787,6 +559,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				BBD39ECB0AF261BF23743B73 /* ThenTransport */,
 				BC07D24FB6036D0E8E6A5B6B /* ThenApp */,
 				86B4D92DF57EB0602F8DFF60 /* ThenAppTests */,
 				B462285BD7F77618EDDF0035 /* ThenAppUITests */,
@@ -797,138 +570,106 @@
 /* Begin PBXResourcesBuildPhase section */
 		114E1ACF8324F392D52D121F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
+				DDAA00000000000000000001 /* Assets.xcassets in Resources */,
+				A10000000000000000000003 /* Resources/AvatarStudio in Resources */,
 				9JA000000000000000000001 /* Localizable.xcstrings in Resources */,
 				9JA000000000000000000002 /* InfoPlist.xcstrings in Resources */,
 				9IA000000000000000000001 /* PrivacyInfo.xcprivacy in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4D87F133E9741E1CFDDD4679 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
+				88E37753086BFEBA9CDFDB58 /* AvatarPhotoIntake in Resources */,
+				E583898870F14BA6A01AE7E7 /* WardrobeContentProbe in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		77675B2FFC5E0ED06923E2A8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2126A56871C30A01FAE91766 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				A10000000000000000000004 /* AvatarStudioModelTests.swift in Sources */,
+				A7AB3802B7904279B47C6324 /* ThenAppTests/OutfitPlanViewModelTests.swift in Sources */,
+				10B9B15FBAD3410DAA11A3BE /* ThenAppTests/OutfitPlanRepositoryTests.swift in Sources */,
+				5A1CAE12DC384175BB653283 /* ThenAppTests/OutfitPlanTests.swift in Sources */,
+				F144FF992F3249149A39F7F7 /* ThenAppTests/WardrobeVisionProbeTests.swift in Sources */,
+				818151B6764A4ED0A5437FE7 /* ThenAppTests/Support/WardrobeVisionProbe.swift in Sources */,
+				86C8576E30014441A7448500 /* ThenAppTests/WardrobePhotoFileImporterTests.swift in Sources */,
+				11A456BD8C0B4829846CDBAB /* ThenAppTests/VisionWardrobePersonAnalyzerTests.swift in Sources */,
+				4BD17317ED8041BDBACD47D6 /* ThenAppTests/WardrobePhotoReviewTests.swift in Sources */,
+				B23592FEAA4C48C8BBC71264 /* ThenAppTests/SystemWardrobePhotoPickerTests.swift in Sources */,
+				389174FA25DC405B9DC512C9 /* ThenAppTests/WardrobePhotoPreparerTests.swift in Sources */,
+				308E0A4501291AC830DA27C3 /* ThenAppTests/Support/WardrobeMediaLifecycleProbe.swift in Sources */,
+				E19F3B9E27BAF67012042071 /* ThenAppTests/WardrobeMediaLifecycleTests.swift in Sources */,
+				E1272548C8DED951EED0AA89 /* ThenAppTests/WardrobePhotoRepositoryTests.swift in Sources */,
+				F1B02BC8E69042B49A352D4B /* ThenAppTests/WardrobePhotoEditingTests.swift in Sources */,
+				B417BBCF8FFC467FBD99E139 /* ThenAppTests/WardrobeItemPhotoSaveTests.swift in Sources */,
+				6160976555DA2CBFA2B18CE3 /* WardrobeViewModelTests.swift in Sources */,
+				6940954CFBFC53B9F1B87F77 /* WardrobeRepositoryTests.swift in Sources */,
+				179A6C099DB68BC875CB2BF0 /* ThenTransportTests.swift in Sources */,
+				82C262B41823785455696DBF /* AvatarPhotoFileImporterTests.swift in Sources */,
+				550E1BE242B46537A0A41FE2 /* SystemAvatarPhotoPickerTests.swift in Sources */,
+				9E8D9D22CD8469DBB561CE58 /* ImageIOAvatarPhotoSanitizerTests.swift in Sources */,
+				09A422587FC702D71B101676 /* AvatarPhotoTemporarySessionStoreTests.swift in Sources */,
+				5B3040D1C6AC8DF11097D4EA /* AvatarPhotoQualityPolicyTests.swift in Sources */,
+			);
+		};
 		22E26125257CD5DFCA7A9EC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				209AC6E1302BC5F8FB2E8325 /* ThenAppUITests.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2126A56871C30A01FAE91766 /* Sources */ = {
+		7709DAE2FE7BC5A53BE7B196 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				7D3837F41240B331D60B65FD /* AppLaunchModeTests.swift in Sources */,
-				8F21AF17AA63A1CCCCB33FC7 /* AppDatabaseTests.swift in Sources */,
-				174AEB1DB0DDA53BFB4773DE /* TestDatabaseSupport.swift in Sources */,
-				CDC82685CE886F607339DFFF /* LedgerPostingPlanTests.swift in Sources */,
-				7F88010901451B14FAF73C01 /* GRDBLedgerRepositoryTests.swift in Sources */,
-				09253E9D150197C8F8C2255D /* LedgerAmountTextTests.swift in Sources */,
-				0397A74B68F2F8B123120A06 /* LedgerPresentationModelTests.swift in Sources */,
-				96A000000000000000000004 /* ReceiptOCRTests.swift in Sources */,
-				97A000000000000000000007 /* CalendarImportTests.swift in Sources */,
-				98A000000000000000000006 /* TripPlanningTests.swift in Sources */,
-				99A000000000000000000007 /* JourneyRecordingTests.swift in Sources */,
-				9AA000000000000000000004 /* LifeLinkTests.swift in Sources */,
-				9DA000000000000000000002 /* TodaySnapshotTests.swift in Sources */,
-				9GA000000000000000000001 /* NavigationAndProfileTests.swift in Sources */,
-				9HA000000000000000000004 /* LocalDataManagementTests.swift in Sources */,
+				E7F186EC19AEDBD04C515BFC /* openapi.yaml in Sources */,
+				9C3DB5089E57B70446820CF8 /* openapi-generator-config.yaml in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		84747EE744FA1A9D63792F15 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
+				A10000000000000000000001 /* AvatarStudioView.swift in Sources */,
+				A10000000000000000000002 /* ThreeAvatarView.swift in Sources */,
+				A2F000000000000000000001 /* AvatarAssetCatalog.swift in Sources */,
+				6575EA1CB1A94C50A4F29209 /* ThenApp/Features/Outfits/Presentation/OutfitPlanView.swift in Sources */,
+				A8C2FA90C7F24FAD9E01754F /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift in Sources */,
+				301F14B8EFB34D59A8FAB5EB /* ThenApp/Data/Outfits/OutfitPlanPersistence.swift in Sources */,
+				F2BAD1D905014955AF3AFA1B /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift in Sources */,
+				4C7E85093B7C46989E21E438 /* ThenApp/Services/Photos/WardrobePhotoFileImporter.swift in Sources */,
+				A1712B5FC90441409F1071D2 /* ThenApp/Services/Photos/WardrobePhotoPickerButton.swift in Sources */,
+				07D303511A494FAD9CCDC98A /* ThenApp/Services/Photos/SystemWardrobePhotoPicker.swift in Sources */,
+				5B4D811D5B3F4D7A8513A351 /* ThenApp/Services/Imaging/ImageIOWardrobePhotoPreparer.swift in Sources */,
+				ACC848F03B0E491FBA2ED0BE /* ThenApp/Services/Imaging/WardrobePhotoImage.swift in Sources */,
+				1343E1D5B15241A7AA93C592 /* ThenApp/Services/Imaging/VisionWardrobePersonAnalyzer.swift in Sources */,
+				23F1319622714009B827464C /* ThenApp/Services/Imaging/PixelOnlyPNG.swift in Sources */,
+				D8B86D9947893A57EFD07BBA /* OOTDAppModel.swift in Sources */,
+				747433C2D6E752C072EC3B23 /* WardrobeView.swift in Sources */,
+				96154EDE648F7109D398F989 /* WardrobeViewModel.swift in Sources */,
+				C131B3A8068507E583E73BC7 /* ThenApp/Data/Wardrobe/WardrobePhotoPersistence.swift in Sources */,
+				8909BC8359BD8343431DB225 /* GRDBWardrobeRepository.swift in Sources */,
+				04C33BBB18064E6827CAF05D /* OOTDSchema.swift in Sources */,
+				6681100884953FA8EBD3F55C /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoModels.swift in Sources */,
+				D160802E8CE84AFD8EE5047E /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoReview.swift in Sources */,
+				02FE08D6CC60C654A749267A /* WardrobeModels.swift in Sources */,
+				4ACFA7DD876AA66256024EAC /* AvatarPhotoFileImporter.swift in Sources */,
+				065ED7D18FA3335B2F6BE91E /* SystemAvatarPhotoPicker.swift in Sources */,
+				976712A3D614B994AEAD94E5 /* ImageIOAvatarPhotoSanitizer.swift in Sources */,
+				BE71C09A3B622E4DDB264B77 /* AvatarPhotoTemporarySessionStore.swift in Sources */,
+				76D588567112E69C9A17A32E /* AvatarPhotoQualityPolicy.swift in Sources */,
+				46B557789E14268D9BBEA4D1 /* AvatarPhotoIntakeModels.swift in Sources */,
 				2EDEBB8D877F9DB0BCE0D125 /* ThenApp.swift in Sources */,
 				7C3B46D48C67C82F19A9A435 /* RootView.swift in Sources */,
-				FFE3CA269B18AF540DD060C8 /* AppLaunchMode.swift in Sources */,
-				1AAA557D82222F220D8D24B1 /* TodayView.swift in Sources */,
-				E7F186EC19AEDBD04C515BFC /* openapi.yaml in Sources */,
-				9C3DB5089E57B70446820CF8 /* openapi-generator-config.yaml in Sources */,
-				5465E154EB49214079E6D287 /* CurrencyCode.swift in Sources */,
-				9A6DCBCFEF7712E01252E426 /* AppDatabase.swift in Sources */,
-				7DED63A3419E87FC110DC429 /* DatabaseMigrations.swift in Sources */,
-				29FA88769EFAF8ECD8DB7211 /* LocalLedgerBootstrap.swift in Sources */,
-				7D6150C5641A55DAF201E579 /* AppEnvironment.swift in Sources */,
-				D03BA55BB508833EB3A1E41B /* PositiveMoney.swift in Sources */,
-				163E85A7208892AD9AF6CBD6 /* LedgerModels.swift in Sources */,
-				96A000000000000000000001 /* ReceiptOCRModels.swift in Sources */,
-				C0696E709F18AF2DEF320134 /* LedgerPostingPlan.swift in Sources */,
-				E84A60BFEE7B95C509E10DA1 /* LedgerRepository.swift in Sources */,
-				077376359B120F439528CDFD /* ConfirmBaseCurrencyUseCase.swift in Sources */,
-				A37940111E10E0388E866AFE /* CreateTransactionUseCase.swift in Sources */,
-				94A000000000000000000001 /* RefundTransactionUseCase.swift in Sources */,
-				94A000000000000000000002 /* ReverseTransactionUseCase.swift in Sources */,
-				94A000000000000000000003 /* CorrectTransactionUseCase.swift in Sources */,
-				1B50D372B1A1FAF1377752DC /* GRDBLedgerRepository.swift in Sources */,
-				A905881605770330E8FA0F2D /* LedgerQueryService.swift in Sources */,
-				93A8690C229A34EA1BA9900D /* LedgerAmountText.swift in Sources */,
-				95A000000000000000000001 /* LedgerTransactionDetailViewModel.swift in Sources */,
-				95A000000000000000000002 /* LedgerTransactionDetailView.swift in Sources */,
-				96A000000000000000000003 /* ReceiptCameraPicker.swift in Sources */,
-				E79C27E09D228B561149576A /* QuickTransactionViewModel.swift in Sources */,
-				68F17E141F984B3357BF4B1A /* QuickTransactionView.swift in Sources */,
-				89F4A0E6E51C0667EE53E949 /* TodayViewModel.swift in Sources */,
-				F6920BD5E4E4E619E9E47552 /* CreateLedgerAccountUseCase.swift in Sources */,
-				95117A03A4C12A97D864C7E4 /* SetLedgerAccountStatusUseCase.swift in Sources */,
-				0143F9BE8DA64003DA2FDB52 /* LedgerView.swift in Sources */,
-				064E8E52785073B2B4053799 /* LedgerViewModel.swift in Sources */,
-				12AE0E62B7D70058AE72D256 /* AccountManagementView.swift in Sources */,
-				F491B2AF6450381B4356A9D2 /* AccountManagementViewModel.swift in Sources */,
-				96A000000000000000000002 /* VisionReceiptOCRService.swift in Sources */,
-				97A000000000000000000001 /* CalendarModels.swift in Sources */,
-				97A000000000000000000002 /* EventKitCalendarService.swift in Sources */,
-				97A000000000000000000003 /* GRDBCalendarRepository.swift in Sources */,
-				97A000000000000000000004 /* CalendarImportService.swift in Sources */,
-				97A000000000000000000005 /* CalendarViewModel.swift in Sources */,
-				97A000000000000000000006 /* CalendarView.swift in Sources */,
-				97A000000000000000000008 /* CalendarRevisionReviewViewModel.swift in Sources */,
-				97A000000000000000000009 /* CalendarRevisionReviewView.swift in Sources */,
-				98A000000000000000000001 /* TripPlanningModels.swift in Sources */,
-				98A000000000000000000002 /* GRDBTripPlanRepository.swift in Sources */,
-				98A000000000000000000003 /* TripPlanningService.swift in Sources */,
-				98A000000000000000000004 /* MapKitTravelServices.swift in Sources */,
-				98A000000000000000000005 /* LocalNotificationReminderService.swift in Sources */,
-				98A000000000000000000007 /* TripPlanEditorViewModel.swift in Sources */,
-				98A000000000000000000008 /* TripPlanEditorView.swift in Sources */,
-				98A000000000000000000009 /* TripPlanListView.swift in Sources */,
-				99A000000000000000000001 /* JourneyModels.swift in Sources */,
-				99A000000000000000000002 /* GRDBJourneyRepository.swift in Sources */,
-				99A000000000000000000003 /* JourneyRecordingService.swift in Sources */,
-				99A000000000000000000004 /* CoreLocationJourneyDriver.swift in Sources */,
-				99A000000000000000000005 /* JourneyRecordingViewModel.swift in Sources */,
-				99A000000000000000000006 /* JourneyRecordingView.swift in Sources */,
-				9AA000000000000000000001 /* LifeLinkModels.swift in Sources */,
-				9AA000000000000000000002 /* LifeLinkService.swift in Sources */,
-				9AA000000000000000000003 /* GRDBLifeLinkRepository.swift in Sources */,
-				9DA000000000000000000001 /* TodaySnapshotService.swift in Sources */,
-				9EA000000000000000000001 /* PermissionModels.swift in Sources */,
-				9HA000000000000000000001 /* LocalDataModels.swift in Sources */,
-				9EA000000000000000000002 /* SystemPermissionStatusService.swift in Sources */,
-				9HA000000000000000000002 /* GRDBLocalDataManagementService.swift in Sources */,
-				9EA000000000000000000003 /* MyViewModel.swift in Sources */,
-				9EA000000000000000000004 /* MyView.swift in Sources */,
-				9HA000000000000000000003 /* LocalDataShareSheet.swift in Sources */,
-				9FA000000000000000000001 /* JourneyExpenseView.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -939,9 +680,14 @@
 			target = BC07D24FB6036D0E8E6A5B6B /* ThenApp */;
 			targetProxy = 591071597D79E28F5711CDFB /* PBXContainerItemProxy */;
 		};
+		6A62ED60EB6EFBA838E458BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBD39ECB0AF261BF23743B73 /* ThenTransport */;
+			targetProxy = 8A045D8B2DFBFC3390DA4E9B /* PBXContainerItemProxy */;
+		};
 		8E27C367D0BDD6FDB8481EC2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = D128F56BCB39030E41D8FD5B /* plugin:OpenAPIGenerator */;
+			productRef = D128F56BCB39030E41D8FD5B /* OpenAPIGenerator */;
 		};
 		F0EA7AC8BB05A7367AACBA99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -952,48 +698,55 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		853F6E1B3BA08849E7324B13 /* Debug */ = {
+		0E23D767EB1272C97CF78DBD /* Debug configuration for PBXNativeTarget "ThenTransport" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = H83G2F86MP;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.stephenqiu.then.uitests;
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stephenqiu.then.transport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				TEST_TARGET_NAME = ThenApp;
 			};
 			name = Debug;
 		};
-		84C78DE3A1DDBE8047EFFADE /* Release */ = {
+		208AC8712D1A10E09812922B /* Release configuration for PBXNativeTarget "ThenTransport" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = H83G2F86MP;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.stephenqiu.then.uitests;
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stephenqiu.then.transport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				TEST_TARGET_NAME = ThenApp;
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		2491FB4132291008F6F9C922 /* Release */ = {
+		2491FB4132291008F6F9C922 /* Release configuration for PBXProject "ThenApp" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1048,13 +801,14 @@
 			};
 			name = Release;
 		};
-		273DFAA815B86504E79D903C /* Debug */ = {
+		273DFAA815B86504E79D903C /* Debug configuration for PBXNativeTarget "ThenAppTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H83G2F86MP;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 0.1.0;
@@ -1070,7 +824,7 @@
 			};
 			name = Debug;
 		};
-		53DB5D399FA49DDB15262046 /* Debug */ = {
+		53DB5D399FA49DDB15262046 /* Debug configuration for PBXNativeTarget "ThenApp" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1078,16 +832,11 @@
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H83G2F86MP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = ThenApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "于是";
-				INFOPLIST_KEY_CLRequireExplicitServiceSession = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				INFOPLIST_KEY_NSCameraUsageDescription = "用于拍摄票据并在设备内识别记账候选，不保存票据原图。";
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "用于读取你明确选择的系统日历，将时间和地点转为本地出行计划；于是不会修改系统事件。";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "只在你主动开始行程后记录本次位置，用于生成距离和完整性摘要；确认摘要后删除原始轨迹。";
-				INFOPLIST_KEY_UIBackgroundModes = location;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1111,7 +860,7 @@
 			};
 			name = Debug;
 		};
-		6F8DFE083DDC7089D4C272C2 /* Debug */ = {
+		6F8DFE083DDC7089D4C272C2 /* Debug configuration for PBXProject "ThenApp" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1173,7 +922,50 @@
 			};
 			name = Debug;
 		};
-		A8D3A5F7297FE4285C580B57 /* Release */ = {
+		84C78DE3A1DDBE8047EFFADE /* Release configuration for PBXNativeTarget "ThenAppUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H83G2F86MP;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stephenqiu.then.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = ThenApp;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		853F6E1B3BA08849E7324B13 /* Debug configuration for PBXNativeTarget "ThenAppUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H83G2F86MP;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stephenqiu.then.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = ThenApp;
+			};
+			name = Debug;
+		};
+		A8D3A5F7297FE4285C580B57 /* Release configuration for PBXNativeTarget "ThenApp" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1181,16 +973,11 @@
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H83G2F86MP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = ThenApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "于是";
-				INFOPLIST_KEY_CLRequireExplicitServiceSession = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				INFOPLIST_KEY_NSCameraUsageDescription = "用于拍摄票据并在设备内识别记账候选，不保存票据原图。";
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "用于读取你明确选择的系统日历，将时间和地点转为本地出行计划；于是不会修改系统事件。";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "只在你主动开始行程后记录本次位置，用于生成距离和完整性摘要；确认摘要后删除原始轨迹。";
-				INFOPLIST_KEY_UIBackgroundModes = location;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1215,13 +1002,14 @@
 			};
 			name = Release;
 		};
-		E9C9A6D7B3B4461D608A13E7 /* Release */ = {
+		E9C9A6D7B3B4461D608A13E7 /* Release configuration for PBXNativeTarget "ThenAppTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H83G2F86MP;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 0.1.0;
@@ -1244,37 +1032,41 @@
 		1FE77A648D415DC0F5DE676B /* Build configuration list for PBXNativeTarget "ThenAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E9C9A6D7B3B4461D608A13E7 /* Release */,
-				273DFAA815B86504E79D903C /* Debug */,
+				E9C9A6D7B3B4461D608A13E7 /* Release configuration for PBXNativeTarget "ThenAppTests" */,
+				273DFAA815B86504E79D903C /* Debug configuration for PBXNativeTarget "ThenAppTests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		ADEEA670045E1DB41BCA8DA6 /* Build configuration list for PBXProject "ThenApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6F8DFE083DDC7089D4C272C2 /* Debug */,
-				2491FB4132291008F6F9C922 /* Release */,
+				6F8DFE083DDC7089D4C272C2 /* Debug configuration for PBXProject "ThenApp" */,
+				2491FB4132291008F6F9C922 /* Release configuration for PBXProject "ThenApp" */,
 			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F68AB42AFD4C7D8A6FFFFA2D /* Build configuration list for PBXNativeTarget "ThenApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A8D3A5F7297FE4285C580B57 /* Release */,
-				53DB5D399FA49DDB15262046 /* Debug */,
-			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		D3458B434622E93CC5B02447 /* Build configuration list for PBXNativeTarget "ThenAppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				84C78DE3A1DDBE8047EFFADE /* Release */,
-				853F6E1B3BA08849E7324B13 /* Debug */,
+				84C78DE3A1DDBE8047EFFADE /* Release configuration for PBXNativeTarget "ThenAppUITests" */,
+				853F6E1B3BA08849E7324B13 /* Debug configuration for PBXNativeTarget "ThenAppUITests" */,
 			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E20B3A5C9A04BD04FF8F9DB7 /* Build configuration list for PBXNativeTarget "ThenTransport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E23D767EB1272C97CF78DBD /* Debug configuration for PBXNativeTarget "ThenTransport" */,
+				208AC8712D1A10E09812922B /* Release configuration for PBXNativeTarget "ThenTransport" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		F68AB42AFD4C7D8A6FFFFA2D /* Build configuration list for PBXNativeTarget "ThenApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8D3A5F7297FE4285C580B57 /* Release configuration for PBXNativeTarget "ThenApp" */,
+				53DB5D399FA49DDB15262046 /* Debug configuration for PBXNativeTarget "ThenApp" */,
+			);
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
@@ -1330,10 +1122,14 @@
 			package = 746F45F03F1551F1365317AD /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
 		};
-		D128F56BCB39030E41D8FD5B /* plugin:OpenAPIGenerator */ = {
+		D128F56BCB39030E41D8FD5B /* OpenAPIGenerator */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 87C10ECDCE67CD58083C1857 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */;
 			productName = "plugin:OpenAPIGenerator";
+		};
+		F5EA68A49EF90BC27CD2A37D /* HTTPTypes */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HTTPTypes;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

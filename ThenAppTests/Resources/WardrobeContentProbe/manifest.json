@@ -1,0 +1,68 @@
+{
+  "version": 3,
+  "purpose": "12-03 isolated Vision capability observations; not production classification calibration or user assets",
+  "authorization": "Original synthetic test fixtures created under the approved project implementation and 12-03 testing scope; no real user photos",
+  "fixtures": [
+    {
+      "id": "synthetic-one-adult",
+      "file": "synthetic-one-adult.png",
+      "sha256": "ce4d12e7c239566fc53ac82b0c918362ee101567d650f610ed097d2d93122e48",
+      "byte_count": 1825340,
+      "width": 1024,
+      "height": 1536,
+      "expected_people": 1,
+      "expected_faces": 1,
+      "expected_foreground_instances": 1,
+      "generator_output": "exec-9c6c25f0-4090-44c3-847c-7d73b7b0c089",
+      "source": "Built-in imagegen, original synthetic image, no reference photo or real person",
+      "reviewed_by": "Codex visual inspection before Vision execution",
+      "reviewed_at": "2026-09-13"
+    },
+    {
+      "id": "synthetic-flat-shirt",
+      "file": "synthetic-flat-shirt.png",
+      "sha256": "f3ac320daa5f51a8a731402d42d26d854abb45d52626d93f8361f3e28e1edd9f",
+      "byte_count": 2165706,
+      "width": 1254,
+      "height": 1254,
+      "expected_people": 0,
+      "expected_faces": 0,
+      "expected_foreground_instances": 1,
+      "generator_output": "exec-e71af33b-08ea-4ac6-a267-78aa27377e93",
+      "source": "Built-in imagegen, original synthetic image, no reference photo or real person",
+      "reviewed_by": "Codex visual inspection before Vision execution",
+      "reviewed_at": "2026-09-13"
+    },
+    {
+      "id": "synthetic-red-sweater",
+      "file": "synthetic-red-sweater.png",
+      "sha256": "e11fb6bca064f6c5e640f5126918abcf5bc57dc7f68cfebe06ab88c0e9b036b8",
+      "byte_count": 2413433,
+      "width": 1254,
+      "height": 1254,
+      "expected_people": 0,
+      "expected_faces": 0,
+      "expected_foreground_instances": 1,
+      "generator_output": "exec-3ea76872-bfe4-45b4-bd0d-241bbe6962de",
+      "source": "Built-in imagegen, original synthetic image, no reference photo or real person",
+      "reviewed_by": "Codex visual inspection before Vision execution",
+      "reviewed_at": "2026-09-14",
+      "purpose": "Different-pixel replacement and restart acceptance; not production classification calibration"
+    },
+    {
+      "id": "synthetic-hands-on-shirt",
+      "file": "synthetic-hands-on-shirt.png",
+      "sha256": "3954a826eea83db3e3c7f452c9ff4fb1404cf3897f09b761c8663df590122c7a",
+      "byte_count": 2013573,
+      "width": 1254,
+      "height": 1254,
+      "contains_human_body_parts": true,
+      "expected_catalog_eligibility": false,
+      "generator_output": "exec-93fb6a01-a258-4f7e-94c5-66f106366721",
+      "source": "Built-in imagegen, original synthetic adult hands and shirt; no reference or real person",
+      "reviewed_by": "Codex visual inspection before Vision execution",
+      "reviewed_at": "2026-09-14",
+      "purpose": "Body-part rejection boundary; two visible adult hands/forearms, no face or torso; not calibration accuracy evidence"
+    }
+  ]
+}
