@@ -1,0 +1,14 @@
+.DS_Store
+DerivedData/
+build/
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+**/*.xcodeproj/xcuserdata/
+.build/
+.swiftpm/
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+*.swp
