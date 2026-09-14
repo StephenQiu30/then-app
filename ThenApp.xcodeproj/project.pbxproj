@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00239FDC13BF73693DBB6D3E /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = 02BEE0611CFB50A96F5A0656 /* OpenAPIURLSession */; };
 		02FE08D6CC60C654A749267A /* WardrobeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EDF81C8D6699B5F851889F /* WardrobeModels.swift */; };
 		04C33BBB18064E6827CAF05D /* OOTDSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B028927DBEB230FEA1D1E4F5 /* OOTDSchema.swift */; };
 		065ED7D18FA3335B2F6BE91E /* SystemAvatarPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515765F19E4294DC3D285484 /* SystemAvatarPhotoPicker.swift */; };
@@ -16,19 +15,16 @@
 		10B9B15FBAD3410DAA11A3BE /* ThenAppTests/OutfitPlanRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1626DE65641EA884DA582 /* ThenAppTests/OutfitPlanRepositoryTests.swift */; };
 		11A456BD8C0B4829846CDBAB /* ThenAppTests/VisionWardrobePersonAnalyzerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBDE0DA3F2496495A08724 /* ThenAppTests/VisionWardrobePersonAnalyzerTests.swift */; };
 		1343E1D5B15241A7AA93C592 /* ThenApp/Services/Imaging/VisionWardrobePersonAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E6CDC87DCD454F9B99FDA2 /* ThenApp/Services/Imaging/VisionWardrobePersonAnalyzer.swift */; };
-		179A6C099DB68BC875CB2BF0 /* ThenTransportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC7E37D68FD864DF2A06A16 /* ThenTransportTests.swift */; };
 		209AC6E1302BC5F8FB2E8325 /* ThenAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF4B41BCB10051585A9C2A /* ThenAppUITests.swift */; };
 		23F1319622714009B827464C /* ThenApp/Services/Imaging/PixelOnlyPNG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D40EECAF6E4E3AA6C54118 /* ThenApp/Services/Imaging/PixelOnlyPNG.swift */; };
 		2EDEBB8D877F9DB0BCE0D125 /* ThenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F449F280C9D45D8C2C0CC5E /* ThenApp.swift */; };
 		301F14B8EFB34D59A8FAB5EB /* ThenApp/Data/Outfits/OutfitPlanPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD6BECEE6A4A02A0E241B7 /* ThenApp/Data/Outfits/OutfitPlanPersistence.swift */; };
 		308E0A4501291AC830DA27C3 /* ThenAppTests/Support/WardrobeMediaLifecycleProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB906D6E48BD71DA3A19FDB9 /* ThenAppTests/Support/WardrobeMediaLifecycleProbe.swift */; };
 		389174FA25DC405B9DC512C9 /* ThenAppTests/WardrobePhotoPreparerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0ABA3682DF4D31BA2EFBE1 /* ThenAppTests/WardrobePhotoPreparerTests.swift */; };
-		4357DE38D080CED18DB1028F /* ThenTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F1B274E154AB3DEA157FF7 /* ThenTransport.framework */; };
 		46B557789E14268D9BBEA4D1 /* AvatarPhotoIntakeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89851E22E84B3C4C3E35F061 /* AvatarPhotoIntakeModels.swift */; };
 		4ACFA7DD876AA66256024EAC /* AvatarPhotoFileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6626203F7EBC1D08E4D692 /* AvatarPhotoFileImporter.swift */; };
 		4BD17317ED8041BDBACD47D6 /* ThenAppTests/WardrobePhotoReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB89371DC7F4799BCB88ECE /* ThenAppTests/WardrobePhotoReviewTests.swift */; };
 		4C7E85093B7C46989E21E438 /* ThenApp/Services/Photos/WardrobePhotoFileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058CA31D516F4C66921F7188 /* ThenApp/Services/Photos/WardrobePhotoFileImporter.swift */; };
-		4FD4F2F5185B698294D7FE07 /* ThenTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F1B274E154AB3DEA157FF7 /* ThenTransport.framework */; };
 		550E1BE242B46537A0A41FE2 /* SystemAvatarPhotoPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2BA90B33F912B681829E76 /* SystemAvatarPhotoPickerTests.swift */; };
 		5A1CAE12DC384175BB653283 /* ThenAppTests/OutfitPlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A623C1F1B74B6FB01AE34D /* ThenAppTests/OutfitPlanTests.swift */; };
 		5B3040D1C6AC8DF11097D4EA /* AvatarPhotoQualityPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387F631F40B95CD8C937D6C /* AvatarPhotoQualityPolicyTests.swift */; };
@@ -47,7 +43,6 @@
 		8909BC8359BD8343431DB225 /* GRDBWardrobeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15884B1ACCD396A5027BB64F /* GRDBWardrobeRepository.swift */; };
 		96154EDE648F7109D398F989 /* WardrobeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA230F2C5AE1964DA2E5AA59 /* WardrobeViewModel.swift */; };
 		976712A3D614B994AEAD94E5 /* ImageIOAvatarPhotoSanitizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18386DCCB287BD887832A41 /* ImageIOAvatarPhotoSanitizer.swift */; };
-		9C3DB5089E57B70446820CF8 /* openapi-generator-config.yaml in Sources */ = {isa = PBXBuildFile; fileRef = 9845780BA6924D26C20502F6 /* openapi-generator-config.yaml */; };
 		9E8D9D22CD8469DBB561CE58 /* ImageIOAvatarPhotoSanitizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC5E23E25222AA854B8EDD /* ImageIOAvatarPhotoSanitizerTests.swift */; };
 		9IA000000000000000000001 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 9IB000000000000000000001 /* PrivacyInfo.xcprivacy */; };
 		9JA000000000000000000001 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9JB000000000000000000001 /* Localizable.xcstrings */; };
@@ -62,22 +57,18 @@
 		A8C2FA90C7F24FAD9E01754F /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F3E6FDE2403DA058EBA5 /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift */; };
 		ACC848F03B0E491FBA2ED0BE /* ThenApp/Services/Imaging/WardrobePhotoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D595263680534FFF9BF5586A /* ThenApp/Services/Imaging/WardrobePhotoImage.swift */; };
 		B23592FEAA4C48C8BBC71264 /* ThenAppTests/SystemWardrobePhotoPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14668FDC820C427B9E15F726 /* ThenAppTests/SystemWardrobePhotoPickerTests.swift */; };
-		B3092FD15DA7CCD4E7779BFA /* HTTPTypes in Frameworks */ = {isa = PBXBuildFile; productRef = F5EA68A49EF90BC27CD2A37D /* HTTPTypes */; };
 		B417BBCF8FFC467FBD99E139 /* ThenAppTests/WardrobeItemPhotoSaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6459C7D5094985963B65EC /* ThenAppTests/WardrobeItemPhotoSaveTests.swift */; };
 		B677C7A5B09A56DF93A3920F /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = C6172DF9179DD456FAE1F314 /* GRDB */; };
 		BE71C09A3B622E4DDB264B77 /* AvatarPhotoTemporarySessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B01DB6CC85234E5E691871 /* AvatarPhotoTemporarySessionStore.swift */; };
 		C131B3A8068507E583E73BC7 /* ThenApp/Data/Wardrobe/WardrobePhotoPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F978823F2F58DB7BA73D5B1C /* ThenApp/Data/Wardrobe/WardrobePhotoPersistence.swift */; };
 		D160802E8CE84AFD8EE5047E /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AA9F053C2D4E6F8024F150 /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoReview.swift */; };
 		D8B86D9947893A57EFD07BBA /* OOTDAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F113F6E60A632BA2C347A /* OOTDAppModel.swift */; };
-		DBD0ED71F8D9B7CD79C34225 /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 1238C53EC6F4C5D1AF5C7CD8 /* OpenAPIRuntime */; };
 		DDAA00000000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDBB00000000000000000001 /* Assets.xcassets */; };
 		E1272548C8DED951EED0AA89 /* ThenAppTests/WardrobePhotoRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381931AFA752473E3940574A /* ThenAppTests/WardrobePhotoRepositoryTests.swift */; };
 		E19F3B9E27BAF67012042071 /* ThenAppTests/WardrobeMediaLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDE0E69DDD164665F8936A5 /* ThenAppTests/WardrobeMediaLifecycleTests.swift */; };
 		E583898870F14BA6A01AE7E7 /* WardrobeContentProbe in Resources */ = {isa = PBXBuildFile; fileRef = A7C1C4099358424682BD73B3 /* WardrobeContentProbe */; };
-		E7F186EC19AEDBD04C515BFC /* openapi.yaml in Sources */ = {isa = PBXBuildFile; fileRef = E021A163CE3869AFBF3CC678 /* openapi.yaml */; };
 		F144FF992F3249149A39F7F7 /* ThenAppTests/WardrobeVisionProbeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFD5CD215D74E99A86D9E95 /* ThenAppTests/WardrobeVisionProbeTests.swift */; };
 		F1B02BC8E69042B49A352D4B /* ThenAppTests/WardrobePhotoEditingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F15E91693B041F29AB32A04 /* ThenAppTests/WardrobePhotoEditingTests.swift */; };
-		F2B16D4D5831BCA5C5028409 /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 1238C53EC6F4C5D1AF5C7CD8 /* OpenAPIRuntime */; };
 		F2BAD1D905014955AF3AFA1B /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2F7D914084001B30A7877 /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,19 +87,11 @@
 			remoteGlobalIDString = BC07D24FB6036D0E8E6A5B6B;
 			remoteInfo = ThenApp;
 		};
-		8A045D8B2DFBFC3390DA4E9B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 120BA4F31277F8B7E2864012 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BBD39ECB0AF261BF23743B73;
-			remoteInfo = ThenTransport;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0175B1E7F16840708C7E4369 /* ThenAppTests/OutfitPlanViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/OutfitPlanViewModelTests.swift; sourceTree = SOURCE_ROOT; };
 		058CA31D516F4C66921F7188 /* ThenApp/Services/Photos/WardrobePhotoFileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Services/Photos/WardrobePhotoFileImporter.swift; sourceTree = SOURCE_ROOT; };
-		0AC7E37D68FD864DF2A06A16 /* ThenTransportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenTransportTests.swift; sourceTree = "<group>"; };
 		0EB89371DC7F4799BCB88ECE /* ThenAppTests/WardrobePhotoReviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobePhotoReviewTests.swift; sourceTree = SOURCE_ROOT; };
 		12E6CDC87DCD454F9B99FDA2 /* ThenApp/Services/Imaging/VisionWardrobePersonAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Services/Imaging/VisionWardrobePersonAnalyzer.swift; sourceTree = SOURCE_ROOT; };
 		14668FDC820C427B9E15F726 /* ThenAppTests/SystemWardrobePhotoPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/SystemWardrobePhotoPickerTests.swift; sourceTree = SOURCE_ROOT; };
@@ -139,7 +122,6 @@
 		7EDE0E69DDD164665F8936A5 /* ThenAppTests/WardrobeMediaLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobeMediaLifecycleTests.swift; sourceTree = SOURCE_ROOT; };
 		7F15E91693B041F29AB32A04 /* ThenAppTests/WardrobePhotoEditingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobePhotoEditingTests.swift; sourceTree = SOURCE_ROOT; };
 		89851E22E84B3C4C3E35F061 /* AvatarPhotoIntakeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoIntakeModels.swift; sourceTree = "<group>"; };
-		9845780BA6924D26C20502F6 /* openapi-generator-config.yaml */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
 		9DC1E222DC394BBAA496EC7A /* ThenAppTests/Support/WardrobeVisionProbe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/Support/WardrobeVisionProbe.swift; sourceTree = SOURCE_ROOT; };
 		9IB000000000000000000001 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		9JB000000000000000000001 /* Localizable.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -147,7 +129,6 @@
 		A275B4F9C290B958FC0B72E5 /* AvatarPhotoQualityPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoQualityPolicy.swift; sourceTree = "<group>"; };
 		A37906A90D0BBE69D4EE243D /* ThenAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThenAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C1C4099358424682BD73B3 /* WardrobeContentProbe */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WardrobeContentProbe; sourceTree = "<group>"; };
-		A7F1B274E154AB3DEA157FF7 /* ThenTransport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ThenTransport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC2F7D914084001B30A7877 /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift; sourceTree = SOURCE_ROOT; };
 		B028927DBEB230FEA1D1E4F5 /* OOTDSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDSchema.swift; sourceTree = "<group>"; };
 		B10000000000000000000001 /* AvatarStudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarStudioView.swift; sourceTree = "<group>"; };
@@ -168,7 +149,6 @@
 		D1B01DB6CC85234E5E691871 /* AvatarPhotoTemporarySessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoTemporarySessionStore.swift; sourceTree = "<group>"; };
 		D595263680534FFF9BF5586A /* ThenApp/Services/Imaging/WardrobePhotoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Services/Imaging/WardrobePhotoImage.swift; sourceTree = SOURCE_ROOT; };
 		DDBB00000000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E021A163CE3869AFBF3CC678 /* openapi.yaml */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.yaml; path = openapi.yaml; sourceTree = "<group>"; };
 		E387F631F40B95CD8C937D6C /* AvatarPhotoQualityPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoQualityPolicyTests.swift; sourceTree = "<group>"; };
 		EA230F2C5AE1964DA2E5AA59 /* WardrobeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewModel.swift; sourceTree = "<group>"; };
 		F18386DCCB287BD887832A41 /* ImageIOAvatarPhotoSanitizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageIOAvatarPhotoSanitizer.swift; sourceTree = "<group>"; };
@@ -178,26 +158,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		53E9A04DBA8819CBA84DC367 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			files = (
-				DBD0ED71F8D9B7CD79C34225 /* OpenAPIRuntime in Frameworks */,
-			);
-		};
 		79A611AA0F19F9DE7EF68753 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
 				B677C7A5B09A56DF93A3920F /* GRDB in Frameworks */,
-				4FD4F2F5185B698294D7FE07 /* ThenTransport.framework in Frameworks */,
-				00239FDC13BF73693DBB6D3E /* OpenAPIURLSession in Frameworks */,
 			);
 		};
 		D51F57B3DBE1C2AAFA887115 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
-				B3092FD15DA7CCD4E7779BFA /* HTTPTypes in Frameworks */,
-				F2B16D4D5831BCA5C5028409 /* OpenAPIRuntime in Frameworks */,
-				4357DE38D080CED18DB1028F /* ThenTransport.framework in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -263,7 +232,6 @@
 		4CB76DA76EF7F93758EF46C5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A7F1B274E154AB3DEA157FF7 /* ThenTransport.framework */,
 				B10DFA76DE5D4B252855E96B /* ThenApp.app */,
 				FEEA46C5758CE02775D5B87F /* ThenAppTests.xctest */,
 				A37906A90D0BBE69D4EE243D /* ThenAppUITests.xctest */,
@@ -313,7 +281,6 @@
 				6B6459C7D5094985963B65EC /* ThenAppTests/WardrobeItemPhotoSaveTests.swift */,
 				3A5720D2CBCA51837C55C5F4 /* WardrobeViewModelTests.swift */,
 				4FF0EE18A18112BC382B3EB6 /* WardrobeRepositoryTests.swift */,
-				0AC7E37D68FD864DF2A06A16 /* ThenTransportTests.swift */,
 				3D3776473CA3F5E9C3174F61 /* AvatarPhotoFileImporterTests.swift */,
 				3B2BA90B33F912B681829E76 /* SystemAvatarPhotoPickerTests.swift */,
 				C7CD280714F7C43081E0AB20 /* Resources */,
@@ -391,8 +358,6 @@
 				311139C11C8BE2C7130C3A43 /* Features */,
 				96C000000000000000000001 /* Services */,
 				B10000000000000000000003 /* Resources/AvatarStudio */,
-				E021A163CE3869AFBF3CC678 /* openapi.yaml */,
-				9845780BA6924D26C20502F6 /* openapi-generator-config.yaml */,
 			);
 			path = ThenApp;
 			sourceTree = "<group>";
@@ -464,8 +429,6 @@
 			);
 			name = ThenAppTests;
 			packageProductDependencies = (
-				F5EA68A49EF90BC27CD2A37D /* HTTPTypes */,
-				1238C53EC6F4C5D1AF5C7CD8 /* OpenAPIRuntime */,
 			);
 			productName = ThenAppTests;
 			productReference = FEEA46C5758CE02775D5B87F /* ThenAppTests.xctest */;
@@ -488,26 +451,6 @@
 			productReference = A37906A90D0BBE69D4EE243D /* ThenAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		BBD39ECB0AF261BF23743B73 /* ThenTransport */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E20B3A5C9A04BD04FF8F9DB7 /* Build configuration list for PBXNativeTarget "ThenTransport" */;
-			buildPhases = (
-				7709DAE2FE7BC5A53BE7B196 /* Sources */,
-				53E9A04DBA8819CBA84DC367 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8E27C367D0BDD6FDB8481EC2 /* PBXTargetDependency */,
-			);
-			name = ThenTransport;
-			packageProductDependencies = (
-				1238C53EC6F4C5D1AF5C7CD8 /* OpenAPIRuntime */,
-			);
-			productName = ThenTransport;
-			productReference = A7F1B274E154AB3DEA157FF7 /* ThenTransport.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		BC07D24FB6036D0E8E6A5B6B /* ThenApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F68AB42AFD4C7D8A6FFFFA2D /* Build configuration list for PBXNativeTarget "ThenApp" */;
@@ -519,12 +462,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				6A62ED60EB6EFBA838E458BC /* PBXTargetDependency */,
 			);
 			name = ThenApp;
 			packageProductDependencies = (
 				C6172DF9179DD456FAE1F314 /* GRDB */,
-				02BEE0611CFB50A96F5A0656 /* OpenAPIURLSession */,
 			);
 			productName = ThenApp;
 			productReference = B10DFA76DE5D4B252855E96B /* ThenApp.app */;
@@ -550,16 +491,12 @@
 			mainGroup = F0B64A2D346FFBBC58616FE8;
 			packageReferences = (
 				746F45F03F1551F1365317AD /* XCRemoteSwiftPackageReference "GRDB.swift" */,
-				87C10ECDCE67CD58083C1857 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */,
-				3CB0B95931458ABC3B333BD3 /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */,
-				4BE1BC09118F9302053E42EA /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */,
 			);
 			preferredProjectObjectVersion = 100;
 			productRefGroup = 4CB76DA76EF7F93758EF46C5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BBD39ECB0AF261BF23743B73 /* ThenTransport */,
 				BC07D24FB6036D0E8E6A5B6B /* ThenApp */,
 				86B4D92DF57EB0602F8DFF60 /* ThenAppTests */,
 				B462285BD7F77618EDDF0035 /* ThenAppUITests */,
@@ -614,7 +551,6 @@
 				B417BBCF8FFC467FBD99E139 /* ThenAppTests/WardrobeItemPhotoSaveTests.swift in Sources */,
 				6160976555DA2CBFA2B18CE3 /* WardrobeViewModelTests.swift in Sources */,
 				6940954CFBFC53B9F1B87F77 /* WardrobeRepositoryTests.swift in Sources */,
-				179A6C099DB68BC875CB2BF0 /* ThenTransportTests.swift in Sources */,
 				82C262B41823785455696DBF /* AvatarPhotoFileImporterTests.swift in Sources */,
 				550E1BE242B46537A0A41FE2 /* SystemAvatarPhotoPickerTests.swift in Sources */,
 				9E8D9D22CD8469DBB561CE58 /* ImageIOAvatarPhotoSanitizerTests.swift in Sources */,
@@ -626,13 +562,6 @@
 			isa = PBXSourcesBuildPhase;
 			files = (
 				209AC6E1302BC5F8FB2E8325 /* ThenAppUITests.swift in Sources */,
-			);
-		};
-		7709DAE2FE7BC5A53BE7B196 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			files = (
-				E7F186EC19AEDBD04C515BFC /* openapi.yaml in Sources */,
-				9C3DB5089E57B70446820CF8 /* openapi-generator-config.yaml in Sources */,
 			);
 		};
 		84747EE744FA1A9D63792F15 /* Sources */ = {
@@ -680,15 +609,6 @@
 			target = BC07D24FB6036D0E8E6A5B6B /* ThenApp */;
 			targetProxy = 591071597D79E28F5711CDFB /* PBXContainerItemProxy */;
 		};
-		6A62ED60EB6EFBA838E458BC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BBD39ECB0AF261BF23743B73 /* ThenTransport */;
-			targetProxy = 8A045D8B2DFBFC3390DA4E9B /* PBXContainerItemProxy */;
-		};
-		8E27C367D0BDD6FDB8481EC2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = D128F56BCB39030E41D8FD5B /* OpenAPIGenerator */;
-		};
 		F0EA7AC8BB05A7367AACBA99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ThenApp;
@@ -698,54 +618,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0E23D767EB1272C97CF78DBD /* Debug configuration for PBXNativeTarget "ThenTransport" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = H83G2F86MP;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.stephenqiu.then.transport;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_STRICT_CONCURRENCY = complete;
-				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		208AC8712D1A10E09812922B /* Release configuration for PBXNativeTarget "ThenTransport" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = H83G2F86MP;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.stephenqiu.then.transport;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_STRICT_CONCURRENCY = complete;
-				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
 		2491FB4132291008F6F9C922 /* Release configuration for PBXProject "ThenApp" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1053,14 +925,6 @@
 			);
 			defaultConfigurationName = Release;
 		};
-		E20B3A5C9A04BD04FF8F9DB7 /* Build configuration list for PBXNativeTarget "ThenTransport" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0E23D767EB1272C97CF78DBD /* Debug configuration for PBXNativeTarget "ThenTransport" */,
-				208AC8712D1A10E09812922B /* Release configuration for PBXNativeTarget "ThenTransport" */,
-			);
-			defaultConfigurationName = Release;
-		};
 		F68AB42AFD4C7D8A6FFFFA2D /* Build configuration list for PBXNativeTarget "ThenApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1072,22 +936,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3CB0B95931458ABC3B333BD3 /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-openapi-runtime.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.12.0;
-			};
-		};
-		4BE1BC09118F9302053E42EA /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-openapi-urlsession.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.3.1;
-			};
-		};
 		746F45F03F1551F1365317AD /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/groue/GRDB.swift.git";
@@ -1096,40 +944,13 @@
 				version = 7.11.1;
 			};
 		};
-		87C10ECDCE67CD58083C1857 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-openapi-generator.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.13.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		02BEE0611CFB50A96F5A0656 /* OpenAPIURLSession */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4BE1BC09118F9302053E42EA /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */;
-			productName = OpenAPIURLSession;
-		};
-		1238C53EC6F4C5D1AF5C7CD8 /* OpenAPIRuntime */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3CB0B95931458ABC3B333BD3 /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */;
-			productName = OpenAPIRuntime;
-		};
 		C6172DF9179DD456FAE1F314 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 746F45F03F1551F1365317AD /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
-		};
-		D128F56BCB39030E41D8FD5B /* OpenAPIGenerator */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 87C10ECDCE67CD58083C1857 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */;
-			productName = "plugin:OpenAPIGenerator";
-		};
-		F5EA68A49EF90BC27CD2A37D /* HTTPTypes */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = HTTPTypes;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
