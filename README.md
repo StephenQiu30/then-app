@@ -2,15 +2,11 @@
 
 这是“于是”OOTD 的独立 iOS 项目。产品级 Design、PRD、Plan、Acceptance 与唯一 OpenAPI 位于同级 [`then-server`](https://github.com/StephenQiu30/then-server)；本仓库只保存 SwiftUI 客户端、本地数据、资源和 iOS 测试。2026-09-14 当前主路径为无需上传照片或衣物的内置服装、真实 3D 角色换装与观察，同时保留 Woo 照片生成增强；具体范围见 [PRD 10](https://github.com/StephenQiu30/then-server/blob/main/docs/prd/10-OOTD产品需求.md)，不能以照片结果或 360 视频抵扣实际三维能力。
 
-## OpenAPI请求代码生成
+## 服务端接入状态
 
-维护顺序为 `../then-server/backend/openapi.yaml → Swagger UI 展示 / Swift OpenAPI Generator → Types.swift + Client.swift`。Swagger 页面用于阅读，生成器读取 YAML；不从网页 HTML、注解或第二份接口清单生成。
+当前 App 没有已启用的云端请求代码，因此工程不保留 OpenAPI 文件副本、跨仓库符号链接、代码生成插件或空 transport target。服务端使用 Gin + Huma 从路由和类型声明生成运行时 OpenAPI；账号或云端能力接入 App 时，先按独立 spec/checklist 固定实际接口，再接入请求层。
 
-在仓库根目录直接运行 Xcode 构建。ThenTransport 的 Build Tool Plugin 会从唯一 YAML 契约生成并编译 Client；不要求 Docker、Swagger 页面或后端运行。测试必须显式指定模拟器并使用 `-resultBundlePath` 保存独立结果包。Xcode 返回成功后，再用 `xcrun xcresulttool get test-results summary --path <结果包路径>` 核对顶层注册数、通过数、失败、跳过与预期失败；筛选运行只能证明所选范围，物理能力仍单独验收。
-
-生成文件位于 Xcode DerivedData，只供构建使用，不加入源码或 target。正式 App 构建由 ThenTransport target 中的 Build Tool Plugin 从 `ThenApp/openapi.yaml` 符号链接自动生成，使用同一个配置。以后修改契约再构建即可更新，不手写 transport DTO。服务适配器使用生成 Client 并配置实际后端地址，View 通过精确依赖调用服务。
-
-新环境由 Xcode 解析锁定的 Swift Package 依赖并构建生成器插件；生成器不可用时构建直接失败。2026-09-13 用户确认 ThenTransport 技术模块例外后，生成 Client 已改在默认 nonisolated 模块编译，实际 App Debug/Release Simulator 构建通过。生成成功与运行验收仍分别记录，当前证据归 [17-01](https://github.com/StephenQiu30/then-server/blob/main/docs/plan/17-01-后端服务启动与健康契约执行计划.md)。当前文档入口由 Go API 内嵌提供，启动见 [后端 README](https://github.com/StephenQiu30/then-server/blob/main/backend/README.md#swagger接口文档)；步骤、范围与证据见 [17-09](https://github.com/StephenQiu30/then-server/blob/main/docs/plan/17-09-后端内嵌接口文档执行计划.md)。
+在仓库根目录直接运行 Xcode 构建。测试必须显式指定模拟器并使用 `-resultBundlePath` 保存独立结果包；Xcode 返回成功后，再用 `xcrun xcresulttool get test-results summary --path <结果包路径>` 核对顶层注册数、通过数、失败、跳过与预期失败。筛选运行只能证明所选范围，物理能力仍单独验收。
 
 本地 3D 实现前先读 [角色开发与交付 SOP](https://github.com/StephenQiu30/then-server/blob/main/docs/design/04-数字形象与照片采集设计.md#本地三维角色开发与交付sop)、[服装资产交付 SOP](https://github.com/StephenQiu30/then-server/blob/main/docs/design/05-数字衣橱与衣物录入设计.md#三维服装资产交付sop) 与 [当前准备审核](https://github.com/StephenQiu30/then-server/blob/main/docs/acceptance/10-OOTD产品系统验收.md#2026-09-12三维实施准备审核)。App 已切换为三个 OOTD 原生入口；旧数据保留门禁已由用户开发阶段决定解除，新角色 UI 仍须资产和渲染 POC。
 
@@ -21,14 +17,14 @@
 - 所有产品页面使用 SwiftUI，Observation + `@Observable` 管理界面状态。
 - UIKit 只封装缺少 SwiftUI 接口的系统控制器，以及已批准的局部 WebKit 图形渲染表面；不承担页面导航、全局状态或业务架构。
 - Swift 6 language mode、Complete Strict Concurrency、Approachable Concurrency，UI 默认 Main Actor 隔离。
-- 首版保留一个业务 `ThenApp` Swift module；唯一技术模块例外 `ThenTransport` 只编译生成的 public Types/Client，默认 nonisolated，Swift 6 Complete Strict Concurrency。另有 `ThenAppTests` 与 `ThenAppUITests`，不把 Feature 拆成内部 framework 或 Swift Package。
+- 首版保留一个业务 `ThenApp` Swift module，另有 `ThenAppTests` 与 `ThenAppUITests`；不把未形成独立边界的 Feature 拆成内部 framework 或 Swift Package。
 - 采用 feature-first + MVVM + Repository。
 - PhotosUI、AVFoundation、Vision、UserNotifications 和网络能力通过服务协议封装。
 - 本地数据固定使用 GRDB 7.11.1 + 系统 SQLite 的 DatabasePool/WAL；衣橱、基础推荐和穿搭记录离线可用。
-- API 客户端从 `../then-server/backend/openapi.yaml` 生成；AI 试穿与动态预览是可失败、可取消的异步增强。
+- 网络能力在实际接入时通过服务协议封装；AI 试穿与动态预览是可失败、可取消的异步增强。
 - 禁止 SwiftData、Core Data、Realm、RxSwift、Combine 全局状态、第三方页面/UI 架构和第三方 DI 容器。Three.js 只能作为下述受控 renderer，不属于页面架构例外。
 
-当前工程已经满足 SwiftUI App 入口、Observation、Swift 6 严格并发、GRDB 与 OpenAPI 精确锁版。用户确认旧开发数据无需保留，19-02 已成组移除旧 Feature/Data/Services、migration 与对应测试；当前无旧业务启动副作用，12-01 已启用正式 OOTD 衣物持久化及可恢复异步启动。
+当前工程已经满足 SwiftUI App 入口、Observation、Swift 6 严格并发与 GRDB 精确锁版。用户确认旧开发数据无需保留，19-02 已成组移除旧 Feature/Data/Services、migration 与对应测试；当前无旧业务启动副作用，12-01 已启用正式 OOTD 衣物持久化及可恢复异步启动。
 
 无图衣橱支持从今日/衣橱添加、七类分类、四种可用状态、名称搜索、编辑及单件确认删除。只保存用户确认事实；数据库位于 Application Support/OOTD/wardrobe.sqlite，使用完整文件保护、WAL 与 ootd_v1_wardrobe migration，不读旧生活管理库。保存失败保留草稿，过期编辑不覆盖新版本；删除清理失败可重试。完整业务/测试状态见 [12-01](https://github.com/StephenQiu30/then-server/blob/main/docs/plan/12-01-无图衣橱与数据库基础执行计划.md)，不把模拟器结果视为真机保护或本地 GA 验收。
 
@@ -66,21 +62,6 @@
 
 完整边界见 [Design 01](https://github.com/StephenQiu30/then-server/blob/main/docs/design/01-技术选型.md)、[Design 08](https://github.com/StephenQiu30/then-server/blob/main/docs/design/08-动态预览设计.md) 与 [Design 11](https://github.com/StephenQiu30/then-server/blob/main/docs/design/11-OOTD权限隐私与安全设计.md)。当前仓库尚未进入 Three.js 实施切片，因此不创建 `package.json`、lockfile、bundle 或占位 renderer。
 
-## Swagger/OpenAPI Client 生成
-
-- 唯一契约是 `../then-server/backend/openapi.yaml`。
-- `ThenApp/openapi.yaml` 是指向该契约的符号链接，用于让 Xcode 目标直接使用后端契约，不得替换成手工复制文件。
-- `ThenApp/openapi-generator-config.yaml` 生成 Swift types 和 client。
-- 生成源码由 Xcode Build Tool Plugin 放入 DerivedData，不提交、不手工修改。
-- 2026-09-13 将生成代码移到 ThenTransport 的正确并发隔离边界，App 保持 MainActor；当前构建与测试证据见 [17-01](https://github.com/StephenQiu30/then-server/blob/main/docs/plan/17-01-后端服务启动与健康契约执行计划.md)。
-
-工程配置：
-
-1. 使用 Exact requirement 添加 GRDB 7.11.1、`apple/swift-openapi-generator` 1.13.0、`apple/swift-openapi-runtime` 1.12.0 和 `apple/swift-openapi-urlsession` 1.3.1，并提交 `Package.resolved`。
-2. 将 `OpenAPIGenerator` 只加入 ThenTransport target 的 **Run Build Tool Plug-ins**。
-3. 将 `ThenApp/openapi.yaml` 和 `ThenApp/openapi-generator-config.yaml` 只加入 ThenTransport target 的 **Compile Sources**；配置使用 `accessModifier: public`。不要再加入同一契约的 external file reference，否则插件会识别到多份文档。
-4. ThenTransport 静态 framework 链接 OpenAPIRuntime，ThenApp 链接 ThenTransport 并保留 OpenAPIURLSession；业务服务后续通过 `import ThenTransport` 使用生成 Client。测试 target 显式链接生成模块、OpenAPIRuntime 与已锁定 HTTPTypes。当前没有自动健康请求或云账号/上传入口。
-
 ## 简体中文本地化
 
 - OOTD 首发源语言固定为 `zh-Hans`。生产界面文案统一进入 `ThenApp/Localizable.xcstrings`，App 名称与系统权限用途说明统一进入 `ThenApp/InfoPlist.xcstrings`；两份目录都属于 ThenApp Resources。
@@ -88,16 +69,13 @@
 - 19-02 已移除旧业务文案和权限说明；新功能按需补充 String Catalog 与用途说明，不预申请照片/云端权限。
 - OOTD 首版不声明英文或其他语言受支持；新增语言前必须完成独立翻译与真机验收。
 
-每次 `then-server/backend/openapi.yaml` 变更后必须重新构建 iOS target。CI 中的 iOS 编译是客户端生成是否成功的强制检查。
-
 ## 构建与测试
 
-构建与测试直接使用 `xcodebuild`。测试显式指定实际模拟器 UDID 和独立 `-resultBundlePath`；完成后用 `xcresulttool` 核对结果摘要。2026-09-13 实际 Debug/Release 构建通过；工程配置通过逐 target 编译检查 MainActor/nonisolated、插件和输入唯一归属及静态链接。具体边界见 [Design 01](https://github.com/StephenQiu30/then-server/blob/main/docs/design/01-技术选型.md#2026-09-12生成client编译兼容评估)，App 构建通过不代表 OOTD 发布验收完成。
+构建与测试直接使用 `xcodebuild`。测试显式指定实际模拟器 UDID 和独立 `-resultBundlePath`；完成后用 `xcresulttool` 核对结果摘要。App 构建通过不代表 OOTD 发布验收完成。
 
 - 工程：`ThenApp.xcodeproj`
 - 共享 Scheme：`ThenApp`
 - App target / Swift module：`ThenApp`
-- 生成 API 静态 framework / Swift module：`ThenTransport`（没有手写生产源码）
 - 单元/集成测试 target：`ThenAppTests`
 - UI 测试 target：`ThenAppUITests`
 - 开发 Bundle ID：`com.stephenqiu.then`（正式签名启用前确认所有权）
@@ -113,18 +91,14 @@ xcodebuild -project ThenApp.xcodeproj \
   -scheme ThenApp \
   -configuration Debug \
   -destination 'generic/platform=iOS Simulator' \
-  -skipPackagePluginValidation \
   clean build
 
 xcodebuild -project ThenApp.xcodeproj \
   -scheme ThenApp \
   -configuration Debug \
   -destination 'platform=iOS Simulator,id=<SIMULATOR_UDID>' \
-  -skipPackagePluginValidation \
   test
 ```
-
-命令行首次运行 Package Plugin 时使用 `-skipPackagePluginValidation`；Xcode 图形界面中应确认并信任固定版本的插件。由于两份 YAML 必须成为 target 输入，Xcode 会输出 `no rule to process file` 警告；该资源警告与当前生成 Client 的 actor 隔离编译错误分别处理；禁止通过复制契约或提交生成源码消除警告或绕过编译错误。
 
 签名使用 Automatic，但仓库不提交 `DEVELOPMENT_TEAM`。模拟器构建无需 Team；真机与 Archive 前由维护者在本地选择正确 Apple Developer Team，并单独确认正式 Bundle ID 所有权。完整选型与排除项见 [Design 01](https://github.com/StephenQiu30/then-server/blob/main/docs/design/01-技术选型.md)。
 

@@ -24,22 +24,12 @@ jobs:
         with:
           path: then-app
 
-      - name: Check out OpenAPI owner
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
-        with:
-          repository: StephenQiu30/then-server
-          ref: 14a0e8a3ec5d7aa48f8dd19e3ac59bc138400899
-          path: then-server
-
-      - name: Verify toolchain and contract
+      - name: Verify toolchain
         working-directory: then-app
         run: |
           sudo xcode-select --switch /Applications/Xcode_26.6.app/Contents/Developer
           xcodebuild -version | grep -F 'Xcode 26.6'
           swift --version | grep -F 'Apple Swift version 6.3.3'
-          test -L ThenApp/openapi.yaml
-          test "$(readlink ThenApp/openapi.yaml)" = '../../then-server/backend/openapi.yaml'
-          test -s ThenApp/openapi.yaml
 
       - name: Resolve packages
         working-directory: then-app
@@ -55,7 +45,6 @@ jobs:
             -scheme ThenApp \
             -configuration Debug \
             -destination 'generic/platform=iOS Simulator' \
-            -skipPackagePluginValidation \
             -disableAutomaticPackageResolution \
             clean build
 
@@ -66,7 +55,6 @@ jobs:
             -scheme ThenApp \
             -configuration Debug \
             -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
-            -skipPackagePluginValidation \
             -disableAutomaticPackageResolution \
             -parallel-testing-enabled NO \
             -skip-testing:ThenAppUITests \
