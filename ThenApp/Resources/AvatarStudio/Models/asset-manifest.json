@@ -1,196 +1,192 @@
 {
-  "assets" : [
+  "assets": [
     {
-      "bytes" : 79632,
-      "coverage" : [
-
-      ],
-      "file" : "body-neutral.glb",
-      "id" : "body-neutral",
-      "joints" : 18,
-      "license" : "Then project original asset",
-      "materials" : 1,
-      "morphs" : [
+      "bytes": 79724,
+      "coverage": [],
+      "file": "body-neutral.glb",
+      "id": "body-neutral",
+      "joints": 18,
+      "license": "Then project original asset",
+      "materials": 1,
+      "morphs": [
         "shoulderWidth",
         "torsoDepth"
       ],
-      "rig" : "then-template-v1",
-      "sha256" : "babfa9d46c2e2c7aa0a65e41e99b89a6c1ebe029a868cfe2fc63f68bfd807dbf",
-      "slot" : "body",
-      "source" : "original deterministic geometry in AssetCompiler.swift",
-      "triangles" : 1504,
-      "version" : 1
+      "rig": "then-template-v1",
+      "sha256": "554961cf7b6e0141e99c88b7d5e4051e64ad7e578450e7f42beb295303ac52c5",
+      "slot": "body",
+      "source": "Then project-original precompiled engineering GLB fixture; source generator is not retained in this repository",
+      "triangles": 1504,
+      "version": 1
     },
     {
-      "bytes" : 40644,
-      "coverage" : [
-
-      ],
-      "file" : "face-hair-black.glb",
-      "id" : "face-hair-black",
-      "joints" : 18,
-      "license" : "Then project original asset",
-      "materials" : 1,
-      "morphs" : [
+      "bytes": 40696,
+      "coverage": [],
+      "file": "face-hair-black.glb",
+      "id": "face-hair-black",
+      "joints": 18,
+      "license": "Then project original asset",
+      "materials": 1,
+      "morphs": [
         "shoulderWidth",
         "torsoDepth"
       ],
-      "rig" : "then-template-v1",
-      "sha256" : "87073267818d577f43952e3859b49d0eef9de98d20fb5ef5fe35e1a0015c721b",
-      "slot" : "bodyDetail",
-      "source" : "original deterministic geometry in AssetCompiler.swift",
-      "triangles" : 720,
-      "version" : 1
+      "rig": "then-template-v1",
+      "sha256": "69448d05b2926e32f1b8f2cf6dd5fb48c14ca6a7c91424b269ad87f188b26c09",
+      "slot": "bodyDetail",
+      "source": "Then project-original precompiled engineering GLB fixture; source generator is not retained in this repository",
+      "triangles": 720,
+      "version": 1
     },
     {
-      "bytes" : 41048,
-      "coverage" : [
+      "bytes": 41164,
+      "coverage": [
         "torso"
       ],
-      "file" : "top-ivory-knit.glb",
-      "id" : "top-ivory-knit",
-      "joints" : 18,
-      "license" : "Then project original asset",
-      "materials" : 1,
-      "morphs" : [
+      "file": "top-ivory-knit.glb",
+      "id": "top-ivory-knit",
+      "joints": 18,
+      "license": "Then project original asset",
+      "materials": 1,
+      "morphs": [
         "shoulderWidth",
         "torsoDepth"
       ],
-      "rig" : "then-template-v1",
-      "sha256" : "2e0efb7f6b8d733bb344ea410569b5b249c77d848840b61f74503a26c32a23dd",
-      "slot" : "top",
-      "source" : "original deterministic geometry in AssetCompiler.swift",
-      "triangles" : 752,
-      "version" : 1
+      "rig": "then-template-v1",
+      "sha256": "f00e9ed2e17b02773d45d7f9350354343da4b238bb335cd337185c9be1655898",
+      "slot": "top",
+      "source": "Then project-original precompiled engineering GLB fixture; source generator is not retained in this repository",
+      "triangles": 752,
+      "version": 1
     },
     {
-      "bytes" : 48708,
-      "coverage" : [
+      "bytes": 48820,
+      "coverage": [
         "torso",
         "upperArms"
       ],
-      "file" : "outerwear-blue-shirt.glb",
-      "id" : "outerwear-blue-shirt",
-      "joints" : 18,
-      "license" : "Then project original asset",
-      "materials" : 1,
-      "morphs" : [
+      "file": "outerwear-blue-shirt.glb",
+      "id": "outerwear-blue-shirt",
+      "joints": 18,
+      "license": "Then project original asset",
+      "materials": 1,
+      "morphs": [
         "shoulderWidth",
         "torsoDepth"
       ],
-      "rig" : "then-template-v1",
-      "sha256" : "29d8124cb4b59118307ef8579e5537fd7c01f895eee2a98a3b9d77906bf6de51",
-      "slot" : "top",
-      "source" : "original deterministic geometry in AssetCompiler.swift",
-      "triangles" : 920,
-      "version" : 1
+      "rig": "then-template-v1",
+      "sha256": "d820f010dd02d17dc9b3c5673c638699f156eb800615c30d004c8e5a79bea7c5",
+      "slot": "top",
+      "source": "Then project-original precompiled engineering GLB fixture; source generator is not retained in this repository",
+      "triangles": 920,
+      "version": 1
     },
     {
-      "bytes" : 21080,
-      "coverage" : [
+      "bytes": 21148,
+      "coverage": [
         "hips",
         "upperLegs"
       ],
-      "file" : "bottom-black-skirt.glb",
-      "id" : "bottom-black-skirt",
-      "joints" : 18,
-      "license" : "Then project original asset",
-      "materials" : 1,
-      "morphs" : [
+      "file": "bottom-black-skirt.glb",
+      "id": "bottom-black-skirt",
+      "joints": 18,
+      "license": "Then project original asset",
+      "materials": 1,
+      "morphs": [
         "shoulderWidth",
         "torsoDepth"
       ],
-      "rig" : "then-template-v1",
-      "sha256" : "1f03917eff0ad64db8e166dd365e57c5d6ed98ae7467e68811508c7d95b5496b",
-      "slot" : "bottom",
-      "source" : "original deterministic geometry in AssetCompiler.swift",
-      "triangles" : 336,
-      "version" : 1
+      "rig": "then-template-v1",
+      "sha256": "f2800883dc81302a7a49533cd8db9de3abe6ef4ba10b86397218fda74137da44",
+      "slot": "bottom",
+      "source": "Then project-original precompiled engineering GLB fixture; source generator is not retained in this repository",
+      "triangles": 336,
+      "version": 1
     },
     {
-      "bytes" : 35408,
-      "coverage" : [
+      "bytes": 35480,
+      "coverage": [
         "hips",
         "upperLegs"
       ],
-      "file" : "bottom-mint-skirt.glb",
-      "id" : "bottom-mint-skirt",
-      "joints" : 18,
-      "license" : "Then project original asset",
-      "materials" : 1,
-      "morphs" : [
+      "file": "bottom-mint-skirt.glb",
+      "id": "bottom-mint-skirt",
+      "joints": 18,
+      "license": "Then project original asset",
+      "materials": 1,
+      "morphs": [
         "shoulderWidth",
         "torsoDepth"
       ],
-      "rig" : "then-template-v1",
-      "sha256" : "28903ae70e17c964786e08257662720dda86a4a427219366fad713b51328680f",
-      "slot" : "bottom",
-      "source" : "original deterministic geometry in AssetCompiler.swift",
-      "triangles" : 624,
-      "version" : 1
+      "rig": "then-template-v1",
+      "sha256": "4c20c3393020de653ce6639b4b94eaef83cdd89970aaac6d83805dde6de7d434",
+      "slot": "bottom",
+      "source": "Then project-original precompiled engineering GLB fixture; source generator is not retained in this repository",
+      "triangles": 624,
+      "version": 1
     },
     {
-      "bytes" : 35404,
-      "coverage" : [
+      "bytes": 35444,
+      "coverage": [
         "feet"
       ],
-      "file" : "shoes-cream.glb",
-      "id" : "shoes-cream",
-      "joints" : 18,
-      "license" : "Then project original asset",
-      "materials" : 1,
-      "morphs" : [
+      "file": "shoes-cream.glb",
+      "id": "shoes-cream",
+      "joints": 18,
+      "license": "Then project original asset",
+      "materials": 1,
+      "morphs": [
         "shoulderWidth",
         "torsoDepth"
       ],
-      "rig" : "then-template-v1",
-      "sha256" : "8a573927bfed980d79e1a191e1151194b2da69f8b9b077b78620e221150d0a8a",
-      "slot" : "shoes",
-      "source" : "original deterministic geometry in AssetCompiler.swift",
-      "triangles" : 640,
-      "version" : 1
+      "rig": "then-template-v1",
+      "sha256": "b645914ee6fbf57174dae356d8a82730714fbfe78002172885e16d60ea6a7b68",
+      "slot": "shoes",
+      "source": "Then project-original precompiled engineering GLB fixture; source generator is not retained in this repository",
+      "triangles": 640,
+      "version": 1
     },
     {
-      "bytes" : 31432,
-      "coverage" : [
+      "bytes": 31500,
+      "coverage": [
         "feet",
         "ankles"
       ],
-      "file" : "shoes-black-boots.glb",
-      "id" : "shoes-black-boots",
-      "joints" : 18,
-      "license" : "Then project original asset",
-      "materials" : 1,
-      "morphs" : [
+      "file": "shoes-black-boots.glb",
+      "id": "shoes-black-boots",
+      "joints": 18,
+      "license": "Then project original asset",
+      "materials": 1,
+      "morphs": [
         "shoulderWidth",
         "torsoDepth"
       ],
-      "rig" : "then-template-v1",
-      "sha256" : "2437c2847647ae2e4c2b650c40b84187e910314b60e90a1c7515032454454e60",
-      "slot" : "shoes",
-      "source" : "original deterministic geometry in AssetCompiler.swift",
-      "triangles" : 504,
-      "version" : 1
+      "rig": "then-template-v1",
+      "sha256": "331a9ec2021247f4dac1f58475ce461fad567b0869533572668fe7845514b1ad",
+      "slot": "shoes",
+      "source": "Then project-original precompiled engineering GLB fixture; source generator is not retained in this repository",
+      "triangles": 504,
+      "version": 1
     }
   ],
-  "catalogVersion" : "then-avatar-assets-v1",
-  "parameters" : [
+  "catalogVersion": "then-avatar-assets-v1",
+  "parameters": [
     {
-      "default" : 0,
-      "id" : "shoulderWidth",
-      "maximum" : 0.25,
-      "minimum" : -0.25
+      "default": 0,
+      "id": "shoulderWidth",
+      "maximum": 0.25,
+      "minimum": -0.25
     },
     {
-      "default" : 0,
-      "id" : "torsoDepth",
-      "maximum" : 0.25,
-      "minimum" : -0.25
+      "default": 0,
+      "id": "torsoDepth",
+      "maximum": 0.25,
+      "minimum": -0.25
     }
   ],
-  "rig" : {
-    "id" : "then-template-v1",
-    "joints" : [
+  "rig": {
+    "id": "then-template-v1",
+    "joints": [
       "root",
       "hips",
       "spine",
@@ -210,7 +206,7 @@
       "lowerLeg.R",
       "foot.R"
     ],
-    "restPose" : "standing-neutral-v1"
+    "restPose": "standing-neutral-v1"
   },
-  "schemaVersion" : 1
+  "schemaVersion": 1
 }

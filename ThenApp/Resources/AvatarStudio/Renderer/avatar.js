@@ -157,7 +157,12 @@ new ResizeObserver(resize).observe(canvas);
 async function prepare() {
   const files = Object.values(assetFiles);
   const loaded = await Promise.all(files.map(async (file) => {
-    const gltf = await loader.loadAsync(`avatar://assets/${file}`);
+    let gltf;
+    try {
+      gltf = await loader.loadAsync(`avatar://local/assets/${file}`);
+    } catch {
+      throw new Error(`load:${file}`);
+    }
     gltf.scene.name = file;
     gltf.scene.visible = false;
     gltf.scene.traverse((child) => {
@@ -172,11 +177,23 @@ async function prepare() {
     assets.set(file, object);
     root.add(object);
   }
-  resize();
+  try {
+    resize();
+  } catch {
+    throw new Error('initialRender');
+  }
   post({ type: 'ready', assetCount: assets.size });
 }
 
-prepare().catch(() => post({ type: 'failed', code: 'assetLoadFailed' }));
+const preparationFailureCodes = new Set([
+  ...Object.values(assetFiles).map((file) => `load:${file}`),
+  'initialRender',
+]);
+
+prepare().catch((error) => {
+  const code = preparationFailureCodes.has(error?.message) ? error.message : 'assetLoadFailed';
+  post({ type: 'failed', code });
+});
 
 window.addEventListener('pagehide', () => {
   for (const object of assets.values()) {

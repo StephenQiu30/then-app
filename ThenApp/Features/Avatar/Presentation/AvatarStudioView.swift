@@ -94,6 +94,7 @@ final class AvatarStudioModel {
   func dressUp() {
     guard !selectedIDs.isEmpty else { return }
     appliedIDs = selectedIDs
+    rendererState = .loading
     revision += 1
     screen = .look
     notice = "已换上所选服装"
@@ -101,21 +102,25 @@ final class AvatarStudioModel {
 
   func turn(_ delta: Double) {
     yaw += delta
+    rendererState = .loading
     revision += 1
   }
 
   func showAngle(_ angle: Double) {
     yaw = angle
+    rendererState = .loading
     revision += 1
   }
 
   func updateShoulderWidth(_ value: Double) {
     shoulderWidth = min(0.25, max(-0.25, value))
+    rendererState = .loading
     revision += 1
   }
 
   func updateTorsoDepth(_ value: Double) {
     torsoDepth = min(0.25, max(-0.25, value))
+    rendererState = .loading
     revision += 1
   }
 
@@ -126,6 +131,7 @@ final class AvatarStudioModel {
     shoulderWidth = 0
     torsoDepth = 0
     isFavorite = false
+    rendererState = .loading
     revision += 1
     notice = "已恢复默认穿搭"
   }
@@ -233,23 +239,29 @@ struct AvatarStudioView: View {
     VStack(spacing: 0) {
       topBar
       ZStack(alignment: .bottom) {
-        if model.rendererState == .failed {
+        if case .failed = model.rendererState {
           BundledAvatarImage(name: "avatar-fallback")
             .scaledToFit()
             .padding(.horizontal, 54)
             .accessibilityLabel("三维渲染暂不可用，显示静态穿搭形象")
+            .accessibilityIdentifier("avatar.renderer.fallback")
+            .accessibilityValue(rendererAccessibilityValue)
         } else {
           ThreeAvatarView(
             configuration: model.renderConfiguration,
             onStateChange: { model.rendererState = $0 },
             onYawChange: { model.yaw = $0 }
           )
+          .accessibilityElement(children: .ignore)
           .accessibilityLabel("三维穿搭形象")
           .accessibilityHint("单指左右拖动可旋转")
+          .accessibilityIdentifier("avatar.renderer")
+          .accessibilityValue(rendererAccessibilityValue)
           if model.rendererState == .loading {
             ProgressView()
               .controlSize(.small)
               .accessibilityLabel("正在准备三维形象")
+              .accessibilityIdentifier("avatar.renderer.loading")
           }
         }
         HStack {
@@ -266,6 +278,14 @@ struct AvatarStudioView: View {
       lookCard
         .padding(.horizontal, 14)
         .padding(.bottom, 88)
+    }
+  }
+
+  private var rendererAccessibilityValue: LocalizedStringKey {
+    switch model.rendererState {
+    case .loading: "正在渲染"
+    case .ready: "已就绪"
+    case .failed: "暂不可用"
     }
   }
 
@@ -511,13 +531,17 @@ struct AvatarStudioView: View {
         }
         bodySlider(
           title: "肩部宽度",
-          value: model.shoulderWidth,
-          update: model.updateShoulderWidth
+          value: Binding(
+            get: { model.shoulderWidth },
+            set: { model.updateShoulderWidth($0) }
+          )
         )
         bodySlider(
           title: "躯干厚度",
-          value: model.torsoDepth,
-          update: model.updateTorsoDepth
+          value: Binding(
+            get: { model.torsoDepth },
+            set: { model.updateTorsoDepth($0) }
+          )
         )
         HStack {
           Button("恢复默认") {
@@ -540,25 +564,20 @@ struct AvatarStudioView: View {
 
   private func bodySlider(
     title: LocalizedStringKey,
-    value: Double,
-    update: @escaping (Double) -> Void
+    value: Binding<Double>
   ) -> some View {
     VStack(alignment: .leading, spacing: 9) {
       HStack {
         Text(title).font(.headline)
         Spacer()
-        Text(value, format: .number.precision(.fractionLength(2)))
+        Text(value.wrappedValue, format: .number.precision(.fractionLength(2)))
           .font(.subheadline.monospacedDigit())
           .foregroundStyle(.secondary)
       }
-      Slider(
-        value: Binding(get: { value }, set: update),
-        in: -0.25...0.25,
-        step: 0.05
-      )
+      Slider(value: value, in: -0.25...0.25, step: 0.05)
       .tint(.black)
       .accessibilityLabel(title)
-      .accessibilityValue(Text(value, format: .number.precision(.fractionLength(2))))
+      .accessibilityValue(Text(value.wrappedValue, format: .number.precision(.fractionLength(2))))
     }
   }
 

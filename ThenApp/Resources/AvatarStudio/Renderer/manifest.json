@@ -8,8 +8,12 @@
   "bundledCoreModule": "three.core.min.js",
   "bundledCoreModuleSHA256": "05b2609338c76cd65daf74f3ac515bc9a5045e1b3b33edc07d8c9bd55250fa90",
   "gltfLoader": "GLTFLoader.js",
-  "gltfLoaderSource": "three@0.185.1/examples/jsm/loaders/GLTFLoader.js with the bare three import rewritten to the bundled module",
-  "gltfLoaderSHA256": "178f587f24f4b47dfc5ac573e0dea3d9dfbb29a6dc60e762723d31d70222a733",
+  "gltfLoaderSource": "three@0.185.1/examples/jsm/loaders/GLTFLoader.js with imports rewritten to the bundled local module tree",
+  "gltfLoaderSHA256": "856453cc3755c511fef502e2aeeeb6a1fd8fcb27983cf333948fcf5c57561014",
+  "bufferGeometryUtils": "utils/BufferGeometryUtils.js",
+  "bufferGeometryUtilsSHA256": "8943250335e377c0ab9b6ece5f602e75b5fc2123d99c3cefebc0aea64e224e94",
+  "skeletonUtils": "utils/SkeletonUtils.js",
+  "skeletonUtilsSHA256": "4430da0bcff43e639b4240406462a6667ac8965730d7be2836cc4a4bb13aec56",
   "assetCatalog": "../Models/asset-manifest.json",
   "runtimeNetworkDependencies": []
 }

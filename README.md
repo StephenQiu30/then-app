@@ -60,7 +60,7 @@
 - Reduce Motion、VoiceOver 偏好、WebGL 不可用、context lost、WebContent 终止、低电量、热压力或内存告警时停止并释放 renderer，显示 SwiftUI 静态图及原生上一/下一操作。
 - 实施前必须通过原生 renderer 与 Three.js 的隔离 POC。验证包含安装包增量、冷启动、触摸到显示、hitch、App + WebContent + GPU 总内存、能耗、热状态、离线、零运行时外联、无障碍、删除和供应链；没有可测增量价值时不引入 Three.js。
 
-完整边界见 [Design 01](https://github.com/StephenQiu30/then-server/blob/main/docs/design/01-技术选型.md)、[Design 08](https://github.com/StephenQiu30/then-server/blob/main/docs/design/08-动态预览设计.md) 与 [Design 11](https://github.com/StephenQiu30/then-server/blob/main/docs/design/11-OOTD权限隐私与安全设计.md)。当前仓库尚未进入 Three.js 实施切片，因此不创建 `package.json`、lockfile、bundle 或占位 renderer。
+完整边界见 [Design 01](https://github.com/StephenQiu30/then-server/blob/main/docs/design/01-技术选型.md)、[Design 08](https://github.com/StephenQiu30/then-server/blob/main/docs/design/08-动态预览设计.md)、[Design 13](https://github.com/StephenQiu30/then-server/blob/main/docs/design/13-三维虚拟形象与服装系统研究.md) 与 [Plan 11-02](https://github.com/StephenQiu30/then-server/blob/main/docs/plan/11-02-无照片三维角色与静态降级执行计划.md)。当前仓库已进入批准的 Three.js 隔离 POC：固定运行库与工程 GLB 随 App 离线打包，不创建 `package.json` 或 lockfile；工程 GLB 不作为生产级美术资产验收结果。
 
 ## 简体中文本地化
 

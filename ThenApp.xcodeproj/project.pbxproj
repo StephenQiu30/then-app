@@ -52,6 +52,7 @@
 		A2F000000000000000000001 /* AvatarAssetCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F000000000000000000001 /* AvatarAssetCatalog.swift */; };
 		A10000000000000000000003 /* Resources/AvatarStudio in Resources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000003 /* Resources/AvatarStudio */; };
 		A10000000000000000000004 /* AvatarStudioModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000004 /* AvatarStudioModelTests.swift */; };
+		A30000000000000000000001 /* AvatarAssetCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30000000000000000000001 /* AvatarAssetCatalogTests.swift */; };
 		A1712B5FC90441409F1071D2 /* ThenApp/Services/Photos/WardrobePhotoPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFF9F7B294F46FBAB7EC309 /* ThenApp/Services/Photos/WardrobePhotoPickerButton.swift */; };
 		A7AB3802B7904279B47C6324 /* ThenAppTests/OutfitPlanViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175B1E7F16840708C7E4369 /* ThenAppTests/OutfitPlanViewModelTests.swift */; };
 		A8C2FA90C7F24FAD9E01754F /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F3E6FDE2403DA058EBA5 /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift */; };
@@ -136,6 +137,7 @@
 		B2F000000000000000000001 /* AvatarAssetCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarAssetCatalog.swift; sourceTree = "<group>"; };
 		B10000000000000000000003 /* Resources/AvatarStudio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources/AvatarStudio; sourceTree = "<group>"; };
 		B10000000000000000000004 /* AvatarStudioModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarStudioModelTests.swift; sourceTree = "<group>"; };
+		B30000000000000000000001 /* AvatarAssetCatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarAssetCatalogTests.swift; sourceTree = "<group>"; };
 		B10DFA76DE5D4B252855E96B /* ThenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3AA9F053C2D4E6F8024F150 /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Wardrobe/Domain/WardrobePhotoReview.swift; sourceTree = SOURCE_ROOT; };
 		B7BBDE0DA3F2496495A08724 /* ThenAppTests/VisionWardrobePersonAnalyzerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/VisionWardrobePersonAnalyzerTests.swift; sourceTree = SOURCE_ROOT; };
@@ -264,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				B10000000000000000000004 /* AvatarStudioModelTests.swift */,
+				B30000000000000000000001 /* AvatarAssetCatalogTests.swift */,
 				0175B1E7F16840708C7E4369 /* ThenAppTests/OutfitPlanViewModelTests.swift */,
 				72E1626DE65641EA884DA582 /* ThenAppTests/OutfitPlanRepositoryTests.swift */,
 				24A623C1F1B74B6FB01AE34D /* ThenAppTests/OutfitPlanTests.swift */,
@@ -534,6 +537,7 @@
 			isa = PBXSourcesBuildPhase;
 			files = (
 				A10000000000000000000004 /* AvatarStudioModelTests.swift in Sources */,
+				A30000000000000000000001 /* AvatarAssetCatalogTests.swift in Sources */,
 				A7AB3802B7904279B47C6324 /* ThenAppTests/OutfitPlanViewModelTests.swift in Sources */,
 				10B9B15FBAD3410DAA11A3BE /* ThenAppTests/OutfitPlanRepositoryTests.swift in Sources */,
 				5A1CAE12DC384175BB653283 /* ThenAppTests/OutfitPlanTests.swift in Sources */,
