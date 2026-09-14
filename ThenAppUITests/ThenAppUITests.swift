@@ -111,6 +111,59 @@ final class ThenAppUITests: XCTestCase {
   }
 
   @MainActor
+  func testWardrobePhotoCreateRestartRemoveAndDelete() throws {
+    try XCTSkipUnless(ProcessInfo.processInfo.environment["THEN_WARDROBE_PHOTO_FIXTURE"] == "1",
+      "Requires one current synthetic garment image in the booted simulator photo library")
+    let name = "照片上装" + UUID().uuidString.prefix(6)
+    let app = launchApp()
+    openWardrobe(app)
+    app.buttons["添加衣物"].tap()
+    let field = app.textFields["wardrobe.name"]
+    XCTAssertTrue(field.waitForExistence(timeout: 3))
+    field.tap()
+    field.typeText(String(name))
+    app.buttons["wardrobe.category"].tap()
+    app.buttons["上装"].tap()
+
+    app.buttons["wardrobe.photo.pick"].tap()
+    selectFirstSystemPhoto(in: app)
+    XCTAssertTrue(app.images["wardrobe.photo.preview"].waitForExistence(timeout: 15))
+    XCTAssertTrue(app.buttons["wardrobe.photo.subject"].waitForExistence(timeout: 3))
+    app.buttons["wardrobe.photo.subject"].tap()
+    app.buttons["一件衣物或配件"].tap()
+    for identifier in ["wardrobe.photo.owned", "wardrobe.photo.no-person", "wardrobe.photo.complete"] {
+      let toggle = app.switches[identifier]
+      XCTAssertTrue(toggle.waitForExistence(timeout: 3))
+      XCTAssertEqual(toggle.value as? String, "0")
+      toggle.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)).tap()
+      XCTAssertEqual(toggle.value as? String, "1")
+    }
+    app.buttons["wardrobe.photo.confirm"].tap()
+    XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "wardrobe.photo.confirmed").firstMatch.waitForExistence(timeout: 3))
+    try app.performAccessibilityAudit(for: [.contrast, .textClipped])
+    app.buttons["保存"].tap()
+    XCTAssertTrue(app.staticTexts[String(name)].waitForExistence(timeout: 5))
+
+    app.terminate()
+    app.launch()
+    XCTAssertTrue(app.buttons["形象"].waitForExistence(timeout: 8))
+    openWardrobe(app)
+    app.staticTexts[String(name)].tap()
+    XCTAssertTrue(app.images["wardrobe.photo.preview"].waitForExistence(timeout: 5))
+    XCTAssertTrue(app.buttons["wardrobe.photo.remove"].waitForExistence(timeout: 3))
+    app.buttons["wardrobe.photo.remove"].tap()
+    app.buttons["确认移除照片"].tap()
+    XCTAssertTrue(app.images["wardrobe.photo.preview"].waitForNonExistence(timeout: 5))
+    app.buttons["取消"].tap()
+
+    app.staticTexts[String(name)].tap()
+    XCTAssertTrue(app.images["wardrobe.photo.preview"].waitForNonExistence(timeout: 3))
+    app.buttons["删除衣物"].tap()
+    app.buttons["确认删除"].tap()
+    XCTAssertFalse(app.staticTexts[String(name)].waitForExistence(timeout: 3))
+  }
+
+  @MainActor
   func testOwnedGarmentCanCreateAndDeleteOutfitPlan() throws {
     let garment = "计划上装" + UUID().uuidString.prefix(6)
     let scene = "通勤" + UUID().uuidString.prefix(6)
@@ -323,5 +376,12 @@ final class ThenAppUITests: XCTestCase {
     app.buttons["wardrobe.category"].tap()
     app.buttons["上装"].tap()
     app.buttons["保存"].tap()
+  }
+
+  @MainActor
+  private func selectFirstSystemPhoto(in app: XCUIApplication) {
+    let photo = app.images.matching(identifier: "PXGGridLayout-Info").firstMatch
+    XCTAssertTrue(photo.waitForExistence(timeout: 8), "系统照片选择器没有可选图片；请先导入当前合成衣物夹具")
+    photo.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
   }
 }
