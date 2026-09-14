@@ -1,7 +1,7 @@
 generate:
   - types
   - client
-accessModifier: internal
+accessModifier: public
 namingStrategy: idiomatic
 additionalFileComments:
   - swift-format-ignore-file

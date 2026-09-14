@@ -1,0 +1,48 @@
+{
+  "authorization" : "Repository-authored synthetic fixtures under the approved 11-01 POC scope",
+  "fixtures" : [
+    {
+      "content_type" : "public.jpeg",
+      "file" : "metadata-jpeg.fixture",
+      "frames" : 1,
+      "id" : "metadata-jpeg",
+      "sha256" : "27d59abfcdeaee13e7da5855c09e764c1895b070dbde5f33d41cbce5a2522e5c",
+      "source" : "original synthetic 64x32 color blocks; no persons or user data"
+    },
+    {
+      "content_type" : "public.png",
+      "file" : "metadata-png.fixture",
+      "frames" : 1,
+      "id" : "metadata-png",
+      "sha256" : "e62a6442cc04f35781294fa1ff3c738a8885dea112bf82af42c7ffc77865925d",
+      "source" : "original synthetic 64x32 color blocks; no persons or user data"
+    },
+    {
+      "content_type" : "public.heic",
+      "file" : "metadata-heic.fixture",
+      "frames" : 1,
+      "id" : "metadata-heic",
+      "sha256" : "a1d75aa541ab78e7bd7cb41bad856a983c9941770754d16a14eb9c24bf6fa027",
+      "source" : "original synthetic 64x32 color blocks; no persons or user data"
+    },
+    {
+      "content_type" : "public.png",
+      "file" : "animated-png.fixture",
+      "frames" : 2,
+      "id" : "animated-png",
+      "sha256" : "4884d0117a9efd5f33351a32c860d266fccfddc2870f8560a64ecf5b33aecc74",
+      "source" : "original synthetic 64x32 color blocks; no persons or user data"
+    },
+    {
+      "content_type" : "public.tiff",
+      "file" : "unsupported-tiff.fixture",
+      "frames" : 1,
+      "id" : "unsupported-tiff",
+      "sha256" : "af0e40f6aaa804962a3cd77203b1cd2b28efd2dd4a6c542f70a7c2426497dbc7",
+      "source" : "original synthetic 64x32 color blocks; no persons or user data"
+    }
+  ],
+  "generator" : "scripts\/fixtures\/generate-avatar-photos.swift",
+  "purpose" : "11-01 photo transfer, ImageIO codec and metadata isolation tests; not Vision quality calibration",
+  "version" : 1
+}

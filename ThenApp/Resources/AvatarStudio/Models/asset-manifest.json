@@ -1,0 +1,216 @@
+{
+  "assets" : [
+    {
+      "bytes" : 79632,
+      "coverage" : [
+
+      ],
+      "file" : "body-neutral.glb",
+      "id" : "body-neutral",
+      "joints" : 18,
+      "license" : "Then project original asset",
+      "materials" : 1,
+      "morphs" : [
+        "shoulderWidth",
+        "torsoDepth"
+      ],
+      "rig" : "then-template-v1",
+      "sha256" : "babfa9d46c2e2c7aa0a65e41e99b89a6c1ebe029a868cfe2fc63f68bfd807dbf",
+      "slot" : "body",
+      "source" : "original deterministic geometry in AssetCompiler.swift",
+      "triangles" : 1504,
+      "version" : 1
+    },
+    {
+      "bytes" : 40644,
+      "coverage" : [
+
+      ],
+      "file" : "face-hair-black.glb",
+      "id" : "face-hair-black",
+      "joints" : 18,
+      "license" : "Then project original asset",
+      "materials" : 1,
+      "morphs" : [
+        "shoulderWidth",
+        "torsoDepth"
+      ],
+      "rig" : "then-template-v1",
+      "sha256" : "87073267818d577f43952e3859b49d0eef9de98d20fb5ef5fe35e1a0015c721b",
+      "slot" : "bodyDetail",
+      "source" : "original deterministic geometry in AssetCompiler.swift",
+      "triangles" : 720,
+      "version" : 1
+    },
+    {
+      "bytes" : 41048,
+      "coverage" : [
+        "torso"
+      ],
+      "file" : "top-ivory-knit.glb",
+      "id" : "top-ivory-knit",
+      "joints" : 18,
+      "license" : "Then project original asset",
+      "materials" : 1,
+      "morphs" : [
+        "shoulderWidth",
+        "torsoDepth"
+      ],
+      "rig" : "then-template-v1",
+      "sha256" : "2e0efb7f6b8d733bb344ea410569b5b249c77d848840b61f74503a26c32a23dd",
+      "slot" : "top",
+      "source" : "original deterministic geometry in AssetCompiler.swift",
+      "triangles" : 752,
+      "version" : 1
+    },
+    {
+      "bytes" : 48708,
+      "coverage" : [
+        "torso",
+        "upperArms"
+      ],
+      "file" : "outerwear-blue-shirt.glb",
+      "id" : "outerwear-blue-shirt",
+      "joints" : 18,
+      "license" : "Then project original asset",
+      "materials" : 1,
+      "morphs" : [
+        "shoulderWidth",
+        "torsoDepth"
+      ],
+      "rig" : "then-template-v1",
+      "sha256" : "29d8124cb4b59118307ef8579e5537fd7c01f895eee2a98a3b9d77906bf6de51",
+      "slot" : "top",
+      "source" : "original deterministic geometry in AssetCompiler.swift",
+      "triangles" : 920,
+      "version" : 1
+    },
+    {
+      "bytes" : 21080,
+      "coverage" : [
+        "hips",
+        "upperLegs"
+      ],
+      "file" : "bottom-black-skirt.glb",
+      "id" : "bottom-black-skirt",
+      "joints" : 18,
+      "license" : "Then project original asset",
+      "materials" : 1,
+      "morphs" : [
+        "shoulderWidth",
+        "torsoDepth"
+      ],
+      "rig" : "then-template-v1",
+      "sha256" : "1f03917eff0ad64db8e166dd365e57c5d6ed98ae7467e68811508c7d95b5496b",
+      "slot" : "bottom",
+      "source" : "original deterministic geometry in AssetCompiler.swift",
+      "triangles" : 336,
+      "version" : 1
+    },
+    {
+      "bytes" : 35408,
+      "coverage" : [
+        "hips",
+        "upperLegs"
+      ],
+      "file" : "bottom-mint-skirt.glb",
+      "id" : "bottom-mint-skirt",
+      "joints" : 18,
+      "license" : "Then project original asset",
+      "materials" : 1,
+      "morphs" : [
+        "shoulderWidth",
+        "torsoDepth"
+      ],
+      "rig" : "then-template-v1",
+      "sha256" : "28903ae70e17c964786e08257662720dda86a4a427219366fad713b51328680f",
+      "slot" : "bottom",
+      "source" : "original deterministic geometry in AssetCompiler.swift",
+      "triangles" : 624,
+      "version" : 1
+    },
+    {
+      "bytes" : 35404,
+      "coverage" : [
+        "feet"
+      ],
+      "file" : "shoes-cream.glb",
+      "id" : "shoes-cream",
+      "joints" : 18,
+      "license" : "Then project original asset",
+      "materials" : 1,
+      "morphs" : [
+        "shoulderWidth",
+        "torsoDepth"
+      ],
+      "rig" : "then-template-v1",
+      "sha256" : "8a573927bfed980d79e1a191e1151194b2da69f8b9b077b78620e221150d0a8a",
+      "slot" : "shoes",
+      "source" : "original deterministic geometry in AssetCompiler.swift",
+      "triangles" : 640,
+      "version" : 1
+    },
+    {
+      "bytes" : 31432,
+      "coverage" : [
+        "feet",
+        "ankles"
+      ],
+      "file" : "shoes-black-boots.glb",
+      "id" : "shoes-black-boots",
+      "joints" : 18,
+      "license" : "Then project original asset",
+      "materials" : 1,
+      "morphs" : [
+        "shoulderWidth",
+        "torsoDepth"
+      ],
+      "rig" : "then-template-v1",
+      "sha256" : "2437c2847647ae2e4c2b650c40b84187e910314b60e90a1c7515032454454e60",
+      "slot" : "shoes",
+      "source" : "original deterministic geometry in AssetCompiler.swift",
+      "triangles" : 504,
+      "version" : 1
+    }
+  ],
+  "catalogVersion" : "then-avatar-assets-v1",
+  "parameters" : [
+    {
+      "default" : 0,
+      "id" : "shoulderWidth",
+      "maximum" : 0.25,
+      "minimum" : -0.25
+    },
+    {
+      "default" : 0,
+      "id" : "torsoDepth",
+      "maximum" : 0.25,
+      "minimum" : -0.25
+    }
+  ],
+  "rig" : {
+    "id" : "then-template-v1",
+    "joints" : [
+      "root",
+      "hips",
+      "spine",
+      "chest",
+      "neck",
+      "head",
+      "upperArm.L",
+      "lowerArm.L",
+      "hand.L",
+      "upperArm.R",
+      "lowerArm.R",
+      "hand.R",
+      "upperLeg.L",
+      "lowerLeg.L",
+      "foot.L",
+      "upperLeg.R",
+      "lowerLeg.R",
+      "foot.R"
+    ],
+    "restPose" : "standing-neutral-v1"
+  },
+  "schemaVersion" : 1
+}
