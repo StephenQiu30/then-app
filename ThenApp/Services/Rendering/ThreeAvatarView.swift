@@ -33,7 +33,7 @@ struct BundledAvatarImage: View {
 enum AvatarRendererState: Equatable {
   case loading
   case ready
-  case failed
+  case failed(String)
 }
 
 struct ThreeAvatarView: UIViewRepresentable {
@@ -65,12 +65,12 @@ struct ThreeAvatarView: UIViewRepresentable {
     do {
       context.coordinator.validatedAssets = try AvatarAssetCatalog.load()
     } catch {
-      onStateChange(.failed)
+      onStateChange(.failed("nativeAssetValidation"))
       return webView
     }
 
     guard let rendererURL = URL(string: "avatar://local/avatar.html") else {
-      onStateChange(.failed)
+      onStateChange(.failed("invalidRendererURL"))
       return webView
     }
     webView.load(URLRequest(url: rendererURL))
@@ -115,7 +115,7 @@ struct ThreeAvatarView: UIViewRepresentable {
       switch type {
       case "ready":
         guard body["assetCount"] as? Int == 8 else {
-          onStateChange(.failed)
+          onStateChange(.failed("invalidAssetCount"))
           return
         }
         isReady = true
@@ -128,7 +128,9 @@ struct ThreeAvatarView: UIViewRepresentable {
         guard messageMatchesPending(body) else { return }
         onStateChange(.ready)
       case "failed":
-        onStateChange(.failed)
+        let code = body["code"] as? String ?? "unknown"
+        print("Avatar renderer failed: \(code)")
+        onStateChange(.failed(code))
       default:
         break
       }
@@ -147,11 +149,13 @@ struct ThreeAvatarView: UIViewRepresentable {
     }
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: any Error) {
-      onStateChange(.failed)
+      print("Avatar renderer navigation failed: \(error.localizedDescription)")
+      onStateChange(.failed("navigationFailed"))
     }
 
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: any Error) {
-      onStateChange(.failed)
+      print("Avatar renderer provisional navigation failed: \(error.localizedDescription)")
+      onStateChange(.failed("provisionalNavigationFailed"))
     }
 
     func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
@@ -166,7 +170,7 @@ struct ThreeAvatarView: UIViewRepresentable {
         urlSchemeTask.didFailWithError(URLError(.badURL))
         return
       }
-      if url.host == "assets" {
+      if url.host == "local", url.pathComponents.dropFirst().first == "assets" {
         guard let data = validatedAssets?.resources[url.lastPathComponent] else {
           urlSchemeTask.didFailWithError(URLError(.fileDoesNotExist))
           return
@@ -187,9 +191,10 @@ struct ThreeAvatarView: UIViewRepresentable {
             let fileURL = Bundle.main.url(
               forResource: resource.name,
               withExtension: resource.extension,
-              subdirectory: "AvatarStudio/Renderer"
+              subdirectory: resource.subdirectory
             ),
             let data = try? Data(contentsOf: fileURL, options: [.mappedIfSafe]) else {
+        print("Avatar renderer resource missing: \(url.lastPathComponent)")
         urlSchemeTask.didFailWithError(URLError(.fileDoesNotExist))
         return
       }
@@ -224,13 +229,13 @@ struct ThreeAvatarView: UIViewRepresentable {
       guard JSONSerialization.isValidJSONObject(payload),
             let data = try? JSONSerialization.data(withJSONObject: payload, options: [.sortedKeys]),
             let json = String(data: data, encoding: .utf8) else {
-        onStateChange(.failed)
+        onStateChange(.failed("invalidNativePayload"))
         return
       }
       // Payload values come only from the closed built-in garment catalog.
       webView.evaluateJavaScript("window.ThenAvatar.apply(\(json))") { [weak self] _, error in
         guard error == nil else {
-          self?.onStateChange(.failed)
+          self?.onStateChange(.failed("applyJavaScriptFailed"))
           return
         }
         self?.appliedConfiguration = pendingConfiguration
@@ -246,13 +251,21 @@ struct ThreeAvatarView: UIViewRepresentable {
       return true
     }
 
-    private static let rendererResources: [String: (name: String, extension: String, mimeType: String, textEncoding: String?)] = [
-      "avatar.html": ("avatar", "html", "text/html", "utf-8"),
-      "avatar.css": ("avatar", "css", "text/css", "utf-8"),
-      "avatar.js": ("avatar", "js", "text/javascript", "utf-8"),
-      "GLTFLoader.js": ("GLTFLoader", "js", "text/javascript", "utf-8"),
-      "three.module.min.js": ("three.module.min", "js", "text/javascript", "utf-8"),
-      "three.core.min.js": ("three.core.min", "js", "text/javascript", "utf-8"),
+    private static let rendererResources: [String: (
+      name: String,
+      extension: String,
+      subdirectory: String,
+      mimeType: String,
+      textEncoding: String?
+    )] = [
+      "avatar.html": ("avatar", "html", "AvatarStudio/Renderer", "text/html", "utf-8"),
+      "avatar.css": ("avatar", "css", "AvatarStudio/Renderer", "text/css", "utf-8"),
+      "avatar.js": ("avatar", "js", "AvatarStudio/Renderer", "text/javascript", "utf-8"),
+      "GLTFLoader.js": ("GLTFLoader", "js", "AvatarStudio/Renderer", "text/javascript", "utf-8"),
+      "three.module.min.js": ("three.module.min", "js", "AvatarStudio/Renderer", "text/javascript", "utf-8"),
+      "three.core.min.js": ("three.core.min", "js", "AvatarStudio/Renderer", "text/javascript", "utf-8"),
+      "BufferGeometryUtils.js": ("BufferGeometryUtils", "js", "AvatarStudio/Renderer/utils", "text/javascript", "utf-8"),
+      "SkeletonUtils.js": ("SkeletonUtils", "js", "AvatarStudio/Renderer/utils", "text/javascript", "utf-8"),
     ]
   }
 }

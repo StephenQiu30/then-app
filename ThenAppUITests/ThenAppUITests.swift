@@ -3,6 +3,65 @@ import XCTest
 
 final class ThenAppUITests: XCTestCase {
   @MainActor
+  func testAvatarCompatibilityVisualMatrix() throws {
+    let app = launchApp()
+    let renderer = app.descendants(matching: .any).matching(identifier: "avatar.renderer").firstMatch
+    guard renderer.waitForExistence(timeout: 8) else {
+      let fallback = app.descendants(matching: .any).matching(identifier: "avatar.renderer.fallback").firstMatch
+      XCTFail("三维画布未进入可访问性层级；降级原因：\(fallback.value ?? "unknown")")
+      return
+    }
+    waitForRenderer(app, renderer: renderer)
+
+    let parameters: [(name: String, position: CGFloat)] = [
+      ("minus", 0),
+      ("neutral", 0.5),
+      ("plus", 1),
+    ]
+    let angles: [(name: String, button: String)] = [
+      ("front", "正面"),
+      ("side", "侧面"),
+      ("back", "背面"),
+    ]
+    let tops = ["ivory-knit", "blue-shirt"]
+
+    for top in tops {
+      if top == "blue-shirt" {
+        app.buttons["内置衣橱"].tap()
+        XCTAssertTrue(app.buttons["OUTERWEAR"].waitForExistence(timeout: 3))
+        app.buttons["OUTERWEAR"].tap()
+        XCTAssertTrue(app.buttons["雾蓝宽松衬衫"].waitForExistence(timeout: 3))
+        app.buttons["雾蓝宽松衬衫"].tap()
+        app.buttons["Dress up"].tap()
+        XCTAssertTrue(renderer.waitForExistence(timeout: 5))
+        waitForRenderer(app, renderer: renderer)
+      }
+
+      for shoulder in parameters {
+        for torso in parameters {
+          app.buttons["形象"].tap()
+          let shoulderSlider = app.sliders["肩部宽度"]
+          let torsoSlider = app.sliders["躯干厚度"]
+          XCTAssertTrue(shoulderSlider.waitForExistence(timeout: 3))
+          shoulderSlider.adjust(toNormalizedSliderPosition: shoulder.position)
+          torsoSlider.adjust(toNormalizedSliderPosition: torso.position)
+          app.buttons["完成"].tap()
+          waitForRenderer(app, renderer: renderer)
+
+          for angle in angles {
+            app.buttons[angle.button].tap()
+            waitForRenderer(app, renderer: renderer)
+            let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+            attachment.name = "\(top)-shoulder-\(shoulder.name)-torso-\(torso.name)-\(angle.name).png"
+            attachment.lifetime = .keepAlways
+            add(attachment)
+          }
+        }
+      }
+    }
+  }
+
+  @MainActor
   func testWooStudioAndBuiltInWardrobe() throws {
     let app = launchApp()
 
@@ -115,6 +174,20 @@ final class ThenAppUITests: XCTestCase {
     app.launch()
     XCTAssertTrue(app.buttons["形象"].waitForExistence(timeout: 8))
     return app
+  }
+
+  @MainActor
+  private func waitForRenderer(
+    _ app: XCUIApplication,
+    renderer: XCUIElement,
+    timeout: TimeInterval = 8
+  ) {
+    XCTAssertTrue(renderer.waitForExistence(timeout: timeout))
+    let loading = app.descendants(matching: .any).matching(identifier: "avatar.renderer.loading").firstMatch
+    XCTAssertTrue(loading.waitForNonExistence(timeout: timeout), "三维画布未在时限内完成渲染")
+    let fallback = app.descendants(matching: .any).matching(identifier: "avatar.renderer.fallback").firstMatch
+    XCTAssertFalse(fallback.exists, "三维画布进入静态降级：\(fallback.value ?? "unknown")")
+    XCTAssertTrue(renderer.exists)
   }
 
   @MainActor
