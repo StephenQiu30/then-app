@@ -61,14 +61,23 @@ struct OutfitPlanEditorView: View {
             if draft.isWorking { ProgressView("正在处理计划…") }
           }
         } else {
-          ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-              if draft.error != nil { contentCard { errorContent } }
-              if draft.isDeleted { contentCard { Text("计划内容已删除") } }
-              else if let plan = draft.plan { detail(plan) }
-              if draft.isWorking { ProgressView("正在处理计划…") }
-            }.padding(20)
-          }.background(Color(.systemGroupedBackground))
+          ScrollViewReader { proxy in
+            ScrollView {
+              VStack(alignment: .leading, spacing: 20) {
+                if draft.error != nil { contentCard { errorContent } }
+                if draft.isDeleted { contentCard { Text("计划内容已删除") } }
+                else if let plan = draft.plan { detail(plan) }
+                if draft.isWorking { ProgressView("正在处理计划…") }
+              }
+              .id("outfit.detail.top")
+              .padding(20)
+            }
+            .background(Color(.systemGroupedBackground))
+            .onChange(of: draft.plan?.status) { previous, current in
+              guard previous != current, current == .cancelled else { return }
+              proxy.scrollTo("outfit.detail.top", anchor: .top)
+            }
+          }
         }
       }
       .accessibilityIdentifier("outfit.form")
