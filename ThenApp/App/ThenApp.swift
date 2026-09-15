@@ -46,7 +46,14 @@ struct ThenApp: App {
   @ViewBuilder private var root: some View {
     switch launchMode {
     case .product:
-      if let model { RootView(model: model) }
+      if let model {
+        #if DEBUG
+        RootView(model: model)
+          .task { await Self.cleanupDebugAvatarPhotoResidue() }
+        #else
+        RootView(model: model)
+        #endif
+      }
     case .avatarPhotoIntakePOC:
       #if DEBUG
       AvatarPhotoIntakePOCHost()
@@ -55,4 +62,13 @@ struct ThenApp: App {
       #endif
     }
   }
+
+  #if DEBUG
+  private static func cleanupDebugAvatarPhotoResidue() async {
+    do {
+      let store = try AvatarPhotoTemporarySessionStore()
+      try await store.prepareForUse()
+    } catch {}
+  }
+  #endif
 }
