@@ -42,7 +42,161 @@
       "source" : "original synthetic 64x32 color blocks; no persons or user data"
     }
   ],
-  "generator" : "scripts\/fixtures\/generate-avatar-photos.swift",
-  "purpose" : "11-01 photo transfer, ImageIO codec and metadata isolation tests; not Vision quality calibration",
-  "version" : 1
+  "purpose" : "11-01 photo transfer, ImageIO isolation and synthetic Vision POC fixtures; never production or user data",
+  "version" : 2,
+  "vision_fixtures" : [
+    {
+      "byte_count" : 1825340,
+      "content_type" : "public.png",
+      "file" : "vision-adult-full-body.png",
+      "height" : 1536,
+      "human_review_truth" : {
+        "complete_body" : true,
+        "exposure_usable" : true,
+        "intentionally_obscured" : false,
+        "person_count" : 1,
+        "sharp" : true
+      },
+      "id" : "vision-adult-full-body",
+      "sha256" : "ce4d12e7c239566fc53ac82b0c918362ee101567d650f610ed097d2d93122e48",
+      "source" : "project-authored ImageGen synthetic adult; copied from the approved WardrobeContentProbe fixture; no real identity",
+      "width" : 1024
+    },
+    {
+      "byte_count" : 2165706,
+      "content_type" : "public.png",
+      "file" : "vision-no-person-garment.png",
+      "height" : 1254,
+      "human_review_truth" : {
+        "complete_body" : false,
+        "exposure_usable" : true,
+        "intentionally_obscured" : false,
+        "person_count" : 0,
+        "sharp" : true
+      },
+      "id" : "vision-no-person-garment",
+      "sha256" : "f3ac320daa5f51a8a731402d42d26d854abb45d52626d93f8361f3e28e1edd9f",
+      "source" : "project-authored ImageGen synthetic garment; copied from the approved WardrobeContentProbe fixture; no person",
+      "width" : 1254
+    },
+    {
+      "byte_count" : 1884906,
+      "content_type" : "public.png",
+      "file" : "vision-two-adults.png",
+      "height" : 1448,
+      "human_review_truth" : {
+        "complete_body" : true,
+        "exposure_usable" : true,
+        "intentionally_obscured" : false,
+        "person_count" : 2,
+        "sharp" : true
+      },
+      "id" : "vision-two-adults",
+      "sha256" : "0420f684e7063f8d829b3d3588bd83078cff08d5b931545495a8325705fb6b6f",
+      "source" : "OpenAI built-in ImageGen, synthetic adults explicitly prompted as over 25; visually reviewed; no real identities",
+      "width" : 1086
+    },
+    {
+      "byte_count" : 1876379,
+      "content_type" : "public.png",
+      "file" : "vision-adult-wheelchair.png",
+      "height" : 1448,
+      "human_review_truth" : {
+        "complete_body" : true,
+        "exposure_usable" : true,
+        "intentionally_obscured" : false,
+        "person_count" : 1,
+        "sharp" : true
+      },
+      "id" : "vision-adult-wheelchair",
+      "sha256" : "d9bea5d7dba20565ea7e9a966d3a38f999dbd1c493bb8870849484efae3a7b4b",
+      "source" : "OpenAI built-in ImageGen, synthetic wheelchair-using adult explicitly prompted as over 25; visually reviewed; no real identity",
+      "width" : 1086
+    },
+    {
+      "byte_count" : 1590635,
+      "content_type" : "public.png",
+      "file" : "vision-adult-headscarf.png",
+      "height" : 1448,
+      "human_review_truth" : {
+        "complete_body" : true,
+        "exposure_usable" : true,
+        "intentionally_obscured" : false,
+        "person_count" : 1,
+        "sharp" : true
+      },
+      "id" : "vision-adult-headscarf",
+      "sha256" : "60d03a41ed255499cb184f67b7a770244edcc5db5c00c2532f5e4ec1eaddd918",
+      "source" : "OpenAI built-in ImageGen, synthetic modestly dressed adult explicitly prompted as over 25; visually reviewed; no real identity",
+      "width" : 1086
+    },
+    {
+      "byte_count" : 1965816,
+      "content_type" : "public.png",
+      "file" : "vision-adult-cropped-knees.png",
+      "height" : 1448,
+      "human_review_truth" : {
+        "complete_body" : false,
+        "exposure_usable" : true,
+        "intentionally_obscured" : false,
+        "person_count" : 1,
+        "sharp" : true
+      },
+      "id" : "vision-adult-cropped-knees",
+      "sha256" : "e94b8736007975a9f0f83c5225aceb628d3d05249b13fe4a124f80d5aa85c714",
+      "source" : "OpenAI built-in ImageGen, synthetic adult explicitly prompted as over 25 and intentionally cropped; visually reviewed; no real identity",
+      "width" : 1086
+    },
+    {
+      "byte_count" : 1677229,
+      "content_type" : "public.png",
+      "file" : "vision-adult-occluded-box.png",
+      "height" : 1448,
+      "human_review_truth" : {
+        "complete_body" : true,
+        "exposure_usable" : true,
+        "intentionally_obscured" : true,
+        "person_count" : 1,
+        "sharp" : true
+      },
+      "id" : "vision-adult-occluded-box",
+      "sha256" : "61f7f8f92ad5a32759a4b33e0a273daf2c0fcbe0f83a80b234cabb9ac07bdcf5",
+      "source" : "OpenAI built-in ImageGen, synthetic adult explicitly prompted as over 25 with intentional torso obstruction; visually reviewed; no real identity",
+      "width" : 1086
+    },
+    {
+      "byte_count" : 1217827,
+      "content_type" : "public.png",
+      "file" : "vision-adult-motion-blur.png",
+      "height" : 1448,
+      "human_review_truth" : {
+        "complete_body" : true,
+        "exposure_usable" : true,
+        "intentionally_obscured" : false,
+        "person_count" : 1,
+        "sharp" : false
+      },
+      "id" : "vision-adult-motion-blur",
+      "sha256" : "bbf0d532742a48464055530cc990a53d1f4accf454978fce941c8e0340470ec2",
+      "source" : "OpenAI built-in ImageGen, synthetic adult explicitly prompted as over 25 with severe motion blur; visually reviewed; no real identity",
+      "width" : 1086
+    },
+    {
+      "byte_count" : 1112331,
+      "content_type" : "public.png",
+      "file" : "vision-adult-underexposed.png",
+      "height" : 1448,
+      "human_review_truth" : {
+        "complete_body" : true,
+        "exposure_usable" : false,
+        "intentionally_obscured" : false,
+        "person_count" : 1,
+        "sharp" : true
+      },
+      "id" : "vision-adult-underexposed",
+      "sha256" : "c8ff620acd83ec09c3e7ab646aaa238bd15ee3c20e1da0a69638c3c0b6c54c0f",
+      "source" : "OpenAI built-in ImageGen, synthetic adult explicitly prompted as over 25 with severe underexposure; visually reviewed; no real identity",
+      "width" : 1086
+    }
+  ]
 }
