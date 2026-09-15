@@ -1,8 +1,11 @@
 import CoreGraphics
 import CryptoKit
+import Darwin
 import Foundation
 import ImageIO
+import Synchronization
 import Testing
+import UniformTypeIdentifiers
 
 @testable import ThenApp
 
@@ -60,12 +63,20 @@ struct ImageIOAvatarPhotoSanitizerTests {
     }
     let root = try fixtureDirectory()
     let manifest = try JSONDecoder().decode(Manifest.self, from: Data(contentsOf: root.appendingPathComponent("manifest.json")))
-    #expect(manifest.fixtures.count == 5)
+    #expect(manifest.fixtures.count == 6)
     for entry in manifest.fixtures {
-      let bytes = try Data(contentsOf: root.appendingPathComponent(entry.file))
+      let url = root.appendingPathComponent(entry.file)
+      let bytes = try Data(contentsOf: url)
       #expect(SHA256.hash(data: bytes).map { String(format: "%02x", $0) }.joined() == entry.sha256)
       let source = try #require(CGImageSourceCreateWithData(bytes as CFData, [kCGImageSourceShouldCache: false] as CFDictionary))
-      #expect(CGImageSourceGetType(source) as String? == entry.content_type)
+      if UTType(entry.content_type)?.conforms(to: .rawImage) == true {
+        #expect(UTType(filenameExtension: url.pathExtension)?.conforms(to: .rawImage) == true)
+        // ImageIO identifies this minimal DNG as TIFF but cannot decode a frame. The picker
+        // rejects its RAW type before transfer; the sanitizer independently rejects TIFF.
+        #expect(CGImageSourceGetType(source) as String? == UTType.tiff.identifier)
+      } else {
+        #expect(CGImageSourceGetType(source) as String? == entry.content_type)
+      }
       #expect(CGImageSourceGetCount(source) == entry.frames)
     }
   }
@@ -124,6 +135,50 @@ struct ImageIOAvatarPhotoSanitizerTests {
       let sanitizer = try Sanitizer(store: store, limits: limits())
       await #expect(throws: Sanitizer.Failure.unsupportedFormat) { try await sanitizer.sanitize(input) }
       #expect(!manager.fileExists(atPath: originalURL.deletingLastPathComponent().path))
+    }
+  }
+
+  @Test("真实 RAW 测试资产在像素处理前被拒绝")
+  func rawInput() async throws {
+    let url = try fixtureDirectory().appendingPathComponent("unsupported-raw.dng")
+    #expect(UTType(filenameExtension: url.pathExtension)?.conforms(to: .rawImage) == true)
+    try await withInput(Data(contentsOf: url), format: .png) { store, input, originalURL in
+      let sanitizer = try Sanitizer(store: store, limits: limits())
+      await #expect(throws: Sanitizer.Failure.unsupportedFormat) { try await sanitizer.sanitize(input) }
+      #expect(!manager.fileExists(atPath: originalURL.deletingLastPathComponent().path))
+    }
+  }
+
+  @Test("代表性全身照净化的峰值物理内存增量不超过 POC 预算")
+  func representativePhotoPeakMemory() async throws {
+    let url = try fixtureDirectory().appendingPathComponent("vision-adult-full-body.png")
+    let bytes = try Data(contentsOf: url)
+    let budget = try Sanitizer.Limits(
+      maximumInputBytes: 20 * 1024 * 1024,
+      maximumSourcePixels: 48_000_000,
+      maximumOutputDimension: 2_048,
+      maximumRasterBytes: 16 * 1024 * 1024,
+      maximumOutputBytes: 12 * 1024 * 1024,
+      maximumDuration: .seconds(20)
+    )
+    try await withInput(bytes, format: .png) { store, input, _ in
+      let baseline = try physicalFootprint()
+      let sampler = PhysicalFootprintSampler()
+      let sampling = Task.detached { await sampler.maximumFootprint() }
+      let result: SanitizedAvatarPhotoHandle
+      do {
+        result = try await Sanitizer(store: store, limits: budget).sanitize(input)
+        sampler.stop()
+      } catch {
+        sampler.stop()
+        _ = await sampling.value
+        throw error
+      }
+      let peak = await sampling.value
+      let delta = peak > baseline ? peak - baseline : 0
+      print("Avatar photo POC peak physical footprint delta: \(delta) bytes")
+      #expect(delta <= 192 * 1024 * 1024)
+      try await store.removeSession(result.sessionID)
     }
   }
 
@@ -205,6 +260,35 @@ struct ImageIOAvatarPhotoSanitizerTests {
       }
     }
     return crc ^ UInt32.max
+  }
+}
+
+private enum PhysicalFootprintError: Error { case unavailable }
+
+private func physicalFootprint() throws -> UInt64 {
+  var info = task_vm_info_data_t()
+  var count = mach_msg_type_number_t(MemoryLayout.size(ofValue: info) / MemoryLayout<integer_t>.size)
+  let result = withUnsafeMutablePointer(to: &info) { pointer in
+    pointer.withMemoryRebound(to: integer_t.self, capacity: Int(count)) { rebound in
+      task_info(mach_task_self_, task_flavor_t(TASK_VM_INFO), rebound, &count)
+    }
+  }
+  guard result == KERN_SUCCESS else { throw PhysicalFootprintError.unavailable }
+  return info.phys_footprint
+}
+
+private final class PhysicalFootprintSampler: Sendable {
+  private let isRunning = Mutex(true)
+
+  func stop() { isRunning.withLock { $0 = false } }
+
+  func maximumFootprint() async -> UInt64 {
+    var maximum: UInt64 = 0
+    while isRunning.withLock({ $0 }) {
+      maximum = max(maximum, (try? physicalFootprint()) ?? 0)
+      try? await Task.sleep(for: .milliseconds(1))
+    }
+    return max(maximum, (try? physicalFootprint()) ?? 0)
   }
 }
 

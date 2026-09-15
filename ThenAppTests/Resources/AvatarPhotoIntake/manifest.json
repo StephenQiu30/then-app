@@ -40,10 +40,18 @@
       "id" : "unsupported-tiff",
       "sha256" : "af0e40f6aaa804962a3cd77203b1cd2b28efd2dd4a6c542f70a7c2426497dbc7",
       "source" : "original synthetic 64x32 color blocks; no persons or user data"
+    },
+    {
+      "content_type" : "com.adobe.raw-image",
+      "file" : "unsupported-raw.dng",
+      "frames" : 0,
+      "id" : "unsupported-raw",
+      "sha256" : "75425e6cbb2779cb8baf75cd4f6271f5a40c72551a068e7ce349c6150e12a13a",
+      "source" : "repository-authored 16x16 uncompressed Bayer DNG; no person, camera, or user data"
     }
   ],
   "purpose" : "11-01 photo transfer, ImageIO isolation and synthetic Vision POC fixtures; never production or user data",
-  "version" : 2,
+  "version" : 3,
   "vision_fixtures" : [
     {
       "byte_count" : 1825340,
