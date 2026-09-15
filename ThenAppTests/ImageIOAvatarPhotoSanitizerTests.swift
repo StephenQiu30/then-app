@@ -139,6 +139,20 @@ struct ImageIOAvatarPhotoSanitizerTests {
     }
   }
 
+  @Test("压缩像素炸弹在解码前按头部尺寸快速拒绝并清空会话")
+  func compressedPixelBomb() async throws {
+    let bytes = try png(fixture("metadata-png"), width: 65_535, height: 65_535)
+    try await withInput(bytes, format: .png) { store, input, originalURL in
+      let sanitizer = try Sanitizer(store: store, limits: limits())
+      let started = ContinuousClock.now
+      await #expect(throws: Sanitizer.Failure.resourceLimitExceeded) {
+        try await sanitizer.sanitize(input)
+      }
+      #expect(started.duration(to: .now) < .seconds(2))
+      #expect(!manager.fileExists(atPath: originalURL.deletingLastPathComponent().path))
+    }
+  }
+
   @Test("预先取消的任务清理原图且不返回净化句柄")
   func cancellation() async throws {
     try await withInput(fixture("metadata-png"), format: .png) { store, input, originalURL in
@@ -162,6 +176,35 @@ struct ImageIOAvatarPhotoSanitizerTests {
         maximumOutputBytes: 1, maximumDuration: .seconds(1))
     }
     #expect(throws: Sanitizer.ConfigurationError.invalidLimits) { try limits(duration: .zero) }
+  }
+
+  private func png(_ source: Data, width: UInt32, height: UInt32) throws -> Data {
+    struct InvalidFixture: Error {}
+    guard source.count >= 33,
+          source.prefix(8) == Data([137, 80, 78, 71, 13, 10, 26, 10]),
+          source.subdata(in: 12..<16) == Data("IHDR".utf8)
+    else { throw InvalidFixture() }
+    var result = source
+    result.replaceSubrange(16..<20, with: bigEndianBytes(width))
+    result.replaceSubrange(20..<24, with: bigEndianBytes(height))
+    result.replaceSubrange(29..<33, with: bigEndianBytes(crc32(result[12..<29])))
+    return result
+  }
+
+  private func bigEndianBytes(_ value: UInt32) -> [UInt8] {
+    let value = value.bigEndian
+    return withUnsafeBytes(of: value) { Array($0) }
+  }
+
+  private func crc32(_ bytes: Data.SubSequence) -> UInt32 {
+    var crc = UInt32.max
+    for byte in bytes {
+      crc ^= UInt32(byte)
+      for _ in 0..<8 {
+        crc = crc & 1 == 1 ? (crc >> 1) ^ 0xEDB8_8320 : crc >> 1
+      }
+    }
+    return crc ^ UInt32.max
   }
 }
 
