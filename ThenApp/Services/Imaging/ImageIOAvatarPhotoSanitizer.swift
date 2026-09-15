@@ -94,7 +94,7 @@ nonisolated struct ImageIOAvatarPhotoSanitizer: AvatarPhotoSanitizing {
       guard size.uint64Value <= UInt64(limits.maximumInputBytes) else { throw Failure.resourceLimitExceeded }
       let file = try FileHandle(forReadingFrom: url)
       do {
-        header = try file.read(upToCount: 32) ?? Data()
+        header = try file.read(upToCount: 33) ?? Data()
         try file.close()
       } catch {
         // Preserve the input error; the owning session is removed by sanitize's error path.
@@ -104,6 +104,7 @@ nonisolated struct ImageIOAvatarPhotoSanitizer: AvatarPhotoSanitizing {
     } catch let failure as Failure { throw failure }
     catch { throw Failure.unsafeOrCorruptInput }
 
+    try rejectOversizedPNGHeader(header, format: format)
     guard let source = CGImageSourceCreateWithURL(url as CFURL, [kCGImageSourceShouldCache: false] as CFDictionary),
           let type = CGImageSourceGetType(source) as String?
     else { throw Failure.unsafeOrCorruptInput }
@@ -118,6 +119,22 @@ nonisolated struct ImageIOAvatarPhotoSanitizer: AvatarPhotoSanitizing {
     guard width <= limits.maximumSourcePixels / height else { throw Failure.resourceLimitExceeded }
     guard CGImageSourceGetStatus(source) == .statusComplete else { throw Failure.unsafeOrCorruptInput }
     return source
+  }
+
+  /// ImageIO may inspect compressed payloads while loading properties. Reject a PNG whose
+  /// fixed IHDR dimensions already exceed our budget before handing it to ImageIO.
+  private func rejectOversizedPNGHeader(_ header: Data, format: AvatarPhotoInputFormat) throws {
+    guard format == .png, header.count >= 24,
+          header.starts(with: [137, 80, 78, 71, 13, 10, 26, 10]),
+          header.subdata(in: 8..<12) == Data([0, 0, 0, 13]),
+          header.subdata(in: 12..<16) == Data("IHDR".utf8)
+    else { return }
+    let width = header[16..<20].reduce(UInt64.zero) { ($0 << 8) | UInt64($1) }
+    let height = header[20..<24].reduce(UInt64.zero) { ($0 << 8) | UInt64($1) }
+    guard width > 0, height > 0 else { throw Failure.unsafeOrCorruptInput }
+    guard width <= UInt64(limits.maximumSourcePixels) / height else {
+      throw Failure.resourceLimitExceeded
+    }
   }
 
   private func headerMatches(_ header: Data, format: AvatarPhotoInputFormat) -> Bool {
