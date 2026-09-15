@@ -206,7 +206,7 @@ struct WardrobeItemPhotoSaveTests {
       #expect(read.metadata.id == image.id && read.bytes == image.normalized.bytes)
       let upgraded = try sql(root)
       let versions = try await upgraded.read { try String.fetchAll($0, sql: "SELECT identifier FROM grdb_migrations ORDER BY identifier") }
-      #expect(versions.last == "ootd_wardrobe_attributes_v1")
+      #expect(versions.last == "ootd_wear_events_v1")
       #expect(item.input.attributes == .init())
       let indexes = try await upgraded.read { try String.fetchAll($0, sql: "SELECT name FROM sqlite_master WHERE type='index' AND tbl_name='wardrobe_photos'") }
       #expect(indexes.contains("wardrobe_one_ready_photo") && indexes.contains("wardrobe_photo_cleanup"))

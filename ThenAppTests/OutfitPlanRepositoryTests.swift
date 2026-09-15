@@ -145,7 +145,7 @@ struct OutfitPlanRepositoryTests {
       let impact = try await store.deletionImpact(id: first.id)
       #expect(impact.plans == [.init(id: plan.id, revision: 1)])
       try await store.delete(id: first.id, expectedRevision: 1, impact: impact,
-                             policy: erasePlans ? .deleteAffectedPlans : .redactSnapshots)
+                             policy: erasePlans ? .deleteAffectedHistory : .redactSnapshots)
       if erasePlans {
         await #expect(throws: OutfitPlanError.notFound) { try await store.readPlan(id: plan.id) }
       } else {
@@ -187,7 +187,7 @@ struct OutfitPlanRepositoryTests {
       let reviewed = try await store.deletionImpact(id: selected.id)
       let plan = try await save(store, items: [selected])
       await #expect(throws: WardrobeError.conflict) {
-        try await store.delete(id: selected.id, expectedRevision: 1, impact: reviewed, policy: .deleteAffectedPlans)
+        try await store.delete(id: selected.id, expectedRevision: 1, impact: reviewed, policy: .deleteAffectedHistory)
       }
       #expect(try await store.readPlan(id: plan.id).revision == 1)
       #expect(try await store.list(.init()).count == 1)

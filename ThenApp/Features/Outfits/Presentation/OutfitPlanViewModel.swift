@@ -6,53 +6,84 @@ final class OutfitPlanViewModel {
   private let repository: any OutfitPlanRepository
   private let wardrobe: any WardrobeRepository
   private let photos: any WardrobePhotoRepository
+  private let wearEvents: (any WearEventRepository)?
   private var generation = UUID()
   private(set) var plans: [OutfitPlan] = []
   private(set) var cursor: OutfitPlanCursor?
+  private(set) var timelineEntries: [OutfitTimelineEntry] = []
+  private(set) var timelineCursor: OutfitTimelineCursor?
   private(set) var error: String?
   private(set) var isLoading = false
   var editor: OutfitPlanEditorModel?
+  var wearEditor: WearEventEditorModel?
   var request = 0
   var nextPage = false
 
-  init(repository: any OutfitPlanRepository, wardrobe: any WardrobeRepository, photos: any WardrobePhotoRepository) {
-    self.repository = repository; self.wardrobe = wardrobe; self.photos = photos
+  init(repository: any OutfitPlanRepository, wardrobe: any WardrobeRepository, photos: any WardrobePhotoRepository,
+       wearEvents: (any WearEventRepository)? = nil) {
+    self.repository = repository; self.wardrobe = wardrobe; self.photos = photos; self.wearEvents = wearEvents
   }
 
-  func reload() { generation = UUID(); plans = []; cursor = nil; error = nil; nextPage = false; request += 1 }
-  func loadMore() { guard !isLoading, cursor != nil else { return }; nextPage = true; request += 1 }
+  var hasMore: Bool { wearEvents == nil ? cursor != nil : timelineCursor != nil }
+
+  func reload() {
+    generation = UUID(); plans = []; cursor = nil; timelineEntries = []; timelineCursor = nil
+    error = nil; nextPage = false; request += 1
+  }
+  func loadMore() { guard !isLoading, hasMore else { return }; nextPage = true; request += 1 }
 
   func load() async {
     let token = UUID(); generation = token
     let append = nextPage
     nextPage = false
     isLoading = true
-    if !append { plans = []; cursor = nil }
+    if !append { plans = []; cursor = nil; timelineEntries = []; timelineCursor = nil }
     defer { if generation == token { isLoading = false } }
     do {
-      let page = try await repository.listPlans(on: nil, after: append ? cursor : nil)
-      try Task.checkCancellation()
-      guard generation == token else { return }
-      if append { plans += page.plans.filter { row in !plans.contains { $0.id == row.id } } }
-      else { plans = page.plans }
-      cursor = page.nextCursor; error = nil
+      if let wearEvents {
+        let page = try await wearEvents.listTimeline(after: append ? timelineCursor : nil)
+        try Task.checkCancellation(); guard generation == token else { return }
+        if append { timelineEntries += page.entries.filter { row in !timelineEntries.contains { $0.id == row.id } } }
+        else { timelineEntries = page.entries }
+        plans = timelineEntries.compactMap { if case .plan(let plan) = $0 { plan } else { nil } }
+        timelineCursor = page.nextCursor; error = nil
+      } else {
+        let page = try await repository.listPlans(on: nil, after: append ? cursor : nil)
+        try Task.checkCancellation(); guard generation == token else { return }
+        if append { plans += page.plans.filter { row in !plans.contains { $0.id == row.id } } }
+        else { plans = page.plans }
+        timelineEntries = plans.map(OutfitTimelineEntry.plan)
+        cursor = page.nextCursor; error = nil
+      }
     } catch is CancellationError {} catch {
       if generation == token { self.error = outfitErrorMessage(error) }
     }
   }
 
   func open(_ plan: OutfitPlan? = nil) {
-    editor = OutfitPlanEditorModel(plan: plan, repository: repository, wardrobe: wardrobe, photos: photos)
+    editor = OutfitPlanEditorModel(plan: plan, repository: repository, wardrobe: wardrobe, photos: photos,
+      wearEvents: wearEvents)
+  }
+
+  func recordActual() {
+    guard let wearEvents else { return }
+    wearEditor = WearEventEditorModel(repository: wearEvents, wardrobe: wardrobe, photos: photos)
+  }
+
+  func open(_ event: WearEvent) {
+    guard let wearEvents else { return }
+    wearEditor = WearEventEditorModel(event: event, repository: wearEvents, wardrobe: wardrobe, photos: photos)
   }
 }
 
 @MainActor @Observable
 final class OutfitPlanEditorModel: Identifiable {
-  enum Action { case save, edit, refresh, cancel, delete }
+  enum Action { case save, edit, refresh, cancel, markNotWorn, restoreActive, delete }
   let id: UUID
   private let repository: any OutfitPlanRepository
   private let wardrobe: any WardrobeRepository
   private let photos: any WardrobePhotoRepository
+  private let wearEvents: (any WearEventRepository)?
   private var generation = UUID()
   private var previousInput: OutfitPlanInput?
   private var mutationID = UUID()
@@ -78,13 +109,16 @@ final class OutfitPlanEditorModel: Identifiable {
   var confirmsUnavailable = false
   var confirmsDiscard = false
   var confirmsCancel = false
+  var confirmsNotWorn = false
   var confirmsDelete = false
   var choiceCategory: WardrobeCategory?
+  var wearEditor: WearEventEditorModel?
 
   init(plan: OutfitPlan?, repository: any OutfitPlanRepository, wardrobe: any WardrobeRepository,
-       photos: any WardrobePhotoRepository) {
+       photos: any WardrobePhotoRepository, wearEvents: (any WearEventRepository)? = nil) {
     self.plan = plan; id = plan?.id ?? UUID()
     self.repository = repository; self.wardrobe = wardrobe; self.photos = photos
+    self.wearEvents = wearEvents
     isEditing = plan == nil
     timeZone = plan?.timeZone ?? TimeZone.current.identifier
     date = plan.flatMap { Self.instant($0.localDate, zone: $0.timeZone) } ?? Date()
@@ -109,8 +143,18 @@ final class OutfitPlanEditorModel: Identifiable {
   }
   var earliestDate: Date { calendar.startOfDay(for: Date()) }
   var isPast: Bool { plan.map { (Self.instant($0.localDate, zone: timeZone) ?? Date()) < earliestDate } ?? false }
+  var canRecordActual: Bool {
+    guard let plan, let today = try? OutfitLocalDate(instant: Date(), timeZone: plan.timeZone) else { return false }
+    return plan.localDate <= today
+  }
 
   func thumbnail() -> WardrobeThumbnailViewModel { WardrobeThumbnailViewModel(repository: photos) }
+
+  func recordActual(_ kind: WearEventSourceKind) {
+    guard let wearEvents, let plan else { return }
+    wearEditor = WearEventEditorModel(sourcePlan: plan, sourceKind: kind,
+      repository: wearEvents, wardrobe: wardrobe, photos: photos)
+  }
 
   func toggle(_ item: WardrobeItem) {
     guard !isWorking else { return }
@@ -237,6 +281,18 @@ final class OutfitPlanEditorModel: Identifiable {
         let result = try await repository.mutatePlan(.init(id: mutationID, planID: id, action: .cancel(expectedRevision: plan.revision)))
         try Task.checkCancellation()
         self.plan = result; mutationID = UUID(); error = nil
+      case .markNotWorn:
+        guard let plan else { throw OutfitPlanError.notFound }
+        if mutationKind != "markNotWorn" { mutationID = UUID(); mutationKind = "markNotWorn" }
+        self.plan = try await repository.mutatePlan(.init(id: mutationID, planID: id,
+          action: .markNotWorn(expectedRevision: plan.revision)))
+        try Task.checkCancellation(); error = nil
+      case .restoreActive:
+        guard let plan else { throw OutfitPlanError.notFound }
+        if mutationKind != "restoreActive" { mutationID = UUID(); mutationKind = "restoreActive" }
+        self.plan = try await repository.mutatePlan(.init(id: mutationID, planID: id,
+          action: .restoreActive(expectedRevision: plan.revision)))
+        try Task.checkCancellation(); error = nil
       case .delete:
         guard let revision = deletionRevision ?? plan?.revision else { throw OutfitPlanError.notFound }
         deletionRevision = revision
@@ -266,7 +322,7 @@ final class OutfitPlanEditorModel: Identifiable {
   private func eraseVisibleContent() {
     generation = UUID(); error = nil
     isWorking = false; action = nil; needsRefresh = false
-    confirmsDiscard = false; confirmsCancel = false; confirmsDelete = false
+    confirmsDiscard = false; confirmsCancel = false; confirmsNotWorn = false; confirmsDelete = false
     isDeleted = true; isEditing = false; selected = []; choices = []; summary = ""; changedIDs = []
     removedPlaceholders = 0; confirmsChanges = false; confirmsUnavailable = false
     choiceCategory = nil

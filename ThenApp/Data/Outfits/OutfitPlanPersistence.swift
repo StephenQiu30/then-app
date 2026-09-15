@@ -42,6 +42,12 @@ nonisolated struct OutfitPlanPersistence {
     case .cancel(let expected):
       guard expected > 0 else { throw OutfitPlanError.invalidInput }
       operation = "cancel"
+    case .markNotWorn(let expected):
+      guard expected > 0 else { throw OutfitPlanError.invalidInput }
+      operation = "markNotWorn"
+    case .restoreActive(let expected):
+      guard expected > 0 else { throw OutfitPlanError.invalidInput }
+      operation = "restoreActive"
     case .delete(let expected):
       guard expected > 0 else { throw OutfitPlanError.invalidInput }
       operation = "delete"
@@ -73,8 +79,25 @@ nonisolated struct OutfitPlanPersistence {
       case .cancel(let expected):
         let plan = try Self.read(db, id: command.planID)
         guard expected > 0, plan.revision == expected, plan.status == .active else { throw OutfitPlanError.conflict }
+        let events = try Int.fetchOne(db,
+          sql: "SELECT COUNT(*) FROM wear_events WHERE status = 'live' AND sourcePlanID = ?",
+          arguments: [key]) ?? 0
+        guard events == 0 else { throw OutfitPlanError.conflict }
         try db.execute(sql: "UPDATE outfit_plans SET status = 'cancelled', revision = ?, updatedAt = ? WHERE id = ?",
                        arguments: [try Self.nextRevision(plan.revision), max(now, plan.updatedAt).timeIntervalSince1970, key])
+      case .markNotWorn(let expected):
+        let plan = try Self.read(db, id: command.planID)
+        let events = try Int.fetchOne(db,
+          sql: "SELECT COUNT(*) FROM wear_events WHERE status = 'live' AND sourcePlanID = ?",
+          arguments: [key]) ?? 0
+        guard expected == plan.revision, plan.status == .active, events == 0 else { throw OutfitPlanError.conflict }
+        try db.execute(sql: "UPDATE outfit_plans SET status = 'notWorn', revision = ?, updatedAt = ? WHERE id = ?",
+          arguments: [try Self.nextRevision(plan.revision), max(now, plan.updatedAt).timeIntervalSince1970, key])
+      case .restoreActive(let expected):
+        let plan = try Self.read(db, id: command.planID)
+        guard expected == plan.revision, plan.status == .notWorn else { throw OutfitPlanError.conflict }
+        try db.execute(sql: "UPDATE outfit_plans SET status = 'active', revision = ?, updatedAt = ? WHERE id = ?",
+          arguments: [try Self.nextRevision(plan.revision), max(now, plan.updatedAt).timeIntervalSince1970, key])
       case .delete(let expected):
         let plan = try Self.read(db, id: command.planID)
         guard expected > 0, plan.revision == expected else { throw OutfitPlanError.conflict }
@@ -136,21 +159,24 @@ nonisolated struct OutfitPlanPersistence {
       SELECT p.id, p.revision FROM outfit_plans p JOIN outfit_plan_items i ON i.planID = p.id
       WHERE i.wardrobeItemID = ? AND p.status != 'deleted' ORDER BY p.id
       """, arguments: [itemID.uuidString])
-    return WardrobeDeletionImpact(plans: try rows.map { row in
+    let plans = try rows.map { row in
       guard let id = UUID(uuidString: row["id"]), let revision: Int = row["revision"], revision > 0 else {
         throw WardrobeError.invalidStoredData
       }
       return WardrobeAffectedPlan(id: id, revision: revision)
-    })
+    }
+    return WardrobeDeletionImpact(plans: plans, wearEvents: try WearEventPersistence.impact(db, itemID: itemID))
   }
 
   static func deleteWardrobeReferences(_ db: Database, itemID: UUID, expected: WardrobeDeletionImpact,
                                        policy: WardrobeHistoryDeletionPolicy, now: Date) throws {
     let current = try impact(db, itemID: itemID)
     guard current == expected else { throw WardrobeError.conflict }
+    try WearEventPersistence.deleteWardrobeReferences(db, itemID: itemID,
+      expected: current.wearEvents, policy: policy, now: now)
     for affected in current.plans {
       switch policy {
-      case .deleteAffectedPlans: try erase(db, id: affected.id)
+      case .deleteAffectedHistory: try erase(db, id: affected.id, now: now)
       case .redactSnapshots:
         try db.execute(sql: """
           UPDATE outfit_plan_items SET wardrobeItemID = NULL, itemRevision = NULL, name = NULL,
@@ -164,7 +190,8 @@ nonisolated struct OutfitPlanPersistence {
     }
   }
 
-  private static func erase(_ db: Database, id: UUID) throws {
+  static func erase(_ db: Database, id: UUID, now: Date = Date()) throws {
+    try WearEventPersistence.unlinkPlan(db, id: id, now: now)
     try db.execute(sql: "DELETE FROM outfit_plan_items WHERE planID = ?", arguments: [id.uuidString])
     try db.execute(sql: "UPDATE outfit_plan_mutations SET fingerprint = NULL WHERE planID = ?", arguments: [id.uuidString])
     try db.execute(sql: """
@@ -173,12 +200,12 @@ nonisolated struct OutfitPlanPersistence {
       """, arguments: [id.uuidString])
   }
 
-  private static func nextRevision(_ value: Int) throws -> Int {
+  static func nextRevision(_ value: Int) throws -> Int {
     guard value > 0, value < Int.max else { throw WardrobeError.invalidStoredData }
     return value + 1
   }
 
-  private static func read(_ db: Database, id: UUID) throws -> OutfitPlan {
+  static func read(_ db: Database, id: UUID) throws -> OutfitPlan {
     guard let row = try Row.fetchOne(db, sql: "SELECT * FROM outfit_plans WHERE id = ?", arguments: [id.uuidString]),
           (row["status"] as String) != "deleted" else { throw OutfitPlanError.notFound }
     guard let day: String = row["localDate"], let date = try? OutfitLocalDate(day),
@@ -253,6 +280,8 @@ nonisolated struct OutfitPlanPersistence {
                         timeZone: input.timeZone, summary: input.contextSummary, items: input.items,
                         unavailable: input.confirmedUnavailable.map(\.uuidString).sorted())
     case .cancel(let expected): payload = Payload(planID: command.planID, operation: "cancel", expected: expected)
+    case .markNotWorn(let expected): payload = Payload(planID: command.planID, operation: "markNotWorn", expected: expected)
+    case .restoreActive(let expected): payload = Payload(planID: command.planID, operation: "restoreActive", expected: expected)
     case .delete(let expected): payload = Payload(planID: command.planID, operation: "delete", expected: expected)
     }
     let encoder = JSONEncoder()
