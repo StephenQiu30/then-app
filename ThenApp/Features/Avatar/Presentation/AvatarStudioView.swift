@@ -40,6 +40,7 @@ final class AvatarStudioModel {
   var yaw = -0.08
   var shoulderWidth = 0.0
   var torsoDepth = 0.0
+  var reduceMotion = false
   var revision = 0
   var rendererState: AvatarRendererState = .loading
   var isFavorite = false
@@ -70,6 +71,7 @@ final class AvatarStudioModel {
       shoulderWidth: shoulderWidth,
       torsoDepth: torsoDepth,
       yaw: yaw,
+      reduceMotion: reduceMotion,
       revision: revision
     )
   }
@@ -124,6 +126,12 @@ final class AvatarStudioModel {
     revision += 1
   }
 
+  func setReduceMotion(_ isEnabled: Bool) {
+    guard reduceMotion != isEnabled else { return }
+    reduceMotion = isEnabled
+    revision += 1
+  }
+
   func resetLook() {
     selectedIDs = ["ivory-knit", "black-skirt", "cream-sneakers"]
     appliedIDs = selectedIDs
@@ -147,6 +155,7 @@ struct AvatarStudioView: View {
   @State private var showsShare = false
   @State private var showsAppearance = false
   @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+  @Environment(\.accessibilityReduceMotion) private var accessibilityReduceMotion
 
   var body: some View {
     ZStack(alignment: .bottom) {
@@ -163,6 +172,10 @@ struct AvatarStudioView: View {
         .padding(.bottom, 8)
     }
     .preferredColorScheme(.light)
+    .task { model.setReduceMotion(accessibilityReduceMotion) }
+    .onChange(of: accessibilityReduceMotion) { _, isEnabled in
+      model.setReduceMotion(isEnabled)
+    }
     .sheet(isPresented: $showsCalendar) {
       NavigationStack {
         OutfitPlanView(model: outfits)
