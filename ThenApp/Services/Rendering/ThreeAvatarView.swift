@@ -37,8 +37,19 @@ enum AvatarRendererState: Equatable {
   case failed(String)
 }
 
+struct AvatarStageActivity: Equatable {
+  let appIsActive: Bool
+  let stageIsVisible: Bool
+  let hasPresentedCover: Bool
+
+  var rendererIsActive: Bool {
+    appIsActive && stageIsVisible && !hasPresentedCover
+  }
+}
+
 struct ThreeAvatarView: UIViewRepresentable {
   let configuration: AvatarRenderConfiguration
+  let isActive: Bool
   let onStateChange: (AvatarRendererState) -> Void
   let onYawChange: (Double) -> Void
 
@@ -62,6 +73,7 @@ struct ThreeAvatarView: UIViewRepresentable {
     webView.navigationDelegate = context.coordinator
     context.coordinator.webView = webView
     context.coordinator.pendingConfiguration = self.configuration
+    context.coordinator.pendingIsActive = isActive
 
     do {
       context.coordinator.validatedAssets = try AvatarAssetCatalog.load()
@@ -80,10 +92,13 @@ struct ThreeAvatarView: UIViewRepresentable {
 
   func updateUIView(_ webView: WKWebView, context: Context) {
     context.coordinator.pendingConfiguration = configuration
+    context.coordinator.pendingIsActive = isActive
     context.coordinator.applyIfReady()
+    context.coordinator.applyActivityIfReady()
   }
 
   static func dismantleUIView(_ webView: WKWebView, coordinator: Coordinator) {
+    coordinator.destroyRenderer()
     webView.stopLoading()
     webView.navigationDelegate = nil
     webView.configuration.userContentController.removeScriptMessageHandler(forName: "avatarBridge")
@@ -95,8 +110,10 @@ struct ThreeAvatarView: UIViewRepresentable {
   final class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler, WKURLSchemeHandler {
     weak var webView: WKWebView?
     var pendingConfiguration: AvatarRenderConfiguration?
+    var pendingIsActive = false
     var validatedAssets: AvatarValidatedAssets?
     private var appliedConfiguration: AvatarRenderConfiguration?
+    private var appliedIsActive: Bool?
     private var isReady = false
     private let onStateChange: (AvatarRendererState) -> Void
     private let onYawChange: (Double) -> Void
@@ -122,6 +139,7 @@ struct ThreeAvatarView: UIViewRepresentable {
         isReady = true
         onStateChange(.ready)
         applyIfReady()
+        applyActivityIfReady()
       case "angle":
         guard messageMatchesPending(body), let yaw = body["yaw"] as? Double, yaw.isFinite else { return }
         onYawChange(yaw)
@@ -162,6 +180,7 @@ struct ThreeAvatarView: UIViewRepresentable {
     func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
       isReady = false
       appliedConfiguration = nil
+      appliedIsActive = nil
       onStateChange(.loading)
       webView.reloadFromOrigin()
     }
@@ -240,8 +259,34 @@ struct ThreeAvatarView: UIViewRepresentable {
           self?.onStateChange(.failed("applyJavaScriptFailed"))
           return
         }
-        self?.appliedConfiguration = pendingConfiguration
+        if self?.pendingConfiguration == pendingConfiguration {
+          self?.appliedConfiguration = pendingConfiguration
+        }
       }
+    }
+
+    func applyActivityIfReady() {
+      guard isReady,
+            pendingIsActive != appliedIsActive,
+            let webView else { return }
+      let isActive = pendingIsActive
+      webView.evaluateJavaScript("window.ThenAvatar.setActive(\(isActive))") { [weak self] _, error in
+        guard error == nil else {
+          self?.onStateChange(.failed("activityJavaScriptFailed"))
+          return
+        }
+        if self?.pendingIsActive == isActive {
+          self?.appliedIsActive = isActive
+        }
+      }
+    }
+
+    func destroyRenderer() {
+      pendingIsActive = false
+      webView?.evaluateJavaScript("window.ThenAvatar?.setActive(false); window.ThenAvatar?.destroy()")
+      isReady = false
+      appliedConfiguration = nil
+      appliedIsActive = nil
     }
 
     private func messageMatchesPending(_ body: [String: Any]) -> Bool {

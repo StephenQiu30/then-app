@@ -65,6 +65,8 @@ final class ThenAppUITests: XCTestCase {
   @MainActor
   func testWooStudioAndBuiltInWardrobe() throws {
     let app = launchApp()
+    let renderer = app.descendants(matching: .any).matching(identifier: "avatar.renderer").firstMatch
+    waitForRenderer(app, renderer: renderer)
 
     XCTAssertTrue(app.buttons["形象"].exists)
     XCTAssertTrue(app.buttons["可选照片穿搭"].exists)
@@ -76,6 +78,11 @@ final class ThenAppUITests: XCTestCase {
     XCTAssertFalse(app.buttons["账本"].exists)
     XCTAssertFalse(app.buttons["日程"].exists)
 
+    let dragStart = renderer.coordinate(withNormalizedOffset: CGVector(dx: 0.35, dy: 0.45))
+    let dragEnd = renderer.coordinate(withNormalizedOffset: CGVector(dx: 0.65, dy: 0.45))
+    dragStart.press(forDuration: 0.1, thenDragTo: dragEnd)
+    waitForRenderer(app, renderer: renderer)
+
     app.buttons["侧面"].tap()
     app.buttons["内置衣橱"].tap()
     for title in ["TOPS", "OUTERWEAR", "BOTTOMS", "SHOES", "Dress up"] {
@@ -86,6 +93,7 @@ final class ThenAppUITests: XCTestCase {
     app.buttons["雾蓝宽松衬衫"].tap()
     app.buttons["Dress up"].tap()
     XCTAssertTrue(app.buttons["形象"].waitForExistence(timeout: 3))
+    waitForRenderer(app, renderer: renderer)
     XCTAssertTrue(app.images["雾蓝宽松衬衫"].waitForExistence(timeout: 3))
   }
 
@@ -262,12 +270,20 @@ final class ThenAppUITests: XCTestCase {
   @MainActor
   func testBackgroundHidesSensitiveContentAndRestoresStudio() throws {
     let app = launchApp()
-    let bottom = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.99))
-    let middle = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.4))
-    bottom.press(forDuration: 0.1, thenDragTo: middle, withVelocity: .slow, thenHoldForDuration: 1)
+    let renderer = app.descendants(matching: .any).matching(identifier: "avatar.renderer").firstMatch
+    waitForRenderer(app, renderer: renderer)
+
+    app.buttons["打开穿搭日历"].tap()
+    XCTAssertTrue(app.buttons["关闭"].waitForExistence(timeout: 5))
+    app.buttons["关闭"].tap()
+    waitForRenderer(app, renderer: renderer)
+
+    XCUIDevice.shared.press(.home)
+    sleep(30)
     app.activate()
     XCTAssertTrue(app.buttons["形象"].waitForExistence(timeout: 8))
     XCTAssertTrue(app.buttons["打开个人衣橱"].exists)
+    waitForRenderer(app, renderer: renderer)
   }
 
   @MainActor
@@ -331,6 +347,7 @@ final class ThenAppUITests: XCTestCase {
     return formatter.string(from: date)
   }
 
+  @MainActor
   private func attachScreenshot(named name: String) {
     let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
     attachment.name = name + ".png"
