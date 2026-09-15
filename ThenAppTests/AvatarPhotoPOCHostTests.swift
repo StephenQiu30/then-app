@@ -22,6 +22,23 @@ struct AvatarPhotoPOCHostTests {
     ) == .product)
   }
 
+  @Test("POC 场景参数只识别明确的测试值")
+  func scenario() {
+    #expect(AvatarPhotoPOCScenario.resolve(arguments: []) == .system)
+    #expect(AvatarPhotoPOCScenario.resolve(
+      arguments: ["--then-avatar-photo-poc-scenario=delayed-multiple-people"]
+    ) == .delayedMultiplePeople)
+    #expect(AvatarPhotoPOCScenario.resolve(
+      arguments: ["--then-avatar-photo-poc-scenario=multiple-people"]
+    ) == .multiplePeople)
+    #expect(AvatarPhotoPOCScenario.resolve(
+      arguments: ["--then-avatar-photo-poc-scenario=device-unavailable"]
+    ) == .deviceUnavailable)
+    #expect(AvatarPhotoPOCScenario.resolve(
+      arguments: ["--then-avatar-photo-poc-scenario=unknown"]
+    ) == .system)
+  }
+
   @Test("预览只读取当前会话内尺寸匹配且未超限的单帧净化 PNG")
   func previewBoundary() async throws {
     let manager = FileManager.default

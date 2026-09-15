@@ -1,6 +1,26 @@
 #if DEBUG
 import SwiftUI
 
+nonisolated enum AvatarPhotoPOCScenario: Equatable {
+  case system
+  case delayedMultiplePeople
+  case multiplePeople
+  case deviceUnavailable
+
+  static func resolve(arguments: [String]) -> Self {
+    if arguments.contains("--then-avatar-photo-poc-scenario=delayed-multiple-people") {
+      return .delayedMultiplePeople
+    }
+    if arguments.contains("--then-avatar-photo-poc-scenario=multiple-people") {
+      return .multiplePeople
+    }
+    if arguments.contains("--then-avatar-photo-poc-scenario=device-unavailable") {
+      return .deviceUnavailable
+    }
+    return .system
+  }
+}
+
 struct AvatarPhotoIntakePOCHost: View {
   private enum Phase {
     case starting
@@ -59,13 +79,27 @@ struct AvatarPhotoIntakePOCHost: View {
         maximumOutputBytes: 12 * 1024 * 1024,
         maximumDuration: .seconds(20)
       )
-      let analyzer = try VisionAvatarPhotoAnalyzer(
-        store: store,
-        maximumBytes: 12 * 1024 * 1024,
-        maximumPixels: 2_048 * 2_048,
-        duration: .seconds(15),
-        computeDevice: .system
-      )
+      let scenario = AvatarPhotoPOCScenario.resolve(arguments: ProcessInfo.processInfo.arguments)
+      let analyzer: any AvatarPhotoAnalyzing
+      switch scenario {
+      case .system:
+        analyzer = try VisionAvatarPhotoAnalyzer(
+          store: store,
+          maximumBytes: 12 * 1024 * 1024,
+          maximumPixels: 2_048 * 2_048,
+          duration: .seconds(15),
+          computeDevice: .system
+        )
+      case .delayedMultiplePeople:
+        analyzer = AvatarPhotoPOCScenarioAnalyzer(
+          result: Self.multiplePeopleSignals,
+          delay: .seconds(10)
+        )
+      case .multiplePeople:
+        analyzer = AvatarPhotoPOCScenarioAnalyzer(result: Self.multiplePeopleSignals)
+      case .deviceUnavailable:
+        analyzer = AvatarPhotoPOCScenarioAnalyzer(result: Self.deviceUnavailableSignals)
+      }
       // These thresholds are deliberately POC-only. Sharpness remains disabled until
       // the approved evaluation set can separate normal and motion-blurred inputs.
       let policy = try AvatarPhotoQualityPolicy(
@@ -91,6 +125,46 @@ struct AvatarPhotoIntakePOCHost: View {
     } catch {
       phase = .failed
     }
+  }
+
+  private static let multiplePeopleSignals = AvatarPhotoTechnicalSignals(
+    formatSupported: true,
+    inputSafe: true,
+    withinResourceBudget: true,
+    personCount: 2,
+    fullPersonCoverage: nil,
+    visibility: nil,
+    sharpness: 1,
+    exposureUsability: 1,
+    deviceCapabilityAvailable: true,
+    analysisSucceeded: true,
+    hasQualityWarning: false
+  )
+
+  private static let deviceUnavailableSignals = AvatarPhotoTechnicalSignals(
+    formatSupported: true,
+    inputSafe: true,
+    withinResourceBudget: true,
+    personCount: nil,
+    fullPersonCoverage: nil,
+    visibility: nil,
+    sharpness: nil,
+    exposureUsability: nil,
+    deviceCapabilityAvailable: false,
+    analysisSucceeded: false,
+    hasQualityWarning: false
+  )
+}
+
+nonisolated private struct AvatarPhotoPOCScenarioAnalyzer: AvatarPhotoAnalyzing {
+  let result: AvatarPhotoTechnicalSignals
+  var delay: Duration = .zero
+
+  func analyze(_ photo: SanitizedAvatarPhotoHandle) async throws -> AvatarPhotoTechnicalSignals {
+    _ = photo
+    if delay > .zero { try await Task.sleep(for: delay) }
+    try Task.checkCancellation()
+    return result
   }
 }
 #endif

@@ -56,6 +56,38 @@ final class ThenAppUITests: XCTestCase {
   }
 
   @MainActor
+  func testAvatarPhotoPOCSyntheticSelectionCancellationAndReasons() throws {
+    let cancelling = launchAvatarPhotoPOC(scenario: "delayed-multiple-people")
+    try selectAvatarPhoto(in: cancelling)
+    let analyzingTitle = cancelling.staticTexts["正在检查画面质量…"]
+    XCTAssertTrue(analyzingTitle.waitForExistence(timeout: 15))
+    cancelling.buttons["avatar.photo.poc.cancel"].tap()
+    XCTAssertTrue(cancelling.buttons["avatar.photo.poc.picker"].waitForExistence(timeout: 5))
+    XCTAssertFalse(cancelling.descendants(matching: .any)
+      .matching(identifier: "avatar.photo.poc.processing").firstMatch.exists)
+    cancelling.terminate()
+
+    let replacement = launchAvatarPhotoPOC(scenario: "multiple-people")
+    try selectAvatarPhoto(in: replacement)
+    XCTAssertTrue(replacement.staticTexts["换一张全身照"].waitForExistence(timeout: 15))
+    let replacementReason = replacement.staticTexts["avatar.photo.poc.reason"]
+    XCTAssertTrue(replacementReason.exists)
+    XCTAssertEqual(replacementReason.label, "画面中出现了多个人，请选择只有你本人的照片。")
+    XCTAssertEqual(replacement.staticTexts.matching(identifier: "avatar.photo.poc.reason").count, 1)
+    replacement.terminate()
+
+    let unsupported = launchAvatarPhotoPOC(scenario: "device-unavailable")
+    try selectAvatarPhoto(in: unsupported)
+    XCTAssertTrue(unsupported.staticTexts["这张照片暂时无法使用"].waitForExistence(timeout: 15))
+    let unsupportedReason = unsupported.staticTexts["avatar.photo.poc.reason"]
+    XCTAssertTrue(unsupportedReason.exists)
+    XCTAssertEqual(unsupportedReason.label, "当前设备暂时无法完成本机画面检查。")
+    XCTAssertEqual(unsupported.staticTexts.matching(identifier: "avatar.photo.poc.reason").count, 1)
+    try unsupported.performAccessibilityAudit(for: [.contrast, .textClipped])
+    attachScreenshot(named: "avatar-photo-poc-unsupported")
+  }
+
+  @MainActor
   func testAvatarCompatibilityVisualMatrix() throws {
     let app = launchApp()
     let renderer = app.descendants(matching: .any).matching(identifier: "avatar.renderer").firstMatch
@@ -475,6 +507,34 @@ final class ThenAppUITests: XCTestCase {
   private func selectFirstSystemPhoto(in app: XCUIApplication) {
     let photo = app.images.matching(identifier: "PXGGridLayout-Info").firstMatch
     XCTAssertTrue(photo.waitForExistence(timeout: 8), "系统照片选择器没有可选图片；请先导入当前合成衣物夹具")
+    photo.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+  }
+
+  @MainActor
+  private func launchAvatarPhotoPOC(scenario: String) -> XCUIApplication {
+    let app = XCUIApplication()
+    app.launchArguments = [
+      "--then-avatar-photo-intake-poc",
+      "--then-avatar-photo-poc-scenario=\(scenario)",
+      "-UIPreferredContentSizeCategoryName",
+      "UICTContentSizeCategoryL",
+    ]
+    app.launch()
+    XCTAssertTrue(app.staticTexts["用一张照片试试数字形象"].waitForExistence(timeout: 8))
+    return app
+  }
+
+  @MainActor
+  private func selectAvatarPhoto(in app: XCUIApplication) throws {
+    app.switches["avatar.photo.poc.declaration"].tap()
+    app.buttons["avatar.photo.poc.continue"].tap()
+    XCTAssertTrue(app.buttons["avatar.photo.poc.picker"].waitForExistence(timeout: 3))
+    app.buttons["avatar.photo.poc.picker"].tap()
+    let photo = app.images.matching(identifier: "PXGGridLayout-Info").firstMatch
+    try XCTSkipUnless(
+      photo.waitForExistence(timeout: 8),
+      "Requires one approved synthetic adult fixture in the booted simulator photo library"
+    )
     photo.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
   }
 }
