@@ -29,6 +29,10 @@ nonisolated protocol AvatarPhotoSanitizing: Sendable {
   func sanitize(_ input: AvatarPhotoInputHandle) async throws -> SanitizedAvatarPhotoHandle
 }
 
+nonisolated protocol AvatarPhotoAnalyzing: Sendable {
+  func analyze(_ photo: SanitizedAvatarPhotoHandle) async throws -> AvatarPhotoTechnicalSignals
+}
+
 nonisolated struct SanitizedAvatarPhotoHandle: Sendable, Equatable {
   nonisolated enum ValidationError: Error {
     case invalidDimensions
