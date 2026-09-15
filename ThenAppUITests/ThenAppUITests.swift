@@ -306,7 +306,7 @@ final class ThenAppUITests: XCTestCase {
     XCTAssertTrue(walking.waitForExistence(timeout: 3))
     reveal(walking, in: app)
     XCTAssertTrue(walking.label.contains("未知"))
-    try app.performAccessibilityAudit(for: [.textClipped])
+    try app.performAccessibilityAudit(for: [.contrast, .textClipped])
     app.buttons["取消"].tap()
   }
 

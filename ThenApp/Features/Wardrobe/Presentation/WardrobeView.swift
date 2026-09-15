@@ -182,9 +182,10 @@ struct WardrobeEditorView: View {
               }
             }
             .accessibilityIdentifier("wardrobe.availability")
-          } footer: {
             Text("仅添加你拥有的衣物。照片和其他属性可以稍后补充。")
+              .font(.footnote)
               .foregroundStyle(Color.primary)
+              .fixedSize(horizontal: false, vertical: true)
           }
           .disabled(draft.isWorking)
           attributesSection
@@ -315,12 +316,12 @@ struct WardrobeEditorView: View {
           .font(.footnote)
           .accessibilityIdentifier("wardrobe.attribute.source")
       }
-    } header: {
-      Text("使用属性（可选）")
+      Text("每项都是你的个人使用判断。未知可稍后补充，不代表防水认证、精确保暖或舒适保证；已保存计划会保留当时信息。")
+        .font(.footnote)
         .foregroundStyle(Color.primary)
         .fixedSize(horizontal: false, vertical: true)
-    } footer: {
-      Text("每项都是你的个人使用判断。未知可稍后补充，不代表防水认证、精确保暖或舒适保证；已保存计划会保留当时信息。")
+    } header: {
+      Text("使用属性（可选）")
         .foregroundStyle(Color.primary)
         .fixedSize(horizontal: false, vertical: true)
     }
