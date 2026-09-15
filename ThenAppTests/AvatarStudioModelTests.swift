@@ -37,4 +37,18 @@ struct AvatarStudioModelTests {
     #expect(model.renderConfiguration.top == "blue-shirt")
     #expect(!model.appliedIDs.contains("ivory-knit"))
   }
+
+  @Test("减少动态效果会同步到三维渲染配置") @MainActor
+  func appliesReduceMotionPreference() {
+    let model = AvatarStudioModel()
+    let originalRevision = model.revision
+
+    model.setReduceMotion(true)
+
+    #expect(model.renderConfiguration.reduceMotion)
+    #expect(model.revision == originalRevision + 1)
+
+    model.setReduceMotion(true)
+    #expect(model.revision == originalRevision + 1)
+  }
 }

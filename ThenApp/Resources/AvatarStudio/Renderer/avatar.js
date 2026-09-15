@@ -27,6 +27,9 @@ const root = new THREE.Group();
 root.position.y = -0.04;
 scene.add(root);
 
+const avatarRoot = new THREE.Group();
+root.add(avatarRoot);
+
 const platformMaterial = new THREE.MeshStandardMaterial({ color: 0xf7f7f7, roughness: 0.58 });
 const platform = new THREE.Mesh(new THREE.CylinderGeometry(1.05, 1.18, 0.11, 64), platformMaterial);
 platform.position.y = -2.62;
@@ -54,14 +57,73 @@ let yaw = -0.08;
 let pointerX = null;
 let activeSession = null;
 let activeRevision = -1;
+let activeLook = null;
+let motionEnabled = true;
+let animationFrame = null;
+let lastFrameTime = null;
+let gestureLean = 0;
+let gestureLeanTarget = 0;
+let outfitPulseStartedAt = null;
 
 function post(message) {
   window.webkit?.messageHandlers?.avatarBridge?.postMessage(message);
 }
 
 function render() {
-  root.rotation.y = yaw;
+  avatarRoot.rotation.y = yaw;
   renderer.render(scene, camera);
+}
+
+function resetMotionPose() {
+  avatarRoot.position.set(0, 0, 0);
+  avatarRoot.rotation.x = 0;
+  avatarRoot.rotation.z = 0;
+  avatarRoot.scale.set(1, 1, 1);
+  gestureLean = 0;
+  gestureLeanTarget = 0;
+  outfitPulseStartedAt = null;
+}
+
+function startAnimation() {
+  if (animationFrame !== null || document.hidden) return;
+  animationFrame = window.requestAnimationFrame(animate);
+}
+
+function animate(time) {
+  animationFrame = null;
+  const deltaSeconds = lastFrameTime === null
+    ? 0
+    : Math.min((time - lastFrameTime) / 1000, 0.05);
+  lastFrameTime = time;
+  const leanBlend = 1 - Math.exp(-12 * deltaSeconds);
+  gestureLean += (gestureLeanTarget - gestureLean) * leanBlend;
+
+  let outfitPulse = 0;
+  if (motionEnabled && outfitPulseStartedAt !== null) {
+    const progress = Math.min((time - outfitPulseStartedAt) / 420, 1);
+    outfitPulse = Math.sin(progress * Math.PI) * 0.018;
+    if (progress >= 1) outfitPulseStartedAt = null;
+  }
+
+  if (motionEnabled) {
+    const seconds = time / 1000;
+    const breath = Math.sin(seconds * 1.65) * 0.0024;
+    avatarRoot.position.y = Math.sin(seconds * 1.35) * 0.012;
+    avatarRoot.rotation.x = Math.sin(seconds * 0.62 + 0.7) * 0.005;
+    avatarRoot.rotation.z = Math.sin(seconds * 0.72) * 0.008 + gestureLean;
+    avatarRoot.scale.set(
+      1 - breath * 0.25 + outfitPulse,
+      1 + breath + outfitPulse,
+      1 - breath * 0.25 + outfitPulse,
+    );
+  } else {
+    resetMotionPose();
+  }
+
+  render();
+  if (motionEnabled || Math.abs(gestureLean - gestureLeanTarget) > 0.0001 || outfitPulseStartedAt !== null) {
+    startAnimation();
+  }
 }
 
 function resize() {
@@ -97,6 +159,7 @@ function validPayload(payload) {
     && allowed.bottom.has(payload.bottom)
     && allowed.shoes.has(payload.shoes)
     && Number.isFinite(payload.yaw)
+    && typeof payload.reduceMotion === 'boolean'
     && Number.isFinite(payload.shoulderWidth)
     && Number.isFinite(payload.torsoDepth)
     && payload.shoulderWidth >= -0.25
@@ -113,7 +176,13 @@ function apply(payload) {
   if (activeSession === payload.session && payload.revision < activeRevision) return;
   activeSession = payload.session;
   activeRevision = payload.revision;
+  motionEnabled = !payload.reduceMotion;
   yaw = payload.yaw;
+  const nextLook = `${payload.top}|${payload.bottom}|${payload.shoes}`;
+  if (motionEnabled && activeLook !== null && activeLook !== nextLook) {
+    outfitPulseStartedAt = performance.now();
+  }
+  activeLook = nextLook;
   const visibleFiles = new Set([
     assetFiles.body,
     assetFiles.face,
@@ -125,7 +194,11 @@ function apply(payload) {
     object.visible = visibleFiles.has(file);
     setMorphs(object, payload.shoulderWidth, payload.torsoDepth);
   }
-  render();
+  if (motionEnabled) startAnimation();
+  else {
+    resetMotionPose();
+    render();
+  }
   post({ type: 'applied', session: activeSession, revision: activeRevision });
 }
 
@@ -137,16 +210,27 @@ canvas.addEventListener('pointerdown', (event) => {
 });
 canvas.addEventListener('pointermove', (event) => {
   if (pointerX === null) return;
-  yaw += (event.clientX - pointerX) * 0.012;
+  const deltaX = event.clientX - pointerX;
+  yaw += deltaX * 0.012;
+  if (motionEnabled) {
+    gestureLeanTarget = THREE.MathUtils.clamp(-deltaX * 0.0018, -0.035, 0.035);
+    startAnimation();
+  }
   pointerX = event.clientX;
   render();
 });
 canvas.addEventListener('pointerup', (event) => {
   pointerX = null;
+  gestureLeanTarget = 0;
+  startAnimation();
   canvas.releasePointerCapture(event.pointerId);
   post({ type: 'angle', session: activeSession, revision: activeRevision, yaw });
 });
-canvas.addEventListener('pointercancel', () => { pointerX = null; });
+canvas.addEventListener('pointercancel', () => {
+  pointerX = null;
+  gestureLeanTarget = 0;
+  startAnimation();
+});
 canvas.addEventListener('webglcontextlost', (event) => {
   event.preventDefault();
   post({ type: 'failed', code: 'contextLost' });
@@ -175,7 +259,7 @@ async function prepare() {
   }));
   for (const [file, object] of loaded) {
     assets.set(file, object);
-    root.add(object);
+    avatarRoot.add(object);
   }
   try {
     resize();
@@ -184,6 +268,17 @@ async function prepare() {
   }
   post({ type: 'ready', assetCount: assets.size });
 }
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    if (animationFrame !== null) window.cancelAnimationFrame(animationFrame);
+    animationFrame = null;
+    lastFrameTime = null;
+    return;
+  }
+  if (motionEnabled) startAnimation();
+  else render();
+});
 
 const preparationFailureCodes = new Set([
   ...Object.values(assetFiles).map((file) => `load:${file}`),
@@ -196,6 +291,7 @@ prepare().catch((error) => {
 });
 
 window.addEventListener('pagehide', () => {
+  if (animationFrame !== null) window.cancelAnimationFrame(animationFrame);
   for (const object of assets.values()) {
     object.traverse((child) => {
       child.geometry?.dispose();

@@ -10,6 +10,7 @@ struct AvatarRenderConfiguration: Equatable {
   let shoulderWidth: Double
   let torsoDepth: Double
   let yaw: Double
+  let reduceMotion: Bool
   let revision: Int
 }
 
@@ -224,6 +225,7 @@ struct ThreeAvatarView: UIViewRepresentable {
         "shoulderWidth": pendingConfiguration.shoulderWidth,
         "torsoDepth": pendingConfiguration.torsoDepth,
         "yaw": pendingConfiguration.yaw,
+        "reduceMotion": pendingConfiguration.reduceMotion,
         "revision": pendingConfiguration.revision,
       ]
       guard JSONSerialization.isValidJSONObject(payload),

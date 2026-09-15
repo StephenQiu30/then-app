@@ -6,6 +6,8 @@
 
 产品级 Design、PRD、Plan、Acceptance 和服务端接口定义位于同级 `then-server`。开始功能实现前先阅读对应文档和已批准的执行计划；范围、隐私、技术版本或接口发生变化时，先更新中央事实源。
 
+人物技术执行 [Design 01 的 AVATAR-BASELINE-01](../then-server/docs/design/01-技术选型.md#人物技术冻结与变更规则)：SwiftUI 页面与局部 Three.js/GLB 舞台，不使用 Blender 建模、修复或导出。具体生产资产来源未通过代表包验证前保持待决；新调研或资产失败不能自动触发渲染器替换，架构取舍按中央变更 SOP 处理。
+
 ## 服务端接入
 
 - 当前 App 没有已启用的云端 API Client，也不保留 OpenAPI 文件副本、跨仓库符号链接、代码生成插件或空 transport target。
