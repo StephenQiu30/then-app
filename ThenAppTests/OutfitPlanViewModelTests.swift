@@ -8,7 +8,8 @@ struct OutfitPlanViewModelTests {
     let root = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
     let store = GRDBWardrobeRepository(directory: root)
     do {
-      let item = try await store.create(id: UUID(), input: WardrobeInput(name: "synthetic choice", category: .top, availability: .wearable), source: .wardrobe)
+      let item = try await store.create(id: UUID(), input: WardrobeInput(name: "synthetic choice",
+        category: .top, availability: .wearable, attributes: .init()), source: .wardrobe)
       try await body(store, item)
       try await store.close()
     } catch { try await store.close(); throw error }
@@ -70,7 +71,9 @@ struct OutfitPlanViewModelTests {
     try await fixture { store, item in
       let draft = OutfitPlanEditorModel(plan: nil, repository: store, wardrobe: store, photos: store)
       await draft.load(); draft.toggle(item)
-      _ = try await store.update(id: item.id, expectedRevision: 1, input: WardrobeInput(name: "updated synthetic", category: .top, availability: .laundry))
+      _ = try await store.update(id: item.id, expectedRevision: 1,
+        input: WardrobeInput(name: "updated synthetic", category: .top, availability: .laundry,
+          attributes: .init()))
       draft.submit(.save); await draft.perform()
       #expect(draft.needsRefresh && draft.selected == [item.id] && !draft.finished)
       draft.submit(.refresh); await draft.perform()
@@ -87,7 +90,8 @@ struct OutfitPlanViewModelTests {
   @Test("跨类别筛选不清空有序选择，已选区移除后保存真实剩余单品")
   func filteredSelectionPreservesOrder() async throws {
     try await fixture { store, top in
-      let bottom = try await store.create(id: UUID(), input: WardrobeInput(name: "synthetic trousers", category: .bottom, availability: .wearable), source: .wardrobe)
+      let bottom = try await store.create(id: UUID(), input: WardrobeInput(name: "synthetic trousers",
+        category: .bottom, availability: .wearable, attributes: .init()), source: .wardrobe)
       let draft = OutfitPlanEditorModel(plan: nil, repository: store, wardrobe: store, photos: store)
       await draft.load()
       draft.choiceCategory = .bottom
@@ -114,7 +118,9 @@ struct OutfitPlanViewModelTests {
     try await fixture { store, first in
       var items = [first]
       for number in 1...20 {
-        let item = try await store.create(id: UUID(), input: WardrobeInput(name: "synthetic choice \(number)", category: number.isMultiple(of: 2) ? .bottom : .top, availability: .wearable), source: .wardrobe)
+        let item = try await store.create(id: UUID(), input: WardrobeInput(name: "synthetic choice \(number)",
+          category: number.isMultiple(of: 2) ? .bottom : .top, availability: .wearable,
+          attributes: .init()), source: .wardrobe)
         items.append(item)
       }
       let draft = OutfitPlanEditorModel(plan: nil, repository: store, wardrobe: store, photos: store)
@@ -132,7 +138,8 @@ struct OutfitPlanViewModelTests {
   @Test("删除占位无法直接重存，主动移除后可保存剩余真实衣物")
   func redactedEdit() async throws {
     try await fixture { store, item in
-      let second = try await store.create(id: UUID(), input: WardrobeInput(name: "second synthetic", category: .bottom, availability: .wearable), source: .wardrobe)
+      let second = try await store.create(id: UUID(), input: WardrobeInput(name: "second synthetic",
+        category: .bottom, availability: .wearable, attributes: .init()), source: .wardrobe)
       let initial = OutfitPlanEditorModel(plan: nil, repository: store, wardrobe: store, photos: store)
       await initial.load(); initial.toggle(item); initial.toggle(second)
       initial.submit(.save); await initial.perform()

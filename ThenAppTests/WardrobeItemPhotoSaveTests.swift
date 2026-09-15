@@ -5,8 +5,9 @@ import Testing
 
 @Suite("衣物与照片一次保存")
 struct WardrobeItemPhotoSaveTests {
-  private func input(_ name: String = "synthetic shirt") throws -> WardrobeInput {
-    try .init(name: name, category: .top, availability: .wearable)
+  private func input(_ name: String = "synthetic shirt",
+                     attributes: WardrobeAttributes = .init()) throws -> WardrobeInput {
+    try .init(name: name, category: .top, availability: .wearable, attributes: attributes)
   }
   private func photo(_ byte: UInt8 = 1) throws -> WardrobePhotoWrite {
     let image = try WardrobeEncodedImage(bytes: Data([byte]), format: .png, width: 1, height: 1, maximumBytes: 1)
@@ -29,12 +30,16 @@ struct WardrobeItemPhotoSaveTests {
   @Test("新增衣物和照片同时成功，重复保存保留一份与同一 revision")
   func createAndRetry() async throws {
     try await withStore { store, _ in
-      let edit = try WardrobeItemPhotoEdit(id: UUID(), input: input(), source: .quickAdd, expectedRevision: nil)
+      let attributes = WardrobeAttributes(formalityBand: .smartCasual, warmthBand: .medium,
+        rainUse: .unsuitable, walkingUse: .suitable)
+      let edit = try WardrobeItemPhotoEdit(id: UUID(), input: input(attributes: attributes),
+        source: .quickAdd, expectedRevision: nil)
       let photo = try photo()
       let saved = try await store.saveItemWithPhoto(edit, photo: photo)
       let retry = try await store.saveItemWithPhoto(edit, photo: photo)
       #expect(saved.item == retry.item && saved.photo == retry.photo)
       #expect(saved.item.revision == 1 && saved.item.source == .quickAdd)
+      #expect(saved.item.input.attributes == attributes)
       #expect(!saved.cleanupPending && !retry.cleanupPending)
       #expect(try await store.list(.init()).count == 1)
       let read = try #require(try await store.readPhoto(itemID: edit.id, purpose: .normalized, maximumBytes: 1))
@@ -85,10 +90,15 @@ struct WardrobeItemPhotoSaveTests {
   @Test("换图提交失败保留旧字段、旧图和 revision，成功只增加一次")
   func replaceCommitFailure() async throws {
     try await withStore { store, root in
-      let first = try WardrobeItemPhotoEdit(id: UUID(), input: input("before"), source: .wardrobe, expectedRevision: nil)
+      let oldAttributes = WardrobeAttributes(formalityBand: .casual, warmthBand: .light)
+      let first = try WardrobeItemPhotoEdit(id: UUID(), input: input("before", attributes: oldAttributes),
+        source: .wardrobe, expectedRevision: nil)
       let oldPhoto = try photo()
       let old = try await store.saveItemWithPhoto(first, photo: oldPhoto)
-      let edit = try WardrobeItemPhotoEdit(id: first.id, input: input("after"), source: .wardrobe, expectedRevision: old.item.revision)
+      let newAttributes = WardrobeAttributes(formalityBand: .formal, warmthBand: .warm,
+        rainUse: .suitable, walkingUse: .unsuitable)
+      let edit = try WardrobeItemPhotoEdit(id: first.id, input: input("after", attributes: newAttributes),
+        source: .wardrobe, expectedRevision: old.item.revision)
       let replacement = try photo(2)
       let database = try sql(root)
       try await database.write { db in
@@ -96,11 +106,13 @@ struct WardrobeItemPhotoSaveTests {
       }
       await #expect(throws: WardrobeError.storageUnavailable) { try await store.saveItemWithPhoto(edit, photo: replacement) }
       #expect(try await store.list(.init()).first == old.item)
+      #expect(try await store.list(.init()).first?.input.attributes == oldAttributes)
       #expect(try await store.readPhoto(itemID: first.id, purpose: .normalized, maximumBytes: 1)?.metadata.id == oldPhoto.id)
       try await database.write { try $0.execute(sql: "DROP TRIGGER reject_save") }
       try database.close()
       let saved = try await store.saveItemWithPhoto(edit, photo: replacement)
       #expect(saved.item.input.name == "after" && saved.item.revision == old.item.revision + 1)
+      #expect(saved.item.input.attributes == newAttributes)
       #expect(saved.photo.id == replacement.id)
       let retry = try await store.saveItemWithPhoto(edit, photo: replacement)
       #expect(retry.item == saved.item)
@@ -109,14 +121,15 @@ struct WardrobeItemPhotoSaveTests {
     }
   }
 
-  @Test("已提交照片命令不能改字段、source 或绑定对象", arguments: 0..<3)
+  @Test("已提交照片命令不能改字段、属性、source 或绑定对象", arguments: 0..<4)
   func changedRetry(_ change: Int) async throws {
     try await withStore { store, _ in
       let edit = try WardrobeItemPhotoEdit(id: UUID(), input: input(), source: .wardrobe, expectedRevision: nil)
       let photo = try photo()
       let saved = try await store.saveItemWithPhoto(edit, photo: photo)
       let altered = try WardrobeItemPhotoEdit(id: change == 0 ? UUID() : edit.id,
-        input: input(change == 1 ? "changed" : "synthetic shirt"),
+        input: input(change == 1 ? "changed" : "synthetic shirt",
+          attributes: change == 3 ? .init(warmthBand: .warm) : .init()),
         source: change == 2 ? .quickAdd : .wardrobe, expectedRevision: nil)
       await #expect(throws: WardrobeError.conflict) { try await store.saveItemWithPhoto(altered, photo: photo) }
       #expect(try await store.list(.init()).first == saved.item)
@@ -193,7 +206,8 @@ struct WardrobeItemPhotoSaveTests {
       #expect(read.metadata.id == image.id && read.bytes == image.normalized.bytes)
       let upgraded = try sql(root)
       let versions = try await upgraded.read { try String.fetchAll($0, sql: "SELECT identifier FROM grdb_migrations ORDER BY identifier") }
-      #expect(versions.last == "ootd_v4_outfit_plans")
+      #expect(versions.last == "ootd_wardrobe_attributes_v1")
+      #expect(item.input.attributes == .init())
       let indexes = try await upgraded.read { try String.fetchAll($0, sql: "SELECT name FROM sqlite_master WHERE type='index' AND tbl_name='wardrobe_photos'") }
       #expect(indexes.contains("wardrobe_one_ready_photo") && indexes.contains("wardrobe_photo_cleanup"))
       try upgraded.close()

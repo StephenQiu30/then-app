@@ -115,6 +115,38 @@ nonisolated enum OOTDSchema {
           fingerprint TEXT CHECK (fingerprint IS NULL OR length(fingerprint) = 64)
         );
         CREATE INDEX outfit_plan_mutation_owner ON outfit_plan_mutations(planID);
+      """)
+    }
+    migrator.registerMigration("ootd_wardrobe_attributes_v1") { db in
+      try db.execute(sql: """
+        ALTER TABLE wardrobe_items ADD COLUMN formalityBand TEXT
+          CHECK (formalityBand IN ('casual','smartCasual','formal'));
+        ALTER TABLE wardrobe_items ADD COLUMN warmthBand TEXT
+          CHECK (warmthBand IN ('light','medium','warm'));
+        ALTER TABLE wardrobe_items ADD COLUMN rainUse TEXT
+          CHECK (rainUse IN ('suitable','unsuitable'));
+        ALTER TABLE wardrobe_items ADD COLUMN walkingUse TEXT
+          CHECK (walkingUse IN ('suitable','unsuitable'));
+        ALTER TABLE outfit_plan_items ADD COLUMN formalityBand TEXT
+          CHECK (formalityBand IN ('casual','smartCasual','formal'));
+        ALTER TABLE outfit_plan_items ADD COLUMN warmthBand TEXT
+          CHECK (warmthBand IN ('light','medium','warm'));
+        ALTER TABLE outfit_plan_items ADD COLUMN rainUse TEXT
+          CHECK (rainUse IN ('suitable','unsuitable'));
+        ALTER TABLE outfit_plan_items ADD COLUMN walkingUse TEXT
+          CHECK (walkingUse IN ('suitable','unsuitable'));
+        """)
+      try db.execute(sql: """
+        CREATE TRIGGER outfit_plan_items_redacted_attributes_insert
+        BEFORE INSERT ON outfit_plan_items
+        WHEN NEW.redacted = 1 AND (NEW.formalityBand IS NOT NULL OR NEW.warmthBand IS NOT NULL
+          OR NEW.rainUse IS NOT NULL OR NEW.walkingUse IS NOT NULL)
+        BEGIN SELECT RAISE(ABORT, 'redacted attributes must be null'); END;
+        CREATE TRIGGER outfit_plan_items_redacted_attributes_update
+        BEFORE UPDATE ON outfit_plan_items
+        WHEN NEW.redacted = 1 AND (NEW.formalityBand IS NOT NULL OR NEW.warmthBand IS NOT NULL
+          OR NEW.rainUse IS NOT NULL OR NEW.walkingUse IS NOT NULL)
+        BEGIN SELECT RAISE(ABORT, 'redacted attributes must be null'); END;
         """)
     }
     return migrator

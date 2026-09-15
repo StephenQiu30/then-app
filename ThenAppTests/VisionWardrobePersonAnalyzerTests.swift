@@ -120,7 +120,16 @@ struct VisionWardrobePersonAnalyzerTests {
       catch { Issue.record("Could not clean analyzer integration fixture") }
     }
     do {
-      let item = try await store.create(id: UUID(), input: .init(name: "synthetic shirt", category: .top, availability: .wearable), source: .wardrobe)
+      let item = try await store.create(
+        id: UUID(),
+        input: .init(
+          name: "synthetic shirt",
+          category: .top,
+          availability: .wearable,
+          attributes: .init()
+        ),
+        source: .wardrobe
+      )
       let photo = try await prepared()
       let observations = try await analyzer().analyze(photo.normalized)
       var review = WardrobePhotoReview()

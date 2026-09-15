@@ -17,8 +17,10 @@ struct OutfitPlanRepositoryTests {
   }
 
   private func item(_ store: GRDBWardrobeRepository, name: String = "synthetic shirt",
-                    status: WardrobeAvailability = .wearable) async throws -> WardrobeItem {
-    try await store.create(id: UUID(), input: WardrobeInput(name: name, category: .top, availability: status), source: .wardrobe)
+                    status: WardrobeAvailability = .wearable,
+                    attributes: WardrobeAttributes = .init()) async throws -> WardrobeItem {
+    try await store.create(id: UUID(), input: WardrobeInput(name: name, category: .top,
+      availability: status, attributes: attributes), source: .wardrobe)
   }
 
   private func input(_ items: [WardrobeItem], day: String = "2080-09-13", summary: String? = nil,
@@ -35,20 +37,31 @@ struct OutfitPlanRepositoryTests {
   @Test("保存快照、重启、同日多个计划与当前属性分离")
   func snapshotsAndRestart() async throws {
     try await withStore { store, root in
-      let original = try await item(store)
+      let originalAttributes = WardrobeAttributes(formalityBand: .casual, warmthBand: .light,
+        rainUse: .unsuitable, walkingUse: .suitable)
+      let original = try await item(store, attributes: originalAttributes)
       let first = try await save(store, items: [original])
       _ = try await save(store, items: [original])
+      let currentAttributes = WardrobeAttributes(formalityBand: .formal, warmthBand: .warm,
+        rainUse: .suitable, walkingUse: .unsuitable)
       let updated = try await store.update(id: original.id, expectedRevision: 1,
-        input: WardrobeInput(name: "renamed current item", category: .bottom, availability: .laundry))
+        input: WardrobeInput(name: "renamed current item", category: .bottom, availability: .laundry,
+          attributes: currentAttributes))
       let read = try await store.readPlan(id: first.id)
       #expect(read.items.first?.content?.input.name == original.input.name)
+      #expect(read.items.first?.content?.input.attributes == originalAttributes)
       #expect(read.items.first?.content?.revision == 1 && updated.revision == 2)
       #expect(read.status == .active && read.timeZone == "Asia/Shanghai" && read.localDate.value == "2080-09-13")
+      let currentPlan = try #require(try await store.mutatePlan(.init(id: UUID(), planID: UUID(),
+        action: .save(input([updated], confirm: true), expectedRevision: nil))))
+      #expect(currentPlan.items.first?.content?.input.attributes == currentAttributes)
       try await store.close()
       let reopened = GRDBWardrobeRepository(directory: root)
       try await reopened.prepare()
       let page = try await reopened.listPlans(on: first.localDate, after: nil)
-      #expect(page.plans.count == 2 && page.nextCursor == nil)
+      #expect(page.plans.count == 3 && page.nextCursor == nil)
+      #expect(page.plans.first(where: { $0.id == currentPlan.id })?.items.first?.content?.input.attributes
+        == currentAttributes)
       #expect(try await reopened.readPlan(id: first.id) == read)
       try await reopened.close()
     }
@@ -89,7 +102,8 @@ struct OutfitPlanRepositoryTests {
     try await withStore { store, _ in
       let original = try await item(store)
       let newer = try await store.update(id: original.id, expectedRevision: 1,
-        input: WardrobeInput(name: original.input.name, category: .top, availability: .laundry))
+        input: WardrobeInput(name: original.input.name, category: .top, availability: .laundry,
+          attributes: .init()))
       let stale = try OutfitPlanMutation(id: UUID(), planID: UUID(), action: .save(input([original]), expectedRevision: nil))
       await #expect(throws: OutfitPlanError.conflict) { try await store.mutatePlan(stale) }
       let unconfirmed = try OutfitPlanMutation(id: UUID(), planID: UUID(), action: .save(input([newer]), expectedRevision: nil))
@@ -123,7 +137,9 @@ struct OutfitPlanRepositoryTests {
   @Test("衣物彻底删除分别执行占位与删除关联计划", arguments: [false, true])
   func wardrobeDeletion(_ erasePlans: Bool) async throws {
     try await withStore { store, root in
-      let first = try await item(store, name: "synthetic erased attributes")
+      let first = try await item(store, name: "synthetic erased attributes",
+        attributes: .init(formalityBand: .formal, warmthBand: .warm,
+          rainUse: .suitable, walkingUse: .unsuitable))
       let kept = try await item(store, name: "synthetic kept")
       let plan = try await save(store, items: [first, kept])
       let impact = try await store.deletionImpact(id: first.id)
@@ -141,6 +157,24 @@ struct OutfitPlanRepositoryTests {
       let remains = try await db.read { try Int.fetchOne($0, sql: "SELECT COUNT(*) FROM outfit_plan_items WHERE wardrobeItemID = ? OR name = ?",
                                                         arguments: [first.id.uuidString, first.input.name]) }
       #expect(remains == 0)
+      if !erasePlans {
+        let fullyRedacted = try await db.read { db in
+          guard let row = try Row.fetchOne(db,
+            sql: "SELECT * FROM outfit_plan_items WHERE planID = ? AND ordinal = 0",
+            arguments: [plan.id.uuidString]) else { return false }
+          return (row["redacted"] as Int) == 1
+            && ["formalityBand", "warmthBand", "rainUse", "walkingUse"]
+              .allSatisfy { row[$0] == DatabaseValue.null }
+        }
+        #expect(fullyRedacted)
+        do {
+          try await db.write { db in
+            try db.execute(sql: "UPDATE outfit_plan_items SET formalityBand = 'formal' WHERE planID = ? AND ordinal = 0",
+              arguments: [plan.id.uuidString])
+          }
+          Issue.record("Expected redacted attribute trigger to reject the update")
+        } catch {}
+      }
       #expect(try await store.list(.init()).map(\.id) == [kept.id])
       try db.close()
     }
@@ -212,17 +246,23 @@ struct OutfitPlanRepositoryTests {
   @Test("照片替换与移除清空历史引用，不指向新图")
   func photoLifecycle() async throws {
     try await withStore { store, _ in
-      let original = try await item(store), old = try photo("old synthetic"), next = try photo("new synthetic")
+      let attributes = WardrobeAttributes(formalityBand: .smartCasual, warmthBand: .medium,
+        rainUse: .unsuitable, walkingUse: .suitable)
+      let original = try await item(store, attributes: attributes)
+      let old = try photo("old synthetic"), next = try photo("new synthetic")
       _ = try await store.savePhoto(old, itemID: original.id, expectedRevision: 1)
       let selected = try #require(try await store.list(.init()).first)
+      #expect(selected.input.attributes == attributes)
       let first = try await save(store, items: [selected])
       #expect(first.items[0].content?.photoAssetID == old.id)
       _ = try await store.savePhoto(next, itemID: selected.id, expectedRevision: 2)
+      #expect(try await store.list(.init()).first?.input.attributes == attributes)
       #expect(try await store.readPlan(id: first.id).items[0].content?.photoAssetID == nil)
       let current = try #require(try await store.list(.init()).first)
       let second = try await save(store, items: [current])
       #expect(second.items[0].content?.photoAssetID == next.id)
       try await store.removePhoto(id: next.id, itemID: current.id, expectedRevision: 3)
+      #expect(try await store.list(.init()).first?.input.attributes == attributes)
       #expect(try await store.readPlan(id: second.id).items[0].content?.photoAssetID == nil)
     }
   }

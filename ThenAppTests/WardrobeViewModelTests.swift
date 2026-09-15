@@ -45,6 +45,8 @@ struct WardrobeViewModelTests {
     draft.name = "白色 T 恤"
     draft.category = .top
     draft.availability = .laundry
+    draft.attributes = .init(formalityBand: .smartCasual, warmthBand: .medium,
+      rainUse: .unsuitable, walkingUse: .suitable)
     let id = draft.id
     draft.submit(.save)
     draft.submit(.save)
@@ -52,18 +54,51 @@ struct WardrobeViewModelTests {
     await model.perform(draft)
     #expect(draft.error == .storageUnavailable)
     #expect(draft.name == "白色 T 恤" && draft.id == id)
+    #expect(draft.attributes.walkingUse == .suitable)
     #expect(model.editor === draft)
     draft.submit(.save)
     await model.perform(draft)
     #expect(model.editor == nil)
     #expect(model.items.count == 1)
     #expect(model.visibleItems.first?.id == id)
+    #expect(model.visibleItems.first?.input.attributes == draft.attributes)
     #expect(model.availability == .laundry)
+  }
+
+  @Test func cancelledAndConflictingAttributeEditsDoNotOverwriteCurrentItem() async throws {
+    let repository = Stub()
+    let originalAttributes = WardrobeAttributes(formalityBand: .casual, warmthBand: .light)
+    let input = try WardrobeInput(name: "original", category: .outerwear, availability: .wearable,
+      attributes: originalAttributes)
+    let saved = try await repository.create(id: UUID(), input: input, source: .wardrobe)
+    let model = WardrobeViewModel(repository: repository)
+    try await model.load()
+
+    model.beginEditing(saved)
+    let cancelled = try #require(model.editor)
+    #expect(cancelled.attributes == originalAttributes)
+    cancelled.attributes.formalityBand = .formal
+    cancelled.attributes.rainUse = .suitable
+    model.editor = nil
+    #expect(model.items.first?.input.attributes == originalAttributes)
+    #expect(try await repository.list(.init()).first?.input.attributes == originalAttributes)
+
+    model.beginEditing(saved)
+    let conflicting = try #require(model.editor)
+    conflicting.attributes.warmthBand = .warm
+    conflicting.submit(.save)
+    await model.perform(conflicting)
+    #expect(conflicting.error == .conflict)
+    #expect(conflicting.attributes.warmthBand == .warm)
+    #expect(model.editor === conflicting)
+    #expect(model.items.first?.input.attributes == originalAttributes)
   }
 
   @Test func pendingDeletionRemovesVisiblePrivateContentAndCanRetry() async throws {
     let repository = Stub()
-    let input = try WardrobeInput(name: "要删除的衣物", category: .top, availability: .wearable)
+    let input = try WardrobeInput(name: "要删除的衣物", category: .top, availability: .wearable,
+      attributes: .init(formalityBand: .formal, warmthBand: .warm,
+        rainUse: .suitable, walkingUse: .unsuitable))
     let saved = try await repository.create(id: UUID(), input: input, source: .wardrobe)
     let model = WardrobeViewModel(repository: repository)
     try await model.load()
@@ -76,6 +111,7 @@ struct WardrobeViewModelTests {
     await model.perform(draft)
     #expect(model.items.isEmpty)
     #expect(draft.isDeleted && draft.name.isEmpty && draft.category == nil)
+    #expect(draft.attributes == .init())
     #expect(draft.canRetryDeletion)
     #expect(draft.error == .deletionCleanupPending)
     let request = draft.request

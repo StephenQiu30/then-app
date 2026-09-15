@@ -300,6 +300,10 @@ struct OutfitPlanEditorView: View {
     VStack(alignment: .leading, spacing: 4) {
       Text(item.input.name)
       Text("\(item.input.category.title) · \(item.input.availability.title)").font(.caption)
+      if let summary = item.input.attributes.confirmedSummary {
+        Text(summary).font(.caption)
+        Text("由你确认").font(.caption2)
+      }
       if draft.changedIDs.contains(item.id) { Text("与原计划或上次查看时不同").font(.caption) }
     }.fixedSize(horizontal: false, vertical: true)
   }
@@ -331,6 +335,12 @@ struct OutfitPlanEditorView: View {
             VStack(alignment: .leading) {
               Text(content.input.name)
               Text("\(content.input.category.title) · \(content.input.availability.title)").font(.caption)
+              if let summary = content.input.attributes.confirmedSummary {
+                Text(summary).font(.caption)
+                Text("保存时由你确认").font(.caption2)
+              } else {
+                Text("保存时属性未知").font(.caption2)
+              }
             }.fixedSize(horizontal: false, vertical: true)
           }
         } else { Label("已删除的单品", systemImage: "minus.circle") }

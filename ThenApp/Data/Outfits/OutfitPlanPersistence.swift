@@ -119,10 +119,15 @@ nonisolated struct OutfitPlanPersistence {
     try db.execute(sql: "DELETE FROM outfit_plan_items WHERE planID = ?", arguments: [id.uuidString])
     for (index, entry) in items.enumerated() {
       try db.execute(sql: """
-        INSERT INTO outfit_plan_items(planID, ordinal, wardrobeItemID, itemRevision, name, category, availability, photoAssetID, redacted)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)
+        INSERT INTO outfit_plan_items(planID, ordinal, wardrobeItemID, itemRevision, name, category, availability,
+          photoAssetID, redacted, formalityBand, warmthBand, rainUse, walkingUse)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?)
         """, arguments: [id.uuidString, index, entry.0.id.uuidString, entry.0.revision, entry.0.input.name,
-                          entry.0.input.category.rawValue, entry.0.input.availability.rawValue, entry.1])
+                          entry.0.input.category.rawValue, entry.0.input.availability.rawValue, entry.1,
+                          entry.0.input.attributes.formalityBand?.rawValue,
+                          entry.0.input.attributes.warmthBand?.rawValue,
+                          entry.0.input.attributes.rainUse?.rawValue,
+                          entry.0.input.attributes.walkingUse?.rawValue])
     }
   }
 
@@ -149,7 +154,8 @@ nonisolated struct OutfitPlanPersistence {
       case .redactSnapshots:
         try db.execute(sql: """
           UPDATE outfit_plan_items SET wardrobeItemID = NULL, itemRevision = NULL, name = NULL,
-            category = NULL, availability = NULL, photoAssetID = NULL, redacted = 1
+            category = NULL, availability = NULL, photoAssetID = NULL, formalityBand = NULL,
+            warmthBand = NULL, rainUse = NULL, walkingUse = NULL, redacted = 1
           WHERE planID = ? AND wardrobeItemID = ?
           """, arguments: [affected.id.uuidString, itemID.uuidString])
         try db.execute(sql: "UPDATE outfit_plans SET revision = ?, updatedAt = MAX(updatedAt, ?) WHERE id = ?",
@@ -192,7 +198,9 @@ nonisolated struct OutfitPlanPersistence {
       guard (item["ordinal"] as Int) == index else { throw WardrobeError.invalidStoredData }
       let redacted: Int = item["redacted"]
       if redacted == 1 {
-        guard ["wardrobeItemID", "itemRevision", "name", "category", "availability", "photoAssetID"].allSatisfy({ item[$0] == DatabaseValue.null }) else {
+        guard ["wardrobeItemID", "itemRevision", "name", "category", "availability", "photoAssetID",
+               "formalityBand", "warmthBand", "rainUse", "walkingUse"]
+          .allSatisfy({ item[$0] == DatabaseValue.null }) else {
           throw WardrobeError.invalidStoredData
         }
         return OutfitPlanItemSnapshot(ordinal: index, content: nil)
@@ -201,7 +209,20 @@ nonisolated struct OutfitPlanPersistence {
             let version: Int = item["itemRevision"], version > 0,
             let name: String = item["name"], let categoryText: String = item["category"], let category = WardrobeCategory(rawValue: categoryText),
             let stateText: String = item["availability"], let state = WardrobeAvailability(rawValue: stateText),
-            let input = try? WardrobeInput(name: name, category: category, availability: state), input.name == name else {
+            let formalityText: String? = item["formalityBand"],
+            let warmthText: String? = item["warmthBand"],
+            let rainText: String? = item["rainUse"], let walkingText: String? = item["walkingUse"],
+            formalityText == nil || WardrobeFormalityBand(rawValue: formalityText ?? "") != nil,
+            warmthText == nil || WardrobeWarmthBand(rawValue: warmthText ?? "") != nil,
+            rainText == nil || WardrobeUseSuitability(rawValue: rainText ?? "") != nil,
+            walkingText == nil || WardrobeUseSuitability(rawValue: walkingText ?? "") != nil,
+            let input = try? WardrobeInput(name: name, category: category, availability: state,
+              attributes: WardrobeAttributes(
+                formalityBand: formalityText.flatMap(WardrobeFormalityBand.init(rawValue:)),
+                warmthBand: warmthText.flatMap(WardrobeWarmthBand.init(rawValue:)),
+                rainUse: rainText.flatMap(WardrobeUseSuitability.init(rawValue:)),
+                walkingUse: walkingText.flatMap(WardrobeUseSuitability.init(rawValue:)))),
+            input.name == name else {
         throw WardrobeError.invalidStoredData
       }
       let photoText: String? = item["photoAssetID"]

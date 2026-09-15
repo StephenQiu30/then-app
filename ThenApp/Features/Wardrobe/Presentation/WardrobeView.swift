@@ -187,6 +187,7 @@ struct WardrobeEditorView: View {
               .foregroundStyle(Color.primary)
           }
           .disabled(draft.isWorking)
+          attributesSection
         }
         if draft.needsCategory {
           Text("请选择衣物类别。")
@@ -277,6 +278,53 @@ struct WardrobeEditorView: View {
     .task(id: draft.request) {
       if draft.request > 0 { await model.perform(draft) }
     }
+  }
+
+  private var attributesSection: some View {
+    Section {
+      Picker("正式程度", selection: $draft.attributes.formalityBand) {
+        Text("未知").tag(Optional<WardrobeFormalityBand>.none)
+        ForEach(WardrobeFormalityBand.allCases, id: \.self) { value in
+          Text(value.title).tag(Optional(value))
+        }
+      }
+      .accessibilityIdentifier("wardrobe.attribute.formality")
+      Picker("保暖程度", selection: $draft.attributes.warmthBand) {
+        Text("未知").tag(Optional<WardrobeWarmthBand>.none)
+        ForEach(WardrobeWarmthBand.allCases, id: \.self) { value in
+          Text(value.title).tag(Optional(value))
+        }
+      }
+      .accessibilityIdentifier("wardrobe.attribute.warmth")
+      Picker("雨天使用", selection: $draft.attributes.rainUse) {
+        Text("未知").tag(Optional<WardrobeUseSuitability>.none)
+        ForEach(WardrobeUseSuitability.allCases, id: \.self) { value in
+          Text(value.title).tag(Optional(value))
+        }
+      }
+      .accessibilityIdentifier("wardrobe.attribute.rain")
+      Picker("步行使用", selection: $draft.attributes.walkingUse) {
+        Text("未知").tag(Optional<WardrobeUseSuitability>.none)
+        ForEach(WardrobeUseSuitability.allCases, id: \.self) { value in
+          Text(value.title).tag(Optional(value))
+        }
+      }
+      .accessibilityIdentifier("wardrobe.attribute.walking")
+      if draft.attributes.hasConfirmedValue {
+        Label("已选择的值由你确认", systemImage: "person.crop.circle.badge.checkmark")
+          .font(.footnote)
+          .accessibilityIdentifier("wardrobe.attribute.source")
+      }
+    } header: {
+      Text("使用属性（可选）")
+        .foregroundStyle(Color.primary)
+        .fixedSize(horizontal: false, vertical: true)
+    } footer: {
+      Text("每项都是你的个人使用判断。未知可稍后补充，不代表防水认证、精确保暖或舒适保证；已保存计划会保留当时信息。")
+        .foregroundStyle(Color.primary)
+        .fixedSize(horizontal: false, vertical: true)
+    }
+    .disabled(draft.isWorking)
   }
 
   @ViewBuilder private var photoSection: some View {
@@ -374,6 +422,51 @@ extension WardrobeAvailability {
     case .lentOut: String(localized: "借出")
     case .packed: String(localized: "已打包")
     }
+  }
+}
+
+extension WardrobeFormalityBand {
+  var title: String {
+    switch self {
+    case .casual: String(localized: "休闲")
+    case .smartCasual: String(localized: "整洁休闲")
+    case .formal: String(localized: "正式")
+    }
+  }
+}
+
+extension WardrobeWarmthBand {
+  var title: String {
+    switch self {
+    case .light: String(localized: "轻薄")
+    case .medium: String(localized: "适中")
+    case .warm: String(localized: "偏暖")
+    }
+  }
+}
+
+extension WardrobeUseSuitability {
+  var title: String {
+    switch self {
+    case .suitable: String(localized: "适合")
+    case .unsuitable: String(localized: "不适合")
+    }
+  }
+}
+
+extension WardrobeAttributes {
+  var hasConfirmedValue: Bool {
+    formalityBand != nil || warmthBand != nil || rainUse != nil || walkingUse != nil
+  }
+
+  var confirmedSummary: String? {
+    let values = [
+      formalityBand.map { String(localized: "正式程度：\($0.title)") },
+      warmthBand.map { String(localized: "保暖程度：\($0.title)") },
+      rainUse.map { String(localized: "雨天：\($0.title)") },
+      walkingUse.map { String(localized: "步行：\($0.title)") }
+    ].compactMap { $0 }
+    return values.isEmpty ? nil : values.joined(separator: String(localized: "，"))
   }
 }
 
