@@ -285,7 +285,8 @@ struct WardrobeRepositoryTests {
     let tables = try await database.read { db in
       try String.fetchAll(db, sql: "SELECT name FROM sqlite_master WHERE type = 'table' ORDER BY name")
     }
-    #expect(tables == ["grdb_migrations", "outfit_plan_items", "outfit_plan_mutations", "outfit_plans",
+    #expect(tables == ["grdb_migrations", "outfit_feedback", "outfit_feedback_issue_tags",
+      "outfit_feedback_mutations", "outfit_plan_items", "outfit_plan_mutations", "outfit_plans",
       "wardrobe_items", "wardrobe_photos", "wear_event_items", "wear_event_mutations", "wear_events"])
     #expect(try await database.read { db in try String.fetchOne(db, sql: "PRAGMA journal_mode") } == "wal")
     try database.close()

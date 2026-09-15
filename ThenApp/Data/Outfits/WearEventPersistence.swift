@@ -303,6 +303,7 @@ nonisolated struct WearEventPersistence {
   }
 
   private static func erase(_ db: Database, event: WearEvent, now: Date) throws {
+    try OutfitFeedbackPersistence.eraseForEvent(db, wearEventID: event.id)
     try db.execute(sql: "DELETE FROM wear_event_items WHERE eventID = ?", arguments: [event.id.uuidString])
     try db.execute(sql: "UPDATE wear_event_mutations SET fingerprint = NULL, resultRevision = NULL WHERE eventID = ?",
       arguments: [event.id.uuidString])

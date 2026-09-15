@@ -7,6 +7,7 @@ final class OutfitPlanViewModel {
   private let wardrobe: any WardrobeRepository
   private let photos: any WardrobePhotoRepository
   private let wearEvents: (any WearEventRepository)?
+  private let feedback: (any OutfitFeedbackRepository)?
   private var generation = UUID()
   private(set) var plans: [OutfitPlan] = []
   private(set) var cursor: OutfitPlanCursor?
@@ -20,8 +21,9 @@ final class OutfitPlanViewModel {
   var nextPage = false
 
   init(repository: any OutfitPlanRepository, wardrobe: any WardrobeRepository, photos: any WardrobePhotoRepository,
-       wearEvents: (any WearEventRepository)? = nil) {
+       wearEvents: (any WearEventRepository)? = nil, feedback: (any OutfitFeedbackRepository)? = nil) {
     self.repository = repository; self.wardrobe = wardrobe; self.photos = photos; self.wearEvents = wearEvents
+    self.feedback = feedback
   }
 
   var hasMore: Bool { wearEvents == nil ? cursor != nil : timelineCursor != nil }
@@ -62,17 +64,19 @@ final class OutfitPlanViewModel {
 
   func open(_ plan: OutfitPlan? = nil) {
     editor = OutfitPlanEditorModel(plan: plan, repository: repository, wardrobe: wardrobe, photos: photos,
-      wearEvents: wearEvents)
+      wearEvents: wearEvents, feedback: feedback)
   }
 
   func recordActual() {
     guard let wearEvents else { return }
-    wearEditor = WearEventEditorModel(repository: wearEvents, wardrobe: wardrobe, photos: photos)
+    wearEditor = WearEventEditorModel(repository: wearEvents, wardrobe: wardrobe, photos: photos,
+      feedbackRepository: feedback)
   }
 
   func open(_ event: WearEvent) {
     guard let wearEvents else { return }
-    wearEditor = WearEventEditorModel(event: event, repository: wearEvents, wardrobe: wardrobe, photos: photos)
+    wearEditor = WearEventEditorModel(event: event, repository: wearEvents, wardrobe: wardrobe, photos: photos,
+      feedbackRepository: feedback)
   }
 }
 
@@ -84,6 +88,7 @@ final class OutfitPlanEditorModel: Identifiable {
   private let wardrobe: any WardrobeRepository
   private let photos: any WardrobePhotoRepository
   private let wearEvents: (any WearEventRepository)?
+  private let feedback: (any OutfitFeedbackRepository)?
   private var generation = UUID()
   private var previousInput: OutfitPlanInput?
   private var mutationID = UUID()
@@ -115,10 +120,12 @@ final class OutfitPlanEditorModel: Identifiable {
   var wearEditor: WearEventEditorModel?
 
   init(plan: OutfitPlan?, repository: any OutfitPlanRepository, wardrobe: any WardrobeRepository,
-       photos: any WardrobePhotoRepository, wearEvents: (any WearEventRepository)? = nil) {
+       photos: any WardrobePhotoRepository, wearEvents: (any WearEventRepository)? = nil,
+       feedback: (any OutfitFeedbackRepository)? = nil) {
     self.plan = plan; id = plan?.id ?? UUID()
     self.repository = repository; self.wardrobe = wardrobe; self.photos = photos
     self.wearEvents = wearEvents
+    self.feedback = feedback
     isEditing = plan == nil
     timeZone = plan?.timeZone ?? TimeZone.current.identifier
     date = plan.flatMap { Self.instant($0.localDate, zone: $0.timeZone) } ?? Date()
@@ -153,7 +160,7 @@ final class OutfitPlanEditorModel: Identifiable {
   func recordActual(_ kind: WearEventSourceKind) {
     guard let wearEvents, let plan else { return }
     wearEditor = WearEventEditorModel(sourcePlan: plan, sourceKind: kind,
-      repository: wearEvents, wardrobe: wardrobe, photos: photos)
+      repository: wearEvents, wardrobe: wardrobe, photos: photos, feedbackRepository: feedback)
   }
 
   func toggle(_ item: WardrobeItem) {

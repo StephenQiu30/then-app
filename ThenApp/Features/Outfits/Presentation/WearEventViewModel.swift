@@ -9,6 +9,7 @@ final class WearEventEditorModel: Identifiable {
   private let repository: any WearEventRepository
   private let wardrobe: any WardrobeRepository
   private let photos: any WardrobePhotoRepository
+  private let feedbackRepository: (any OutfitFeedbackRepository)?
   private let sourcePlan: OutfitPlan?
   private var action: Action?
   private var mutationID = UUID()
@@ -27,6 +28,8 @@ final class WearEventEditorModel: Identifiable {
   var duplicatePreview: WearEvent?
   var showsDuplicateConfirmation = false
   private(set) var request = 0
+  private(set) var feedback: OutfitFeedback?
+  var feedbackEditor: OutfitFeedbackEditorModel?
 
   var date: Date
   private(set) var timeZone: String
@@ -43,7 +46,7 @@ final class WearEventEditorModel: Identifiable {
   init(event: WearEvent? = nil, sourcePlan: OutfitPlan? = nil,
        sourceKind: WearEventSourceKind = .unplanned,
        repository: any WearEventRepository, wardrobe: any WardrobeRepository,
-       photos: any WardrobePhotoRepository) {
+       photos: any WardrobePhotoRepository, feedbackRepository: (any OutfitFeedbackRepository)? = nil) {
     self.event = event
     self.sourcePlan = sourcePlan
     self.sourceKind = event?.sourceKind ?? sourceKind
@@ -51,6 +54,7 @@ final class WearEventEditorModel: Identifiable {
     self.repository = repository
     self.wardrobe = wardrobe
     self.photos = photos
+    self.feedbackRepository = feedbackRepository
     isEditing = event == nil
     let originalTimeZone = event?.timeZone ?? sourcePlan?.timeZone ?? TimeZone.current.identifier
     timeZone = originalTimeZone
@@ -82,6 +86,12 @@ final class WearEventEditorModel: Identifiable {
   }
 
   func thumbnail() -> WardrobeThumbnailViewModel { WardrobeThumbnailViewModel(repository: photos) }
+
+  func editFeedback() {
+    guard let event, let feedbackRepository else { return }
+    feedbackEditor = OutfitFeedbackEditorModel(wearEventID: event.id, feedback: feedback,
+      repository: feedbackRepository)
+  }
 
   func toggle(_ item: WardrobeItem) {
     guard !isWorking else { return }
@@ -130,6 +140,7 @@ final class WearEventEditorModel: Identifiable {
         try Task.checkCancellation()
         guard token == generation else { return }
         apply(latest)
+        feedback = try await feedbackRepository?.readFeedback(wearEventID: latest.id)
       }
       let loaded = try await wardrobe.list(.init(availability: nil))
       try Task.checkCancellation()
@@ -154,6 +165,7 @@ final class WearEventEditorModel: Identifiable {
         if event != nil {
           let latest = try await repository.readWearEvent(id: id)
           try Task.checkCancellation(); apply(latest)
+          feedback = try await feedbackRepository?.readFeedback(wearEventID: latest.id)
         }
         choices = try await wardrobe.list(.init(availability: nil))
         error = nil
@@ -213,6 +225,7 @@ final class WearEventEditorModel: Identifiable {
 
   private func eraseVisibleContent() {
     generation = UUID(); event = nil; choices = []; selected = []; laundry = []; summary = ""
+    feedback = nil; feedbackEditor = nil
     duplicateCandidates = []; duplicatePreview = nil; showsDuplicateConfirmation = false
     error = nil; isDeleted = true; isEditing = false
   }
@@ -223,6 +236,90 @@ final class WearEventEditorModel: Identifiable {
     guard parts.count == 3, let timeZone = TimeZone(identifier: zone) else { return nil }
     var calendar = Calendar(identifier: .gregorian); calendar.timeZone = timeZone
     return calendar.date(from: DateComponents(year: parts[0], month: parts[1], day: parts[2], hour: 12))
+  }
+}
+
+@MainActor @Observable
+final class OutfitFeedbackEditorModel: Identifiable {
+  enum Action { case save, delete }
+
+  let id: UUID
+  let wearEventID: UUID
+  private let repository: any OutfitFeedbackRepository
+  private var feedback: OutfitFeedback?
+  private var action: Action?
+  private var mutationID = UUID()
+  private var previousInput: OutfitFeedbackInput?
+
+  var thermalComfort: ThermalComfort?
+  var activityComfort: ActivityComfort?
+  var occasionFit: OccasionFit?
+  var repeatIntent: RepeatIntent?
+  var issueTags: Set<OutfitFeedbackIssueTag>
+  var note: String
+  private(set) var isWorking = false
+  private(set) var finished = false
+  private(set) var error: String?
+  private(set) var request = 0
+  var confirmsDelete = false
+
+  init(wearEventID: UUID, feedback: OutfitFeedback?, repository: any OutfitFeedbackRepository) {
+    self.wearEventID = wearEventID
+    self.feedback = feedback
+    self.repository = repository
+    id = feedback?.id ?? UUID()
+    thermalComfort = feedback?.input.thermalComfort
+    activityComfort = feedback?.input.activityComfort
+    occasionFit = feedback?.input.occasionFit
+    repeatIntent = feedback?.input.repeatIntent
+    issueTags = feedback?.input.issueTags ?? []
+    note = feedback?.input.note ?? ""
+  }
+
+  var canSave: Bool {
+    thermalComfort != nil || activityComfort != nil || occasionFit != nil || repeatIntent != nil
+      || !issueTags.isEmpty || !note.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+  }
+  var hasExistingFeedback: Bool { feedback != nil }
+
+  func toggle(_ tag: OutfitFeedbackIssueTag) {
+    if issueTags.contains(tag) { issueTags.remove(tag) } else { issueTags.insert(tag) }
+  }
+
+  func submit(_ next: Action) {
+    guard !isWorking else { return }
+    action = next; isWorking = true; request += 1
+  }
+
+  func perform() async {
+    guard let action else { return }
+    self.action = nil
+    defer { isWorking = false }
+    do {
+      switch action {
+      case .save:
+        let input = try OutfitFeedbackInput(thermalComfort: thermalComfort,
+          activityComfort: activityComfort, occasionFit: occasionFit, repeatIntent: repeatIntent,
+          issueTags: issueTags, note: note)
+        if input != previousInput { mutationID = UUID(); previousInput = input }
+        feedback = try await repository.mutateFeedback(.init(id: mutationID, feedbackID: id,
+          wearEventID: wearEventID, action: .save(input, expectedRevision: feedback?.revision)))
+        try Task.checkCancellation(); finished = true; error = nil
+      case .delete:
+        guard let feedback else { throw OutfitFeedbackError.notFound }
+        _ = try await repository.mutateFeedback(.init(id: mutationID, feedbackID: id,
+          wearEventID: wearEventID, action: .delete(expectedRevision: feedback.revision)))
+        try Task.checkCancellation(); finished = true; error = nil
+      }
+    } catch is CancellationError {
+    } catch {
+      switch error as? OutfitFeedbackError {
+      case .invalidInput: self.error = String(localized: "至少选择一项反馈，备注最多 240 字。")
+      case .conflict: self.error = String(localized: "反馈已变化，请关闭后重新打开并复核。")
+      case .notFound: self.error = String(localized: "实际穿着或反馈已被删除。")
+      default: self.error = String(localized: "暂时无法保存反馈，请重试。")
+      }
+    }
   }
 }
 

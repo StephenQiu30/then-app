@@ -305,6 +305,36 @@ nonisolated enum OOTDSchema {
         BEGIN SELECT RAISE(ABORT, 'redacted attributes must be null'); END;
         """)
     }
+    migrator.registerMigration("ootd_outfit_feedback_v1") { db in
+      try db.execute(sql: """
+        CREATE TABLE outfit_feedback (
+          id TEXT PRIMARY KEY NOT NULL,
+          wearEventID TEXT UNIQUE NOT NULL REFERENCES wear_events(id) ON DELETE CASCADE,
+          thermalComfort TEXT CHECK (thermalComfort IN ('cold','comfortable','hot')),
+          activityComfort TEXT CHECK (activityComfort IN ('uncomfortable','okay','comfortable')),
+          occasionFit TEXT CHECK (occasionFit IN ('tooCasual','right','tooFormal')),
+          repeatIntent TEXT CHECK (repeatIntent IN ('yes','unsure','no')),
+          note TEXT CHECK (note IS NULL OR (length(note) BETWEEN 1 AND 240 AND trim(note) = note)),
+          revision INTEGER NOT NULL CHECK (revision >= 1),
+          createdAt REAL NOT NULL,
+          updatedAt REAL NOT NULL CHECK (updatedAt >= createdAt)
+        );
+        CREATE TABLE outfit_feedback_issue_tags (
+          feedbackID TEXT NOT NULL REFERENCES outfit_feedback(id) ON DELETE CASCADE,
+          tag TEXT NOT NULL CHECK (tag IN ('shoeDiscomfort','awkwardLayering','rainUnsuitable',
+            'insufficientPockets','maintenanceNeeded')),
+          PRIMARY KEY (feedbackID, tag)
+        );
+        CREATE TABLE outfit_feedback_mutations (
+          id TEXT PRIMARY KEY NOT NULL,
+          feedbackID TEXT NOT NULL,
+          wearEventID TEXT NOT NULL REFERENCES wear_events(id) ON DELETE RESTRICT,
+          operation TEXT NOT NULL CHECK (operation IN ('save','delete')),
+          fingerprint TEXT NOT NULL CHECK (length(fingerprint) = 64)
+        );
+        CREATE INDEX outfit_feedback_mutation_owner ON outfit_feedback_mutations(wearEventID);
+        """)
+    }
     return migrator
   }
 }

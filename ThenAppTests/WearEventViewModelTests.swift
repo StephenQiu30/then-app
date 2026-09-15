@@ -83,4 +83,40 @@ struct WearEventViewModelTests {
     #expect(stale.isDeleted && stale.event == nil && stale.selected.isEmpty && stale.summary.isEmpty)
     try await fixture.store.close()
   }
+
+  @Test("实际穿着详情可跳过、保存并明确删除结构化反馈")
+  func feedbackLifecycle() async throws {
+    let fixture = Fixture(); defer { fixture.remove() }
+    let item = try await garment(fixture.store)
+    let writer = WearEventEditorModel(repository: fixture.store, wardrobe: fixture.store,
+      photos: fixture.store, feedbackRepository: fixture.store)
+    await writer.load(); writer.toggle(item); writer.submit(.save); await writer.perform()
+    let event = try #require(writer.event)
+
+    let detail = WearEventEditorModel(event: event, repository: fixture.store, wardrobe: fixture.store,
+      photos: fixture.store, feedbackRepository: fixture.store)
+    await detail.load()
+    #expect(detail.feedback == nil)
+    detail.editFeedback()
+    let editor = try #require(detail.feedbackEditor)
+    #expect(!editor.canSave && !editor.hasExistingFeedback)
+    editor.thermalComfort = .comfortable
+    editor.repeatIntent = .yes
+    editor.issueTags = [.insufficientPockets]
+    editor.note = "  下次换一个包  "
+    editor.submit(.save); await editor.perform()
+    #expect(editor.finished)
+
+    detail.submit(.refresh); await detail.perform()
+    let saved = try #require(detail.feedback)
+    #expect(saved.input.note == "下次换一个包")
+    detail.editFeedback()
+    let deletion = try #require(detail.feedbackEditor)
+    #expect(deletion.hasExistingFeedback)
+    deletion.submit(.delete); await deletion.perform()
+    #expect(deletion.finished)
+    detail.submit(.refresh); await detail.perform()
+    #expect(detail.feedback == nil)
+    try await fixture.store.close()
+  }
 }
