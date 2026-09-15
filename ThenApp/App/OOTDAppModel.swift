@@ -6,6 +6,7 @@ final class OOTDAppModel {
   private let repository: any WardrobeRepository & WardrobePhotoRepository & OutfitPlanRepository
   let wardrobe: WardrobeViewModel
   let outfits: OutfitPlanViewModel
+  let recommendations: RecommendationViewModel
   private(set) var phase: Phase = .starting
   private(set) var error: WardrobeError?
   private(set) var attempt = 0
@@ -16,6 +17,7 @@ final class OOTDAppModel {
     wardrobe = WardrobeViewModel(repository: repository, wearEvents: wearEvents)
     outfits = OutfitPlanViewModel(repository: repository, wardrobe: repository, photos: repository,
       wearEvents: wearEvents, feedback: feedback)
+    recommendations = RecommendationViewModel(repository: repository)
   }
 
   func requestRetry() {

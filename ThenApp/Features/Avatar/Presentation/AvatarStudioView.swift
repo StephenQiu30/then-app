@@ -149,11 +149,13 @@ struct AvatarStudioView: View {
   @Bindable var model: AvatarStudioModel
   @Bindable var wardrobe: WardrobeViewModel
   @Bindable var outfits: OutfitPlanViewModel
+  @Bindable var recommendations: RecommendationViewModel
   @State private var showsCalendar = false
   @State private var showsMenu = false
   @State private var showsPhotoPath = false
   @State private var showsShare = false
   @State private var showsAppearance = false
+  @State private var showsRecommendations = false
   @Environment(\.dynamicTypeSize) private var dynamicTypeSize
   @Environment(\.accessibilityReduceMotion) private var accessibilityReduceMotion
   @Environment(\.scenePhase) private var scenePhase
@@ -200,6 +202,16 @@ struct AvatarStudioView: View {
     .sheet(isPresented: $showsPhotoPath) { optionalPhotoSheet }
     .sheet(isPresented: $showsShare) { shareSheet }
     .sheet(isPresented: $showsAppearance) { appearanceSheet }
+    .sheet(isPresented: $showsRecommendations) {
+      NavigationStack {
+        RecommendationView(model: recommendations)
+          .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+              Button("关闭") { showsRecommendations = false }
+            }
+          }
+      }
+    }
     .overlay(alignment: .top) {
       if let notice = model.notice {
         Text(notice)
@@ -234,6 +246,10 @@ struct AvatarStudioView: View {
       .accessibilityElement(children: .combine)
       .accessibilityLabel("于是")
       Spacer()
+      Button { showsRecommendations = true } label: {
+        Image(systemName: "sparkles")
+      }
+      .accessibilityLabel("获取穿搭建议")
       Button { showsCalendar = true } label: {
         Image(systemName: "calendar")
       }
@@ -301,6 +317,7 @@ struct AvatarStudioView: View {
       appIsActive: scenePhase == .active,
       stageIsVisible: model.screen == .look,
       hasPresentedCover: showsCalendar || showsMenu || showsPhotoPath || showsShare || showsAppearance
+        || showsRecommendations
     )
   }
 

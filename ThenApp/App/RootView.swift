@@ -39,6 +39,7 @@ struct RootView: View {
   private var tabs: some View {
     @Bindable var wardrobe = model.wardrobe
     @Bindable var outfits = model.outfits
-    return AvatarStudioView(model: studio, wardrobe: wardrobe, outfits: outfits)
+    @Bindable var recommendations = model.recommendations
+    return AvatarStudioView(model: studio, wardrobe: wardrobe, outfits: outfits, recommendations: recommendations)
   }
 }
