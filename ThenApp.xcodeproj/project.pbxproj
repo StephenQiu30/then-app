@@ -60,6 +60,10 @@
 		AA1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift */; };
 		AA1300000000000000000001 /* AvatarPhotoIntakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1300000000000000000001 /* AvatarPhotoIntakeViewModel.swift */; };
 		AA1300000000000000000002 /* AvatarPhotoIntakeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1300000000000000000002 /* AvatarPhotoIntakeViewModelTests.swift */; };
+		AA1400000000000000000001 /* AvatarPhotoIntakePOCHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1400000000000000000001 /* AvatarPhotoIntakePOCHost.swift */; };
+		AA1400000000000000000002 /* AvatarPhotoIntakePOCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1400000000000000000002 /* AvatarPhotoIntakePOCView.swift */; };
+		AA1400000000000000000003 /* AvatarPhotoPreviewLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1400000000000000000003 /* AvatarPhotoPreviewLoader.swift */; };
+		AA1400000000000000000004 /* AvatarPhotoPOCHostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1400000000000000000004 /* AvatarPhotoPOCHostTests.swift */; };
 		A7AB3802B7904279B47C6324 /* ThenAppTests/OutfitPlanViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175B1E7F16840708C7E4369 /* ThenAppTests/OutfitPlanViewModelTests.swift */; };
 		A8C2FA90C7F24FAD9E01754F /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F3E6FDE2403DA058EBA5 /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift */; };
 		ACC848F03B0E491FBA2ED0BE /* ThenApp/Services/Imaging/WardrobePhotoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D595263680534FFF9BF5586A /* ThenApp/Services/Imaging/WardrobePhotoImage.swift */; };
@@ -142,6 +146,10 @@
 		AB1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareAvatarPhotoUseCaseTests.swift; sourceTree = "<group>"; };
 		AB1300000000000000000001 /* AvatarPhotoIntakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoIntakeViewModel.swift; sourceTree = "<group>"; };
 		AB1300000000000000000002 /* AvatarPhotoIntakeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoIntakeViewModelTests.swift; sourceTree = "<group>"; };
+		AB1400000000000000000001 /* AvatarPhotoIntakePOCHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoIntakePOCHost.swift; sourceTree = "<group>"; };
+		AB1400000000000000000002 /* AvatarPhotoIntakePOCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoIntakePOCView.swift; sourceTree = "<group>"; };
+		AB1400000000000000000003 /* AvatarPhotoPreviewLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoPreviewLoader.swift; sourceTree = "<group>"; };
+		AB1400000000000000000004 /* AvatarPhotoPOCHostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoPOCHostTests.swift; sourceTree = "<group>"; };
 		AEC2F7D914084001B30A7877 /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift; sourceTree = SOURCE_ROOT; };
 		B028927DBEB230FEA1D1E4F5 /* OOTDSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDSchema.swift; sourceTree = "<group>"; };
 		B10000000000000000000001 /* AvatarStudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarStudioView.swift; sourceTree = "<group>"; };
@@ -189,6 +197,7 @@
 		1B734BADBD74C7CEB6750E37 /* Imaging */ = {
 			isa = PBXGroup;
 			children = (
+				AB1400000000000000000003 /* AvatarPhotoPreviewLoader.swift */,
 				AB1100000000000000000001 /* VisionAvatarPhotoAnalyzer.swift */,
 				BB8A669FFDFA4553AB2DD248 /* ThenApp/Services/Imaging/ImageIOWardrobePhotoPreparer.swift */,
 				D595263680534FFF9BF5586A /* ThenApp/Services/Imaging/WardrobePhotoImage.swift */,
@@ -306,6 +315,7 @@
 				AB1100000000000000000002 /* VisionAvatarPhotoAnalyzerTests.swift */,
 				AB1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift */,
 				AB1300000000000000000002 /* AvatarPhotoIntakeViewModelTests.swift */,
+				AB1400000000000000000004 /* AvatarPhotoPOCHostTests.swift */,
 			);
 			path = ThenAppTests;
 			sourceTree = "<group>";
@@ -354,6 +364,7 @@
 			children = (
 				B10000000000000000000001 /* AvatarStudioView.swift */,
 				AB1300000000000000000001 /* AvatarPhotoIntakeViewModel.swift */,
+				AB1400000000000000000002 /* AvatarPhotoIntakePOCView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -402,12 +413,21 @@
 		E6848F95EA0992986D343278 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				AC1400000000000000000001 /* Debug */,
 				CE2F113F6E60A632BA2C347A /* OOTDAppModel.swift */,
 				5F449F280C9D45D8C2C0CC5E /* ThenApp.swift */,
 				463A6DDECCD9B80EB9D5FF65 /* RootView.swift */,
 				9IB000000000000000000001 /* PrivacyInfo.xcprivacy */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		AC1400000000000000000001 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				AB1400000000000000000001 /* AvatarPhotoIntakePOCHost.swift */,
+			);
+			path = Debug;
 			sourceTree = "<group>";
 		};
 		EC7A95F2ED8A48F591E0D8D4 /* Outfits */ = {
@@ -562,6 +582,7 @@
 		2126A56871C30A01FAE91766 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				AA1400000000000000000004 /* AvatarPhotoPOCHostTests.swift in Sources */,
 				AA1300000000000000000002 /* AvatarPhotoIntakeViewModelTests.swift in Sources */,
 				AA1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift in Sources */,
 				AA1100000000000000000002 /* VisionAvatarPhotoAnalyzerTests.swift in Sources */,
@@ -600,6 +621,9 @@
 		84747EE744FA1A9D63792F15 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				AA1400000000000000000001 /* AvatarPhotoIntakePOCHost.swift in Sources */,
+				AA1400000000000000000002 /* AvatarPhotoIntakePOCView.swift in Sources */,
+				AA1400000000000000000003 /* AvatarPhotoPreviewLoader.swift in Sources */,
 				AA1300000000000000000001 /* AvatarPhotoIntakeViewModel.swift in Sources */,
 				AA1200000000000000000001 /* PrepareAvatarPhotoUseCase.swift in Sources */,
 				AA1100000000000000000001 /* VisionAvatarPhotoAnalyzer.swift in Sources */,

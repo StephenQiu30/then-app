@@ -4,6 +4,35 @@ import XCTest
 
 final class ThenAppUITests: XCTestCase {
   @MainActor
+  func testAvatarPhotoPOCDeclarationAndTemplateExit() throws {
+    let app = XCUIApplication()
+    app.launchArguments = [
+      "--then-avatar-photo-intake-poc",
+      "-UIPreferredContentSizeCategoryName",
+      "UICTContentSizeCategoryL",
+    ]
+    app.launch()
+
+    let disclosureTitle = app.staticTexts["用一张照片试试数字形象"]
+    XCTAssertTrue(disclosureTitle.waitForExistence(timeout: 8))
+    XCTAssertFalse(app.buttons["avatar.photo.poc.picker"].exists)
+    let continueButton = app.buttons["avatar.photo.poc.continue"]
+    XCTAssertTrue(continueButton.exists)
+    XCTAssertFalse(continueButton.isEnabled)
+
+    app.switches["avatar.photo.poc.declaration"].tap()
+    XCTAssertTrue(continueButton.isEnabled)
+    continueButton.tap()
+    XCTAssertTrue(app.buttons["avatar.photo.poc.picker"].waitForExistence(timeout: 3))
+    XCTAssertFalse(app.buttons["形象"].exists)
+
+    app.buttons["avatar.photo.poc.template"].tap()
+    XCTAssertTrue(app.staticTexts["已改用风格化形象"].waitForExistence(timeout: 3))
+    app.buttons["avatar.photo.poc.restart"].tap()
+    XCTAssertTrue(disclosureTitle.waitForExistence(timeout: 3))
+  }
+
+  @MainActor
   func testAvatarCompatibilityVisualMatrix() throws {
     let app = launchApp()
     let renderer = app.descendants(matching: .any).matching(identifier: "avatar.renderer").firstMatch
