@@ -416,7 +416,7 @@ final class ThenAppUITests: XCTestCase {
     app.buttons["记录实际穿着"].tap()
     let choice = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", String(garment))).firstMatch
     XCTAssertTrue(choice.waitForExistence(timeout: 5)); choice.tap()
-    let scene = app.textFields["场景（可选）"]
+    let scene = app.descendants(matching: .any).matching(identifier: "wear.summary").firstMatch
     scene.tap(); scene.typeText(String(secondScene))
     app.buttons["实际穿了"].tap()
     XCTAssertTrue(app.staticTexts["可能已经记录过这次穿着"].waitForExistence(timeout: 5))
@@ -455,14 +455,36 @@ final class ThenAppUITests: XCTestCase {
     XCTAssertTrue(app.staticTexts[String(scene)].waitForExistence(timeout: 5)); app.staticTexts[String(scene)].tap()
     XCTAssertTrue(app.buttons["换了几件"].waitForExistence(timeout: 5)); app.buttons["换了几件"].tap()
     let laundry = app.switches["\(garment) · 标为待洗"]
-    reveal(laundry, in: app)
-    if laundry.value as? String != "1" {
-      laundry.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)).tap()
-    }
-    XCTAssertEqual(laundry.value as? String, "1")
+    turnOn(laundry, in: app)
     app.buttons["实际穿了"].tap()
     XCTAssertTrue(app.staticTexts["已有实际穿着"].waitForExistence(timeout: 5))
     app.navigationBars["穿搭计划"].buttons["关闭"].tap()
+    app.navigationBars["穿搭簿"].buttons["关闭"].tap()
+
+    app.terminate()
+    app.launch()
+    openOutfits(app)
+    let actual = app.buttons.matching(NSPredicate(
+      format: "label CONTAINS %@ AND label CONTAINS %@", String(scene), "实际穿着")).firstMatch
+    XCTAssertTrue(actual.waitForExistence(timeout: 5)); actual.tap()
+    app.buttons["纠正记录"].tap()
+    let correctedScene = "已纠正\(scene)"
+    let confirmsPast = app.switches["已确认这是过去发生的实际穿着"]
+    turnOn(confirmsPast, in: app)
+    let actualSummary = app.descendants(matching: .any).matching(identifier: "wear.summary").firstMatch
+    for _ in 0..<10 where !actualSummary.isHittable { app.swipeDown() }
+    XCTAssertTrue(actualSummary.isHittable)
+    actualSummary.tap(); actualSummary.typeText("已纠正")
+    app.buttons["实际穿了"].tap()
+    XCTAssertTrue(app.staticTexts[correctedScene].waitForExistence(timeout: 5))
+    let correctedActual = app.buttons.matching(NSPredicate(
+      format: "label CONTAINS %@ AND label CONTAINS %@", correctedScene, "实际穿着")).firstMatch
+    XCTAssertTrue(correctedActual.waitForExistence(timeout: 5)); correctedActual.tap()
+    let deleteActual = app.buttons["删除实际记录"]
+    reveal(deleteActual, in: app); deleteActual.tap()
+    XCTAssertTrue(app.buttons["确认删除记录"].waitForExistence(timeout: 3))
+    app.buttons["确认删除记录"].tap()
+    XCTAssertTrue(app.staticTexts["计划中"].waitForExistence(timeout: 5))
     app.navigationBars["穿搭簿"].buttons["关闭"].tap()
 
     openWardrobe(app)
@@ -470,7 +492,7 @@ final class ThenAppUITests: XCTestCase {
     let row = app.staticTexts[String(garment)]
     XCTAssertTrue(row.waitForExistence(timeout: 5))
     XCTAssertTrue(app.staticTexts["待洗"].waitForExistence(timeout: 5)); row.tap()
-    XCTAssertTrue(app.staticTexts["实际穿着 1 次"].waitForExistence(timeout: 5))
+    XCTAssertTrue(app.staticTexts["实际穿着 0 次"].waitForExistence(timeout: 5))
     reveal(app.buttons["删除衣物"], in: app); app.buttons["删除衣物"].tap()
     XCTAssertTrue(app.buttons["同时删除相关穿搭历史"].waitForExistence(timeout: 5))
     app.buttons["同时删除相关穿搭历史"].tap()
@@ -630,6 +652,15 @@ final class ThenAppUITests: XCTestCase {
   }
 
   @MainActor
+  private func turnOn(_ element: XCUIElement, in app: XCUIApplication) {
+    reveal(element, in: app)
+    for _ in 0..<3 where element.value as? String != "1" {
+      element.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)).tap()
+    }
+    XCTAssertEqual(element.value as? String, "1")
+  }
+
+  @MainActor
   private func select(_ date: Date, in datePicker: XCUIElement) {
     let calendar = Calendar.current
     if !calendar.isDate(date, equalTo: Date(), toGranularity: .month) {
@@ -708,7 +739,7 @@ final class ThenAppUITests: XCTestCase {
     app.buttons["记录实际穿着"].tap()
     let choice = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", garment)).firstMatch
     XCTAssertTrue(choice.waitForExistence(timeout: 5)); choice.tap()
-    let field = app.textFields["场景（可选）"]
+    let field = app.descendants(matching: .any).matching(identifier: "wear.summary").firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 3)); field.tap(); field.typeText(scene)
     app.buttons["实际穿了"].tap()
   }

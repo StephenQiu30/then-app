@@ -79,7 +79,9 @@ struct WearEventView: View {
           Text("整套已记录").tag(WearEventCompleteness.complete)
         }
         Text("默认是部分记录，不会自动补齐未知单品。").font(.footnote)
-        TextField("场景（可选）", text: $model.summary, axis: .vertical).lineLimit(1...4)
+        TextField("场景（可选）", text: $model.summary, axis: .vertical)
+          .lineLimit(1...4)
+          .accessibilityIdentifier("wear.summary")
         Text("原始时区：\(model.timeZone)").font(.footnote)
       }
       if model.isSourcePlanStale {
