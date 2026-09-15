@@ -34,9 +34,11 @@ struct WardrobePhotoRepositoryTests {
     let item = try #require(try await store.list(WardrobeFilter(availability: nil)).first)
     #expect(item.id == id && item.revision == 7 && item.input.name == "v1 synthetic item")
     #expect(item.input.availability == .laundry)
+    #expect(item.input.attributes == .init())
     let sql = try fixture.sql()
     let versions = try await sql.read { db in try String.fetchAll(db, sql: "SELECT identifier FROM grdb_migrations ORDER BY identifier") }
-    #expect(versions == ["ootd_v1_wardrobe", "ootd_v2_wardrobe_photos", "ootd_v3_unattached_photo_imports", "ootd_v4_outfit_plans"])
+    #expect(versions == ["ootd_v1_wardrobe", "ootd_v2_wardrobe_photos", "ootd_v3_unattached_photo_imports",
+      "ootd_v4_outfit_plans", "ootd_wardrobe_attributes_v1"])
     let columns = try await sql.read { db in try db.columns(in: "wardrobe_photos").map(\.type) }
     #expect(!columns.contains("BLOB"))
     try sql.close()
@@ -422,7 +424,10 @@ struct WardrobePhotoRepositoryTests {
       try FileManager.default.createDirectory(at: root, withIntermediateDirectories: false)
     }
     func store() -> GRDBWardrobeRepository { GRDBWardrobeRepository(directory: directory) }
-    func input() throws -> WardrobeInput { try WardrobeInput(name: "synthetic garment", category: .top, availability: .wearable) }
+    func input() throws -> WardrobeInput {
+      try WardrobeInput(name: "synthetic garment", category: .top, availability: .wearable,
+        attributes: .init())
+    }
     func sql() throws -> DatabaseQueue { try DatabaseQueue(path: database.path) }
     func folder(_ id: UUID, staging: Bool = false) -> URL {
       media.appendingPathComponent((staging ? "staging-" : "photo-") + id.uuidString, isDirectory: true)

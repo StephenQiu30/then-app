@@ -85,10 +85,10 @@ struct WardrobePhotoEditingTests {
     try await withModel { model, store, _ in
       for category in [WardrobeCategory.bottom, .outerwear, .top] {
         _ = try await store.create(id: UUID(), input: WardrobeInput(name: category.rawValue,
-          category: category, availability: .wearable), source: .wardrobe)
+          category: category, availability: .wearable, attributes: .init()), source: .wardrobe)
       }
       _ = try await store.create(id: UUID(), input: WardrobeInput(name: "washing shoes",
-        category: .shoes, availability: .laundry), source: .wardrobe)
+        category: .shoes, availability: .laundry, attributes: .init()), source: .wardrobe)
       try await model.load()
       #expect(model.visibleCategories == [.top, .outerwear, .bottom])
       model.availability = nil

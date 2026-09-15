@@ -12,6 +12,52 @@ nonisolated enum WardrobeSource: String, Sendable {
   case wardrobe, quickAdd
 }
 
+nonisolated enum WardrobeFormalityBand: String, CaseIterable, Sendable {
+  case casual, smartCasual, formal
+}
+
+nonisolated enum WardrobeWarmthBand: String, CaseIterable, Sendable {
+  case light, medium, warm
+}
+
+nonisolated enum WardrobeUseSuitability: String, CaseIterable, Sendable {
+  case suitable, unsuitable
+}
+
+nonisolated enum WardrobeAttributeSource: String, Sendable {
+  case userConfirmed
+}
+
+nonisolated enum WardrobeAttributeField: CaseIterable, Sendable {
+  case formalityBand, warmthBand, rainUse, walkingUse
+}
+
+/// Optional facts chosen by the user. A nil value is unknown and has no source.
+nonisolated struct WardrobeAttributes: Equatable, Sendable {
+  var formalityBand: WardrobeFormalityBand?
+  var warmthBand: WardrobeWarmthBand?
+  var rainUse: WardrobeUseSuitability?
+  var walkingUse: WardrobeUseSuitability?
+
+  init(formalityBand: WardrobeFormalityBand? = nil, warmthBand: WardrobeWarmthBand? = nil,
+       rainUse: WardrobeUseSuitability? = nil, walkingUse: WardrobeUseSuitability? = nil) {
+    self.formalityBand = formalityBand
+    self.warmthBand = warmthBand
+    self.rainUse = rainUse
+    self.walkingUse = walkingUse
+  }
+
+  func source(for field: WardrobeAttributeField) -> WardrobeAttributeSource? {
+    let known = switch field {
+    case .formalityBand: formalityBand != nil
+    case .warmthBand: warmthBand != nil
+    case .rainUse: rainUse != nil
+    case .walkingUse: walkingUse != nil
+    }
+    return known ? .userConfirmed : nil
+  }
+}
+
 nonisolated enum WardrobeError: Error, Equatable {
   case invalidName
   case conflict
@@ -27,8 +73,10 @@ nonisolated struct WardrobeInput: Equatable, Sendable {
   let name: String
   let category: WardrobeCategory
   let availability: WardrobeAvailability
+  let attributes: WardrobeAttributes
 
-  init(name: String, category: WardrobeCategory, availability: WardrobeAvailability) throws {
+  init(name: String, category: WardrobeCategory, availability: WardrobeAvailability,
+       attributes: WardrobeAttributes) throws {
     let cleaned = name.trimmingCharacters(in: .whitespacesAndNewlines)
     guard (1...80).contains(cleaned.count),
           !cleaned.unicodeScalars.contains(where: { $0.properties.generalCategory == .control }) else {
@@ -37,6 +85,7 @@ nonisolated struct WardrobeInput: Equatable, Sendable {
     self.name = cleaned
     self.category = category
     self.availability = availability
+    self.attributes = attributes
   }
 }
 

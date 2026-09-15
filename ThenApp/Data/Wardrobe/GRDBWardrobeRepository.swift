@@ -253,6 +253,10 @@ nonisolated struct WardrobeRecord: Codable, FetchableRecord, PersistableRecord {
   let name: String
   let category: String
   let availability: String
+  let formalityBand: String?
+  let warmthBand: String?
+  let rainUse: String?
+  let walkingUse: String?
   let source: String
   let revision: Int
   let createdAt: Double
@@ -263,6 +267,10 @@ nonisolated struct WardrobeRecord: Codable, FetchableRecord, PersistableRecord {
     name = item.input.name
     category = item.input.category.rawValue
     availability = item.input.availability.rawValue
+    formalityBand = item.input.attributes.formalityBand?.rawValue
+    warmthBand = item.input.attributes.warmthBand?.rawValue
+    rainUse = item.input.attributes.rainUse?.rawValue
+    walkingUse = item.input.attributes.walkingUse?.rawValue
     source = item.source.rawValue
     revision = item.revision
     createdAt = item.createdAt.timeIntervalSince1970
@@ -274,7 +282,16 @@ nonisolated struct WardrobeRecord: Codable, FetchableRecord, PersistableRecord {
           let availability = WardrobeAvailability(rawValue: availability),
           let source = WardrobeSource(rawValue: source), revision > 0,
           createdAt.isFinite, updatedAt.isFinite, updatedAt >= createdAt,
-          let input = try? WardrobeInput(name: name, category: category, availability: availability),
+          formalityBand == nil || WardrobeFormalityBand(rawValue: formalityBand ?? "") != nil,
+          warmthBand == nil || WardrobeWarmthBand(rawValue: warmthBand ?? "") != nil,
+          rainUse == nil || WardrobeUseSuitability(rawValue: rainUse ?? "") != nil,
+          walkingUse == nil || WardrobeUseSuitability(rawValue: walkingUse ?? "") != nil,
+          let input = try? WardrobeInput(name: name, category: category, availability: availability,
+            attributes: WardrobeAttributes(
+              formalityBand: formalityBand.flatMap(WardrobeFormalityBand.init(rawValue:)),
+              warmthBand: warmthBand.flatMap(WardrobeWarmthBand.init(rawValue:)),
+              rainUse: rainUse.flatMap(WardrobeUseSuitability.init(rawValue:)),
+              walkingUse: walkingUse.flatMap(WardrobeUseSuitability.init(rawValue:)))),
           input.name == name else { throw WardrobeError.invalidStoredData }
     return WardrobeItem(id: id, input: input, source: source, revision: revision,
                         createdAt: Date(timeIntervalSince1970: createdAt),

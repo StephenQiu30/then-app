@@ -203,6 +203,114 @@ final class ThenAppUITests: XCTestCase {
   }
 
   @MainActor
+  func testWardrobeAttributesSaveCancelClearRestartAndHistoricalSnapshot() throws {
+    let suffix = UUID().uuidString.prefix(6)
+    let garment = "属性外套" + suffix
+    let scene = "属性快照" + suffix
+    let app = launchApp()
+    openWardrobe(app)
+    app.buttons["添加衣物"].tap()
+    let field = app.textFields["wardrobe.name"]
+    XCTAssertTrue(field.waitForExistence(timeout: 3))
+    field.tap()
+    field.typeText(String(garment))
+    app.buttons["wardrobe.category"].tap()
+    app.buttons["外套"].tap()
+    selectPicker("wardrobe.attribute.formality", option: "正式", in: app)
+    selectPicker("wardrobe.attribute.warmth", option: "偏暖", in: app)
+    selectPicker("wardrobe.attribute.rain", option: "适合", in: app)
+    selectPicker("wardrobe.attribute.walking", option: "不适合", in: app)
+    XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "wardrobe.attribute.source")
+      .firstMatch.waitForExistence(timeout: 3))
+    reveal(app.buttons["保存"], in: app)
+    app.buttons["保存"].tap()
+    XCTAssertTrue(app.staticTexts[String(garment)].waitForExistence(timeout: 5))
+    app.buttons["关闭"].tap()
+
+    openOutfits(app)
+    app.buttons["新建计划"].tap()
+    let choice = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", String(garment))).firstMatch
+    XCTAssertTrue(choice.waitForExistence(timeout: 5))
+    choice.tap()
+    let summary = app.textFields["outfit.summary"]
+    summary.tap()
+    summary.typeText(String(scene))
+    app.buttons["保存"].tap()
+    XCTAssertTrue(app.staticTexts[String(scene)].waitForExistence(timeout: 5))
+    app.staticTexts[String(scene)].tap()
+    XCTAssertTrue(app.staticTexts["保存时由你确认"].waitForExistence(timeout: 5))
+    XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "雨天：适合")).firstMatch.exists)
+    app.navigationBars["穿搭计划"].buttons["关闭"].tap()
+    app.navigationBars["穿搭簿"].buttons["关闭"].tap()
+
+    openWardrobe(app)
+    app.staticTexts[String(garment)].tap()
+    XCTAssertTrue(app.buttons["wardrobe.attribute.rain"].label.contains("适合"))
+    selectPicker("wardrobe.attribute.rain", option: "未知", in: app)
+    app.buttons["取消"].tap()
+    app.staticTexts[String(garment)].tap()
+    XCTAssertTrue(app.buttons["wardrobe.attribute.rain"].label.contains("适合"))
+    selectPicker("wardrobe.attribute.rain", option: "未知", in: app)
+    reveal(app.buttons["保存"], in: app)
+    app.buttons["保存"].tap()
+
+    app.terminate()
+    app.launch()
+    XCTAssertTrue(app.buttons["形象"].waitForExistence(timeout: 8))
+    openWardrobe(app)
+    app.staticTexts[String(garment)].tap()
+    XCTAssertTrue(app.buttons["wardrobe.attribute.formality"].label.contains("正式"))
+    XCTAssertTrue(app.buttons["wardrobe.attribute.warmth"].label.contains("偏暖"))
+    XCTAssertTrue(app.buttons["wardrobe.attribute.rain"].label.contains("未知"))
+    XCTAssertTrue(app.buttons["wardrobe.attribute.walking"].label.contains("不适合"))
+    app.buttons["取消"].tap()
+    app.navigationBars["衣橱"].buttons["关闭"].tap()
+
+    openOutfits(app)
+    app.staticTexts[String(scene)].tap()
+    XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "雨天：适合")).firstMatch.exists)
+    app.buttons["删除计划"].tap()
+    app.buttons["确认删除计划"].tap()
+    XCTAssertTrue(app.staticTexts[String(scene)].waitForNonExistence(timeout: 5))
+    let closeOutfits = app.navigationBars["穿搭簿"].buttons["关闭"]
+    XCTAssertTrue(closeOutfits.waitForExistence(timeout: 5))
+    tapWhenHittable(closeOutfits)
+    openWardrobe(app)
+    app.staticTexts[String(garment)].tap()
+    reveal(app.buttons["删除衣物"], in: app)
+    app.buttons["删除衣物"].tap()
+    app.buttons["确认删除"].tap()
+  }
+
+  @MainActor
+  func testWardrobeAttributesInAccessibilityEnvironment() throws {
+    let app = XCUIApplication()
+    app.launchArguments = [
+      "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL",
+      "-UIAccessibilityReduceMotionEnabled", "YES",
+    ]
+    app.launch()
+    XCTAssertTrue(app.buttons["形象"].waitForExistence(timeout: 8))
+    openWardrobe(app)
+    app.buttons["添加衣物"].tap()
+    let formality = app.buttons["wardrobe.attribute.formality"]
+    for _ in 0..<8 where !formality.exists {
+      app.swipeUp()
+    }
+    XCTAssertTrue(formality.waitForExistence(timeout: 3))
+    XCTAssertTrue(formality.label.contains("未知"))
+    let walking = app.buttons["wardrobe.attribute.walking"]
+    for _ in 0..<8 where !walking.exists {
+      app.swipeUp()
+    }
+    XCTAssertTrue(walking.waitForExistence(timeout: 3))
+    reveal(walking, in: app)
+    XCTAssertTrue(walking.label.contains("未知"))
+    try app.performAccessibilityAudit(for: [.textClipped])
+    app.buttons["取消"].tap()
+  }
+
+  @MainActor
   func testWardrobePhotoCreateRestartRemoveAndDelete() throws {
     try XCTSkipUnless(ProcessInfo.processInfo.environment["THEN_WARDROBE_PHOTO_FIXTURE"] == "1",
       "Requires one current synthetic garment image in the booted simulator photo library")
@@ -501,6 +609,28 @@ final class ThenAppUITests: XCTestCase {
     app.buttons["wardrobe.category"].tap()
     app.buttons["上装"].tap()
     app.buttons["保存"].tap()
+  }
+
+  @MainActor
+  private func selectPicker(_ identifier: String, option: String, in app: XCUIApplication) {
+    let picker = app.buttons[identifier]
+    XCTAssertTrue(picker.waitForExistence(timeout: 3))
+    reveal(picker, in: app)
+    picker.tap()
+    let value = app.buttons[option]
+    XCTAssertTrue(value.waitForExistence(timeout: 3))
+    value.tap()
+    XCTAssertTrue(picker.label.contains(option))
+  }
+
+  @MainActor
+  private func tapWhenHittable(_ element: XCUIElement, timeout: TimeInterval = 5) {
+    let expectation = XCTNSPredicateExpectation(
+      predicate: NSPredicate(format: "isHittable == true"),
+      object: element
+    )
+    XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: timeout), .completed)
+    element.tap()
   }
 
   @MainActor

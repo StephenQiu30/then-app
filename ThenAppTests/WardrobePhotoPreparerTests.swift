@@ -208,7 +208,8 @@ struct WardrobePhotoPreparerTests {
     let prepared = try await Preparer(limits: limits()).prepare(fixture(), format: .png)
     let store = GRDBWardrobeRepository(directory: directory)
     let itemID = UUID()
-    _ = try await store.create(id: itemID, input: WardrobeInput(name: "合成衣物", category: .top, availability: .wearable), source: .wardrobe)
+    _ = try await store.create(id: itemID, input: WardrobeInput(name: "合成衣物", category: .top,
+      availability: .wearable, attributes: .init()), source: .wardrobe)
     // Explicit test approval of this original geometric fixture; not a production classifier.
     let photo = try WardrobePhotoWrite(id: UUID(), thumbnailID: UUID(), normalized: prepared.normalized,
                                       thumbnail: prepared.thumbnail, quality: .catalogReady)

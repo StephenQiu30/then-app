@@ -132,7 +132,8 @@ final class WardrobeViewModel {
           draft.photoIssue = .shoeCategoryRequired
           return
         }
-        let input = try WardrobeInput(name: draft.name, category: category, availability: draft.availability)
+        let input = try WardrobeInput(name: draft.name, category: category,
+          availability: draft.availability, attributes: draft.attributes)
         let saved: WardrobeItem
         if let selectionID = draft.photoReview.selectionID, draft.photoReview.phase == .confirmed {
           let result = try await repository.saveItemWithPhoto(
@@ -212,6 +213,7 @@ final class WardrobeViewModel {
     draft.photoMutation += 1
     draft.name = ""
     draft.category = nil
+    draft.attributes = .init()
   }
 }
 
@@ -273,6 +275,7 @@ final class WardrobeEditorModel: Identifiable {
   var name: String
   var category: WardrobeCategory?
   var availability: WardrobeAvailability
+  var attributes: WardrobeAttributes
   var error: WardrobeError?
   var needsCategory = false
   var isWorking = false
@@ -287,6 +290,7 @@ final class WardrobeEditorModel: Identifiable {
     revision = nil
     name = ""
     availability = .wearable
+    attributes = .init()
   }
 
   init(item: WardrobeItem) {
@@ -296,6 +300,7 @@ final class WardrobeEditorModel: Identifiable {
     name = item.input.name
     category = item.input.category
     availability = item.input.availability
+    attributes = item.input.attributes
   }
 
   func submit(_ action: Action) {
