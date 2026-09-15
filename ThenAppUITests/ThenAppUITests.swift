@@ -287,6 +287,30 @@ final class ThenAppUITests: XCTestCase {
   }
 
   @MainActor
+  func testInterruptedAvatarDragRestoresRenderer() throws {
+    try XCTSkipUnless(
+      ProcessInfo.processInfo.environment["THEN_INTERRUPT_AVATAR_DRAG"] == "1",
+      "Requires the host to foreground another simulator app during the five-second drag"
+    )
+    let app = launchApp()
+    let renderer = app.descendants(matching: .any).matching(identifier: "avatar.renderer").firstMatch
+    waitForRenderer(app, renderer: renderer)
+
+    let dragStart = renderer.coordinate(withNormalizedOffset: CGVector(dx: 0.35, dy: 0.45))
+    let dragEnd = renderer.coordinate(withNormalizedOffset: CGVector(dx: 0.65, dy: 0.45))
+    dragStart.press(
+      forDuration: 0.1,
+      thenDragTo: dragEnd,
+      withVelocity: .slow,
+      thenHoldForDuration: 5
+    )
+
+    app.activate()
+    XCTAssertTrue(app.buttons["形象"].waitForExistence(timeout: 8))
+    waitForRenderer(app, renderer: renderer)
+  }
+
+  @MainActor
   func testWooStudioAtLargestAccessibilityText() throws {
     let app = XCUIApplication()
     app.launchArguments = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
