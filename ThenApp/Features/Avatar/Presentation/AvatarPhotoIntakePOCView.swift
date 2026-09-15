@@ -27,6 +27,16 @@ struct AvatarPhotoIntakePOCView: View {
         }
       }
       .navigationBarHidden(true)
+      .accessibilityHidden(scenePhase != .active)
+      .overlay {
+        if scenePhase != .active {
+          ZStack {
+            Color(.systemBackground).ignoresSafeArea()
+            Label("照片预览已隐藏", systemImage: "lock.shield")
+          }
+          .accessibilityElement(children: .combine)
+        }
+      }
     }
     .onChange(of: selection) { _, item in
       guard let item else { return }
@@ -164,6 +174,7 @@ struct AvatarPhotoIntakePOCView: View {
       Text("净化预览已准备")
         .font(.largeTitle.bold())
         .fixedSize(horizontal: false, vertical: true)
+        .accessibilityAddTraits(.isHeader)
         .accessibilityIdentifier("avatar.photo.poc.review")
       SanitizedAvatarPhotoPreview(
         photo: photo,
@@ -228,9 +239,10 @@ struct AvatarPhotoIntakePOCView: View {
       Text(title)
         .font(.largeTitle.bold())
         .fixedSize(horizontal: false, vertical: true)
+        .accessibilityAddTraits(.isHeader)
       Text(subtitle)
         .font(.body)
-        .foregroundStyle(.secondary)
+        .foregroundStyle(.primary)
         .fixedSize(horizontal: false, vertical: true)
     }
   }
@@ -322,7 +334,7 @@ private struct PrimaryPOCButtonStyle: ButtonStyle {
   func makeBody(configuration: Configuration) -> some View {
     configuration.label
       .font(.headline)
-      .foregroundStyle(isEnabled ? Color(.systemBackground) : Color.secondary)
+      .foregroundStyle(isEnabled ? Color(.systemBackground) : Color.primary)
       .padding(.horizontal, 20)
       .frame(maxWidth: .infinity, minHeight: 52)
       .background(
