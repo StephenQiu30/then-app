@@ -33,6 +33,10 @@ nonisolated protocol AvatarPhotoAnalyzing: Sendable {
   func analyze(_ photo: SanitizedAvatarPhotoHandle) async throws -> AvatarPhotoTechnicalSignals
 }
 
+nonisolated protocol AvatarPhotoSessionCleaning: Sendable {
+  func removeSession(_ sessionID: UUID) async throws
+}
+
 nonisolated struct SanitizedAvatarPhotoHandle: Sendable, Equatable {
   nonisolated enum ValidationError: Error {
     case invalidDimensions
@@ -116,4 +120,10 @@ nonisolated struct AvatarPhotoQualityAssessment: Sendable, Equatable {
     default: .replacePhotoOrUseTemplate
     }
   }
+}
+
+nonisolated enum AvatarPhotoPreparationResult: Sendable, Equatable {
+  case review(SanitizedAvatarPhotoHandle, AvatarPhotoQualityAssessment)
+  case replacement(AvatarPhotoQualityAssessment)
+  case unsupported(AvatarPhotoQualityAssessment)
 }

@@ -56,6 +56,8 @@
 		A1712B5FC90441409F1071D2 /* ThenApp/Services/Photos/WardrobePhotoPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFF9F7B294F46FBAB7EC309 /* ThenApp/Services/Photos/WardrobePhotoPickerButton.swift */; };
 		AA1100000000000000000001 /* VisionAvatarPhotoAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1100000000000000000001 /* VisionAvatarPhotoAnalyzer.swift */; };
 		AA1100000000000000000002 /* VisionAvatarPhotoAnalyzerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1100000000000000000002 /* VisionAvatarPhotoAnalyzerTests.swift */; };
+		AA1200000000000000000001 /* PrepareAvatarPhotoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1200000000000000000001 /* PrepareAvatarPhotoUseCase.swift */; };
+		AA1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift */; };
 		A7AB3802B7904279B47C6324 /* ThenAppTests/OutfitPlanViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175B1E7F16840708C7E4369 /* ThenAppTests/OutfitPlanViewModelTests.swift */; };
 		A8C2FA90C7F24FAD9E01754F /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F3E6FDE2403DA058EBA5 /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift */; };
 		ACC848F03B0E491FBA2ED0BE /* ThenApp/Services/Imaging/WardrobePhotoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D595263680534FFF9BF5586A /* ThenApp/Services/Imaging/WardrobePhotoImage.swift */; };
@@ -134,6 +136,8 @@
 		A7C1C4099358424682BD73B3 /* WardrobeContentProbe */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WardrobeContentProbe; sourceTree = "<group>"; };
 		AB1100000000000000000001 /* VisionAvatarPhotoAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionAvatarPhotoAnalyzer.swift; sourceTree = "<group>"; };
 		AB1100000000000000000002 /* VisionAvatarPhotoAnalyzerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionAvatarPhotoAnalyzerTests.swift; sourceTree = "<group>"; };
+		AB1200000000000000000001 /* PrepareAvatarPhotoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareAvatarPhotoUseCase.swift; sourceTree = "<group>"; };
+		AB1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareAvatarPhotoUseCaseTests.swift; sourceTree = "<group>"; };
 		AEC2F7D914084001B30A7877 /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift; sourceTree = SOURCE_ROOT; };
 		B028927DBEB230FEA1D1E4F5 /* OOTDSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDSchema.swift; sourceTree = "<group>"; };
 		B10000000000000000000001 /* AvatarStudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarStudioView.swift; sourceTree = "<group>"; };
@@ -296,6 +300,7 @@
 				5AF3005C0C309C6B72821ADB /* AvatarPhotoTemporarySessionStoreTests.swift */,
 				E387F631F40B95CD8C937D6C /* AvatarPhotoQualityPolicyTests.swift */,
 				AB1100000000000000000002 /* VisionAvatarPhotoAnalyzerTests.swift */,
+				AB1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift */,
 			);
 			path = ThenAppTests;
 			sourceTree = "<group>";
@@ -345,6 +350,14 @@
 				B10000000000000000000001 /* AvatarStudioView.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		AC1200000000000000000001 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				AB1200000000000000000001 /* PrepareAvatarPhotoUseCase.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		C10000000000000000000002 /* Rendering */ = {
@@ -415,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				C10000000000000000000001 /* Presentation */,
+				AC1200000000000000000001 /* Application */,
 				7F250193CD55062194A788AA /* Domain */,
 			);
 			path = Avatar;
@@ -542,6 +556,7 @@
 		2126A56871C30A01FAE91766 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				AA1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift in Sources */,
 				AA1100000000000000000002 /* VisionAvatarPhotoAnalyzerTests.swift in Sources */,
 				A10000000000000000000004 /* AvatarStudioModelTests.swift in Sources */,
 				A30000000000000000000001 /* AvatarAssetCatalogTests.swift in Sources */,
@@ -578,6 +593,7 @@
 		84747EE744FA1A9D63792F15 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				AA1200000000000000000001 /* PrepareAvatarPhotoUseCase.swift in Sources */,
 				AA1100000000000000000001 /* VisionAvatarPhotoAnalyzer.swift in Sources */,
 				A10000000000000000000001 /* AvatarStudioView.swift in Sources */,
 				A10000000000000000000002 /* ThreeAvatarView.swift in Sources */,
