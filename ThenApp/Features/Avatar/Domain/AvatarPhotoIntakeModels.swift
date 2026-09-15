@@ -127,3 +127,9 @@ nonisolated enum AvatarPhotoPreparationResult: Sendable, Equatable {
   case replacement(AvatarPhotoQualityAssessment)
   case unsupported(AvatarPhotoQualityAssessment)
 }
+
+nonisolated enum AvatarPhotoPreparationStage: Sendable {
+  case importing
+  case sanitizing
+  case analyzing
+}
