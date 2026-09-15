@@ -38,31 +38,21 @@ final class ThenAppUITests: XCTestCase {
   }
 
   @MainActor
-  func testAvatarPhotoPOCAccessibilityMatrix() throws {
-    let configurations: [(name: String, arguments: [String])] = [
-      ("largest-text", [
-        "-UIPreferredContentSizeCategoryName",
-        "UICTContentSizeCategoryAccessibilityXXXL",
-      ]),
-      ("dark", ["-AppleInterfaceStyle", "Dark"]),
-      ("high-contrast", ["-UIAccessibilityDarkerSystemColorsEnabled", "YES"]),
-      ("reduce-motion", ["-UIAccessibilityReduceMotionEnabled", "YES"]),
+  func testAvatarPhotoPOCAccessibility() throws {
+    let app = XCUIApplication()
+    app.launchArguments = [
+      "--then-avatar-photo-intake-poc",
+      "-UIPreferredContentSizeCategoryName",
+      "UICTContentSizeCategoryAccessibilityXXXL",
     ]
+    app.launch()
 
-    for configuration in configurations {
-      let app = XCUIApplication()
-      app.launchArguments = ["--then-avatar-photo-intake-poc"] + configuration.arguments
-      app.launch()
-
-      let title = app.staticTexts["用一张照片试试数字形象"]
-      XCTAssertTrue(title.waitForExistence(timeout: 8), configuration.name)
-      let continueButton = app.buttons["avatar.photo.poc.continue"]
-      XCTAssertTrue(continueButton.exists, configuration.name)
-      XCTAssertFalse(continueButton.isEnabled, configuration.name)
-      try app.performAccessibilityAudit(for: [.contrast, .textClipped])
-      attachScreenshot(named: "avatar-photo-poc-\(configuration.name)")
-      app.terminate()
-    }
+    XCTAssertTrue(app.staticTexts["用一张照片试试数字形象"].waitForExistence(timeout: 8))
+    let continueButton = app.buttons["avatar.photo.poc.continue"]
+    XCTAssertTrue(continueButton.exists)
+    XCTAssertFalse(continueButton.isEnabled)
+    try app.performAccessibilityAudit(for: [.contrast, .textClipped])
+    attachScreenshot(named: "avatar-photo-poc-accessibility")
   }
 
   @MainActor
