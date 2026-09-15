@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F31301000000000000000001 /* RecommendationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31302000000000000000001 /* RecommendationModels.swift */; };
+		F31301000000000000000002 /* RecommendationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31302000000000000000002 /* RecommendationViewModel.swift */; };
+		F31301000000000000000003 /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31302000000000000000003 /* RecommendationView.swift */; };
+		F31301000000000000000004 /* RecommendationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31302000000000000000004 /* RecommendationTests.swift */; };
 		02FE08D6CC60C654A749267A /* WardrobeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EDF81C8D6699B5F851889F /* WardrobeModels.swift */; };
 		04C33BBB18064E6827CAF05D /* OOTDSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B028927DBEB230FEA1D1E4F5 /* OOTDSchema.swift */; };
 		065ED7D18FA3335B2F6BE91E /* SystemAvatarPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515765F19E4294DC3D285484 /* SystemAvatarPhotoPicker.swift */; };
@@ -110,6 +114,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F31302000000000000000001 /* RecommendationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationModels.swift; sourceTree = "<group>"; };
+		F31302000000000000000002 /* RecommendationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationViewModel.swift; sourceTree = "<group>"; };
+		F31302000000000000000003 /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
+		F31302000000000000000004 /* RecommendationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/RecommendationTests.swift; sourceTree = SOURCE_ROOT; };
 		0175B1E7F16840708C7E4369 /* ThenAppTests/OutfitPlanViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/OutfitPlanViewModelTests.swift; sourceTree = SOURCE_ROOT; };
 		058CA31D516F4C66921F7188 /* ThenApp/Services/Photos/WardrobePhotoFileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Services/Photos/WardrobePhotoFileImporter.swift; sourceTree = SOURCE_ROOT; };
 		0EB89371DC7F4799BCB88ECE /* ThenAppTests/WardrobePhotoReviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobePhotoReviewTests.swift; sourceTree = SOURCE_ROOT; };
@@ -230,6 +238,7 @@
 		311139C11C8BE2C7130C3A43 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				F31303000000000000000001 /* Recommendations */,
 				EC7A95F2ED8A48F591E0D8D4 /* Outfits */,
 				57D8B837036E3A12E601E568 /* Wardrobe */,
 				F470B0AF7133A3D8E4BBAB9D /* Avatar */,
@@ -305,6 +314,7 @@
 		71BACB85C2DE6BE426FF19A1 /* ThenAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				F31302000000000000000004 /* RecommendationTests.swift */,
 				AEC2F7D914084001B30A7886 /* ThenAppTests/OutfitFeedbackRepositoryTests.swift */,
 				AEC2F7D914084001B30A7880 /* ThenAppTests/WearEventRepositoryTests.swift */,
 				AEC2F7D914084001B30A7883 /* ThenAppTests/WearEventViewModelTests.swift */,
@@ -487,6 +497,32 @@
 			path = Avatar;
 			sourceTree = "<group>";
 		};
+		F31303000000000000000001 /* Recommendations */ = {
+			isa = PBXGroup;
+			children = (
+				F31303000000000000000002 /* Domain */,
+				F31303000000000000000003 /* Presentation */,
+			);
+			path = Recommendations;
+			sourceTree = "<group>";
+		};
+		F31303000000000000000002 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				F31302000000000000000001 /* RecommendationModels.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		F31303000000000000000003 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				F31302000000000000000002 /* RecommendationViewModel.swift */,
+				F31302000000000000000003 /* RecommendationView.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -609,6 +645,7 @@
 		2126A56871C30A01FAE91766 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				F31301000000000000000004 /* RecommendationTests.swift in Sources */,
 				F2BAD1D905014955AF3AFA24 /* ThenAppTests/OutfitFeedbackRepositoryTests.swift in Sources */,
 				F2BAD1D905014955AF3AFA1E /* ThenAppTests/WearEventRepositoryTests.swift in Sources */,
 				F2BAD1D905014955AF3AFA21 /* ThenAppTests/WearEventViewModelTests.swift in Sources */,
@@ -651,6 +688,9 @@
 		84747EE744FA1A9D63792F15 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				F31301000000000000000001 /* RecommendationModels.swift in Sources */,
+				F31301000000000000000002 /* RecommendationViewModel.swift in Sources */,
+				F31301000000000000000003 /* RecommendationView.swift in Sources */,
 				AA1400000000000000000001 /* AvatarPhotoIntakePOCHost.swift in Sources */,
 				AA1400000000000000000002 /* AvatarPhotoIntakePOCView.swift in Sources */,
 				AA1400000000000000000003 /* AvatarPhotoPreviewLoader.swift in Sources */,

@@ -182,6 +182,39 @@ final class ThenAppUITests: XCTestCase {
   }
 
   @MainActor
+  func testLocalRecommendationNoSolutionAndCandidates() throws {
+    let suffix = UUID().uuidString.prefix(6)
+    let top = "推荐上装" + suffix
+    let bottom = "推荐下装" + suffix
+    let shoes = "推荐鞋履" + suffix
+    let app = launchApp()
+
+    XCTAssertTrue(app.buttons["获取穿搭建议"].waitForExistence(timeout: 8))
+    app.buttons["获取穿搭建议"].tap()
+    XCTAssertTrue(app.buttons["recommendation.generate"].waitForExistence(timeout: 5))
+    app.buttons["recommendation.generate"].tap()
+    XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "recommendation.no-solution")
+      .firstMatch.waitForExistence(timeout: 5))
+    app.navigationBars["穿搭建议"].buttons["关闭"].tap()
+
+    openWardrobe(app)
+    addGarment(app, name: String(top), category: "上装")
+    addGarment(app, name: String(bottom), category: "下装")
+    addGarment(app, name: String(shoes), category: "鞋")
+    app.navigationBars["衣橱"].buttons["关闭"].tap()
+
+    app.buttons["获取穿搭建议"].tap()
+    app.buttons["recommendation.generate"].tap()
+    let candidate = app.descendants(matching: .any).matching(identifier: "recommendation.candidate.1").firstMatch
+    XCTAssertTrue(candidate.waitForExistence(timeout: 5))
+    XCTAssertTrue(app.staticTexts[String(top)].exists)
+    XCTAssertTrue(app.staticTexts[String(bottom)].exists)
+    XCTAssertTrue(app.staticTexts[String(shoes)].exists)
+    try app.performAccessibilityAudit(for: [.contrast, .textClipped])
+    attachScreenshot(named: "local-recommendation-candidate")
+  }
+
+  @MainActor
   func testPersonalWardrobeCreateRestartAndDelete() throws {
     let name = "验收上装" + UUID().uuidString.prefix(6)
     let app = launchApp()
@@ -779,13 +812,18 @@ final class ThenAppUITests: XCTestCase {
 
   @MainActor
   private func addGarment(_ app: XCUIApplication, name: String) {
+    addGarment(app, name: name, category: "上装")
+  }
+
+  @MainActor
+  private func addGarment(_ app: XCUIApplication, name: String, category: String) {
     app.buttons["添加衣物"].tap()
     let field = app.textFields["wardrobe.name"]
     XCTAssertTrue(field.waitForExistence(timeout: 3))
     field.tap()
     field.typeText(name)
     app.buttons["wardrobe.category"].tap()
-    app.buttons["上装"].tap()
+    app.buttons[category].tap()
     app.buttons["保存"].tap()
   }
 
