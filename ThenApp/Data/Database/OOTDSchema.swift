@@ -149,6 +149,162 @@ nonisolated enum OOTDSchema {
         BEGIN SELECT RAISE(ABORT, 'redacted attributes must be null'); END;
         """)
     }
+    migrator.registerMigration("ootd_wear_events_v1") { db in
+      // Rebuild the plan parent and its children together so the status constraint can grow
+      // without leaving foreign keys pointed at a renamed table.
+      try db.execute(sql: """
+        CREATE TABLE outfit_plans_new (
+          id TEXT PRIMARY KEY NOT NULL,
+          localDate TEXT, timeZone TEXT, contextSummary TEXT, sourceKind TEXT,
+          status TEXT NOT NULL CHECK (status IN ('active','completed','notWorn','cancelled','deleted')),
+          revision INTEGER, createdAt REAL, updatedAt REAL,
+          CHECK ((status = 'deleted' AND localDate IS NULL AND timeZone IS NULL AND contextSummary IS NULL
+            AND sourceKind IS NULL AND revision IS NULL AND createdAt IS NULL AND updatedAt IS NULL)
+          OR (status != 'deleted' AND localDate IS NOT NULL AND length(localDate) = 10 AND timeZone IS NOT NULL
+            AND sourceKind = 'manual' AND revision IS NOT NULL AND revision >= 1
+            AND createdAt IS NOT NULL AND updatedAt IS NOT NULL AND updatedAt >= createdAt))
+        );
+        INSERT INTO outfit_plans_new SELECT * FROM outfit_plans;
+
+        CREATE TABLE outfit_plan_items_new (
+          planID TEXT NOT NULL REFERENCES outfit_plans_new(id) ON DELETE CASCADE,
+          ordinal INTEGER NOT NULL CHECK (ordinal >= 0 AND ordinal < 20),
+          wardrobeItemID TEXT REFERENCES wardrobe_items(id) ON DELETE RESTRICT,
+          itemRevision INTEGER, name TEXT, category TEXT, availability TEXT,
+          photoAssetID TEXT REFERENCES wardrobe_photos(id) ON DELETE SET NULL,
+          redacted INTEGER NOT NULL CHECK (redacted IN (0,1)),
+          formalityBand TEXT CHECK (formalityBand IN ('casual','smartCasual','formal')),
+          warmthBand TEXT CHECK (warmthBand IN ('light','medium','warm')),
+          rainUse TEXT CHECK (rainUse IN ('suitable','unsuitable')),
+          walkingUse TEXT CHECK (walkingUse IN ('suitable','unsuitable')),
+          PRIMARY KEY (planID, ordinal),
+          CHECK ((redacted = 1 AND wardrobeItemID IS NULL AND itemRevision IS NULL AND name IS NULL
+            AND category IS NULL AND availability IS NULL AND photoAssetID IS NULL
+            AND formalityBand IS NULL AND warmthBand IS NULL AND rainUse IS NULL AND walkingUse IS NULL)
+          OR (redacted = 0 AND wardrobeItemID IS NOT NULL AND itemRevision IS NOT NULL AND itemRevision >= 1
+            AND name IS NOT NULL AND length(name) >= 1 AND category IN ('top','bottom','onePiece','outerwear','shoes','bag','accessory')
+            AND availability IN ('wearable','laundry','lentOut','packed')))
+        );
+        INSERT INTO outfit_plan_items_new SELECT * FROM outfit_plan_items;
+
+        CREATE TABLE outfit_plan_mutations_new (
+          id TEXT PRIMARY KEY NOT NULL,
+          planID TEXT NOT NULL REFERENCES outfit_plans_new(id) ON DELETE RESTRICT,
+          operation TEXT NOT NULL CHECK (operation IN ('save','cancel','markNotWorn','restoreActive','delete')),
+          fingerprint TEXT CHECK (fingerprint IS NULL OR length(fingerprint) = 64)
+        );
+        INSERT INTO outfit_plan_mutations_new SELECT * FROM outfit_plan_mutations;
+
+        DROP TABLE outfit_plan_items;
+        DROP TABLE outfit_plan_mutations;
+        DROP TABLE outfit_plans;
+        ALTER TABLE outfit_plans_new RENAME TO outfit_plans;
+
+        CREATE TABLE outfit_plan_items (
+          planID TEXT NOT NULL REFERENCES outfit_plans(id) ON DELETE CASCADE,
+          ordinal INTEGER NOT NULL CHECK (ordinal >= 0 AND ordinal < 20),
+          wardrobeItemID TEXT REFERENCES wardrobe_items(id) ON DELETE RESTRICT,
+          itemRevision INTEGER, name TEXT, category TEXT, availability TEXT,
+          photoAssetID TEXT REFERENCES wardrobe_photos(id) ON DELETE SET NULL,
+          redacted INTEGER NOT NULL CHECK (redacted IN (0,1)),
+          formalityBand TEXT CHECK (formalityBand IN ('casual','smartCasual','formal')),
+          warmthBand TEXT CHECK (warmthBand IN ('light','medium','warm')),
+          rainUse TEXT CHECK (rainUse IN ('suitable','unsuitable')),
+          walkingUse TEXT CHECK (walkingUse IN ('suitable','unsuitable')),
+          PRIMARY KEY (planID, ordinal),
+          CHECK ((redacted = 1 AND wardrobeItemID IS NULL AND itemRevision IS NULL AND name IS NULL
+            AND category IS NULL AND availability IS NULL AND photoAssetID IS NULL
+            AND formalityBand IS NULL AND warmthBand IS NULL AND rainUse IS NULL AND walkingUse IS NULL)
+          OR (redacted = 0 AND wardrobeItemID IS NOT NULL AND itemRevision IS NOT NULL AND itemRevision >= 1
+            AND name IS NOT NULL AND length(name) >= 1 AND category IN ('top','bottom','onePiece','outerwear','shoes','bag','accessory')
+            AND availability IN ('wearable','laundry','lentOut','packed')))
+        );
+        INSERT INTO outfit_plan_items SELECT * FROM outfit_plan_items_new;
+
+        CREATE TABLE outfit_plan_mutations (
+          id TEXT PRIMARY KEY NOT NULL,
+          planID TEXT NOT NULL REFERENCES outfit_plans(id) ON DELETE RESTRICT,
+          operation TEXT NOT NULL CHECK (operation IN ('save','cancel','markNotWorn','restoreActive','delete')),
+          fingerprint TEXT CHECK (fingerprint IS NULL OR length(fingerprint) = 64)
+        );
+        INSERT INTO outfit_plan_mutations SELECT * FROM outfit_plan_mutations_new;
+        DROP TABLE outfit_plan_items_new;
+        DROP TABLE outfit_plan_mutations_new;
+        CREATE INDEX outfit_plan_date_order ON outfit_plans(localDate DESC, createdAt DESC, id ASC) WHERE status != 'deleted';
+        CREATE UNIQUE INDEX outfit_plan_unique_item ON outfit_plan_items(planID, wardrobeItemID) WHERE wardrobeItemID IS NOT NULL;
+        CREATE INDEX outfit_plan_wardrobe_references ON outfit_plan_items(wardrobeItemID);
+        CREATE INDEX outfit_plan_mutation_owner ON outfit_plan_mutations(planID);
+
+        CREATE TABLE wear_events (
+          id TEXT PRIMARY KEY NOT NULL,
+          sourcePlanID TEXT REFERENCES outfit_plans(id) ON DELETE SET NULL,
+          sourcePlanRevision INTEGER,
+          sourceKind TEXT,
+          localDate TEXT,
+          timeZone TEXT,
+          completeness TEXT,
+          contextSummary TEXT,
+          status TEXT NOT NULL CHECK (status IN ('live','deleted')),
+          revision INTEGER,
+          createdAt REAL,
+          updatedAt REAL,
+          CHECK ((status = 'deleted' AND sourcePlanID IS NULL AND sourcePlanRevision IS NULL AND sourceKind IS NULL
+            AND localDate IS NULL AND timeZone IS NULL AND completeness IS NULL AND contextSummary IS NULL
+            AND revision IS NULL AND createdAt IS NULL AND updatedAt IS NULL)
+          OR (status = 'live' AND sourceKind IN ('followedPlan','changedPlan','differentOutfit','unplanned')
+            AND localDate IS NOT NULL AND length(localDate) = 10 AND timeZone IS NOT NULL
+            AND completeness IN ('partial','complete') AND revision IS NOT NULL AND revision >= 1
+            AND createdAt IS NOT NULL AND updatedAt IS NOT NULL AND updatedAt >= createdAt
+            AND ((sourcePlanID IS NULL AND sourcePlanRevision IS NULL AND sourceKind = 'unplanned')
+              OR (sourcePlanID IS NOT NULL AND sourcePlanRevision IS NOT NULL AND sourcePlanRevision >= 1
+                AND sourceKind != 'unplanned'))))
+        );
+        CREATE INDEX wear_event_date_order ON wear_events(localDate DESC, createdAt DESC, id ASC) WHERE status = 'live';
+        CREATE INDEX wear_event_source_plan ON wear_events(sourcePlanID) WHERE status = 'live';
+
+        CREATE TABLE wear_event_items (
+          eventID TEXT NOT NULL REFERENCES wear_events(id) ON DELETE CASCADE,
+          ordinal INTEGER NOT NULL CHECK (ordinal >= 0 AND ordinal < 20),
+          wardrobeItemID TEXT REFERENCES wardrobe_items(id) ON DELETE RESTRICT,
+          itemRevision INTEGER, name TEXT, category TEXT, availability TEXT,
+          photoAssetID TEXT REFERENCES wardrobe_photos(id) ON DELETE SET NULL,
+          redacted INTEGER NOT NULL CHECK (redacted IN (0,1)),
+          formalityBand TEXT CHECK (formalityBand IN ('casual','smartCasual','formal')),
+          warmthBand TEXT CHECK (warmthBand IN ('light','medium','warm')),
+          rainUse TEXT CHECK (rainUse IN ('suitable','unsuitable')),
+          walkingUse TEXT CHECK (walkingUse IN ('suitable','unsuitable')),
+          PRIMARY KEY (eventID, ordinal),
+          CHECK ((redacted = 1 AND wardrobeItemID IS NULL AND itemRevision IS NULL AND name IS NULL
+            AND category IS NULL AND availability IS NULL AND photoAssetID IS NULL
+            AND formalityBand IS NULL AND warmthBand IS NULL AND rainUse IS NULL AND walkingUse IS NULL)
+          OR (redacted = 0 AND wardrobeItemID IS NOT NULL AND itemRevision IS NOT NULL AND itemRevision >= 1
+            AND name IS NOT NULL AND length(name) >= 1 AND category IN ('top','bottom','onePiece','outerwear','shoes','bag','accessory')
+            AND availability IN ('wearable','laundry','lentOut','packed')))
+        );
+        CREATE UNIQUE INDEX wear_event_unique_item ON wear_event_items(eventID, wardrobeItemID) WHERE wardrobeItemID IS NOT NULL;
+        CREATE INDEX wear_event_wardrobe_references ON wear_event_items(wardrobeItemID);
+
+        CREATE TABLE wear_event_mutations (
+          id TEXT PRIMARY KEY NOT NULL,
+          eventID TEXT NOT NULL REFERENCES wear_events(id) ON DELETE RESTRICT,
+          operation TEXT NOT NULL CHECK (operation IN ('save','delete')),
+          fingerprint TEXT CHECK (fingerprint IS NULL OR length(fingerprint) = 64),
+          resultRevision INTEGER CHECK (resultRevision IS NULL OR resultRevision >= 1)
+        );
+        CREATE INDEX wear_event_mutation_owner ON wear_event_mutations(eventID);
+
+        CREATE TRIGGER outfit_plan_items_redacted_attributes_insert
+        BEFORE INSERT ON outfit_plan_items
+        WHEN NEW.redacted = 1 AND (NEW.formalityBand IS NOT NULL OR NEW.warmthBand IS NOT NULL
+          OR NEW.rainUse IS NOT NULL OR NEW.walkingUse IS NOT NULL)
+        BEGIN SELECT RAISE(ABORT, 'redacted attributes must be null'); END;
+        CREATE TRIGGER outfit_plan_items_redacted_attributes_update
+        BEFORE UPDATE ON outfit_plan_items
+        WHEN NEW.redacted = 1 AND (NEW.formalityBand IS NOT NULL OR NEW.warmthBand IS NOT NULL
+          OR NEW.rainUse IS NOT NULL OR NEW.walkingUse IS NOT NULL)
+        BEGIN SELECT RAISE(ABORT, 'redacted attributes must be null'); END;
+        """)
+    }
     return migrator
   }
 }

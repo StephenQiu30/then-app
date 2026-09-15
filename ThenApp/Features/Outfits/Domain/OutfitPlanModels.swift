@@ -84,7 +84,7 @@ nonisolated struct OutfitPlanInput: Equatable, Sendable, Codable {
   }
 }
 
-nonisolated enum OutfitPlanStatus: String, Sendable { case active, cancelled }
+nonisolated enum OutfitPlanStatus: String, Sendable { case active, completed, notWorn, cancelled }
 
 nonisolated struct OutfitItemContent: Equatable, Sendable {
   let itemID: UUID
@@ -116,6 +116,8 @@ nonisolated struct OutfitPlanMutation: Sendable {
   enum Action: Sendable {
     case save(OutfitPlanInput, expectedRevision: Int?)
     case cancel(expectedRevision: Int)
+    case markNotWorn(expectedRevision: Int)
+    case restoreActive(expectedRevision: Int)
     case delete(expectedRevision: Int)
   }
   let id: UUID

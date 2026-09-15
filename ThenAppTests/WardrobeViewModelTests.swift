@@ -81,7 +81,7 @@ struct WardrobeViewModelTests {
     cancelled.attributes.rainUse = .suitable
     model.editor = nil
     #expect(model.items.first?.input.attributes == originalAttributes)
-    #expect(try await repository.list(.init()).first?.input.attributes == originalAttributes)
+    #expect(await repository.list(.init()).first?.input.attributes == originalAttributes)
 
     model.beginEditing(saved)
     let conflicting = try #require(model.editor)

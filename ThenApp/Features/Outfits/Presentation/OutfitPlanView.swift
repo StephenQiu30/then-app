@@ -9,37 +9,61 @@ struct OutfitPlanView: View {
       if let error = model.error {
         Section { Text(error); Button("重试") { model.reload() } }
       }
-      if model.plans.isEmpty && !model.isLoading && model.error == nil {
+      if model.timelineEntries.isEmpty && !model.isLoading && model.error == nil {
         ContentUnavailableView("还没有穿搭记录", systemImage: "book.closed",
-          description: Text("选择已有衣物，保存今天或未来的穿搭计划。"))
+          description: Text("可以安排未来穿搭，也可以补记今天或过去的实际穿着。"))
       }
-      ForEach(Array(Set(model.plans.map(\.localDate))).sorted(by: >), id: \.self) { day in
+      ForEach(Array(Set(model.timelineEntries.map(\.localDate))).sorted(by: >), id: \.self) { day in
         Section {
-          ForEach(model.plans.filter { $0.localDate == day }) { plan in
-            Button { model.open(plan) } label: {
-              VStack(alignment: .leading, spacing: 8) {
-                Text(plan.contextSummary ?? String(localized: "穿搭计划")).font(.headline)
-                Text(plan.items.map { $0.content?.input.name ?? String(localized: "已删除的单品") }.joined(separator: " · "))
-                  .font(.body).fixedSize(horizontal: false, vertical: true)
-                Text(plan.status == .active ? String(localized: "计划中") : String(localized: "已取消"))
-                  .font(.caption)
-              }.foregroundStyle(Color.primary).frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
-            }.accessibilityHint("查看穿搭计划")
+          ForEach(model.timelineEntries.filter { $0.localDate == day }) { entry in
+            switch entry {
+            case .plan(let plan): planRow(plan)
+            case .wear(let event): wearRow(event)
+            }
           }
         } header: { Text(day.value).foregroundStyle(Color.primary) }
       }
       if model.isLoading { ProgressView("正在读取计划…") }
-      if model.cursor != nil { Button("加载更早的计划") { model.loadMore() }.disabled(model.isLoading) }
+      if model.hasMore { Button("加载更早的记录") { model.loadMore() }.disabled(model.isLoading) }
     }
     .scrollEdgeEffectStyle(.hard, for: .all)
     .navigationTitle("穿搭簿")
-    .toolbar { ToolbarItem(placement: .primaryAction) { Button("新建计划", systemImage: "plus") { model.open() } } }
+    .toolbar {
+      ToolbarItem(placement: .primaryAction) {
+        Button("记录实际穿着", systemImage: "checkmark.circle") { model.recordActual() }
+      }
+      ToolbarItem(placement: .primaryAction) { Button("新建计划", systemImage: "plus") { model.open() } }
+    }
     .task(id: model.request) { await model.load() }
     .onChange(of: scenePhase) { _, phase in if phase == .active { model.reload() } }
     .refreshable { model.nextPage = false; await model.load() }
     .sheet(item: $model.editor, onDismiss: { model.reload() }) { draft in
       OutfitPlanEditorView(draft: draft)
     }
+    .sheet(item: $model.wearEditor, onDismiss: { model.reload() }) { draft in WearEventView(model: draft) }
+  }
+
+  private func planRow(_ plan: OutfitPlan) -> some View {
+    Button { model.open(plan) } label: {
+      VStack(alignment: .leading, spacing: 8) {
+        Text(plan.contextSummary ?? String(localized: "穿搭计划")).font(.headline)
+        Text(plan.items.map { $0.content?.input.name ?? String(localized: "已删除的单品") }.joined(separator: " · "))
+          .font(.body).fixedSize(horizontal: false, vertical: true)
+        Text(planStatusTitle(plan.status)).font(.caption)
+      }.foregroundStyle(Color.primary).frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+    }.accessibilityHint("查看穿搭计划")
+  }
+
+  private func wearRow(_ event: WearEvent) -> some View {
+    Button { model.open(event) } label: {
+      VStack(alignment: .leading, spacing: 8) {
+        Text(event.contextSummary ?? String(localized: "实际穿着")).font(.headline)
+        Text(event.items.map { $0.content?.input.name ?? String(localized: "已删除的单品") }.joined(separator: " · "))
+          .font(.body).fixedSize(horizontal: false, vertical: true)
+        Text(event.completeness == .complete ? String(localized: "实际穿着 · 整套已记录")
+          : String(localized: "实际穿着 · 部分记录")).font(.caption)
+      }.foregroundStyle(Color.primary).frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+    }.accessibilityHint("查看实际穿着")
   }
 }
 
@@ -108,12 +132,16 @@ struct OutfitPlanEditorView: View {
       .confirmationDialog("取消这个计划？", isPresented: $draft.confirmsCancel, titleVisibility: .visible) {
         Button("确认取消计划", role: .destructive) { draft.submit(.cancel) }
       } message: { Text("保留计划内容，不会记为实际穿着。") }
+      .confirmationDialog("确认最后没有穿这套？", isPresented: $draft.confirmsNotWorn, titleVisibility: .visible) {
+        Button("确认没穿", role: .destructive) { draft.submit(.markNotWorn) }
+      } message: { Text("不会创建实际记录，也不会增加穿着次数。") }
       .confirmationDialog("永久删除这个计划？", isPresented: $draft.confirmsDelete, titleVisibility: .visible) {
         Button("确认删除计划", role: .destructive) { draft.submit(.delete) }
       } message: { Text("计划与单品快照将被清除，衣橱中的衣物和照片仍保留。") }
       .task { await draft.load() }
       .task(id: draft.request) { if draft.request > 0 { await draft.perform() } }
       .onChange(of: draft.finished) { _, finished in if finished { dismiss() } }
+      .sheet(item: $draft.wearEditor, onDismiss: { draft.submit(.refresh) }) { WearEventView(model: $0) }
     }
     .accessibilityHidden(scenePhase != .active)
     .overlay {
@@ -318,7 +346,7 @@ struct OutfitPlanEditorView: View {
       Text(plan.localDate.value)
       Text("原始时区：\(plan.timeZone)").font(.footnote)
       if let summary = plan.contextSummary { Text(summary) }
-      Text(plan.status == .active ? String(localized: "计划中") : String(localized: "已取消"))
+      Text(planStatusTitle(plan.status))
       Text("计划不代表实际穿着。").font(.footnote)
     }
     contentCard {
@@ -348,8 +376,17 @@ struct OutfitPlanEditorView: View {
     }
     contentCard {
       if plan.status == .active {
+        if draft.canRecordActual {
+          Button { draft.recordActual(.followedPlan) } label: { detailAction(Text("按计划穿了")) }
+          Button { draft.recordActual(.changedPlan) } label: { detailAction(Text("换了几件")) }
+          Button { draft.recordActual(.differentOutfit) } label: { detailAction(Text("穿了别套")) }
+          Button(role: .destructive) { draft.confirmsNotWorn = true } label: { detailAction(Text("最后没穿")) }
+        }
         Button { draft.submit(.edit) } label: { detailAction(Text("编辑计划")) }
         Button(role: .destructive) { draft.confirmsCancel = true } label: { detailAction(Text("取消计划")) }
+      }
+      if plan.status == .notWorn {
+        Button { draft.submit(.restoreActive) } label: { detailAction(Text("撤销未穿")) }
       }
       Button(role: .destructive) { draft.confirmsDelete = true } label: { detailAction(Text("删除计划")) }
     }.disabled(draft.isWorking)
@@ -362,7 +399,16 @@ struct OutfitPlanEditorView: View {
   }
 }
 
-private struct OutfitItemThumbnail: View {
+private func planStatusTitle(_ status: OutfitPlanStatus) -> LocalizedStringKey {
+  switch status {
+  case .active: "计划中"
+  case .completed: "已有实际穿着"
+  case .notWorn: "未穿"
+  case .cancelled: "已取消"
+  }
+}
+
+struct OutfitItemThumbnail: View {
   let itemID: UUID
   let assetID: UUID?
   let revision: Int

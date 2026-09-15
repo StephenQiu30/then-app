@@ -113,13 +113,24 @@ nonisolated protocol WardrobeRepository: Sendable {
   func delete(id: UUID, expectedRevision: Int, impact: WardrobeDeletionImpact, policy: WardrobeHistoryDeletionPolicy) async throws
 }
 
-nonisolated enum WardrobeHistoryDeletionPolicy: Sendable { case redactSnapshots, deleteAffectedPlans }
+nonisolated enum WardrobeHistoryDeletionPolicy: Sendable { case redactSnapshots, deleteAffectedHistory }
 
 nonisolated struct WardrobeAffectedPlan: Equatable, Sendable {
   let id: UUID
   let revision: Int
 }
 
+nonisolated struct WardrobeAffectedWearEvent: Equatable, Sendable {
+  let id: UUID
+  let revision: Int
+}
+
 nonisolated struct WardrobeDeletionImpact: Equatable, Sendable {
   let plans: [WardrobeAffectedPlan]
+  let wearEvents: [WardrobeAffectedWearEvent]
+
+  init(plans: [WardrobeAffectedPlan], wearEvents: [WardrobeAffectedWearEvent] = []) {
+    self.plans = plans
+    self.wearEvents = wearEvents
+  }
 }

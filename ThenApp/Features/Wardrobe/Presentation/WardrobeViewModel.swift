@@ -5,6 +5,7 @@ import SwiftUI
 @MainActor @Observable
 final class WardrobeViewModel {
   private let repository: any WardrobeRepository & WardrobePhotoRepository
+  private let wearEvents: (any WearEventRepository)?
   private(set) var items: [WardrobeItem] = []
   var search = ""
   var category: WardrobeCategory?
@@ -78,7 +79,20 @@ final class WardrobeViewModel {
     }
   }
 
-  init(repository: any WardrobeRepository & WardrobePhotoRepository) { self.repository = repository }
+  init(repository: any WardrobeRepository & WardrobePhotoRepository,
+       wearEvents: (any WearEventRepository)? = nil) {
+    self.repository = repository; self.wearEvents = wearEvents
+  }
+
+  func loadWearCount(_ draft: WardrobeEditorModel) async {
+    guard draft.revision != nil, !draft.isDeleted, let wearEvents else { return }
+    do {
+      let value = try await wearEvents.wearCount(itemID: draft.id)
+      try Task.checkCancellation()
+      guard editor === draft, !draft.isDeleted else { return }
+      draft.wearCount = value
+    } catch is CancellationError {} catch { draft.wearCount = nil }
+  }
 
   var visibleItems: [WardrobeItem] {
     items.filter {
@@ -214,6 +228,7 @@ final class WardrobeViewModel {
     draft.name = ""
     draft.category = nil
     draft.attributes = .init()
+    draft.wearCount = nil
   }
 }
 
@@ -276,6 +291,7 @@ final class WardrobeEditorModel: Identifiable {
   var category: WardrobeCategory?
   var availability: WardrobeAvailability
   var attributes: WardrobeAttributes
+  fileprivate(set) var wearCount: Int?
   var error: WardrobeError?
   var needsCategory = false
   var isWorking = false

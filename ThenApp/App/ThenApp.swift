@@ -30,8 +30,13 @@ struct ThenApp: App {
     #endif
     self.launchMode = launchMode
     _model = State(initialValue: launchMode == .product
-      ? OOTDAppModel(repository: GRDBWardrobeRepository.applicationStore())
+      ? Self.applicationModel()
       : nil)
+  }
+
+  private static func applicationModel() -> OOTDAppModel {
+    let repository = GRDBWardrobeRepository.applicationStore()
+    return OOTDAppModel(repository: repository, wearEvents: repository)
   }
 
   var body: some Scene {

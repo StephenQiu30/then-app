@@ -2,7 +2,7 @@ import Foundation
 import GRDB
 
 /// Owns disk work off MainActor. UI receives only domain values and safe errors.
-actor GRDBWardrobeRepository: WardrobeRepository, WardrobePhotoRepository, OutfitPlanRepository {
+actor GRDBWardrobeRepository: WardrobeRepository, WardrobePhotoRepository, OutfitPlanRepository, WearEventRepository {
   private let directory: URL
   private var pool: DatabasePool?
 
@@ -105,6 +105,33 @@ actor GRDBWardrobeRepository: WardrobeRepository, WardrobePhotoRepository, Outfi
       }
       return result
     }
+  }
+
+  func listWearEvents(on date: OutfitLocalDate?) throws -> [WearEvent] {
+    try safely { try WearEventPersistence(pool: connection()).list(on: date) }
+  }
+
+  func readWearEvent(id: UUID) throws -> WearEvent {
+    try safely { try WearEventPersistence(pool: connection()).read(id: id) }
+  }
+
+  func mutateWearEvent(_ command: WearEventMutation) throws -> WearEvent? {
+    try safely {
+      let dbPool = try connection()
+      let result = try WearEventPersistence(pool: dbPool).mutate(command)
+      if case .delete = command.action {
+        do { try checkpoint(dbPool) } catch { throw WardrobeError.deletionCleanupPending }
+      }
+      return result
+    }
+  }
+
+  func wearCount(itemID: UUID) throws -> Int {
+    try safely { try WearEventPersistence(pool: connection()).wearCount(itemID: itemID) }
+  }
+
+  func listTimeline(after cursor: OutfitTimelineCursor?) throws -> OutfitTimelinePage {
+    try safely { try WearEventPersistence(pool: connection()).timeline(after: cursor) }
   }
 
   func delete(id: UUID, expectedRevision: Int, impact: WardrobeDeletionImpact, policy: WardrobeHistoryDeletionPolicy) throws {
@@ -233,6 +260,8 @@ actor GRDBWardrobeRepository: WardrobeRepository, WardrobePhotoRepository, Outfi
       try Task.checkCancellation()
       return try operation()
     } catch let error as OutfitPlanError {
+      throw error
+    } catch let error as WearEventError {
       throw error
     } catch let error as WardrobeError {
       throw error

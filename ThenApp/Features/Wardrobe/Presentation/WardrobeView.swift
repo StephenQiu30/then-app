@@ -34,6 +34,7 @@ struct WardrobeView: View {
     .task(id: model.cleanupRequest) {
       if model.cleanupRequest > 0 { await model.retryPhotoCleanup() }
     }
+    .task { try? await model.load() }
     .sheet(item: $model.editor) { draft in
       WardrobeEditorView(draft: draft, model: model)
     }
@@ -189,6 +190,12 @@ struct WardrobeEditorView: View {
           }
           .disabled(draft.isWorking)
           attributesSection
+          if let wearCount = draft.wearCount {
+            Section("穿着记录") {
+              Text("实际穿着 \(wearCount) 次").accessibilityIdentifier("wardrobe.wear.count")
+              Text("次数来自仍然有效的实际记录，计划不会计入。").font(.footnote)
+            }
+          }
         }
         if draft.needsCategory {
           Text("请选择衣物类别。")
@@ -228,13 +235,13 @@ struct WardrobeEditorView: View {
         }
       }
       .confirmationDialog("删除这件衣物？", isPresented: $draft.confirmsDeletion, titleVisibility: .visible) {
-        if draft.deletionImpact?.plans.isEmpty == false {
-          Button("保留计划并清除单品信息", role: .destructive) {
+        if let impact = draft.deletionImpact, !impact.plans.isEmpty || !impact.wearEvents.isEmpty {
+          Button("保留历史并清除单品信息", role: .destructive) {
             draft.historyDeletionPolicy = .redactSnapshots
             draft.submit(.delete)
           }
-          Button("同时删除相关计划", role: .destructive) {
-            draft.historyDeletionPolicy = .deleteAffectedPlans
+          Button("同时删除相关穿搭历史", role: .destructive) {
+            draft.historyDeletionPolicy = .deleteAffectedHistory
             draft.submit(.delete)
           }
         } else {
@@ -244,8 +251,8 @@ struct WardrobeEditorView: View {
           }
         }
       } message: {
-        if let impact = draft.deletionImpact, !impact.plans.isEmpty {
-          Text("这件衣物出现在 \(impact.plans.count) 个计划中。可保留无单品信息的占位，或同时删除这些计划；衣物和照片都会移除。")
+        if let impact = draft.deletionImpact, !impact.plans.isEmpty || !impact.wearEvents.isEmpty {
+          Text("这件衣物出现在 \(impact.plans.count) 个计划、\(impact.wearEvents.count) 条实际记录中。可保留无单品信息的占位，或同时删除相关穿搭历史；衣物和照片都会移除。")
         } else {
           Text("这件衣物将从本机衣橱移除，不再用于新的推荐。此操作无法撤销。")
         }
@@ -275,6 +282,7 @@ struct WardrobeEditorView: View {
     .onDisappear { draft.cancelPhotoSelection() }
     .interactiveDismissDisabled(draft.isWorking)
     .task { await model.loadExistingPhoto(draft) }
+    .task { await model.loadWearCount(draft) }
     .task(id: draft.photoRequest) { await model.preparePhoto(draft) }
     .task(id: draft.request) {
       if draft.request > 0 { await model.perform(draft) }

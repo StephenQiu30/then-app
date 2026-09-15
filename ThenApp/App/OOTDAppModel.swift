@@ -10,10 +10,12 @@ final class OOTDAppModel {
   private(set) var error: WardrobeError?
   private(set) var attempt = 0
 
-  init(repository: any WardrobeRepository & WardrobePhotoRepository & OutfitPlanRepository) {
+  init(repository: any WardrobeRepository & WardrobePhotoRepository & OutfitPlanRepository,
+       wearEvents: (any WearEventRepository)? = nil) {
     self.repository = repository
-    wardrobe = WardrobeViewModel(repository: repository)
-    outfits = OutfitPlanViewModel(repository: repository, wardrobe: repository, photos: repository)
+    wardrobe = WardrobeViewModel(repository: repository, wearEvents: wearEvents)
+    outfits = OutfitPlanViewModel(repository: repository, wardrobe: repository, photos: repository,
+      wearEvents: wearEvents)
   }
 
   func requestRetry() {

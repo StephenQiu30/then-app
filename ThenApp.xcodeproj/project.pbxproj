@@ -81,6 +81,12 @@
 		F144FF992F3249149A39F7F7 /* ThenAppTests/WardrobeVisionProbeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFD5CD215D74E99A86D9E95 /* ThenAppTests/WardrobeVisionProbeTests.swift */; };
 		F1B02BC8E69042B49A352D4B /* ThenAppTests/WardrobePhotoEditingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F15E91693B041F29AB32A04 /* ThenAppTests/WardrobePhotoEditingTests.swift */; };
 		F2BAD1D905014955AF3AFA1B /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2F7D914084001B30A7877 /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift */; };
+		F2BAD1D905014955AF3AFA1C /* ThenApp/Features/Outfits/Domain/WearEventModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2F7D914084001B30A7878 /* ThenApp/Features/Outfits/Domain/WearEventModels.swift */; };
+		F2BAD1D905014955AF3AFA1D /* ThenApp/Data/Outfits/WearEventPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2F7D914084001B30A7879 /* ThenApp/Data/Outfits/WearEventPersistence.swift */; };
+		F2BAD1D905014955AF3AFA1E /* ThenAppTests/WearEventRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2F7D914084001B30A7880 /* ThenAppTests/WearEventRepositoryTests.swift */; };
+		F2BAD1D905014955AF3AFA1F /* ThenApp/Features/Outfits/Presentation/WearEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2F7D914084001B30A7881 /* ThenApp/Features/Outfits/Presentation/WearEventViewModel.swift */; };
+		F2BAD1D905014955AF3AFA20 /* ThenApp/Features/Outfits/Presentation/WearEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2F7D914084001B30A7882 /* ThenApp/Features/Outfits/Presentation/WearEventView.swift */; };
+		F2BAD1D905014955AF3AFA21 /* ThenAppTests/WearEventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2F7D914084001B30A7883 /* ThenAppTests/WearEventViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +157,12 @@
 		AB1400000000000000000003 /* AvatarPhotoPreviewLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoPreviewLoader.swift; sourceTree = "<group>"; };
 		AB1400000000000000000004 /* AvatarPhotoPOCHostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoPOCHostTests.swift; sourceTree = "<group>"; };
 		AEC2F7D914084001B30A7877 /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift; sourceTree = SOURCE_ROOT; };
+		AEC2F7D914084001B30A7878 /* ThenApp/Features/Outfits/Domain/WearEventModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Outfits/Domain/WearEventModels.swift; sourceTree = SOURCE_ROOT; };
+		AEC2F7D914084001B30A7879 /* ThenApp/Data/Outfits/WearEventPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Data/Outfits/WearEventPersistence.swift; sourceTree = SOURCE_ROOT; };
+		AEC2F7D914084001B30A7880 /* ThenAppTests/WearEventRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WearEventRepositoryTests.swift; sourceTree = SOURCE_ROOT; };
+		AEC2F7D914084001B30A7881 /* ThenApp/Features/Outfits/Presentation/WearEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Outfits/Presentation/WearEventViewModel.swift; sourceTree = SOURCE_ROOT; };
+		AEC2F7D914084001B30A7882 /* ThenApp/Features/Outfits/Presentation/WearEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Outfits/Presentation/WearEventView.swift; sourceTree = SOURCE_ROOT; };
+		AEC2F7D914084001B30A7883 /* ThenAppTests/WearEventViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WearEventViewModelTests.swift; sourceTree = SOURCE_ROOT; };
 		B028927DBEB230FEA1D1E4F5 /* OOTDSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDSchema.swift; sourceTree = "<group>"; };
 		B10000000000000000000001 /* AvatarStudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarStudioView.swift; sourceTree = "<group>"; };
 		B10000000000000000000002 /* ThreeAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeAvatarView.swift; sourceTree = "<group>"; };
@@ -287,6 +299,8 @@
 		71BACB85C2DE6BE426FF19A1 /* ThenAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				AEC2F7D914084001B30A7880 /* ThenAppTests/WearEventRepositoryTests.swift */,
+				AEC2F7D914084001B30A7883 /* ThenAppTests/WearEventViewModelTests.swift */,
 				B10000000000000000000004 /* AvatarStudioModelTests.swift */,
 				B30000000000000000000001 /* AvatarAssetCatalogTests.swift */,
 				0175B1E7F16840708C7E4369 /* ThenAppTests/OutfitPlanViewModelTests.swift */,
@@ -352,6 +366,7 @@
 		97081F5D19C22F767D54F065 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				AEC2F7D914084001B30A7879 /* ThenApp/Data/Outfits/WearEventPersistence.swift */,
 				5FBD6BECEE6A4A02A0E241B7 /* ThenApp/Data/Outfits/OutfitPlanPersistence.swift */,
 				4583574BB779E79EC26B648B /* Wardrobe */,
 				49910A2771AF137EF79AA070 /* Database */,
@@ -435,6 +450,9 @@
 			children = (
 				26AEB7833456498C876D069C /* ThenApp/Features/Outfits/Presentation/OutfitPlanView.swift */,
 				D191F3E6FDE2403DA058EBA5 /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift */,
+				AEC2F7D914084001B30A7882 /* ThenApp/Features/Outfits/Presentation/WearEventView.swift */,
+				AEC2F7D914084001B30A7881 /* ThenApp/Features/Outfits/Presentation/WearEventViewModel.swift */,
+				AEC2F7D914084001B30A7878 /* ThenApp/Features/Outfits/Domain/WearEventModels.swift */,
 				AEC2F7D914084001B30A7877 /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift */,
 			);
 			path = Outfits;
@@ -582,6 +600,8 @@
 		2126A56871C30A01FAE91766 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				F2BAD1D905014955AF3AFA1E /* ThenAppTests/WearEventRepositoryTests.swift in Sources */,
+				F2BAD1D905014955AF3AFA21 /* ThenAppTests/WearEventViewModelTests.swift in Sources */,
 				AA1400000000000000000004 /* AvatarPhotoPOCHostTests.swift in Sources */,
 				AA1300000000000000000002 /* AvatarPhotoIntakeViewModelTests.swift in Sources */,
 				AA1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift in Sources */,
@@ -632,8 +652,12 @@
 				A2F000000000000000000001 /* AvatarAssetCatalog.swift in Sources */,
 				6575EA1CB1A94C50A4F29209 /* ThenApp/Features/Outfits/Presentation/OutfitPlanView.swift in Sources */,
 				A8C2FA90C7F24FAD9E01754F /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift in Sources */,
+				F2BAD1D905014955AF3AFA20 /* ThenApp/Features/Outfits/Presentation/WearEventView.swift in Sources */,
+				F2BAD1D905014955AF3AFA1F /* ThenApp/Features/Outfits/Presentation/WearEventViewModel.swift in Sources */,
 				301F14B8EFB34D59A8FAB5EB /* ThenApp/Data/Outfits/OutfitPlanPersistence.swift in Sources */,
+				F2BAD1D905014955AF3AFA1D /* ThenApp/Data/Outfits/WearEventPersistence.swift in Sources */,
 				F2BAD1D905014955AF3AFA1B /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift in Sources */,
+				F2BAD1D905014955AF3AFA1C /* ThenApp/Features/Outfits/Domain/WearEventModels.swift in Sources */,
 				4C7E85093B7C46989E21E438 /* ThenApp/Services/Photos/WardrobePhotoFileImporter.swift in Sources */,
 				A1712B5FC90441409F1071D2 /* ThenApp/Services/Photos/WardrobePhotoPickerButton.swift in Sources */,
 				07D303511A494FAD9CCDC98A /* ThenApp/Services/Photos/SystemWardrobePhotoPicker.swift in Sources */,

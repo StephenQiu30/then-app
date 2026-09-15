@@ -398,6 +398,85 @@ final class ThenAppUITests: XCTestCase {
   }
 
   @MainActor
+  func testUnplannedActualWearDuplicateCountAndHistoryDeletion() throws {
+    let suffix = UUID().uuidString.prefix(6)
+    let garment = "实际上装" + suffix
+    let firstScene = "首次实际" + suffix
+    let secondScene = "再次实际" + suffix
+    let app = launchApp()
+
+    openWardrobe(app)
+    addGarment(app, name: String(garment))
+    XCTAssertTrue(app.staticTexts[String(garment)].waitForExistence(timeout: 5))
+    app.buttons["关闭"].tap()
+
+    openOutfits(app)
+    recordActualWear(app, garment: String(garment), scene: String(firstScene))
+    XCTAssertTrue(app.staticTexts[String(firstScene)].waitForExistence(timeout: 5))
+    app.buttons["记录实际穿着"].tap()
+    let choice = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", String(garment))).firstMatch
+    XCTAssertTrue(choice.waitForExistence(timeout: 5)); choice.tap()
+    let scene = app.textFields["场景（可选）"]
+    scene.tap(); scene.typeText(String(secondScene))
+    app.buttons["实际穿了"].tap()
+    XCTAssertTrue(app.staticTexts["可能已经记录过这次穿着"].waitForExistence(timeout: 5))
+    app.buttons["仍是另一次穿着"].tap()
+    XCTAssertTrue(app.staticTexts[String(secondScene)].waitForExistence(timeout: 5))
+    app.buttons["关闭"].tap()
+
+    openWardrobe(app)
+    app.buttons["wardrobe.filter.availability"].tap()
+    app.buttons["全部状态"].tap()
+    let garmentRow = app.staticTexts[String(garment)]
+    XCTAssertTrue(garmentRow.waitForExistence(timeout: 5)); garmentRow.tap()
+    XCTAssertTrue(app.staticTexts["实际穿着 2 次"].waitForExistence(timeout: 5))
+    reveal(app.buttons["删除衣物"], in: app)
+    app.buttons["删除衣物"].tap()
+    XCTAssertTrue(app.buttons["同时删除相关穿搭历史"].waitForExistence(timeout: 5))
+    app.buttons["同时删除相关穿搭历史"].tap()
+    XCTAssertTrue(garmentRow.waitForNonExistence(timeout: 5))
+  }
+
+  @MainActor
+  func testPlanToChangedActualWearAndLaundryPersists() throws {
+    let suffix = UUID().uuidString.prefix(6)
+    let garment = "计划实际" + suffix
+    let scene = "今日计划" + suffix
+    let app = launchApp()
+
+    openWardrobe(app); addGarment(app, name: String(garment))
+    XCTAssertTrue(app.staticTexts[String(garment)].waitForExistence(timeout: 5))
+    app.buttons["关闭"].tap(); openOutfits(app)
+    app.buttons["新建计划"].tap()
+    let planChoice = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", String(garment))).firstMatch
+    XCTAssertTrue(planChoice.waitForExistence(timeout: 5)); planChoice.tap()
+    let planSummary = app.textFields["outfit.summary"]
+    planSummary.tap(); planSummary.typeText(String(scene)); app.buttons["保存"].tap()
+    XCTAssertTrue(app.staticTexts[String(scene)].waitForExistence(timeout: 5)); app.staticTexts[String(scene)].tap()
+    XCTAssertTrue(app.buttons["换了几件"].waitForExistence(timeout: 5)); app.buttons["换了几件"].tap()
+    let laundry = app.switches["\(garment) · 标为待洗"]
+    reveal(laundry, in: app)
+    if laundry.value as? String != "1" {
+      laundry.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)).tap()
+    }
+    XCTAssertEqual(laundry.value as? String, "1")
+    app.buttons["实际穿了"].tap()
+    XCTAssertTrue(app.staticTexts["已有实际穿着"].waitForExistence(timeout: 5))
+    app.navigationBars["穿搭计划"].buttons["关闭"].tap()
+    app.navigationBars["穿搭簿"].buttons["关闭"].tap()
+
+    openWardrobe(app)
+    app.buttons["wardrobe.filter.availability"].tap(); app.buttons["全部状态"].tap()
+    let row = app.staticTexts[String(garment)]
+    XCTAssertTrue(row.waitForExistence(timeout: 5))
+    XCTAssertTrue(app.staticTexts["待洗"].waitForExistence(timeout: 5)); row.tap()
+    XCTAssertTrue(app.staticTexts["实际穿着 1 次"].waitForExistence(timeout: 5))
+    reveal(app.buttons["删除衣物"], in: app); app.buttons["删除衣物"].tap()
+    XCTAssertTrue(app.buttons["同时删除相关穿搭历史"].waitForExistence(timeout: 5))
+    app.buttons["同时删除相关穿搭历史"].tap()
+  }
+
+  @MainActor
   func testOutfitPlanAtLargestAccessibilityText() throws {
     let garment = "辅助字号上装" + UUID().uuidString.prefix(6)
     let app = launchApp(contentSizeCategory: "UICTContentSizeCategoryAccessibilityXXXL")
@@ -429,6 +508,8 @@ final class ThenAppUITests: XCTestCase {
     XCTAssertTrue(saved.waitForExistence(timeout: 5))
     saved.tap()
     XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "原始时区：")).firstMatch.waitForExistence(timeout: 5))
+    XCTAssertFalse(app.buttons["按计划穿了"].exists)
+    XCTAssertFalse(app.buttons["最后没穿"].exists)
     try app.performAccessibilityAudit(for: [.contrast, .textClipped])
 
     let cancel = app.buttons["取消计划"]
@@ -447,7 +528,18 @@ final class ThenAppUITests: XCTestCase {
     app.buttons["确认删除计划"].tap()
     XCTAssertTrue(saved.waitForNonExistence(timeout: 5))
 
-    app.buttons["关闭"].tap()
+    app.buttons["记录实际穿着"].tap()
+    let actualNavigation = app.navigationBars["记录实际穿着"]
+    XCTAssertTrue(actualNavigation.waitForExistence(timeout: 5))
+    XCTAssertTrue(app.datePickers["wear.date"].waitForExistence(timeout: 5))
+    try app.performAccessibilityAudit(for: [.contrast, .textClipped])
+    actualNavigation.buttons["取消"].tap()
+    XCTAssertTrue(app.buttons["放弃修改"].waitForExistence(timeout: 3))
+    app.buttons["放弃修改"].tap()
+    XCTAssertTrue(actualNavigation.waitForNonExistence(timeout: 5))
+
+    app.navigationBars["穿搭簿"].buttons["关闭"].tap()
+    XCTAssertTrue(app.navigationBars["穿搭簿"].waitForNonExistence(timeout: 5))
     openWardrobe(app)
     let garmentRow = app.staticTexts[String(garment)]
     reveal(garmentRow, in: app)
@@ -609,6 +701,16 @@ final class ThenAppUITests: XCTestCase {
     app.buttons["wardrobe.category"].tap()
     app.buttons["上装"].tap()
     app.buttons["保存"].tap()
+  }
+
+  @MainActor
+  private func recordActualWear(_ app: XCUIApplication, garment: String, scene: String) {
+    app.buttons["记录实际穿着"].tap()
+    let choice = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", garment)).firstMatch
+    XCTAssertTrue(choice.waitForExistence(timeout: 5)); choice.tap()
+    let field = app.textFields["场景（可选）"]
+    XCTAssertTrue(field.waitForExistence(timeout: 3)); field.tap(); field.typeText(scene)
+    app.buttons["实际穿了"].tap()
   }
 
   @MainActor
