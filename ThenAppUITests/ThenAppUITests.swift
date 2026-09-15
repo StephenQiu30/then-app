@@ -499,6 +499,61 @@ final class ThenAppUITests: XCTestCase {
   }
 
   @MainActor
+  func testOutfitFeedbackSaveCorrectAndDelete() throws {
+    let suffix = UUID().uuidString.prefix(6)
+    let garment = "反馈上装" + suffix
+    let scene = "反馈实际" + suffix
+    let app = launchApp()
+
+    openWardrobe(app)
+    addGarment(app, name: String(garment))
+    XCTAssertTrue(app.staticTexts[String(garment)].waitForExistence(timeout: 5))
+    app.buttons["关闭"].tap()
+
+    openOutfits(app)
+    recordActualWear(app, garment: String(garment), scene: String(scene))
+    XCTAssertTrue(app.staticTexts[String(scene)].waitForExistence(timeout: 5))
+    app.staticTexts[String(scene)].tap()
+    let addFeedback = app.buttons["添加反馈"]
+    reveal(addFeedback, in: app); addFeedback.tap()
+    XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "feedback.form")
+      .firstMatch.waitForExistence(timeout: 5))
+    XCTAssertTrue(app.buttons["跳过"].exists); app.buttons["跳过"].tap()
+    XCTAssertTrue(app.buttons["添加反馈"].waitForExistence(timeout: 5)); app.buttons["添加反馈"].tap()
+    app.buttons["偏冷"].tap()
+    app.buttons["愿意"].tap()
+    app.switches["口袋不足"].tap()
+    let note = app.descendants(matching: .any).matching(identifier: "feedback.note").firstMatch
+    reveal(note, in: app); note.tap(); note.typeText("下次换包")
+    app.buttons["保存"].tap()
+    XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "冷热：偏冷"))
+      .firstMatch.waitForExistence(timeout: 5))
+
+    app.buttons["编辑反馈"].tap()
+    let thermalComfortable = app.buttons.matching(identifier: "舒适").firstMatch
+    XCTAssertTrue(thermalComfortable.waitForExistence(timeout: 5)); thermalComfortable.tap()
+    app.buttons["保存"].tap()
+    XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "冷热：舒适"))
+      .firstMatch.waitForExistence(timeout: 5))
+
+    app.buttons["编辑反馈"].tap()
+    let deleteFeedback = app.buttons["删除反馈"]
+    reveal(deleteFeedback, in: app); deleteFeedback.tap()
+    XCTAssertTrue(app.buttons["确认删除反馈"].waitForExistence(timeout: 3))
+    app.buttons["确认删除反馈"].tap()
+    XCTAssertTrue(app.buttons["添加反馈"].waitForExistence(timeout: 5))
+    reveal(app.buttons["删除实际记录"], in: app); app.buttons["删除实际记录"].tap()
+    app.buttons["确认删除记录"].tap()
+    XCTAssertTrue(app.staticTexts[String(scene)].waitForNonExistence(timeout: 5))
+    app.buttons["关闭"].tap()
+
+    openWardrobe(app)
+    app.staticTexts[String(garment)].tap()
+    reveal(app.buttons["删除衣物"], in: app); app.buttons["删除衣物"].tap()
+    app.buttons["确认删除"].tap()
+  }
+
+  @MainActor
   func testOutfitPlanAtLargestAccessibilityText() throws {
     let garment = "辅助字号上装" + UUID().uuidString.prefix(6)
     let app = launchApp(contentSizeCategory: "UICTContentSizeCategoryAccessibilityXXXL")

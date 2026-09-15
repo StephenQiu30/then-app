@@ -11,11 +11,11 @@ final class OOTDAppModel {
   private(set) var attempt = 0
 
   init(repository: any WardrobeRepository & WardrobePhotoRepository & OutfitPlanRepository,
-       wearEvents: (any WearEventRepository)? = nil) {
+       wearEvents: (any WearEventRepository)? = nil, feedback: (any OutfitFeedbackRepository)? = nil) {
     self.repository = repository
     wardrobe = WardrobeViewModel(repository: repository, wearEvents: wearEvents)
     outfits = OutfitPlanViewModel(repository: repository, wardrobe: repository, photos: repository,
-      wearEvents: wearEvents)
+      wearEvents: wearEvents, feedback: feedback)
   }
 
   func requestRetry() {

@@ -49,6 +49,9 @@ struct WearEventView: View {
         Text("同一天已有高度相似的实际单品。确认后会再检查旧记录是否变化。")
       }
       .sheet(item: $model.duplicatePreview) { DuplicateWearEventPreview(event: $0) }
+      .sheet(item: $model.feedbackEditor, onDismiss: { model.submit(.refresh) }) {
+        OutfitFeedbackEditorView(model: $0)
+      }
     }
     .accessibilityHidden(scenePhase != .active)
     .overlay {
@@ -172,6 +175,19 @@ struct WearEventView: View {
             }
           }
           card {
+            Text("穿后感受").font(.headline)
+            if let feedback = model.feedback {
+              Text(feedbackSummary(feedback.input)).fixedSize(horizontal: false, vertical: true)
+              Button("编辑反馈") { model.editFeedback() }
+                .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+            } else {
+              Text("可跳过；未填写不会被解释为负面。")
+                .font(.footnote)
+              Button("添加反馈") { model.editFeedback() }
+                .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+            }
+          }
+          card {
             Button("纠正记录") { model.submit(.edit) }.frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
             Button("删除实际记录", role: .destructive) { model.confirmsDelete = true }
               .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
@@ -199,6 +215,109 @@ struct WearEventView: View {
     case .changedPlan: "换了几件"
     case .differentOutfit: "穿了别套"
     case .unplanned: "无计划补录"
+    }
+  }
+
+  private func feedbackSummary(_ input: OutfitFeedbackInput) -> String {
+    var values: [String] = []
+    if let value = input.thermalComfort { values.append("冷热：\(value.title)") }
+    if let value = input.activityComfort { values.append("活动：\(value.title)") }
+    if let value = input.occasionFit { values.append("场合：\(value.title)") }
+    if let value = input.repeatIntent { values.append("再穿：\(value.title)") }
+    if !input.issueTags.isEmpty { values.append("问题：\(input.issueTags.sorted { $0.rawValue < $1.rawValue }.map(\.title).joined(separator: "、"))") }
+    if let note = input.note { values.append(note) }
+    return values.joined(separator: "\n")
+  }
+}
+
+private struct OutfitFeedbackEditorView: View {
+  @Bindable var model: OutfitFeedbackEditorModel
+  @Environment(\.dismiss) private var dismiss
+
+  var body: some View {
+    NavigationStack {
+      Form {
+        if let error = model.error { Section { Text(error).accessibilityIdentifier("feedback.error") } }
+        optionalPicker("冷热感受", selection: $model.thermalComfort, values: ThermalComfort.allCases)
+        optionalPicker("活动舒适度", selection: $model.activityComfort, values: ActivityComfort.allCases)
+        optionalPicker("场合适配", selection: $model.occasionFit, values: OccasionFit.allCases)
+        optionalPicker("还会再穿吗", selection: $model.repeatIntent, values: RepeatIntent.allCases)
+        Section("遇到的问题（可选）") {
+          ForEach(OutfitFeedbackIssueTag.allCases, id: \.self) { tag in
+            Toggle(tag.title, isOn: Binding(get: { model.issueTags.contains(tag) },
+              set: { _ in model.toggle(tag) }))
+          }
+        }
+        Section("本地备注（可选）") {
+          TextField("最多 240 字，不用于偏好学习", text: $model.note, axis: .vertical)
+            .lineLimit(2...6).accessibilityIdentifier("feedback.note")
+          Text("\(model.note.count)/240").font(.footnote)
+        }
+        if model.finished == false && model.canSave == false {
+          Section { Text("可以直接关闭并跳过；空反馈不会保存。") }
+        }
+        if model.isWorking { ProgressView("正在保存反馈…") }
+        if model.finished == false && model.hasExistingFeedback {
+          Section {
+            Button("删除反馈", role: .destructive) { model.confirmsDelete = true }
+          }
+        }
+      }
+      .accessibilityIdentifier("feedback.form")
+      .navigationTitle("穿后反馈")
+      .navigationBarTitleDisplayMode(.inline)
+      .toolbar {
+        ToolbarItem(placement: .cancellationAction) {
+          Button(model.hasExistingFeedback ? "关闭" : "跳过") { dismiss() }.disabled(model.isWorking)
+        }
+        ToolbarItem(placement: .confirmationAction) {
+          Button("保存") { model.submit(.save) }.disabled(!model.canSave || model.note.count > 240 || model.isWorking)
+        }
+      }
+      .task(id: model.request) { if model.request > 0 { await model.perform() } }
+      .onChange(of: model.finished) { _, value in if value { dismiss() } }
+      .confirmationDialog("删除这次反馈？", isPresented: $model.confirmsDelete, titleVisibility: .visible) {
+        Button("确认删除反馈", role: .destructive) { model.submit(.delete) }
+      } message: { Text("删除后会从现有事实重新构建偏好证据。") }
+    }
+  }
+
+  private func optionalPicker<Value: RawRepresentable & CaseIterable & Hashable>(
+    _ title: String, selection: Binding<Value?>, values: Value.AllCases
+  ) -> some View where Value.RawValue == String, Value.AllCases: RandomAccessCollection {
+    Section(title) {
+      Picker(title, selection: selection) {
+        Text("未回答").tag(Optional<Value>.none)
+        ForEach(Array(values), id: \.self) { value in Text(value.feedbackTitle).tag(Optional(value)) }
+      }.pickerStyle(.segmented)
+    }
+  }
+}
+
+private extension RawRepresentable where RawValue == String {
+  var feedbackTitle: String {
+    switch rawValue {
+    case "cold": "偏冷"; case "comfortable": "舒适"; case "hot": "偏热"
+    case "uncomfortable": "不舒服"; case "okay": "一般"
+    case "tooCasual": "太休闲"; case "right": "合适"; case "tooFormal": "太正式"
+    case "yes": "愿意"; case "unsure": "不确定"; case "no": "不愿意"
+    default: rawValue
+    }
+  }
+}
+
+private extension ThermalComfort { var title: String { feedbackTitle } }
+private extension ActivityComfort { var title: String { feedbackTitle } }
+private extension OccasionFit { var title: String { feedbackTitle } }
+private extension RepeatIntent { var title: String { feedbackTitle } }
+private extension OutfitFeedbackIssueTag {
+  var title: String {
+    switch self {
+    case .shoeDiscomfort: "鞋不舒适"
+    case .awkwardLayering: "叠穿别扭"
+    case .rainUnsuitable: "不适合下雨"
+    case .insufficientPockets: "口袋不足"
+    case .maintenanceNeeded: "需要护理"
     }
   }
 }

@@ -36,7 +36,7 @@ struct ThenApp: App {
 
   private static func applicationModel() -> OOTDAppModel {
     let repository = GRDBWardrobeRepository.applicationStore()
-    return OOTDAppModel(repository: repository, wearEvents: repository)
+    return OOTDAppModel(repository: repository, wearEvents: repository, feedback: repository)
   }
 
   var body: some Scene {

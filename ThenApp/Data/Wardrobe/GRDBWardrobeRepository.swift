@@ -2,7 +2,8 @@ import Foundation
 import GRDB
 
 /// Owns disk work off MainActor. UI receives only domain values and safe errors.
-actor GRDBWardrobeRepository: WardrobeRepository, WardrobePhotoRepository, OutfitPlanRepository, WearEventRepository {
+actor GRDBWardrobeRepository: WardrobeRepository, WardrobePhotoRepository, OutfitPlanRepository, WearEventRepository,
+  OutfitFeedbackRepository {
   private let directory: URL
   private var pool: DatabasePool?
 
@@ -134,6 +135,18 @@ actor GRDBWardrobeRepository: WardrobeRepository, WardrobePhotoRepository, Outfi
     try safely { try WearEventPersistence(pool: connection()).timeline(after: cursor) }
   }
 
+  func readFeedback(wearEventID: UUID) throws -> OutfitFeedback? {
+    try safely { try OutfitFeedbackPersistence(pool: connection()).read(wearEventID: wearEventID) }
+  }
+
+  func mutateFeedback(_ command: OutfitFeedbackMutation) throws -> OutfitFeedback? {
+    try safely { try OutfitFeedbackPersistence(pool: connection()).mutate(command) }
+  }
+
+  func rebuildPreferenceEvidence() throws -> [PreferenceEvidence] {
+    try safely { try OutfitFeedbackPersistence(pool: connection()).rebuildEvidence() }
+  }
+
   func delete(id: UUID, expectedRevision: Int, impact: WardrobeDeletionImpact, policy: WardrobeHistoryDeletionPolicy) throws {
     try safely {
       let dbPool = try connection()
@@ -262,6 +275,8 @@ actor GRDBWardrobeRepository: WardrobeRepository, WardrobePhotoRepository, Outfi
     } catch let error as OutfitPlanError {
       throw error
     } catch let error as WearEventError {
+      throw error
+    } catch let error as OutfitFeedbackError {
       throw error
     } catch let error as WardrobeError {
       throw error

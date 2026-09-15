@@ -37,8 +37,9 @@ struct WardrobePhotoRepositoryTests {
     #expect(item.input.attributes == .init())
     let sql = try fixture.sql()
     let versions = try await sql.read { db in try String.fetchAll(db, sql: "SELECT identifier FROM grdb_migrations ORDER BY identifier") }
-    #expect(versions == ["ootd_v1_wardrobe", "ootd_v2_wardrobe_photos", "ootd_v3_unattached_photo_imports",
-      "ootd_v4_outfit_plans", "ootd_wardrobe_attributes_v1", "ootd_wear_events_v1"])
+    #expect(versions == ["ootd_outfit_feedback_v1", "ootd_v1_wardrobe", "ootd_v2_wardrobe_photos",
+      "ootd_v3_unattached_photo_imports", "ootd_v4_outfit_plans", "ootd_wardrobe_attributes_v1",
+      "ootd_wear_events_v1"])
     let columns = try await sql.read { db in try db.columns(in: "wardrobe_photos").map(\.type) }
     #expect(!columns.contains("BLOB"))
     try sql.close()
