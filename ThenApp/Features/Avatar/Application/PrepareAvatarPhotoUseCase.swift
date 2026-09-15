@@ -1,7 +1,15 @@
 import Foundation
 
+nonisolated protocol AvatarPhotoPreparing: Sendable {
+  func execute(
+    importing importPhoto: @Sendable () async throws -> AvatarPhotoInputHandle,
+    progress: @escaping @Sendable (AvatarPhotoPreparationStage) async -> Void
+  ) async throws -> AvatarPhotoPreparationResult
+  func discard(_ photo: SanitizedAvatarPhotoHandle) async throws
+}
+
 /// Owns an imported session until it either returns a reviewable photo or removes the session.
-nonisolated struct PrepareAvatarPhotoUseCase: Sendable {
+nonisolated struct PrepareAvatarPhotoUseCase: AvatarPhotoPreparing {
   nonisolated enum Failure: Error, Equatable {
     case invalidSessionOwnership
     case cleanupFailed
@@ -25,17 +33,23 @@ nonisolated struct PrepareAvatarPhotoUseCase: Sendable {
   }
 
   func execute(
-    importing importPhoto: @Sendable () async throws -> AvatarPhotoInputHandle
+    importing importPhoto: @Sendable () async throws -> AvatarPhotoInputHandle,
+    progress: @escaping @Sendable (AvatarPhotoPreparationStage) async -> Void = { _ in }
   ) async throws -> AvatarPhotoPreparationResult {
+    await progress(.importing)
     try Task.checkCancellation()
     let input = try await importPhoto()
     let prepared: (photo: SanitizedAvatarPhotoHandle, assessment: AvatarPhotoQualityAssessment)
     do {
       try Task.checkCancellation()
+      await progress(.sanitizing)
+      try Task.checkCancellation()
       let photo = try await sanitizer.sanitize(input)
       guard photo.sessionID == input.sessionID else {
         throw Failure.invalidSessionOwnership
       }
+      try Task.checkCancellation()
+      await progress(.analyzing)
       try Task.checkCancellation()
       let signals = try await analyzer.analyze(photo)
       try Task.checkCancellation()
