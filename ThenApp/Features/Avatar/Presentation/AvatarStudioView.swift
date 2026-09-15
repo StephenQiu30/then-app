@@ -156,6 +156,7 @@ struct AvatarStudioView: View {
   @State private var showsAppearance = false
   @Environment(\.dynamicTypeSize) private var dynamicTypeSize
   @Environment(\.accessibilityReduceMotion) private var accessibilityReduceMotion
+  @Environment(\.scenePhase) private var scenePhase
 
   var body: some View {
     ZStack(alignment: .bottom) {
@@ -262,6 +263,7 @@ struct AvatarStudioView: View {
         } else {
           ThreeAvatarView(
             configuration: model.renderConfiguration,
+            isActive: stageActivity.rendererIsActive,
             onStateChange: { model.rendererState = $0 },
             onYawChange: { model.yaw = $0 }
           )
@@ -292,6 +294,14 @@ struct AvatarStudioView: View {
         .padding(.horizontal, 14)
         .padding(.bottom, 88)
     }
+  }
+
+  private var stageActivity: AvatarStageActivity {
+    AvatarStageActivity(
+      appIsActive: scenePhase == .active,
+      stageIsVisible: model.screen == .look,
+      hasPresentedCover: showsCalendar || showsMenu || showsPhotoPath || showsShare || showsAppearance
+    )
   }
 
   private var rendererAccessibilityValue: LocalizedStringKey {

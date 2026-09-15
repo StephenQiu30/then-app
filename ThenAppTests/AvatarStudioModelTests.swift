@@ -51,4 +51,12 @@ struct AvatarStudioModelTests {
     model.setReduceMotion(true)
     #expect(model.revision == originalRevision + 1)
   }
+
+  @Test("三维舞台只在前台可见且没有覆盖页时运行")
+  func limitsRendererActivityToVisibleStage() {
+    #expect(AvatarStageActivity(appIsActive: true, stageIsVisible: true, hasPresentedCover: false).rendererIsActive)
+    #expect(!AvatarStageActivity(appIsActive: false, stageIsVisible: true, hasPresentedCover: false).rendererIsActive)
+    #expect(!AvatarStageActivity(appIsActive: true, stageIsVisible: false, hasPresentedCover: false).rendererIsActive)
+    #expect(!AvatarStageActivity(appIsActive: true, stageIsVisible: true, hasPresentedCover: true).rendererIsActive)
+  }
 }

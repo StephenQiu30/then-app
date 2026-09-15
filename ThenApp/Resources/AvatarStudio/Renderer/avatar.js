@@ -53,25 +53,44 @@ const allowed = Object.freeze({
   shoes: new Set(['cream-sneakers', 'black-boots']),
 });
 const assets = new Map();
+const preparingAssets = new Set();
 let yaw = -0.08;
 let pointerX = null;
 let activeSession = null;
 let activeRevision = -1;
 let activeLook = null;
 let motionEnabled = true;
+let nativeActive = false;
+let contextAvailable = true;
+let destroyed = false;
 let animationFrame = null;
 let lastFrameTime = null;
+let activeTimeMilliseconds = 0;
+let activePointerID = null;
 let gestureLean = 0;
 let gestureLeanTarget = 0;
 let outfitPulseStartedAt = null;
+let resizeObserver = null;
 
 function post(message) {
   window.webkit?.messageHandlers?.avatarBridge?.postMessage(message);
 }
 
 function render() {
+  if (destroyed || !contextAvailable) return;
   avatarRoot.rotation.y = yaw;
   renderer.render(scene, camera);
+}
+
+function clearTransientMotion() {
+  if (activePointerID !== null && canvas.hasPointerCapture(activePointerID)) {
+    canvas.releasePointerCapture(activePointerID);
+  }
+  activePointerID = null;
+  pointerX = null;
+  gestureLean = 0;
+  gestureLeanTarget = 0;
+  outfitPulseStartedAt = null;
 }
 
 function resetMotionPose() {
@@ -79,34 +98,49 @@ function resetMotionPose() {
   avatarRoot.rotation.x = 0;
   avatarRoot.rotation.z = 0;
   avatarRoot.scale.set(1, 1, 1);
-  gestureLean = 0;
-  gestureLeanTarget = 0;
-  outfitPulseStartedAt = null;
+  clearTransientMotion();
+}
+
+function stageIsActive() {
+  return nativeActive && !document.hidden && contextAvailable && !destroyed;
+}
+
+function stopAnimation({ clearTransient = false } = {}) {
+  if (animationFrame !== null) window.cancelAnimationFrame(animationFrame);
+  animationFrame = null;
+  lastFrameTime = null;
+  if (clearTransient) clearTransientMotion();
 }
 
 function startAnimation() {
-  if (animationFrame !== null || document.hidden) return;
+  if (animationFrame !== null || !stageIsActive()) return;
   animationFrame = window.requestAnimationFrame(animate);
 }
 
 function animate(time) {
   animationFrame = null;
-  const deltaSeconds = lastFrameTime === null
+  if (!stageIsActive()) {
+    stopAnimation({ clearTransient: true });
+    return;
+  }
+  const deltaMilliseconds = lastFrameTime === null
     ? 0
-    : Math.min((time - lastFrameTime) / 1000, 0.05);
+    : Math.min(time - lastFrameTime, 50);
   lastFrameTime = time;
+  activeTimeMilliseconds += deltaMilliseconds;
+  const deltaSeconds = deltaMilliseconds / 1000;
   const leanBlend = 1 - Math.exp(-12 * deltaSeconds);
   gestureLean += (gestureLeanTarget - gestureLean) * leanBlend;
 
   let outfitPulse = 0;
   if (motionEnabled && outfitPulseStartedAt !== null) {
-    const progress = Math.min((time - outfitPulseStartedAt) / 420, 1);
+    const progress = Math.min((activeTimeMilliseconds - outfitPulseStartedAt) / 420, 1);
     outfitPulse = Math.sin(progress * Math.PI) * 0.018;
     if (progress >= 1) outfitPulseStartedAt = null;
   }
 
   if (motionEnabled) {
-    const seconds = time / 1000;
+    const seconds = activeTimeMilliseconds / 1000;
     const breath = Math.sin(seconds * 1.65) * 0.0024;
     avatarRoot.position.y = Math.sin(seconds * 1.35) * 0.012;
     avatarRoot.rotation.x = Math.sin(seconds * 0.62 + 0.7) * 0.005;
@@ -126,7 +160,19 @@ function animate(time) {
   }
 }
 
+function setActive(isActive) {
+  if (destroyed || typeof isActive !== 'boolean') return;
+  nativeActive = isActive;
+  if (!stageIsActive()) {
+    stopAnimation({ clearTransient: true });
+    return;
+  }
+  if (motionEnabled) startAnimation();
+  else render();
+}
+
 function resize() {
+  if (destroyed || !contextAvailable) return;
   const width = canvas.clientWidth;
   const height = canvas.clientHeight;
   renderer.setSize(width, height, false);
@@ -169,6 +215,7 @@ function validPayload(payload) {
 }
 
 function apply(payload) {
+  if (destroyed) return;
   if (!validPayload(payload)) {
     post({ type: 'failed', code: 'invalidConfiguration' });
     return;
@@ -179,8 +226,10 @@ function apply(payload) {
   motionEnabled = !payload.reduceMotion;
   yaw = payload.yaw;
   const nextLook = `${payload.top}|${payload.bottom}|${payload.shoes}`;
-  if (motionEnabled && activeLook !== null && activeLook !== nextLook) {
-    outfitPulseStartedAt = performance.now();
+  if (motionEnabled && stageIsActive() && activeLook !== null && activeLook !== nextLook) {
+    outfitPulseStartedAt = activeTimeMilliseconds;
+  } else if (activeLook !== nextLook) {
+    outfitPulseStartedAt = null;
   }
   activeLook = nextLook;
   const visibleFiles = new Set([
@@ -194,22 +243,23 @@ function apply(payload) {
     object.visible = visibleFiles.has(file);
     setMorphs(object, payload.shoulderWidth, payload.torsoDepth);
   }
-  if (motionEnabled) startAnimation();
+  if (motionEnabled && stageIsActive()) startAnimation();
   else {
     resetMotionPose();
-    render();
+    if (stageIsActive()) render();
   }
   post({ type: 'applied', session: activeSession, revision: activeRevision });
 }
 
-window.ThenAvatar = Object.freeze({ apply });
-
-canvas.addEventListener('pointerdown', (event) => {
+function handlePointerDown(event) {
+  if (!stageIsActive()) return;
   pointerX = event.clientX;
+  activePointerID = event.pointerId;
   canvas.setPointerCapture(event.pointerId);
-});
-canvas.addEventListener('pointermove', (event) => {
-  if (pointerX === null) return;
+}
+
+function handlePointerMove(event) {
+  if (!stageIsActive() || pointerX === null || activePointerID !== event.pointerId) return;
   const deltaX = event.clientX - pointerX;
   yaw += deltaX * 0.012;
   if (motionEnabled) {
@@ -218,34 +268,51 @@ canvas.addEventListener('pointermove', (event) => {
   }
   pointerX = event.clientX;
   render();
-});
-canvas.addEventListener('pointerup', (event) => {
-  pointerX = null;
-  gestureLeanTarget = 0;
-  startAnimation();
-  canvas.releasePointerCapture(event.pointerId);
-  post({ type: 'angle', session: activeSession, revision: activeRevision, yaw });
-});
-canvas.addEventListener('pointercancel', () => {
-  pointerX = null;
-  gestureLeanTarget = 0;
-  startAnimation();
-});
-canvas.addEventListener('webglcontextlost', (event) => {
-  event.preventDefault();
-  post({ type: 'failed', code: 'contextLost' });
-});
+}
 
-new ResizeObserver(resize).observe(canvas);
+function handlePointerUp(event) {
+  if (activePointerID !== event.pointerId) return;
+  pointerX = null;
+  activePointerID = null;
+  gestureLeanTarget = 0;
+  startAnimation();
+  if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId);
+  post({ type: 'angle', session: activeSession, revision: activeRevision, yaw });
+}
+
+function handlePointerCancel() {
+  clearTransientMotion();
+  if (stageIsActive() && motionEnabled) startAnimation();
+}
+
+function handleContextLost(event) {
+  event.preventDefault();
+  contextAvailable = false;
+  stopAnimation({ clearTransient: true });
+  post({ type: 'failed', code: 'contextLost' });
+}
+
+canvas.addEventListener('pointerdown', handlePointerDown);
+canvas.addEventListener('pointermove', handlePointerMove);
+canvas.addEventListener('pointerup', handlePointerUp);
+canvas.addEventListener('pointercancel', handlePointerCancel);
+canvas.addEventListener('webglcontextlost', handleContextLost);
+
+resizeObserver = new ResizeObserver(resize);
+resizeObserver.observe(canvas);
 
 async function prepare() {
   const files = Object.values(assetFiles);
-  const loaded = await Promise.all(files.map(async (file) => {
+  const results = await Promise.allSettled(files.map(async (file) => {
     let gltf;
     try {
       gltf = await loader.loadAsync(`avatar://local/assets/${file}`);
     } catch {
       throw new Error(`load:${file}`);
+    }
+    if (destroyed) {
+      disposeObject(gltf.scene);
+      throw new Error('destroyed');
     }
     gltf.scene.name = file;
     gltf.scene.visible = false;
@@ -255,9 +322,27 @@ async function prepare() {
       child.receiveShadow = true;
       child.frustumCulled = false;
     });
+    preparingAssets.add(gltf.scene);
     return [file, gltf.scene];
   }));
+  const loaded = results
+    .filter((result) => result.status === 'fulfilled')
+    .map((result) => result.value);
+  const failure = results.find((result) => result.status === 'rejected');
+  if (failure) {
+    for (const [, object] of loaded) {
+      if (preparingAssets.delete(object)) disposeObject(object);
+    }
+    throw failure.reason;
+  }
+  if (destroyed) {
+    for (const [, object] of loaded) {
+      if (preparingAssets.delete(object)) disposeObject(object);
+    }
+    return;
+  }
   for (const [file, object] of loaded) {
+    preparingAssets.delete(object);
     assets.set(file, object);
     avatarRoot.add(object);
   }
@@ -269,16 +354,49 @@ async function prepare() {
   post({ type: 'ready', assetCount: assets.size });
 }
 
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden) {
-    if (animationFrame !== null) window.cancelAnimationFrame(animationFrame);
-    animationFrame = null;
-    lastFrameTime = null;
+function handleVisibilityChange() {
+  if (!stageIsActive()) {
+    stopAnimation({ clearTransient: true });
     return;
   }
   if (motionEnabled) startAnimation();
   else render();
-});
+}
+
+function disposeObject(object) {
+  object.traverse((child) => {
+    child.geometry?.dispose();
+    if (Array.isArray(child.material)) child.material.forEach((material) => material.dispose());
+    else child.material?.dispose();
+  });
+}
+
+function destroy() {
+  if (destroyed) return;
+  nativeActive = false;
+  stopAnimation({ clearTransient: true });
+  destroyed = true;
+  document.removeEventListener('visibilitychange', handleVisibilityChange);
+  window.removeEventListener('pagehide', destroy);
+  canvas.removeEventListener('pointerdown', handlePointerDown);
+  canvas.removeEventListener('pointermove', handlePointerMove);
+  canvas.removeEventListener('pointerup', handlePointerUp);
+  canvas.removeEventListener('pointercancel', handlePointerCancel);
+  canvas.removeEventListener('webglcontextlost', handleContextLost);
+  resizeObserver?.disconnect();
+  resizeObserver = null;
+  for (const object of preparingAssets) disposeObject(object);
+  preparingAssets.clear();
+  for (const object of assets.values()) disposeObject(object);
+  assets.clear();
+  platform.geometry.dispose();
+  platformMaterial.dispose();
+  renderer.dispose();
+}
+
+window.ThenAvatar = Object.freeze({ apply, setActive, destroy });
+document.addEventListener('visibilitychange', handleVisibilityChange);
+window.addEventListener('pagehide', destroy);
 
 const preparationFailureCodes = new Set([
   ...Object.values(assetFiles).map((file) => `load:${file}`),
@@ -286,20 +404,7 @@ const preparationFailureCodes = new Set([
 ]);
 
 prepare().catch((error) => {
+  if (destroyed || error?.message === 'destroyed') return;
   const code = preparationFailureCodes.has(error?.message) ? error.message : 'assetLoadFailed';
   post({ type: 'failed', code });
 });
-
-window.addEventListener('pagehide', () => {
-  if (animationFrame !== null) window.cancelAnimationFrame(animationFrame);
-  for (const object of assets.values()) {
-    object.traverse((child) => {
-      child.geometry?.dispose();
-      if (Array.isArray(child.material)) child.material.forEach((material) => material.dispose());
-      else child.material?.dispose();
-    });
-  }
-  platform.geometry.dispose();
-  platformMaterial.dispose();
-  renderer.dispose();
-}, { once: true });
