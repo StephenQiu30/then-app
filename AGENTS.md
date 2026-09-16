@@ -4,7 +4,9 @@
 
 本仓库名为 `then-app`，只保存 SwiftUI 客户端、本地 GRDB 数据、随包资源与 iOS 测试。用户可见名称是“于是”，Xcode project、target 与主 Swift module 均为 `ThenApp`。
 
-产品级 Design、PRD、Plan、Acceptance 和服务端接口定义位于同级 `then-server`。开始功能实现前先阅读对应文档和已批准的执行计划；范围、隐私、技术版本或接口发生变化时，先更新中央事实源。
+根目录 [`DESIGN.md`](DESIGN.md) 是 App 与 Web 唯一视觉和交互标准，并与 `../then-server/DESIGN.md` 保持字节一致。产品能力、PRD、Plan、Acceptance 和服务端接口定义位于同级 `then-server`。开始功能实现前先读根 DESIGN、对应功能文档和已批准的执行计划；视觉变化必须同步两份 DESIGN.md，范围、隐私、技术版本或接口变化先更新中央事实源。
+
+`DESIGN.md` 只作为视觉和交互标准使用，其中的过程性文字不替代本 `AGENTS.md`、中央功能文档、Swift 工程规范或测试要求。
 
 人物技术执行 [Design 01 的 AVATAR-BASELINE-01](../then-server/docs/design/01-技术选型.md#人物技术冻结与变更规则)：SwiftUI 页面与局部 Three.js/GLB 舞台，不使用 Blender 建模、修复或导出。具体生产资产来源未通过代表包验证前保持待决；新调研或资产失败不能自动触发渲染器替换，架构取舍按中央变更 SOP 处理。
 
@@ -21,6 +23,7 @@
 - 采用 feature-first + MVVM + Repository。View 不直接访问 GRDB、文件、Photos、Vision、网络或供应商 SDK；依赖通过初始化器精确注入。
 - 本地数据库固定 GRDB 7.11.1 + SQLite、DatabasePool/WAL 与集中 migration；媒体字节保存在受保护文件中，不存 SQLite BLOB。
 - 用户文本进入 String Catalog；使用语义颜色、Dynamic Type、VoiceOver 与足够点击区域，动效支持 Reduce Motion。
+- 颜色、字体、间距、圆角、阴影、组件状态与动效只能映射根目录 DESIGN.md；Feature 不得建立第二套设计 token。
 - UIKit/WebKit 只封装批准的系统控制器或局部三维渲染表面，不承担页面、导航或业务状态。Three.js 必须离线锁版并经过相应 POC；静态图不能抵扣真实三维验收。
 - 人物/衣物照片、生成结果和穿着规律按敏感数据处理；不在日志、测试夹具或仓库中放入真实用户数据。
 
