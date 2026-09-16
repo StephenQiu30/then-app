@@ -1,6 +1,6 @@
 # 于是 iOS
 
-`Then/then-app` 是独立 SwiftUI 仓库，Xcode project/target/scheme 为 `ThenApp`。产品级文档位于同级 [then-server](../then-server/docs/README.md)，先读 [当前执行计划](../then-server/docs/plan/10-OOTD产品实施计划.md)。
+`Then/then-app` 是独立 SwiftUI 仓库，Xcode project/target/scheme 为 `ThenApp`。App 与 Web 的唯一视觉和交互标准是根目录 [DESIGN.md](DESIGN.md)，其镜像位于 `../then-server/DESIGN.md`；产品能力文档位于同级 [then-server](../then-server/docs/README.md)，实施前再读 [当前执行计划](../then-server/docs/plan/10-OOTD产品实施计划.md)。
 
 ## 当前状态
 
