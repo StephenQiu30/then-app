@@ -23,6 +23,8 @@ colors:
   surface-tile-3: "#252527"
   surface-black: "#000000"
   surface-chip-translucent: "#d2d2d7"
+  destructive: "#b42318"
+  on-destructive: "#ffffff"
   on-primary: "#ffffff"
   on-dark: "#ffffff"
 
@@ -554,9 +556,22 @@ The structural breakpoints that matter for agents: 1440px (content lock), 1068px
 
 ## Known Gaps
 
-- Form validation and error states were not surfaced on the analyzed pages; only the neutral search input is documented.
+- Full business-form states remain a per-page acceptance item. The Then Web foundation below now defines error color, focus, text and touch-target defaults.
 - The homepage's embedded video/player frame uses `{colors.surface-black}`; interior player controls are not documented (they're a platform widget, not a web-design token).
 - Some component imagery is dynamic (rotating product hero) and its specific copy varies per surface — component specs name the structure, not the rotating content.
 - Dark-mode counterparts for store and accessories utility cards were not surfaced on the analyzed pages; the system documented is the daytime/light-dominant variant Apple ships by default.
 - Atmospheric photography (environment page mountain vista) is a content asset, not a design token; the documented `{component.environment-quote-card}` describes the structural surface only.
 - The exact backdrop-filter blur radius on `{component.sub-nav-frosted}` and `{component.floating-sticky-bar}` is platform-dependent; production CSS uses `saturate(180%) blur(20px)` as a typical baseline but the value isn't formalized as a token.
+
+
+## Then Web foundation — 2026-09-22
+
+此节是 Then 对既有视觉语言的必要实现补充。Web 使用 shadcn/ui + Radix Primitives；不继承参考站点的品牌、导航与营销内容。
+
+- 浅色语义映射：background/card/popover = canvas，foreground = ink，primary = primary，primary-foreground = on-primary；secondary/muted/accent = canvas-parchment，其 foreground = ink 或 ink-muted-80。accent 是表面强调，不引入第二个品牌色。
+- muted-foreground 使用 ink-muted-80；body-muted 和 ink-muted-48 不用于浅色重要说明。border 使用 hairline；input 使用 ink-muted-48，确保可见控件边界。ring 使用 primary-focus，键盘焦点采用完整不透明 2px 外轮廓和 2px offset。
+- destructive/error 使用新增 `colors.destructive` (#b42318)，反白正文使用 `colors.on-destructive`。该语义色只表达错误与危险操作，不能作为第二个行动品牌色；错误同时有文字说明，表单关联 aria-invalid/aria-describedby。成功与提醒优先用文字和既有中性表面，本片不新增未使用的状态色。
+- Body 默认 17px/1.47、400；按钮默认同一正文规格、pill 圆角、至少 44px 命中高度，小尺寸也保持最小命中区；危险按钮使用 destructive 变体，页面不能临时覆盖组件颜色/字体。
+- 标题采用系统 display 字体、600；hero 在 ≤419px/420–640px/641–1068px/≥1069px 分别为 28/34/40/56px。Web 样式使用 rem 承接文字放大，正文保持自然换行。最大内容宽 1440px，基础状态页使用更窄可读列，不用 overflow-x:hidden 掩盖溢出。
+- 通用状态：404 提供返回首页；路由异常显示可重试提示，不展示内部错误正文；首页明确“准备中”，不创建未实现的账户入口或虚假成功状态。
+- 默认浅色，不提供暗色开关；应用跟随系统颜色偏好也保持此浅色基线。减少动态效果时停用非必要动画与过渡。普通正文、焦点和触控区域分别验证；根设计同步不代表 App 已实现对应 Web 状态。
