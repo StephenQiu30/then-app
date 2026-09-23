@@ -8,7 +8,7 @@
 
 `DESIGN.md` 只作为视觉和交互标准使用，其中的过程性文字不替代本 `AGENTS.md`、中央功能文档、Swift 工程规范或测试要求。
 
-人物技术执行 [Design 01 的 AVATAR-BASELINE-01](../then-server/docs/design/01-技术选型.md#人物技术冻结与变更规则)：SwiftUI 页面与局部 Three.js/GLB 舞台，不使用 Blender 建模、修复或导出。具体生产资产来源未通过代表包验证前保持待决；新调研或资产失败不能自动触发渲染器替换，架构取舍按中央变更 SOP 处理。
+人物技术执行 [Design 01 的 AVATAR-BASELINE-01](../then-server/docs/design/01-技术选型.md#人物技术冻结与变更规则)：2026-09-22 修订为完整 Look 图片优先、整套静态 GLB 按需生成并由局部 Three.js 展示；SwiftUI 仍拥有页面。不使用 Blender，首版无需模块衣物、骨架、体型或眼部。设计已获替换授权，生产样本/供应商准入和代码实施仍待验证；新调研不自动更换运行时，按中央 SOP 处理。
 
 ## 服务端接入
 

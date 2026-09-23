@@ -12,3 +12,15 @@ build/
 .idea/
 .vscode/
 *.swp
+
+# Local scratch files and generated test reports
+/tmp/
+/temp/
+/.tmp/
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej
+*.xcresult/
