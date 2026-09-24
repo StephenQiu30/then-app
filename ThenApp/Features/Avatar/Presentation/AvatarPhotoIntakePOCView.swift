@@ -15,7 +15,7 @@ struct AvatarPhotoIntakePOCView: View {
   var body: some View {
     NavigationStack {
       ZStack {
-        Color(.systemBackground).ignoresSafeArea()
+        ThenPalette.canvas.ignoresSafeArea()
         ScrollView {
           VStack(alignment: .leading, spacing: 24) {
             brand
@@ -31,7 +31,7 @@ struct AvatarPhotoIntakePOCView: View {
       .overlay {
         if scenePhase != .active {
           ZStack {
-            Color(.systemBackground).ignoresSafeArea()
+            ThenPalette.canvas.ignoresSafeArea()
             Label("照片预览已隐藏", systemImage: "lock.shield")
           }
           .accessibilityElement(children: .combine)
@@ -234,7 +234,7 @@ struct AvatarPhotoIntakePOCView: View {
       Image(systemName: symbol)
         .font(.system(size: 44, weight: .regular))
         .frame(width: 72, height: 72)
-        .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 20))
+        .background(ThenPalette.inset, in: RoundedRectangle(cornerRadius: 12))
         .accessibilityHidden(true)
       Text(title)
         .font(.largeTitle.bold())
@@ -279,7 +279,7 @@ struct AvatarPhotoIntakePOCView: View {
       .fixedSize(horizontal: false, vertical: true)
       .padding(16)
       .frame(maxWidth: .infinity, alignment: .leading)
-      .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 16))
+      .background(ThenPalette.inset, in: RoundedRectangle(cornerRadius: 8))
       .accessibilityIdentifier("avatar.photo.poc.reason")
   }
 
@@ -301,7 +301,7 @@ private struct SanitizedAvatarPhotoPreview: View {
 
   var body: some View {
     ZStack {
-      Color(.secondarySystemBackground)
+      ThenPalette.inset
       if let image {
         image
           .resizable()
@@ -334,15 +334,15 @@ private struct PrimaryPOCButtonStyle: ButtonStyle {
   func makeBody(configuration: Configuration) -> some View {
     configuration.label
       .font(.headline)
-      .foregroundStyle(isEnabled ? Color(.systemBackground) : Color.primary)
+      .foregroundStyle(isEnabled ? ThenPalette.surface : ThenPalette.body)
       .padding(.horizontal, 20)
       .frame(maxWidth: .infinity, minHeight: 52)
       .background(
         isEnabled
-          ? Color.primary.opacity(configuration.isPressed ? 0.72 : 1)
-          : Color(.secondarySystemBackground)
+          ? ThenPalette.ink.opacity(configuration.isPressed ? 0.72 : 1)
+          : ThenPalette.inset
       )
-      .clipShape(Capsule())
+      .clipShape(RoundedRectangle(cornerRadius: 6))
   }
 }
 
@@ -350,11 +350,11 @@ private struct SecondaryPOCButtonStyle: ButtonStyle {
   func makeBody(configuration: Configuration) -> some View {
     configuration.label
       .font(.headline)
-      .foregroundStyle(Color.primary)
+      .foregroundStyle(ThenPalette.ink)
       .padding(.horizontal, 20)
       .frame(maxWidth: .infinity, minHeight: 52)
-      .background(Color(.secondarySystemBackground).opacity(configuration.isPressed ? 0.72 : 1))
-      .clipShape(Capsule())
+      .background(ThenPalette.inset.opacity(configuration.isPressed ? 0.72 : 1))
+      .clipShape(RoundedRectangle(cornerRadius: 6))
   }
 }
 

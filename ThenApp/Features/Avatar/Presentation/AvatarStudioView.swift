@@ -162,7 +162,7 @@ struct AvatarStudioView: View {
 
   var body: some View {
     ZStack(alignment: .bottom) {
-      Color.white.ignoresSafeArea()
+      ThenPalette.canvas.ignoresSafeArea()
       Group {
         switch model.screen {
         case .look:
@@ -218,8 +218,8 @@ struct AvatarStudioView: View {
           .font(.subheadline.weight(.semibold))
           .padding(.horizontal, 16)
           .padding(.vertical, 10)
-          .background(.black, in: Capsule())
-          .foregroundStyle(.white)
+          .background(ThenPalette.ink, in: RoundedRectangle(cornerRadius: 8))
+          .foregroundStyle(ThenPalette.surface)
           .padding(.top, 54)
           .transition(.move(edge: .top).combined(with: .opacity))
           .task {
@@ -240,7 +240,7 @@ struct AvatarStudioView: View {
           .frame(width: 30, height: 30)
           .accessibilityHidden(true)
         Text(verbatim: "于是")
-          .font(.system(size: 25, weight: .black, design: .rounded))
+          .font(.system(size: 25, weight: .semibold))
           .tracking(-1.2)
       }
       .accessibilityElement(children: .combine)
@@ -260,7 +260,7 @@ struct AvatarStudioView: View {
       .accessibilityLabel("打开个人衣橱")
     }
     .font(.title3.weight(.semibold))
-    .foregroundStyle(.black)
+    .foregroundStyle(ThenPalette.ink)
     .padding(.horizontal, 22)
     .frame(height: 54)
   }
@@ -388,15 +388,16 @@ struct AvatarStudioView: View {
       }
     }
     .padding(16)
-    .foregroundStyle(.black)
-    .background(.white, in: RoundedRectangle(cornerRadius: 25, style: .continuous))
-    .shadow(color: .black.opacity(0.09), radius: 24, y: 8)
+    .foregroundStyle(ThenPalette.ink)
+    .background(ThenPalette.surface, in: RoundedRectangle(cornerRadius: 12))
+    .overlay(RoundedRectangle(cornerRadius: 12).stroke(ThenPalette.hairline, lineWidth: 1))
+    .shadow(color: .black.opacity(0.05), radius: 4, y: 2)
   }
 
   private var lookCardHeading: some View {
     VStack(alignment: .leading, spacing: 6) {
       Text(Date.now, format: .dateTime.month(.wide).day().weekday(.wide))
-        .font(.system(.title3, design: .rounded, weight: .bold))
+        .font(.title3.weight(.semibold))
         .fixedSize(horizontal: false, vertical: true)
       HStack(spacing: 7) {
         ForEach(model.appliedGarments) { garment in
@@ -425,7 +426,7 @@ struct AvatarStudioView: View {
         BundledAvatarImage(name: garment.assetName)
           .scaledToFit()
           .frame(width: 52, height: 52)
-          .background(Color(white: 0.96), in: RoundedRectangle(cornerRadius: 13))
+          .background(ThenPalette.inset, in: RoundedRectangle(cornerRadius: 8))
           .accessibilityLabel(garment.name)
       }
     }
@@ -499,19 +500,20 @@ struct AvatarStudioView: View {
       Spacer(minLength: 0)
       Button("Dress up") { model.dressUp() }
         .buttonStyle(.borderedProminent)
-        .buttonBorderShape(.capsule)
-        .tint(Color(red: 0.28, green: 0.47, blue: 0.98))
+        .buttonBorderShape(.roundedRectangle(radius: 6))
+        .tint(ThenPalette.surface)
+        .foregroundStyle(ThenPalette.ink)
         .disabled(model.selectedGarments.isEmpty)
     }
     .padding(12)
-    .background(.black)
+    .background(ThenPalette.ink)
   }
 
   private func garmentCard(_ garment: BuiltInGarment) -> some View {
     Button { model.toggle(garment) } label: {
       VStack(alignment: .leading, spacing: 10) {
         ZStack(alignment: .topTrailing) {
-          Color(white: 0.965)
+          ThenPalette.inset
           BundledAvatarImage(name: garment.assetName)
             .scaledToFit()
             .padding(12)
@@ -521,7 +523,7 @@ struct AvatarStudioView: View {
             .padding(10)
         }
         .aspectRatio(0.88, contentMode: .fit)
-        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
         Text(garment.name)
           .font(.subheadline.weight(.semibold))
           .foregroundStyle(.black)
@@ -544,8 +546,8 @@ struct AvatarStudioView: View {
         Image(systemName: "camera.fill")
           .font(.title3)
           .frame(width: 54, height: 54)
-          .background(.black, in: Circle())
-          .foregroundStyle(.white)
+          .background(ThenPalette.ink, in: RoundedRectangle(cornerRadius: 8))
+          .foregroundStyle(ThenPalette.surface)
       }
       .accessibilityLabel("可选照片穿搭")
       dockButton(systemName: "hanger", selected: model.screen == .wardrobe, label: "内置衣橱") {
@@ -554,9 +556,9 @@ struct AvatarStudioView: View {
     }
     .padding(.horizontal, 12)
     .padding(.vertical, 8)
-    .background(.ultraThinMaterial, in: Capsule())
-    .overlay(Capsule().stroke(.white.opacity(0.8), lineWidth: 0.5))
-    .shadow(color: .black.opacity(0.12), radius: 18, y: 8)
+    .background(ThenPalette.surface, in: RoundedRectangle(cornerRadius: 12))
+    .overlay(RoundedRectangle(cornerRadius: 12).stroke(ThenPalette.hairline, lineWidth: 1))
+    .shadow(color: .black.opacity(0.06), radius: 8, y: 4)
   }
 
   private var appearanceSheet: some View {
@@ -631,8 +633,9 @@ struct AvatarStudioView: View {
       Image(systemName: systemName)
         .font(.title3.weight(.semibold))
         .frame(width: 46, height: 46)
-        .background(selected ? .black : .clear, in: Circle())
-        .foregroundStyle(selected ? .white : .black)
+        .background(selected ? ThenPalette.inset : ThenPalette.surface,
+          in: RoundedRectangle(cornerRadius: 8))
+        .foregroundStyle(ThenPalette.ink)
     }
     .accessibilityLabel(label)
     .accessibilityAddTraits(selected ? .isSelected : [])

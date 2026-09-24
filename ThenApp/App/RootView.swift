@@ -1,5 +1,16 @@
 import SwiftUI
 
+enum ThenPalette {
+  static let canvas = Color(red: 250 / 255, green: 250 / 255, blue: 250 / 255)
+  static let surface = Color.white
+  static let inset = Color(red: 245 / 255, green: 245 / 255, blue: 245 / 255)
+  static let ink = Color(red: 23 / 255, green: 23 / 255, blue: 23 / 255)
+  static let body = Color(red: 77 / 255, green: 77 / 255, blue: 77 / 255)
+  static let hairline = Color(red: 235 / 255, green: 235 / 255, blue: 235 / 255)
+  static let link = Color(red: 0 / 255, green: 112 / 255, blue: 243 / 255)
+  static let destructive = Color(red: 197 / 255, green: 0 / 255, blue: 0 / 255)
+}
+
 struct RootView: View {
   @Bindable var model: OOTDAppModel
   @State private var studio = AvatarStudioModel()
@@ -10,7 +21,7 @@ struct RootView: View {
       content.accessibilityHidden(scenePhase != .active)
       if scenePhase != .active {
         ZStack {
-          Color(.systemBackground).ignoresSafeArea()
+          ThenPalette.canvas.ignoresSafeArea()
           Label("内容已隐藏", systemImage: "lock.shield")
         }
         .accessibilityElement(children: .combine)

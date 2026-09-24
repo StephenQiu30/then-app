@@ -27,6 +27,8 @@ struct OutfitPlanView: View {
       if model.hasMore { Button("加载更早的记录") { model.loadMore() }.disabled(model.isLoading) }
     }
     .scrollEdgeEffectStyle(.hard, for: .all)
+    .scrollContentBackground(.hidden)
+    .background(ThenPalette.canvas)
     .navigationTitle("穿搭簿")
     .toolbar {
       ToolbarItem(placement: .primaryAction) {
@@ -96,7 +98,7 @@ struct OutfitPlanEditorView: View {
               .id("outfit.detail.top")
               .padding(20)
             }
-            .background(Color(.systemGroupedBackground))
+            .background(ThenPalette.canvas)
             .onChange(of: draft.plan?.status) { previous, current in
               guard previous != current, current == .cancelled else { return }
               proxy.scrollTo("outfit.detail.top", anchor: .top)
@@ -147,7 +149,7 @@ struct OutfitPlanEditorView: View {
     .overlay {
       if scenePhase != .active {
         ZStack {
-          Color(.systemBackground).ignoresSafeArea()
+          ThenPalette.canvas.ignoresSafeArea()
           Label("内容已隐藏", systemImage: "lock.shield")
         }.accessibilityElement(children: .combine)
       }
@@ -167,7 +169,8 @@ struct OutfitPlanEditorView: View {
     VStack(alignment: .leading, spacing: 16, content: content)
       .frame(maxWidth: .infinity, alignment: .leading)
       .padding(16)
-      .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
+      .background(ThenPalette.surface, in: RoundedRectangle(cornerRadius: 12))
+      .overlay(RoundedRectangle(cornerRadius: 12).stroke(ThenPalette.hairline, lineWidth: 1))
   }
 
   private var editing: some View {
@@ -291,12 +294,12 @@ struct OutfitPlanEditorView: View {
       }.scrollIndicators(.hidden)
     }
     .padding(16)
-    .foregroundStyle(Color.white)
-    .background(Color.black, in: RoundedRectangle(cornerRadius: 24))
+    .foregroundStyle(ThenPalette.surface)
+    .background(ThenPalette.ink, in: RoundedRectangle(cornerRadius: 12))
     .accessibilityElement(children: .contain)
     .accessibilityIdentifier("outfit.selected.tray")
     .padding(.horizontal, 16).padding(.vertical, 8)
-    .background(Color(.systemGroupedBackground))
+    .background(ThenPalette.canvas)
     .disabled(draft.isWorking)
   }
 
@@ -419,7 +422,7 @@ struct OutfitItemThumbnail: View {
 
   var body: some View {
     ZStack {
-      Color(.secondarySystemBackground)
+      ThenPalette.inset
       if let image = model.image { image.resizable().scaledToFit() }
       else {
         Image(systemName: "tshirt").resizable().scaledToFit()
