@@ -40,7 +40,11 @@ struct ThenApp: App {
   }
 
   var body: some Scene {
-    WindowGroup { root }
+    WindowGroup {
+      root
+        .tint(ThenPalette.ink)
+        .preferredColorScheme(.light)
+    }
   }
 
   @ViewBuilder private var root: some View {

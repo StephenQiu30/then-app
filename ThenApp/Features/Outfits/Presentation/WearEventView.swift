@@ -57,7 +57,7 @@ struct WearEventView: View {
     .overlay {
       if scenePhase != .active {
         ZStack {
-          Color(.systemBackground).ignoresSafeArea()
+          ThenPalette.canvas.ignoresSafeArea()
           Label("内容已隐藏", systemImage: "lock.shield")
         }.accessibilityElement(children: .combine)
       }
@@ -196,13 +196,14 @@ struct WearEventView: View {
         }
         if model.isWorking { ProgressView("正在读取实际穿着…") }
       }.padding(20)
-    }.background(Color(.systemGroupedBackground))
+    }.background(ThenPalette.canvas)
   }
 
   private func card<Content: View>(@ViewBuilder content: () -> Content) -> some View {
     VStack(alignment: .leading, spacing: 12, content: content)
       .frame(maxWidth: .infinity, alignment: .leading).padding(16)
-      .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
+      .background(ThenPalette.surface, in: RoundedRectangle(cornerRadius: 12))
+      .overlay(RoundedRectangle(cornerRadius: 12).stroke(ThenPalette.hairline, lineWidth: 1))
   }
 
   private var categoryOrder: [WardrobeCategory] {

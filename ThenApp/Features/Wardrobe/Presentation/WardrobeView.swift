@@ -28,7 +28,7 @@ struct WardrobeView: View {
           Text("照片已隐藏或替换，旧文件清理待完成。")
           Button("重试照片清理") { model.requestPhotoCleanup() }.disabled(model.isCleaningPhotos)
         }
-        .padding().background(.background)
+        .padding().background(ThenPalette.surface)
       }
     }
     .task(id: model.cleanupRequest) {
@@ -89,7 +89,7 @@ struct WardrobeView: View {
       }
       .padding(16)
     }
-    .background(.background)
+    .background(ThenPalette.canvas)
     .scrollEdgeEffectStyle(dynamicTypeSize.isAccessibilitySize ? .hard : .automatic, for: .all)
   }
 
@@ -115,7 +115,7 @@ private struct WardrobeItemCard: View {
     Button(action: edit) {
       VStack(alignment: .leading, spacing: 6) {
         ZStack {
-          Color(.secondarySystemBackground)
+          ThenPalette.inset
           if let image = thumbnail.image {
             image.resizable().scaledToFit()
               .accessibilityLabel("已保存的衣物照片")
@@ -267,7 +267,7 @@ struct WardrobeEditorView: View {
     .overlay {
       if scenePhase != .active {
         ZStack {
-          Color(.systemBackground).ignoresSafeArea()
+          ThenPalette.canvas.ignoresSafeArea()
           Label("内容已隐藏", systemImage: "lock.shield")
         }
         .accessibilityElement(children: .combine)
