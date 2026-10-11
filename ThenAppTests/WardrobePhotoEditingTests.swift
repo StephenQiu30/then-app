@@ -6,7 +6,7 @@ import Testing
 @MainActor @Suite("衣物照片编辑状态")
 struct WardrobePhotoEditingTests {
   private func candidate(people: Int = 0, faces: Int = 0) async throws -> WardrobePhotoCandidate {
-    let folder = try #require(Bundle(for: EditingFixtureBundle.self).url(forResource: "AvatarPhotoIntake", withExtension: nil))
+    let folder = try #require(Bundle(for: EditingFixtureBundle.self).url(forResource: "PhotoImport", withExtension: nil))
     let data = try Data(contentsOf: folder.appendingPathComponent("metadata-png.fixture"))
     let limits = try ImageIOWardrobePhotoPreparer.Limits(inputBytes: 1_000_000, sourcePixels: 4096,
       normalizedDimension: 32, thumbnailDimension: 8, rasterBytes: 4096, normalizedBytes: 100_000,

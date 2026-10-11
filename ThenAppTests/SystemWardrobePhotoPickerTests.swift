@@ -18,7 +18,7 @@ struct SystemWardrobePhotoPickerTests {
   }
   private func withFile(format: WardrobePhotoSourceFormat = .png,
                         body: (URL, Data) async throws -> Void) async throws {
-    let directory = try #require(Bundle(for: WardrobePickerFixtureBundle.self).url(forResource: "AvatarPhotoIntake", withExtension: nil))
+    let directory = try #require(Bundle(for: WardrobePickerFixtureBundle.self).url(forResource: "PhotoImport", withExtension: nil))
     let suffix = switch format { case .png: "png"; case .jpeg: "jpeg"; case .heic: "heic" }
     let source = try Data(contentsOf: directory.appendingPathComponent("metadata-\(suffix).fixture"))
     let root = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)

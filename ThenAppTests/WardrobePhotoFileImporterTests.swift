@@ -13,7 +13,7 @@ struct WardrobePhotoFileImporterTests {
   }
 
   private func fixture(_ name: String) throws -> Data {
-    let directory = try #require(Bundle(for: FixtureBundle.self).url(forResource: "AvatarPhotoIntake", withExtension: nil))
+    let directory = try #require(Bundle(for: FixtureBundle.self).url(forResource: "PhotoImport", withExtension: nil))
     return try Data(contentsOf: directory.appendingPathComponent(name + ".fixture"))
   }
 

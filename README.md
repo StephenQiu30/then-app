@@ -1,20 +1,14 @@
 # 于是 iOS
 
-`Then/then-app` 是独立 SwiftUI 仓库，Xcode project/target/scheme 为 `ThenApp`。App 与 Web 的唯一视觉和交互标准是根目录 [DESIGN.md](DESIGN.md)，其镜像位于 `../then-server/DESIGN.md`；产品能力文档位于同级 [then-server](../then-server/docs/README.md)，实施前再读 [当前执行计划](../then-server/docs/plan/10-OOTD产品实施计划.md)。
+`Then/then-app` 是独立 SwiftUI 仓库，Xcode project/target/scheme 为 `ThenApp`。App 与 Web 的共享视觉标准是根目录 [DESIGN.md](DESIGN.md)，工程规范见 [AGENTS.md](AGENTS.md) 与服务端 [PROJECT.md](../then-server/PROJECT.md)。
 
 ## 当前状态
 
-- 已实现无图/单件图片衣橱、本地穿搭计划、快照/编辑/取消/删除与重启恢复；图片和最大字号计划的模拟器开发检查已完成，人工与真机发布仍待验。
-- Three.js 工程舞台已有离线工程 GLB、模块切换/观察和微动；现行设计改为完整 Look 图片与整套静态 GLB，正式带纹理资产、Look 持久化和设备验收尚未完成。
-- 当前设计采用三个人物、每人两套完整 Look，用户新穿搭先生成图，再主动生成 GLB 并缓存复用。11-05 负责离线闭环，14-01 负责云生成；眼部/模块人物/视频延期。当前无云端 API Client，本次文档替换不表示这些功能已实现。
+已有本地衣橱、单件图片导入、穿搭推荐、计划、实际穿着与反馈，使用 SwiftUI + Observation、GRDB + SQLite；离线 Three.js 工程舞台仍由受控 WKWebView 加载随包 GLB。调试专用人物照片 POC 已移除。
 
-## 固定边界
+个人首版目标为本人参考/风格 → 完整 Look 图 → 确认后按需静态 GLB → 查看、本地保存与日期复用。先验一套满意结果，再扩五套。真实效果、费用、生产资产、个人 API、存储适配和设备验收尚未完成。
 
-SwiftUI + Observation 拥有全部页面和业务状态，GRDB + SQLite 保存本地事实。Three.js/标准 GLB 是固定三维路径，经隔离 WKWebView 加载锁版随包资源；禁止运行时 CDN/远程脚本和任意用户模型，不使用 Blender。
-
-WebKit 使用非持久存储、受控 local scheme、导航白名单及 CSP；Swift 负责资源验证与生命周期。装饰性动效遵循 Reduce Motion，进入后台停止。工程夹具与生产资产分开验收，详见 [Three.js 研究](../then-server/docs/design/threejs-avatar-research.md)。
-
-服务端由 Gin/Huma 运行时提供 OpenAPI。实际账号或云功能接入前先固定 spec/checklist，不保留空 transport target、物化契约或跨仓符号链接。
+Three.js 使用离线锁版资源。WebKit 使用非持久存储、受控 local scheme、导航白名单及 CSP；Swift 负责资源验证与生命周期。禁止运行时 CDN、远程脚本和任意用户模型；动效遵循 Reduce Motion，后台停止。
 
 ## 资源与本地化
 
@@ -53,10 +47,10 @@ xcodebuild -project ThenApp.xcodeproj \
   test
 ```
 
-签名使用 Automatic，但仓库不提交 `DEVELOPMENT_TEAM`。模拟器构建无需 Team；真机与 Archive 前由维护者在本地选择正确 Apple Developer Team，并单独确认正式 Bundle ID 所有权。完整选型与排除项见 [Design 01](https://github.com/StephenQiu30/then-server/blob/main/docs/design/01-技术选型.md)。
+签名使用 Automatic，但仓库不提交 `DEVELOPMENT_TEAM`。模拟器构建无需 Team；真机与 Archive 前由维护者在本地选择正确 Apple Developer Team，并单独确认正式 Bundle ID 所有权。依赖版本以 Xcode 工程与 Package.resolved 为准。
 
 
 
 ## 验收边界
 
-开发使用 Xcode 与现有模拟器，不自动新建/删除/重置设备。每次测试保存独立 xcresult 并核对实际通过/失败/跳过。标准 CI 不覆盖图库预置的完整 UI、真机保护或人工视觉；详细结果统一写入中央 Acceptance，不在 README 追加实验日志。
+开发使用 Xcode 与现有模拟器，不自动新建/删除/重置设备。每次测试保存独立 xcresult 并核对实际通过/失败/跳过。标准 CI 不覆盖图库预置的完整 UI、真机保护或人工视觉；验证结果记录在当次交付中，不在 README 追加实验日志。

@@ -13,9 +13,7 @@
 		F31301000000000000000004 /* RecommendationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31302000000000000000004 /* RecommendationTests.swift */; };
 		02FE08D6CC60C654A749267A /* WardrobeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EDF81C8D6699B5F851889F /* WardrobeModels.swift */; };
 		04C33BBB18064E6827CAF05D /* OOTDSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B028927DBEB230FEA1D1E4F5 /* OOTDSchema.swift */; };
-		065ED7D18FA3335B2F6BE91E /* SystemAvatarPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515765F19E4294DC3D285484 /* SystemAvatarPhotoPicker.swift */; };
 		07D303511A494FAD9CCDC98A /* ThenApp/Services/Photos/SystemWardrobePhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84669C1C3A4F018109EF2A /* ThenApp/Services/Photos/SystemWardrobePhotoPicker.swift */; };
-		09A422587FC702D71B101676 /* AvatarPhotoTemporarySessionStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF3005C0C309C6B72821ADB /* AvatarPhotoTemporarySessionStoreTests.swift */; };
 		10B9B15FBAD3410DAA11A3BE /* ThenAppTests/OutfitPlanRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1626DE65641EA884DA582 /* ThenAppTests/OutfitPlanRepositoryTests.swift */; };
 		11A456BD8C0B4829846CDBAB /* ThenAppTests/VisionWardrobePersonAnalyzerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBDE0DA3F2496495A08724 /* ThenAppTests/VisionWardrobePersonAnalyzerTests.swift */; };
 		1343E1D5B15241A7AA93C592 /* ThenApp/Services/Imaging/VisionWardrobePersonAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E6CDC87DCD454F9B99FDA2 /* ThenApp/Services/Imaging/VisionWardrobePersonAnalyzer.swift */; };
@@ -25,29 +23,21 @@
 		301F14B8EFB34D59A8FAB5EB /* ThenApp/Data/Outfits/OutfitPlanPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD6BECEE6A4A02A0E241B7 /* ThenApp/Data/Outfits/OutfitPlanPersistence.swift */; };
 		308E0A4501291AC830DA27C3 /* ThenAppTests/Support/WardrobeMediaLifecycleProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB906D6E48BD71DA3A19FDB9 /* ThenAppTests/Support/WardrobeMediaLifecycleProbe.swift */; };
 		389174FA25DC405B9DC512C9 /* ThenAppTests/WardrobePhotoPreparerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0ABA3682DF4D31BA2EFBE1 /* ThenAppTests/WardrobePhotoPreparerTests.swift */; };
-		46B557789E14268D9BBEA4D1 /* AvatarPhotoIntakeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89851E22E84B3C4C3E35F061 /* AvatarPhotoIntakeModels.swift */; };
-		4ACFA7DD876AA66256024EAC /* AvatarPhotoFileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6626203F7EBC1D08E4D692 /* AvatarPhotoFileImporter.swift */; };
 		4BD17317ED8041BDBACD47D6 /* ThenAppTests/WardrobePhotoReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB89371DC7F4799BCB88ECE /* ThenAppTests/WardrobePhotoReviewTests.swift */; };
 		4C7E85093B7C46989E21E438 /* ThenApp/Services/Photos/WardrobePhotoFileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058CA31D516F4C66921F7188 /* ThenApp/Services/Photos/WardrobePhotoFileImporter.swift */; };
-		550E1BE242B46537A0A41FE2 /* SystemAvatarPhotoPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2BA90B33F912B681829E76 /* SystemAvatarPhotoPickerTests.swift */; };
 		5A1CAE12DC384175BB653283 /* ThenAppTests/OutfitPlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A623C1F1B74B6FB01AE34D /* ThenAppTests/OutfitPlanTests.swift */; };
-		5B3040D1C6AC8DF11097D4EA /* AvatarPhotoQualityPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387F631F40B95CD8C937D6C /* AvatarPhotoQualityPolicyTests.swift */; };
 		5B4D811D5B3F4D7A8513A351 /* ThenApp/Services/Imaging/ImageIOWardrobePhotoPreparer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8A669FFDFA4553AB2DD248 /* ThenApp/Services/Imaging/ImageIOWardrobePhotoPreparer.swift */; };
 		6160976555DA2CBFA2B18CE3 /* WardrobeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5720D2CBCA51837C55C5F4 /* WardrobeViewModelTests.swift */; };
 		6575EA1CB1A94C50A4F29209 /* ThenApp/Features/Outfits/Presentation/OutfitPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AEB7833456498C876D069C /* ThenApp/Features/Outfits/Presentation/OutfitPlanView.swift */; };
 		6681100884953FA8EBD3F55C /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53CBF02F72DCC4FABDC06BF /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoModels.swift */; };
 		6940954CFBFC53B9F1B87F77 /* WardrobeRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF0EE18A18112BC382B3EB6 /* WardrobeRepositoryTests.swift */; };
 		747433C2D6E752C072EC3B23 /* WardrobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818894B353203CF97AC2316 /* WardrobeView.swift */; };
-		76D588567112E69C9A17A32E /* AvatarPhotoQualityPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275B4F9C290B958FC0B72E5 /* AvatarPhotoQualityPolicy.swift */; };
 		7C3B46D48C67C82F19A9A435 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A6DDECCD9B80EB9D5FF65 /* RootView.swift */; };
 		818151B6764A4ED0A5437FE7 /* ThenAppTests/Support/WardrobeVisionProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1E222DC394BBAA496EC7A /* ThenAppTests/Support/WardrobeVisionProbe.swift */; };
-		82C262B41823785455696DBF /* AvatarPhotoFileImporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3776473CA3F5E9C3174F61 /* AvatarPhotoFileImporterTests.swift */; };
 		86C8576E30014441A7448500 /* ThenAppTests/WardrobePhotoFileImporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D1510EA2045F29D3C373C /* ThenAppTests/WardrobePhotoFileImporterTests.swift */; };
-		88E37753086BFEBA9CDFDB58 /* AvatarPhotoIntake in Resources */ = {isa = PBXBuildFile; fileRef = 56E21C2D103063EBF7F67C88 /* AvatarPhotoIntake */; };
+		88E37753086BFEBA9CDFDB58 /* PhotoImport in Resources */ = {isa = PBXBuildFile; fileRef = 56E21C2D103063EBF7F67C88 /* PhotoImport */; };
 		8909BC8359BD8343431DB225 /* GRDBWardrobeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15884B1ACCD396A5027BB64F /* GRDBWardrobeRepository.swift */; };
 		96154EDE648F7109D398F989 /* WardrobeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA230F2C5AE1964DA2E5AA59 /* WardrobeViewModel.swift */; };
-		976712A3D614B994AEAD94E5 /* ImageIOAvatarPhotoSanitizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18386DCCB287BD887832A41 /* ImageIOAvatarPhotoSanitizer.swift */; };
-		9E8D9D22CD8469DBB561CE58 /* ImageIOAvatarPhotoSanitizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC5E23E25222AA854B8EDD /* ImageIOAvatarPhotoSanitizerTests.swift */; };
 		9IA000000000000000000001 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 9IB000000000000000000001 /* PrivacyInfo.xcprivacy */; };
 		9JA000000000000000000001 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9JB000000000000000000001 /* Localizable.xcstrings */; };
 		9JA000000000000000000002 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9JB000000000000000000002 /* InfoPlist.xcstrings */; };
@@ -58,23 +48,12 @@
 		A10000000000000000000004 /* AvatarStudioModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000004 /* AvatarStudioModelTests.swift */; };
 		A30000000000000000000001 /* AvatarAssetCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30000000000000000000001 /* AvatarAssetCatalogTests.swift */; };
 		A1712B5FC90441409F1071D2 /* ThenApp/Services/Photos/WardrobePhotoPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFF9F7B294F46FBAB7EC309 /* ThenApp/Services/Photos/WardrobePhotoPickerButton.swift */; };
-		AA1100000000000000000001 /* VisionAvatarPhotoAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1100000000000000000001 /* VisionAvatarPhotoAnalyzer.swift */; };
-		AA1100000000000000000002 /* VisionAvatarPhotoAnalyzerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1100000000000000000002 /* VisionAvatarPhotoAnalyzerTests.swift */; };
-		AA1200000000000000000001 /* PrepareAvatarPhotoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1200000000000000000001 /* PrepareAvatarPhotoUseCase.swift */; };
-		AA1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift */; };
-		AA1300000000000000000001 /* AvatarPhotoIntakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1300000000000000000001 /* AvatarPhotoIntakeViewModel.swift */; };
-		AA1300000000000000000002 /* AvatarPhotoIntakeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1300000000000000000002 /* AvatarPhotoIntakeViewModelTests.swift */; };
-		AA1400000000000000000001 /* AvatarPhotoIntakePOCHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1400000000000000000001 /* AvatarPhotoIntakePOCHost.swift */; };
-		AA1400000000000000000002 /* AvatarPhotoIntakePOCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1400000000000000000002 /* AvatarPhotoIntakePOCView.swift */; };
-		AA1400000000000000000003 /* AvatarPhotoPreviewLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1400000000000000000003 /* AvatarPhotoPreviewLoader.swift */; };
-		AA1400000000000000000004 /* AvatarPhotoPOCHostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1400000000000000000004 /* AvatarPhotoPOCHostTests.swift */; };
 		A7AB3802B7904279B47C6324 /* ThenAppTests/OutfitPlanViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175B1E7F16840708C7E4369 /* ThenAppTests/OutfitPlanViewModelTests.swift */; };
 		A8C2FA90C7F24FAD9E01754F /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F3E6FDE2403DA058EBA5 /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift */; };
 		ACC848F03B0E491FBA2ED0BE /* ThenApp/Services/Imaging/WardrobePhotoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D595263680534FFF9BF5586A /* ThenApp/Services/Imaging/WardrobePhotoImage.swift */; };
 		B23592FEAA4C48C8BBC71264 /* ThenAppTests/SystemWardrobePhotoPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14668FDC820C427B9E15F726 /* ThenAppTests/SystemWardrobePhotoPickerTests.swift */; };
 		B417BBCF8FFC467FBD99E139 /* ThenAppTests/WardrobeItemPhotoSaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6459C7D5094985963B65EC /* ThenAppTests/WardrobeItemPhotoSaveTests.swift */; };
 		B677C7A5B09A56DF93A3920F /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = C6172DF9179DD456FAE1F314 /* GRDB */; };
-		BE71C09A3B622E4DDB264B77 /* AvatarPhotoTemporarySessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B01DB6CC85234E5E691871 /* AvatarPhotoTemporarySessionStore.swift */; };
 		C131B3A8068507E583E73BC7 /* ThenApp/Data/Wardrobe/WardrobePhotoPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F978823F2F58DB7BA73D5B1C /* ThenApp/Data/Wardrobe/WardrobePhotoPersistence.swift */; };
 		D160802E8CE84AFD8EE5047E /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AA9F053C2D4E6F8024F150 /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoReview.swift */; };
 		D8B86D9947893A57EFD07BBA /* OOTDAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F113F6E60A632BA2C347A /* OOTDAppModel.swift */; };
@@ -131,42 +110,25 @@
 		26AEB7833456498C876D069C /* ThenApp/Features/Outfits/Presentation/OutfitPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Outfits/Presentation/OutfitPlanView.swift; sourceTree = SOURCE_ROOT; };
 		381931AFA752473E3940574A /* ThenAppTests/WardrobePhotoRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobePhotoRepositoryTests.swift; sourceTree = SOURCE_ROOT; };
 		3A5720D2CBCA51837C55C5F4 /* WardrobeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewModelTests.swift; sourceTree = "<group>"; };
-		3B2BA90B33F912B681829E76 /* SystemAvatarPhotoPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAvatarPhotoPickerTests.swift; sourceTree = "<group>"; };
-		3D3776473CA3F5E9C3174F61 /* AvatarPhotoFileImporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoFileImporterTests.swift; sourceTree = "<group>"; };
 		3EDF4B41BCB10051585A9C2A /* ThenAppUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThenAppUITests.swift; sourceTree = "<group>"; };
 		432D1510EA2045F29D3C373C /* ThenAppTests/WardrobePhotoFileImporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobePhotoFileImporterTests.swift; sourceTree = SOURCE_ROOT; };
 		463A6DDECCD9B80EB9D5FF65 /* RootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		4FF0EE18A18112BC382B3EB6 /* WardrobeRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeRepositoryTests.swift; sourceTree = "<group>"; };
-		515765F19E4294DC3D285484 /* SystemAvatarPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAvatarPhotoPicker.swift; sourceTree = "<group>"; };
-		56E21C2D103063EBF7F67C88 /* AvatarPhotoIntake */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AvatarPhotoIntake; sourceTree = "<group>"; };
+		56E21C2D103063EBF7F67C88 /* PhotoImport */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PhotoImport; sourceTree = "<group>"; };
 		5818894B353203CF97AC2316 /* WardrobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeView.swift; sourceTree = "<group>"; };
-		5AF3005C0C309C6B72821ADB /* AvatarPhotoTemporarySessionStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoTemporarySessionStoreTests.swift; sourceTree = "<group>"; };
 		5F449F280C9D45D8C2C0CC5E /* ThenApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThenApp.swift; sourceTree = "<group>"; };
 		5FBD6BECEE6A4A02A0E241B7 /* ThenApp/Data/Outfits/OutfitPlanPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Data/Outfits/OutfitPlanPersistence.swift; sourceTree = SOURCE_ROOT; };
 		5FFF9F7B294F46FBAB7EC309 /* ThenApp/Services/Photos/WardrobePhotoPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Services/Photos/WardrobePhotoPickerButton.swift; sourceTree = SOURCE_ROOT; };
 		6B6459C7D5094985963B65EC /* ThenAppTests/WardrobeItemPhotoSaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobeItemPhotoSaveTests.swift; sourceTree = SOURCE_ROOT; };
-		6F6626203F7EBC1D08E4D692 /* AvatarPhotoFileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoFileImporter.swift; sourceTree = "<group>"; };
 		72E1626DE65641EA884DA582 /* ThenAppTests/OutfitPlanRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/OutfitPlanRepositoryTests.swift; sourceTree = SOURCE_ROOT; };
 		7EDE0E69DDD164665F8936A5 /* ThenAppTests/WardrobeMediaLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobeMediaLifecycleTests.swift; sourceTree = SOURCE_ROOT; };
 		7F15E91693B041F29AB32A04 /* ThenAppTests/WardrobePhotoEditingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/WardrobePhotoEditingTests.swift; sourceTree = SOURCE_ROOT; };
-		89851E22E84B3C4C3E35F061 /* AvatarPhotoIntakeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoIntakeModels.swift; sourceTree = "<group>"; };
 		9DC1E222DC394BBAA496EC7A /* ThenAppTests/Support/WardrobeVisionProbe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/Support/WardrobeVisionProbe.swift; sourceTree = SOURCE_ROOT; };
 		9IB000000000000000000001 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		9JB000000000000000000001 /* Localizable.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		9JB000000000000000000002 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
-		A275B4F9C290B958FC0B72E5 /* AvatarPhotoQualityPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoQualityPolicy.swift; sourceTree = "<group>"; };
 		A37906A90D0BBE69D4EE243D /* ThenAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThenAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C1C4099358424682BD73B3 /* WardrobeContentProbe */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WardrobeContentProbe; sourceTree = "<group>"; };
-		AB1100000000000000000001 /* VisionAvatarPhotoAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionAvatarPhotoAnalyzer.swift; sourceTree = "<group>"; };
-		AB1100000000000000000002 /* VisionAvatarPhotoAnalyzerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionAvatarPhotoAnalyzerTests.swift; sourceTree = "<group>"; };
-		AB1200000000000000000001 /* PrepareAvatarPhotoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareAvatarPhotoUseCase.swift; sourceTree = "<group>"; };
-		AB1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareAvatarPhotoUseCaseTests.swift; sourceTree = "<group>"; };
-		AB1300000000000000000001 /* AvatarPhotoIntakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoIntakeViewModel.swift; sourceTree = "<group>"; };
-		AB1300000000000000000002 /* AvatarPhotoIntakeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoIntakeViewModelTests.swift; sourceTree = "<group>"; };
-		AB1400000000000000000001 /* AvatarPhotoIntakePOCHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoIntakePOCHost.swift; sourceTree = "<group>"; };
-		AB1400000000000000000002 /* AvatarPhotoIntakePOCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoIntakePOCView.swift; sourceTree = "<group>"; };
-		AB1400000000000000000003 /* AvatarPhotoPreviewLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoPreviewLoader.swift; sourceTree = "<group>"; };
-		AB1400000000000000000004 /* AvatarPhotoPOCHostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoPOCHostTests.swift; sourceTree = "<group>"; };
 		AEC2F7D914084001B30A7877 /* ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Outfits/Domain/OutfitPlanModels.swift; sourceTree = SOURCE_ROOT; };
 		AEC2F7D914084001B30A7878 /* ThenApp/Features/Outfits/Domain/WearEventModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Outfits/Domain/WearEventModels.swift; sourceTree = SOURCE_ROOT; };
 		AEC2F7D914084001B30A7879 /* ThenApp/Data/Outfits/WearEventPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Data/Outfits/WearEventPersistence.swift; sourceTree = SOURCE_ROOT; };
@@ -191,15 +153,11 @@
 		BB8A669FFDFA4553AB2DD248 /* ThenApp/Services/Imaging/ImageIOWardrobePhotoPreparer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Services/Imaging/ImageIOWardrobePhotoPreparer.swift; sourceTree = SOURCE_ROOT; };
 		BB906D6E48BD71DA3A19FDB9 /* ThenAppTests/Support/WardrobeMediaLifecycleProbe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenAppTests/Support/WardrobeMediaLifecycleProbe.swift; sourceTree = SOURCE_ROOT; };
 		BD84669C1C3A4F018109EF2A /* ThenApp/Services/Photos/SystemWardrobePhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Services/Photos/SystemWardrobePhotoPicker.swift; sourceTree = SOURCE_ROOT; };
-		C2FC5E23E25222AA854B8EDD /* ImageIOAvatarPhotoSanitizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageIOAvatarPhotoSanitizerTests.swift; sourceTree = "<group>"; };
 		CE2F113F6E60A632BA2C347A /* OOTDAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDAppModel.swift; sourceTree = "<group>"; };
 		D191F3E6FDE2403DA058EBA5 /* ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Outfits/Presentation/OutfitPlanViewModel.swift; sourceTree = SOURCE_ROOT; };
-		D1B01DB6CC85234E5E691871 /* AvatarPhotoTemporarySessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoTemporarySessionStore.swift; sourceTree = "<group>"; };
 		D595263680534FFF9BF5586A /* ThenApp/Services/Imaging/WardrobePhotoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Services/Imaging/WardrobePhotoImage.swift; sourceTree = SOURCE_ROOT; };
 		DDBB00000000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E387F631F40B95CD8C937D6C /* AvatarPhotoQualityPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoQualityPolicyTests.swift; sourceTree = "<group>"; };
 		EA230F2C5AE1964DA2E5AA59 /* WardrobeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewModel.swift; sourceTree = "<group>"; };
-		F18386DCCB287BD887832A41 /* ImageIOAvatarPhotoSanitizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageIOAvatarPhotoSanitizer.swift; sourceTree = "<group>"; };
 		F53CBF02F72DCC4FABDC06BF /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Features/Wardrobe/Domain/WardrobePhotoModels.swift; sourceTree = SOURCE_ROOT; };
 		F978823F2F58DB7BA73D5B1C /* ThenApp/Data/Wardrobe/WardrobePhotoPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThenApp/Data/Wardrobe/WardrobePhotoPersistence.swift; sourceTree = SOURCE_ROOT; };
 		FEEA46C5758CE02775D5B87F /* ThenAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThenAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,14 +181,10 @@
 		1B734BADBD74C7CEB6750E37 /* Imaging */ = {
 			isa = PBXGroup;
 			children = (
-				AB1400000000000000000003 /* AvatarPhotoPreviewLoader.swift */,
-				AB1100000000000000000001 /* VisionAvatarPhotoAnalyzer.swift */,
 				BB8A669FFDFA4553AB2DD248 /* ThenApp/Services/Imaging/ImageIOWardrobePhotoPreparer.swift */,
 				D595263680534FFF9BF5586A /* ThenApp/Services/Imaging/WardrobePhotoImage.swift */,
 				12E6CDC87DCD454F9B99FDA2 /* ThenApp/Services/Imaging/VisionWardrobePersonAnalyzer.swift */,
 				15D40EECAF6E4E3AA6C54118 /* ThenApp/Services/Imaging/PixelOnlyPNG.swift */,
-				F18386DCCB287BD887832A41 /* ImageIOAvatarPhotoSanitizer.swift */,
-				D1B01DB6CC85234E5E691871 /* AvatarPhotoTemporarySessionStore.swift */,
 			);
 			path = Imaging;
 			sourceTree = "<group>";
@@ -305,8 +259,6 @@
 				058CA31D516F4C66921F7188 /* ThenApp/Services/Photos/WardrobePhotoFileImporter.swift */,
 				5FFF9F7B294F46FBAB7EC309 /* ThenApp/Services/Photos/WardrobePhotoPickerButton.swift */,
 				BD84669C1C3A4F018109EF2A /* ThenApp/Services/Photos/SystemWardrobePhotoPicker.swift */,
-				6F6626203F7EBC1D08E4D692 /* AvatarPhotoFileImporter.swift */,
-				515765F19E4294DC3D285484 /* SystemAvatarPhotoPicker.swift */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -337,27 +289,9 @@
 				6B6459C7D5094985963B65EC /* ThenAppTests/WardrobeItemPhotoSaveTests.swift */,
 				3A5720D2CBCA51837C55C5F4 /* WardrobeViewModelTests.swift */,
 				4FF0EE18A18112BC382B3EB6 /* WardrobeRepositoryTests.swift */,
-				3D3776473CA3F5E9C3174F61 /* AvatarPhotoFileImporterTests.swift */,
-				3B2BA90B33F912B681829E76 /* SystemAvatarPhotoPickerTests.swift */,
 				C7CD280714F7C43081E0AB20 /* Resources */,
-				C2FC5E23E25222AA854B8EDD /* ImageIOAvatarPhotoSanitizerTests.swift */,
-				5AF3005C0C309C6B72821ADB /* AvatarPhotoTemporarySessionStoreTests.swift */,
-				E387F631F40B95CD8C937D6C /* AvatarPhotoQualityPolicyTests.swift */,
-				AB1100000000000000000002 /* VisionAvatarPhotoAnalyzerTests.swift */,
-				AB1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift */,
-				AB1300000000000000000002 /* AvatarPhotoIntakeViewModelTests.swift */,
-				AB1400000000000000000004 /* AvatarPhotoPOCHostTests.swift */,
 			);
 			path = ThenAppTests;
-			sourceTree = "<group>";
-		};
-		7F250193CD55062194A788AA /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				89851E22E84B3C4C3E35F061 /* AvatarPhotoIntakeModels.swift */,
-				A275B4F9C290B958FC0B72E5 /* AvatarPhotoQualityPolicy.swift */,
-			);
-			path = Domain;
 			sourceTree = "<group>";
 		};
 		900A0752A60BD56859BDFED5 /* Domain */ = {
@@ -396,18 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				B10000000000000000000001 /* AvatarStudioView.swift */,
-				AB1300000000000000000001 /* AvatarPhotoIntakeViewModel.swift */,
-				AB1400000000000000000002 /* AvatarPhotoIntakePOCView.swift */,
 			);
 			path = Presentation;
-			sourceTree = "<group>";
-		};
-		AC1200000000000000000001 /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				AB1200000000000000000001 /* PrepareAvatarPhotoUseCase.swift */,
-			);
-			path = Application;
 			sourceTree = "<group>";
 		};
 		C10000000000000000000002 /* Rendering */ = {
@@ -437,7 +361,7 @@
 		C7CD280714F7C43081E0AB20 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				56E21C2D103063EBF7F67C88 /* AvatarPhotoIntake */,
+				56E21C2D103063EBF7F67C88 /* PhotoImport */,
 				A7C1C4099358424682BD73B3 /* WardrobeContentProbe */,
 			);
 			path = Resources;
@@ -446,21 +370,12 @@
 		E6848F95EA0992986D343278 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				AC1400000000000000000001 /* Debug */,
 				CE2F113F6E60A632BA2C347A /* OOTDAppModel.swift */,
 				5F449F280C9D45D8C2C0CC5E /* ThenApp.swift */,
 				463A6DDECCD9B80EB9D5FF65 /* RootView.swift */,
 				9IB000000000000000000001 /* PrivacyInfo.xcprivacy */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		AC1400000000000000000001 /* Debug */ = {
-			isa = PBXGroup;
-			children = (
-				AB1400000000000000000001 /* AvatarPhotoIntakePOCHost.swift */,
-			);
-			path = Debug;
 			sourceTree = "<group>";
 		};
 		EC7A95F2ED8A48F591E0D8D4 /* Outfits */ = {
@@ -491,8 +406,6 @@
 			isa = PBXGroup;
 			children = (
 				C10000000000000000000001 /* Presentation */,
-				AC1200000000000000000001 /* Application */,
-				7F250193CD55062194A788AA /* Domain */,
 			);
 			path = Avatar;
 			sourceTree = "<group>";
@@ -630,7 +543,7 @@
 		4D87F133E9741E1CFDDD4679 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
-				88E37753086BFEBA9CDFDB58 /* AvatarPhotoIntake in Resources */,
+				88E37753086BFEBA9CDFDB58 /* PhotoImport in Resources */,
 				E583898870F14BA6A01AE7E7 /* WardrobeContentProbe in Resources */,
 			);
 		};
@@ -649,10 +562,6 @@
 				F2BAD1D905014955AF3AFA24 /* ThenAppTests/OutfitFeedbackRepositoryTests.swift in Sources */,
 				F2BAD1D905014955AF3AFA1E /* ThenAppTests/WearEventRepositoryTests.swift in Sources */,
 				F2BAD1D905014955AF3AFA21 /* ThenAppTests/WearEventViewModelTests.swift in Sources */,
-				AA1400000000000000000004 /* AvatarPhotoPOCHostTests.swift in Sources */,
-				AA1300000000000000000002 /* AvatarPhotoIntakeViewModelTests.swift in Sources */,
-				AA1200000000000000000002 /* PrepareAvatarPhotoUseCaseTests.swift in Sources */,
-				AA1100000000000000000002 /* VisionAvatarPhotoAnalyzerTests.swift in Sources */,
 				A10000000000000000000004 /* AvatarStudioModelTests.swift in Sources */,
 				A30000000000000000000001 /* AvatarAssetCatalogTests.swift in Sources */,
 				A7AB3802B7904279B47C6324 /* ThenAppTests/OutfitPlanViewModelTests.swift in Sources */,
@@ -672,11 +581,6 @@
 				B417BBCF8FFC467FBD99E139 /* ThenAppTests/WardrobeItemPhotoSaveTests.swift in Sources */,
 				6160976555DA2CBFA2B18CE3 /* WardrobeViewModelTests.swift in Sources */,
 				6940954CFBFC53B9F1B87F77 /* WardrobeRepositoryTests.swift in Sources */,
-				82C262B41823785455696DBF /* AvatarPhotoFileImporterTests.swift in Sources */,
-				550E1BE242B46537A0A41FE2 /* SystemAvatarPhotoPickerTests.swift in Sources */,
-				9E8D9D22CD8469DBB561CE58 /* ImageIOAvatarPhotoSanitizerTests.swift in Sources */,
-				09A422587FC702D71B101676 /* AvatarPhotoTemporarySessionStoreTests.swift in Sources */,
-				5B3040D1C6AC8DF11097D4EA /* AvatarPhotoQualityPolicyTests.swift in Sources */,
 			);
 		};
 		22E26125257CD5DFCA7A9EC9 /* Sources */ = {
@@ -691,12 +595,6 @@
 				F31301000000000000000001 /* RecommendationModels.swift in Sources */,
 				F31301000000000000000002 /* RecommendationViewModel.swift in Sources */,
 				F31301000000000000000003 /* RecommendationView.swift in Sources */,
-				AA1400000000000000000001 /* AvatarPhotoIntakePOCHost.swift in Sources */,
-				AA1400000000000000000002 /* AvatarPhotoIntakePOCView.swift in Sources */,
-				AA1400000000000000000003 /* AvatarPhotoPreviewLoader.swift in Sources */,
-				AA1300000000000000000001 /* AvatarPhotoIntakeViewModel.swift in Sources */,
-				AA1200000000000000000001 /* PrepareAvatarPhotoUseCase.swift in Sources */,
-				AA1100000000000000000001 /* VisionAvatarPhotoAnalyzer.swift in Sources */,
 				A10000000000000000000001 /* AvatarStudioView.swift in Sources */,
 				A10000000000000000000002 /* ThreeAvatarView.swift in Sources */,
 				A2F000000000000000000001 /* AvatarAssetCatalog.swift in Sources */,
@@ -726,12 +624,6 @@
 				6681100884953FA8EBD3F55C /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoModels.swift in Sources */,
 				D160802E8CE84AFD8EE5047E /* ThenApp/Features/Wardrobe/Domain/WardrobePhotoReview.swift in Sources */,
 				02FE08D6CC60C654A749267A /* WardrobeModels.swift in Sources */,
-				4ACFA7DD876AA66256024EAC /* AvatarPhotoFileImporter.swift in Sources */,
-				065ED7D18FA3335B2F6BE91E /* SystemAvatarPhotoPicker.swift in Sources */,
-				976712A3D614B994AEAD94E5 /* ImageIOAvatarPhotoSanitizer.swift in Sources */,
-				BE71C09A3B622E4DDB264B77 /* AvatarPhotoTemporarySessionStore.swift in Sources */,
-				76D588567112E69C9A17A32E /* AvatarPhotoQualityPolicy.swift in Sources */,
-				46B557789E14268D9BBEA4D1 /* AvatarPhotoIntakeModels.swift in Sources */,
 				2EDEBB8D877F9DB0BCE0D125 /* ThenApp.swift in Sources */,
 				7C3B46D48C67C82F19A9A435 /* RootView.swift in Sources */,
 			);

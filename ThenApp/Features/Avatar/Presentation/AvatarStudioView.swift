@@ -80,7 +80,7 @@ final class AvatarStudioModel {
     if selectedIDs.contains(garment.id) {
       selectedIDs.remove(garment.id)
     } else {
-      // One garment per category keeps the first POC deterministic.
+      // Select one garment per category.
       for item in Self.catalog where item.category == garment.category {
         selectedIDs.remove(item.id)
       }
