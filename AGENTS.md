@@ -1,10 +1,10 @@
-# 于是 iOS 项目协作规范
+# 衣序 iOS 项目协作规范
 
 ## 项目边界
 
-本仓库名为 `then-app`，只保存 SwiftUI 客户端、本地 GRDB 数据、随包资源与 iOS 测试。用户可见名称是“于是”，Xcode project、target 与主 Swift module 均为 `ThenApp`。
+本仓库名为 `wearlog-app`，只保存 SwiftUI 客户端、本地 GRDB 数据、随包资源与 iOS 测试。用户可见名称是“衣序”，Xcode project、target 与主 Swift module 均为 `WearlogApp`。
 
-根目录 [`DESIGN.md`](DESIGN.md) 是 App 与 Web 唯一视觉和交互标准，并与 `../then-server/DESIGN.md` 保持字节一致。工程边界与服务端接口定义位于同级 `then-server`。开始功能实现前读根 DESIGN、当前需求和相关代码；视觉变化同步两份 DESIGN.md。项目不再维护中央 docs 目录。
+根目录 [`DESIGN.md`](DESIGN.md) 是 App 与 Web 唯一视觉和交互标准，并与 `../wearlog-server/DESIGN.md` 保持字节一致。工程边界与服务端接口定义位于同级 `wearlog-server`。开始功能实现前读根 DESIGN、当前需求和相关代码；视觉变化同步两份 DESIGN.md。项目不再维护中央 docs 目录。
 
 `DESIGN.md` 只作为视觉和交互标准使用，其中的过程性文字不替代本 `AGENTS.md`、当前需求、Swift 工程规范或测试要求。
 

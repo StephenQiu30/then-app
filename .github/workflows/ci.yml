@@ -22,51 +22,51 @@ jobs:
       - name: Check out app
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          path: then-app
+          path: wearlog-app
 
       - name: Verify toolchain
-        working-directory: then-app
+        working-directory: wearlog-app
         run: |
           sudo xcode-select --switch /Applications/Xcode_26.6.app/Contents/Developer
           xcodebuild -version | grep -F 'Xcode 26.6'
           swift --version | grep -F 'Apple Swift version 6.3.3'
 
       - name: Resolve packages
-        working-directory: then-app
+        working-directory: wearlog-app
         run: |
           xcodebuild -resolvePackageDependencies \
-            -project ThenApp.xcodeproj \
-            -scheme ThenApp
+            -project WearlogApp.xcodeproj \
+            -scheme WearlogApp
 
       - name: Build Debug app
-        working-directory: then-app
+        working-directory: wearlog-app
         run: |
-          xcodebuild -project ThenApp.xcodeproj \
-            -scheme ThenApp \
+          xcodebuild -project WearlogApp.xcodeproj \
+            -scheme WearlogApp \
             -configuration Debug \
             -destination 'generic/platform=iOS Simulator' \
             -disableAutomaticPackageResolution \
             clean build
 
       - name: Test simulator-compatible suites
-        working-directory: then-app
+        working-directory: wearlog-app
         run: |
-          xcodebuild -project ThenApp.xcodeproj \
-            -scheme ThenApp \
+          xcodebuild -project WearlogApp.xcodeproj \
+            -scheme WearlogApp \
             -configuration Debug \
             -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
             -disableAutomaticPackageResolution \
             -parallel-testing-enabled NO \
-            -skip-testing:ThenAppUITests \
-            -skip-testing:ThenAppTests/VisionWardrobePersonAnalyzerTests \
-            -skip-testing:ThenAppTests/WardrobeVisionProbeTests \
-            -resultBundlePath "$RUNNER_TEMP/ThenAppTests.xcresult" \
+            -skip-testing:WearlogAppUITests \
+            -skip-testing:WearlogAppTests/VisionWardrobePersonAnalyzerTests \
+            -skip-testing:WearlogAppTests/WardrobeVisionProbeTests \
+            -resultBundlePath "$RUNNER_TEMP/WearlogAppTests.xcresult" \
             test
 
       - name: Report test result
         if: always()
         run: |
-          if [ -d "$RUNNER_TEMP/ThenAppTests.xcresult" ]; then
+          if [ -d "$RUNNER_TEMP/WearlogAppTests.xcresult" ]; then
             xcrun xcresulttool get test-results summary \
-              --path "$RUNNER_TEMP/ThenAppTests.xcresult"
+              --path "$RUNNER_TEMP/WearlogAppTests.xcresult"
           fi

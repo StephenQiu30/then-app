@@ -1,6 +1,6 @@
-# 于是 iOS
+# 衣序 iOS
 
-`Then/then-app` 是独立 SwiftUI 仓库，Xcode project/target/scheme 为 `ThenApp`。App 与 Web 的共享视觉标准是根目录 [DESIGN.md](DESIGN.md)，工程规范见 [AGENTS.md](AGENTS.md) 与服务端 [PROJECT.md](../then-server/PROJECT.md)。
+`Wearlog/wearlog-app` 是独立 SwiftUI 仓库，Xcode project/target/scheme 为 `WearlogApp`。App 与 Web 的共享视觉标准是根目录 [DESIGN.md](DESIGN.md)，工程规范见 [AGENTS.md](AGENTS.md) 与服务端 [PROJECT.md](../wearlog-server/PROJECT.md)。
 
 ## 当前状态
 
@@ -12,7 +12,7 @@ Three.js 使用离线锁版资源。WebKit 使用非持久存储、受控 local 
 
 ## 资源与本地化
 
-随包资源在 `ThenApp/Resources` 和 Asset Catalog；命名语义化，来源与 hash 可追溯。生产用户素材不进仓库，照片/生成媒体为受保护私有文件。
+随包资源在 `WearlogApp/Resources` 和 Asset Catalog；命名语义化，来源与 hash 可追溯。生产用户素材不进仓库，照片/生成媒体为受保护私有文件。
 
 首发 `zh-Hans`。用户文案使用 `Localizable.xcstrings`，App 名称与权限使用 `InfoPlist.xcstrings`；Dynamic Type、VoiceOver、语义颜色和 Reduce Motion 是交付要求。
 
@@ -20,28 +20,28 @@ Three.js 使用离线锁版资源。WebKit 使用非持久存储、受控 local 
 
 构建与测试直接使用 `xcodebuild`。测试显式指定实际模拟器 UDID 和独立 `-resultBundlePath`；完成后用 `xcresulttool` 核对结果摘要。App 构建通过不代表 OOTD 发布验收完成。
 
-- 工程：`ThenApp.xcodeproj`
-- 共享 Scheme：`ThenApp`
-- App target / Swift module：`ThenApp`
-- 单元/集成测试 target：`ThenAppTests`
-- UI 测试 target：`ThenAppUITests`
+- 工程：`WearlogApp.xcodeproj`
+- 共享 Scheme：`WearlogApp`
+- App target / Swift module：`WearlogApp`
+- 单元/集成测试 target：`WearlogAppTests`
+- UI 测试 target：`WearlogAppUITests`
 - 开发 Bundle ID：`com.stephenqiu.then`（正式签名启用前确认所有权）
 
 在仓库根目录执行：
 
 ```bash
 xcodebuild -resolvePackageDependencies \
-  -project ThenApp.xcodeproj \
-  -scheme ThenApp
+  -project WearlogApp.xcodeproj \
+  -scheme WearlogApp
 
-xcodebuild -project ThenApp.xcodeproj \
-  -scheme ThenApp \
+xcodebuild -project WearlogApp.xcodeproj \
+  -scheme WearlogApp \
   -configuration Debug \
   -destination 'generic/platform=iOS Simulator' \
   clean build
 
-xcodebuild -project ThenApp.xcodeproj \
-  -scheme ThenApp \
+xcodebuild -project WearlogApp.xcodeproj \
+  -scheme WearlogApp \
   -configuration Debug \
   -destination 'platform=iOS Simulator,id=<SIMULATOR_UDID>' \
   test

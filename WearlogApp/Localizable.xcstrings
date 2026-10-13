@@ -1,0 +1,1434 @@
+{
+  "sourceLanguage" : "zh-Hans",
+  "strings" : {
+    "" : {
+
+    },
+    "%@ · %@" : {
+
+    },
+    "%lld" : {
+
+    },
+    "Dress up" : {
+
+    },
+    "不适合" : {
+
+    },
+    "休闲" : {
+
+    },
+    "使用属性（可选）" : {
+
+    },
+    "保暖程度" : {
+
+    },
+    "保暖程度：%@" : {
+
+    },
+    "保存时属性未知" : {
+
+    },
+    "保存时由你确认" : {
+
+    },
+    "偏暖" : {
+
+    },
+    "已选择的值由你确认" : {
+
+    },
+    "正式" : {
+
+    },
+    "正式程度" : {
+
+    },
+    "正式程度：%@" : {
+
+    },
+    "整洁休闲" : {
+
+    },
+    "未知" : {
+
+    },
+    "步行使用" : {
+
+    },
+    "步行：%@" : {
+
+    },
+    "每项都是你的个人使用判断。未知可稍后补充，不代表防水认证、精确保暖或舒适保证；已保存计划会保留当时信息。" : {
+
+    },
+    "由你确认" : {
+
+    },
+    "轻薄" : {
+
+    },
+    "适中" : {
+
+    },
+    "适合" : {
+
+    },
+    "雨天使用" : {
+
+    },
+    "雨天：%@" : {
+
+    },
+    "，" : {
+
+    },
+    "一件衣物或配件" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一件衣物或配件"
+          }
+        }
+      }
+    },
+    "一双鞋" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一双鞋"
+          }
+        }
+      }
+    },
+    "一双鞋的照片需要选择“鞋”类别。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一双鞋的照片需要选择“鞋”类别。"
+          }
+        }
+      }
+    },
+    "三维渲染暂不可用，显示静态穿搭形象" : {
+
+    },
+    "三维穿搭形象" : {
+
+    },
+    "上装" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上装"
+          }
+        }
+      }
+    },
+    "下装" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下装"
+          }
+        }
+      }
+    },
+    "与原计划或上次查看时不同" : {
+
+    },
+    "主要单品完整且没有多件重叠" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主要单品完整且没有多件重叠"
+          }
+        }
+      }
+    },
+    "衣序" : {
+
+    },
+    "衣序 · 今日穿搭" : {
+
+    },
+    "仅添加你拥有的衣物。照片和其他属性可以稍后补充。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅添加你拥有的衣物。照片和其他属性可以稍后补充。"
+          }
+        }
+      }
+    },
+    "今天穿什么" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今天穿什么"
+          }
+        }
+      }
+    },
+    "今日" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今日"
+          }
+        }
+      }
+    },
+    "仍将这些当前不可穿的衣物安排进计划" : {
+
+    },
+    "从你已有的衣物开始，准备今天的穿搭。" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从你已有的衣物开始，准备今天的穿搭。"
+          }
+        }
+      }
+    },
+    "你的衣橱" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的衣橱"
+          }
+        }
+      }
+    },
+    "使用无图方式" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用无图方式"
+          }
+        }
+      }
+    },
+    "保存" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
+          }
+        }
+      }
+    },
+    "保存时的单品" : {
+
+    },
+    "保存的穿搭计划与实际穿着将显示在这里。" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存的穿搭计划与实际穿着将显示在这里。"
+          }
+        }
+      }
+    },
+    "保留原照片" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保留原照片"
+          }
+        }
+      }
+    },
+    "保留计划内容，不会记为实际穿着。" : {
+
+    },
+    "保留计划并清除单品信息" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保留计划并清除单品信息"
+          }
+        }
+      }
+    },
+    "借出" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "借出"
+          }
+        }
+      }
+    },
+    "全部状态" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部状态"
+          }
+        }
+      }
+    },
+    "全部类别" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部类别"
+          }
+        }
+      }
+    },
+    "关闭" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭"
+          }
+        }
+      }
+    },
+    "内容已隐藏" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "内容已隐藏"
+          }
+        }
+      }
+    },
+    "内置衣橱" : {
+
+    },
+    "最多 120 字" : {
+
+    },
+    "分享今日穿搭" : {
+
+    },
+    "分享穿搭" : {
+
+    },
+    "删除衣物" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除衣物"
+          }
+        }
+      }
+    },
+    "删除计划" : {
+
+    },
+    "删除这件衣物？" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除这件衣物？"
+          }
+        }
+      }
+    },
+    "刷新并复核" : {
+
+    },
+    "加载更早的计划" : {
+
+    },
+    "包" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "包"
+          }
+        }
+      }
+    },
+    "单指左右拖动可旋转" : {
+
+    },
+    "原始时区：%@" : {
+
+    },
+    "取消" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
+          }
+        }
+      }
+    },
+    "取消收藏" : {
+
+    },
+    "取消计划" : {
+
+    },
+    "取消这个计划？" : {
+
+    },
+    "可用状态" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可用状态"
+          }
+        }
+      }
+    },
+    "可穿" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可穿"
+          }
+        }
+      }
+    },
+    "可选照片穿搭" : {
+
+    },
+    "同时删除相关计划" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "同时删除相关计划"
+          }
+        }
+      }
+    },
+    "向右转动" : {
+
+    },
+    "向左转动" : {
+
+    },
+    "场景（可选）" : {
+
+    },
+    "外套" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "外套"
+          }
+        }
+      }
+    },
+    "奶油色运动鞋" : {
+
+    },
+    "安排" : {
+
+    },
+    "已保存的衣物照片" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已保存的衣物照片"
+          }
+        }
+      }
+    },
+    "已删除的单品" : {
+
+    },
+    "已取消" : {
+
+    },
+    "已复核变化，按当前衣物保存" : {
+
+    },
+    "已恢复默认穿搭" : {
+
+    },
+    "已打包" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已打包"
+          }
+        }
+      }
+    },
+    "已换上所选服装" : {
+
+    },
+    "已选单品（%lld）" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已选单品（%lld）"
+          }
+        }
+      }
+    },
+    "已选择" : {
+
+    },
+    "当前时区不可用，请检查系统日期设置。" : {
+
+    },
+    "当前状态" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前状态"
+          }
+        }
+      }
+    },
+    "形象" : {
+
+    },
+    "待保存的衣物照片" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "待保存的衣物照片"
+          }
+        }
+      }
+    },
+    "待洗" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "待洗"
+          }
+        }
+      }
+    },
+    "恢复默认穿搭" : {
+
+    },
+    "所选衣物当前不可穿，请先确认安排。" : {
+
+    },
+    "打开个人衣橱" : {
+
+    },
+    "打开穿搭日历" : {
+
+    },
+    "打开系统分享" : {
+
+    },
+    "拖动形象查看 360°" : {
+
+    },
+    "搜索" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索"
+          }
+        }
+      }
+    },
+    "搜索衣物名称" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索衣物名称"
+          }
+        }
+      }
+    },
+    "收藏穿搭" : {
+
+    },
+    "放弃修改" : {
+
+    },
+    "放弃未保存的计划？" : {
+
+    },
+    "新建计划" : {
+
+    },
+    "新日期须为今天或未来；过去的计划可保留原日期。" : {
+
+    },
+    "无法处理这张照片。请选择清晰的 JPEG、PNG 或 HEIC 单件图，或使用无图方式。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法处理这张照片。请选择清晰的 JPEG、PNG 或 HEIC 单件图，或使用无图方式。"
+          }
+        }
+      }
+    },
+    "无法显示已保存照片。衣物仍保留，你可以换图或移除照片。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法显示已保存照片。衣物仍保留，你可以换图或移除照片。"
+          }
+        }
+      }
+    },
+    "无法访问本机衣橱。数据和本次修改已保留，请解锁设备、检查可用空间后重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法访问本机衣橱。数据和本次修改已保留，请解锁设备、检查可用空间后重试。"
+          }
+        }
+      }
+    },
+    "无法读取衣橱中的部分数据。数据已保留，请重试。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取衣橱中的部分数据。数据已保留，请重试。"
+          }
+        }
+      }
+    },
+    "无需上传衣服即可使用内置衣橱和三维形象。本人照片生成仍需经过同意、质量、隐私和供应商门禁。" : {
+
+    },
+    "暂时无法保存或读取计划，请重试。" : {
+
+    },
+    "暂时无法打开衣橱" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时无法打开衣橱"
+          }
+        }
+      }
+    },
+    "未选择" : {
+
+    },
+    "本机数据由更新版本创建，请使用更新版本打开。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本机数据由更新版本创建，请使用更新版本打开。"
+          }
+        }
+      }
+    },
+    "查看穿搭计划" : {
+
+    },
+    "正在保存更改…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在保存更改…"
+          }
+        }
+      }
+    },
+    "正在准备三维形象…" : {
+
+    },
+    "正在处理衣物照片…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在处理衣物照片…"
+          }
+        }
+      }
+    },
+    "正在处理计划…" : {
+
+    },
+    "正在打开衣橱…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在打开衣橱…"
+          }
+        }
+      }
+    },
+    "正在读取计划…" : {
+
+    },
+    "每个计划最多选择 20 件衣物。" : {
+
+    },
+    "永久删除这个计划？" : {
+
+    },
+    "没有符合条件的衣物" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有符合条件的衣物"
+          }
+        }
+      }
+    },
+    "添加一件衣物" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加一件衣物"
+          }
+        }
+      }
+    },
+    "添加你确认拥有的衣物，无需照片。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加你确认拥有的衣物，无需照片。"
+          }
+        }
+      }
+    },
+    "添加衣物" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加衣物"
+          }
+        }
+      }
+    },
+    "清理衣物数据" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清理衣物数据"
+          }
+        }
+      }
+    },
+    "照片中检测到人物或面部。请更换单件平铺照片，或使用无图方式。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片中检测到人物或面部。请更换单件平铺照片，或使用无图方式。"
+          }
+        }
+      }
+    },
+    "照片中没有人物或身体部位" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片中没有人物或身体部位"
+          }
+        }
+      }
+    },
+    "照片中的单品" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片中的单品"
+          }
+        }
+      }
+    },
+    "照片已复核，保存后生效" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片已复核，保存后生效"
+          }
+        }
+      }
+    },
+    "照片已移除，文件清理尚未完成，请重试照片清理。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片已移除，文件清理尚未完成，请重试照片清理。"
+          }
+        }
+      }
+    },
+    "照片已隐藏或替换，旧文件清理待完成。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片已隐藏或替换，旧文件清理待完成。"
+          }
+        }
+      }
+    },
+    "照片穿搭是可选增强" : {
+
+    },
+    "确认删除" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认删除"
+          }
+        }
+      }
+    },
+    "确认删除计划" : {
+
+    },
+    "确认单件照片" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认单件照片"
+          }
+        }
+      }
+    },
+    "确认取消计划" : {
+
+    },
+    "确认移除照片" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认移除照片"
+          }
+        }
+      }
+    },
+    "移除已删除的单品" : {
+
+    },
+    "移除已选单品：%@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移除已选单品：%@"
+          }
+        }
+      }
+    },
+    "移除所选衣物" : {
+
+    },
+    "移除照片" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移除照片"
+          }
+        }
+      }
+    },
+    "移除这张照片？" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移除这张照片？"
+          }
+        }
+      }
+    },
+    "穿搭日期" : {
+
+    },
+    "穿搭簿" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "穿搭簿"
+          }
+        }
+      }
+    },
+    "穿搭计划" : {
+
+    },
+    "立即移除本机照片，衣物仍保留。取消编辑不会恢复已移除的照片。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "立即移除本机照片，衣物仍保留。取消编辑不会恢复已移除的照片。"
+          }
+        }
+      }
+    },
+    "类别" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "类别"
+          }
+        }
+      }
+    },
+    "继续使用三维形象" : {
+
+    },
+    "编辑衣物" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "编辑衣物"
+          }
+        }
+      }
+    },
+    "编辑计划" : {
+
+    },
+    "薄荷绿层叠裙" : {
+
+    },
+    "衣橱" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "衣橱"
+          }
+        }
+      }
+    },
+    "衣橱里还没有衣物，请先添加一件。" : {
+
+    },
+    "衣物名称" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "衣物名称"
+          }
+        }
+      }
+    },
+    "衣物已删除" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "衣物已删除"
+          }
+        }
+      }
+    },
+    "衣物已发生变化。请保留需要的修改，取消后重新打开。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "衣物已发生变化。请保留需要的修改，取消后重新打开。"
+          }
+        }
+      }
+    },
+    "衣物已移出衣橱，本机存储清理尚未完成。请重试清理。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "衣物已移出衣橱，本机存储清理尚未完成。请重试清理。"
+          }
+        }
+      }
+    },
+    "衣物或计划已变化，请刷新并复核后保存。" : {
+
+    },
+    "衣物照片（可选）" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "衣物照片（可选）"
+          }
+        }
+      }
+    },
+    "计划不代表实际穿着。" : {
+
+    },
+    "计划与单品快照将被清除，衣橱中的衣物和照片仍保留。" : {
+
+    },
+    "计划中" : {
+
+    },
+    "计划内容已删除" : {
+
+    },
+    "计划已在其他操作中修改。草稿仍保留，请取消编辑后重新打开计划，核对最新内容。" : {
+
+    },
+    "试试其他类别、状态或名称。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "试试其他类别、状态或名称。"
+          }
+        }
+      }
+    },
+    "请先确认已复核衣物变化。" : {
+
+    },
+    "请先移除已删除的单品，再保存计划。" : {
+
+    },
+    "请完成本张照片的单件复核，再保存。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请完成本张照片的单件复核，再保存。"
+          }
+        }
+      }
+    },
+    "请输入 1–80 个字符的衣物名称，不能包含控制字符。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请输入 1–80 个字符的衣物名称，不能包含控制字符。"
+          }
+        }
+      }
+    },
+    "请选择" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请选择"
+          }
+        }
+      }
+    },
+    "请选择 1～20 件衣物，场景不超过 120 字。" : {
+
+    },
+    "请选择单品形式" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请选择单品形式"
+          }
+        }
+      }
+    },
+    "请选择衣物类别。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请选择衣物类别。"
+          }
+        }
+      }
+    },
+    "象牙白针织上衣" : {
+
+    },
+    "过去的计划可保留原日期；更改日期须选择今天或未来。" : {
+
+    },
+    "还没有穿搭记录" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还没有穿搭记录"
+          }
+        }
+      }
+    },
+    "这个类别还没有衣物。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个类别还没有衣物。"
+          }
+        }
+      }
+    },
+    "这个计划已被删除，请关闭后刷新。" : {
+
+    },
+    "这件衣物出现在 %lld 个计划中。可保留无单品信息的占位，或同时删除这些计划；衣物和照片都会移除。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这件衣物出现在 %lld 个计划中。可保留无单品信息的占位，或同时删除这些计划；衣物和照片都会移除。"
+          }
+        }
+      }
+    },
+    "这件衣物将从本机衣橱移除，不再用于新的推荐。此操作无法撤销。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这件衣物将从本机衣橱移除，不再用于新的推荐。此操作无法撤销。"
+          }
+        }
+      }
+    },
+    "这件衣物已被删除，请关闭编辑。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这件衣物已被删除，请关闭编辑。"
+          }
+        }
+      }
+    },
+    "这是我拥有的单品" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这是我拥有的单品"
+          }
+        }
+      }
+    },
+    "这里将收纳你确认拥有的衣物。" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这里将收纳你确认拥有的衣物。"
+          }
+        }
+      }
+    },
+    "连体／连衣" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "连体／连衣"
+          }
+        }
+      }
+    },
+    "选择已有衣物，保存今天或未来的穿搭计划。" : {
+
+    },
+    "选择平铺或悬挂的单件照片。图片仅保存在本机；检测未发现人物仍需你复核。" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择平铺或悬挂的单件照片。图片仅保存在本机；检测未发现人物仍需你复核。"
+          }
+        }
+      }
+    },
+    "选择衣物（%lld/20）" : {
+
+    },
+    "选择衣物照片" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择衣物照片"
+          }
+        }
+      }
+    },
+    "选衣类别" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选衣类别"
+          }
+        }
+      }
+    },
+    "部分单品已删除，请移除占位或选择其他衣物后保存。" : {
+
+    },
+    "配饰" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配饰"
+          }
+        }
+      }
+    },
+    "重试" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重试"
+          }
+        }
+      }
+    },
+    "重试清理" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重试清理"
+          }
+        }
+      }
+    },
+    "重试照片清理" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重试照片清理"
+          }
+        }
+      }
+    },
+    "雾蓝宽松衬衫" : {
+
+    },
+    "需要移除的单品" : {
+
+    },
+    "鞋" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "鞋"
+          }
+        }
+      }
+    },
+    "黑色百褶裙" : {
+
+    },
+    "黑色短靴" : {
+
+    },
+    "实际穿着" : {
+
+    },
+    "记录实际穿着" : {
+
+    },
+    "部分记录" : {
+
+    },
+    "整套已记录" : {
+
+    },
+    "默认是部分记录，不会自动补齐未知单品。" : {
+
+    },
+    "需要处理的单品" : {
+
+    },
+    "原记录中的单品已删除。请移除它，或选择其他真实衣物。" : {
+
+    },
+    "穿后状态" : {
+
+    },
+    "默认保持当前状态；删除或纠正记录也不会自动恢复衣物状态。" : {
+
+    },
+    "当前状态有变化" : {
+
+    },
+    "已确认这是过去发生的实际穿着" : {
+
+    },
+    "实际穿了" : {
+
+    },
+    "可能已经记录过这次穿着" : {
+
+    },
+    "仍是另一次穿着" : {
+
+    },
+    "返回修改" : {
+
+    },
+    "同一天已有高度相似的实际单品。确认后会再检查旧记录是否变化。" : {
+
+    },
+    "纠正记录" : {
+
+    },
+    "删除实际记录" : {
+
+    },
+    "穿着次数会重新计算；衣物当前状态和原计划都会保留。" : {
+
+    },
+    "按计划穿了" : {
+
+    },
+    "换了几件" : {
+
+    },
+    "穿了别套" : {
+
+    },
+    "无计划补录" : {
+
+    },
+    "已有实际穿着" : {
+
+    },
+    "未穿" : {
+
+    },
+    "撤销未穿" : {
+
+    },
+    "最后没穿" : {
+
+    },
+    "确认没穿" : {
+
+    },
+    "不会创建实际记录，也不会增加穿着次数。" : {
+
+    },
+    "实际穿着 · 整套已记录" : {
+
+    },
+    "实际穿着 · 部分记录" : {
+
+    },
+    "穿着记录" : {
+
+    },
+    "次数来自仍然有效的实际记录，计划不会计入。" : {
+
+    },
+    "保留历史并清除单品信息" : {
+
+    },
+    "同时删除相关穿搭历史" : {
+
+    },
+    "衣物、原计划或记录已变化，请刷新并重新复核。" : {
+
+    },
+    "实际穿着只能记录今天或过去的日期。" : {
+
+    },
+    "请移除已删除的单品，或选择其他真实衣物。" : {
+
+    },
+    "每次实际记录最多选择 20 件衣物。" : {
+
+    },
+    "暂时无法保存或读取实际穿着，请重试。" : {
+
+    },
+    "可以安排未来穿搭，也可以补记今天或过去的实际穿着。" : {
+
+    },
+    "查看旧记录" : {
+
+    },
+    "旧记录" : {
+
+    },
+    "继续处理可能重复的记录" : {
+
+    },
+    "可能重复" : {
+
+    }
+  },
+  "version" : "1.0"
+}
